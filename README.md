@@ -10,7 +10,7 @@ It is a training to frond-end and a great entry to my level as you would come ac
 
 ## How to use it
 
-To see how it looks like, go to ***http://G1anC.github.io/Portolio*** for now, ***https://noah-steiniger.com isn't initialized yet***.
+To see how it looks like, go to ***http://G1anC.github.io*** for now, ***https://noah-steiniger.com isn't initialized yet***.
 
 Or clone the repository and run it on your computer with Live Server on VSCode.
 
