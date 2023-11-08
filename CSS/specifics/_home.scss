@@ -1,32 +1,28 @@
+$dark-violet:rgb(64, 2, 125);
+
 .home-body {
     overflow: hidden;
+    background: linear-gradient(320deg, $dark-violet, $bg-color);
     width:100vw;
     height: 100vh;
     .steve {
-        position: absolute;
-        left: 800px;
-        z-index: -1000;
-        top: 250px;
-        transform: scale(2);   
-        background-image : url("../../assets/images/STEVE.png");
-        opacity : 0.4;
-        background-repeat: no-repeat;
-        width: 300px;
-        height: 400px;
+        & > img {
+            opacity: 0.4;
+            z-index: -3;
+            position: absolute;
+            top: 5vh;
+            left: 40vw;
+            width: 60vw;
+            height: auto;
+        }
     }
     .home-text {
         position:absolute;
-        left: 70px;
-        top:140px;
-        padding : 30px;
+        left: 7vw;
+        top: 35vh;
         font-style: italic;
-        line-height: 50px;
+        line-height: 7vh;
         color: rgb(146, 153, 197);
-        font-size : 35px;
-        .bigger {
-            color: rgb(219, 253, 255);
-            font-size: 45px;
-        }
-    }
-    
+        font-size : 2.5vw;
+    } 
 }

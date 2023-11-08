@@ -10,6 +10,14 @@ $border-color: rgba(219, 253, 255, 0.184);
     to { background-position: -200% center; }
 }
 
+.hero-body {
+    nav { position: fixed; }
+    top: 0;
+    left:0;
+    color : rgb(146, 153, 197);
+    overflow-y: scroll;
+}
+
 .segment {
     width: 100vw;
     height : 100vh;
@@ -23,15 +31,8 @@ $border-color: rgba(219, 253, 255, 0.184);
     }
 }
 
-.hero-body {
-    nav { position: fixed; }
-    top: 0;
-    left:0;
-    color : rgb(146, 153, 197);
-    overflow-y: scroll;
-}
-
-.presentation {
+#presentation {
+    height : 50vh;
     #intro {
         word-spacing: 3px;
         font-family: $details-font;
