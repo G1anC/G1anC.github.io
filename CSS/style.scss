@@ -1,0 +1,216 @@
+@import "specifics/index";
+@import "specifics/contact";
+@import "specifics/hero";
+@import "specifics/works";
+@import "specifics/home";
+
+@font-face { font-family: 'Rosie'; src: url('../assets/fonts/Rosie.woff2') format('woff2'); }
+@font-face { font-family: 'Croissant'; src: url('../assets/fonts/Croissant.woff2') format('woff2'); }
+@font-face { font-family: 'BitMap'; src: url('../assets/fonts/BitMap.woff2') format('woff2'); }
+@font-face { font-family: 'Eiko'; src: url('../assets/fonts/PPEiko-Medium.otf') format("opentype"); }
+
+$stylish-font : "Rosie";
+$details-font : "BitMap";
+$primary-font : "Space Mono", monospace;
+$bg-color : #1a1615; 
+$first-color: #dbfdff;
+$violet:#7f00ff;
+$in-between-violet: rgb(0, 42, 255);
+$blue: #11c7f5;
+
+@keyframes background-pan {
+    from { background-position: 0% center; }
+    to { background-position: -200% center; }
+}
+
+@keyframes star-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+
+//______________________________________ GENERAL BODY SETTINGS ______________________________________//
+
+
+
+html {
+    body {
+        top: 0;
+        left: 0;
+        -webkit-font-smoothing:antialiased;
+        background: $bg-color;
+        scroll-behavior: smooth;
+        font-size: 25px;
+        // font-style: italic;
+        width: 100vw;
+        margin-top: 0px;
+        margin-left: 0;
+        font-family: $details-font;
+        .magic {
+            animation: background-pan 3s linear infinite;
+            white-space: nowrap;
+            background: linear-gradient(to right, $blue, $violet, $blue);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-right: 5px;
+        }
+        color: $first-color;
+        .title {
+            font-style: normal;
+            font-family: $stylish-font;
+            font-weight: 500;
+            font-size: 90px;
+            .to-grip {
+                margin-left: -10px;
+            }
+        }
+        .details {
+            font-family: $details-font; 
+            font-size: 90px;
+        }
+        #fadeInNextPage {
+            position: absolute;
+            width: 1000%;
+            height: 1000%;
+            opacity: 0;
+            background-color: $bg-color;
+        }
+    }
+}
+
+
+
+//______________________________________ NAVIGATION MENU SETTINGS ______________________________________//
+
+    
+
+nav {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba( 0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    .nav-wrapper {
+        display: grid;
+        overflow: visible;
+        grid-template-rows: 1fr 1fr 1fr;
+        height: 100%;
+        justify-items: center;
+        align-items: center;
+        .nav-bar {
+            width: 80%;
+            height: 1px;
+            animation: background-pan 5s linear infinite;
+            background: linear-gradient(
+                to right,
+                $blue,
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0),
+                $violet,
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0),
+                $blue
+            );
+            background-size: 200%;
+        }
+        a {
+            font-size: 70px;
+
+            font-family: $details-font;
+            font-style: normal;
+            color: $first-color;
+            align-self: center;
+            text-decoration: none;
+            transition: all 0.2s;
+            &:hover {
+                animation: background-pan 5s linear infinite;
+                letter-spacing: 4px;
+                font-family: $stylish-font;
+                font-size: 90px;
+                background: linear-gradient(to right, $blue, $violet, $blue);
+                background-size: 200%;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}
+
+.explaining {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 40px;
+    font-style: italic; 
+    width: 100vw;
+    font-family : "BitMap";
+}
+
+
+
+//______________________________________ CENTER LANDMARK ______________________________________//
+
+
+
+.center-bar {
+    width: 0px;
+    height: 100%;
+    border: 1px white solid;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.big-ahh-circle {
+    background: linear-gradient(310deg ,$bg-color 15%, rgb(127, 0, 255));
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -3;
+    width: 150rem;
+    height: 150rem;
+    
+}
+#sec {
+    top: -1750px;
+    left: -1200px;
+}
+#first {
+    width: 75rem;
+    height: 75rem;
+    top: 150px;
+    left: 500px;
+    background: linear-gradient(150deg ,$bg-color 20%, rgb(0, 132, 255));
+}
+#third {
+    background: linear-gradient(to top ,$bg-color, rgb(127, 0, 255));
+    top: -1800px;
+    left: -600px;
+}
+#home-circle {
+    top: -200px;
+    background: linear-gradient(to bottom right  , rgba(0, 0, 0, 0) 20%, $violet);
+}
+
+#hero-circle {
+    top: -1000px;
+    left: -200px;
+    background: linear-gradient(to right top ,$bg-color 20%, $violet);
+}
+
+#hero-circle1 {
+    top: 1000px;
+    left: -1300px;
+    background: linear-gradient(to left bottom ,$bg-color 20%, rgb(0, 132, 255));
+}
+
+
+#work-circle {
+    top: -300px;
+    left: -300px;
+    background: linear-gradient(to right bottom ,$bg-color 20%, $violet);
+}

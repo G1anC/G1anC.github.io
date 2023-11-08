@@ -1,0 +1,60 @@
+
+@font-face { font-family: 'BitMap'; src: url('../../assets/fonts/BitMap/BitMap.woff2') format('woff2'); }
+
+$details-font : "BitMap";
+$white: rgb(219, 253, 255);
+$border-color: rgba(219, 253, 255, 0.184);
+
+@keyframes background-pan {
+    from { background-position: 0% center; }
+    to { background-position: -200% center; }
+}
+
+.segment {
+    width: 100vw;
+    height : 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: red solid 1px;
+    overflow: hidden;
+    & > * {
+        border: 1px solid $border-color;
+    }
+}
+
+.hero-body {
+    nav { position: fixed; }
+    top: 0;
+    left:0;
+    color : rgb(146, 153, 197);
+    overflow-y: scroll;
+}
+
+.presentation {
+    #intro {
+        word-spacing: 3px;
+        font-family: $details-font;
+        font-size: 30px;
+        color: $white;
+        text-align: center;
+    }
+}
+
+
+
+.workers {
+    img {
+        width: 640px;
+        height: 640px;
+        object-fit: cover;
+    }
+}
+
+.where-from {
+    
+}
+
+.in-the-future {
+
+}

@@ -1,0 +1,709 @@
+body {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+body nav .nav-wrapper .link:hover {
+  font-size: 150px;
+}
+body main {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+body main .title-wrapper {
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+  text-align: center;
+  line-height: 190px;
+}
+body main .title-wrapper #greatest {
+  font-size: 200px;
+}
+body main .intro-p {
+  font-size: 60px;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+.contact-body {
+  overflow: hidden;
+}
+.contact-body .contact-wrapper {
+  display: grid;
+  grid-template-columns: 200px 20fr;
+}
+.contact-body .contact-wrapper .medias-wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.contact-body .contact-wrapper .medias-wrapper .medias {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+}
+.contact-body .contact-wrapper .medias-wrapper .medias > * {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 25%;
+  padding-left: 20px;
+  transition: 0.2s;
+  border: none;
+}
+.contact-body .contact-wrapper .medias-wrapper .medias > *:hover {
+  transform: scale(1.2);
+}
+.contact-body .contact-wrapper .medias-wrapper .medias .gmail-button {
+  display: flex;
+  width: 80px;
+  margin-bottom: 0;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(175, 217, 219, 0.8);
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-family: "BitMap";
+  transition: all 0.2s;
+  color: rgb(219, 253, 255);
+  opacity: 0.3;
+}
+.contact-body .contact-wrapper .medias-wrapper .medias .gmail-button:hover {
+  border: 1px solid rgb(219, 253, 255) !important;
+  opacity: 1;
+}
+.contact-body .contact-wrapper .medias-wrapper .medias .gmail-button:focus {
+  outline: none !important;
+  height: 70px;
+  border: 2px rgb(127, 0, 255) solid !important;
+}
+.contact-body .contact-wrapper .medias-wrapper .medias a img {
+  width: 50px;
+  height: 50px;
+}
+.contact-body .contact-wrapper .medias-wrapper .medias a .linkedin {
+  transform: scale(1.5);
+}
+.contact-body .contact-wrapper .form-wrapper {
+  z-index: 3;
+  display: flex;
+  padding-top: 40px;
+  margin-right: 120px;
+  margin-left: 50px;
+  height: 100vh;
+  flex-direction: column;
+}
+.contact-body .contact-wrapper .form-wrapper .submit {
+  margin-bottom: 0;
+  width: 140px;
+}
+.contact-body .contact-wrapper .form-wrapper #contact-button {
+  border: none;
+  margin-left: 280px;
+  margin-right: 280px;
+  transition: all 0.2s;
+}
+.contact-body .contact-wrapper .form-wrapper #contact-button:hover {
+  animation: background-pan 5s linear infinite;
+  letter-spacing: 4px;
+  font-family: "Rosie";
+  font-size: 80px;
+  height: 40%;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: -30px;
+  border: none !important;
+  background: linear-gradient(to right, rgb(17, 199, 245), rgb(127, 0, 255), rgb(17, 199, 245));
+  background-size: 200%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contact-body .contact-wrapper .form-wrapper #contact-button:focus {
+  outline: none !important;
+  height: 60px;
+  border: none !important;
+}
+.contact-body .contact-wrapper .form-wrapper #contact-button:focus::-moz-placeholder {
+  color: transparent;
+}
+.contact-body .contact-wrapper .form-wrapper #contact-button:focus::placeholder {
+  color: transparent;
+}
+.contact-body .contact-wrapper .form-wrapper #fullname {
+  border-start-start-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.contact-body .contact-wrapper .form-wrapper textarea {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(135, 170, 172, 0.3);
+  resize: none;
+  margin-bottom: 7px;
+  padding-top: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 25px;
+  color: rgb(219, 253, 255);
+  font-family: "BitMap";
+  border-end-end-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: all 0.2s;
+}
+.contact-body .contact-wrapper .form-wrapper textarea::-moz-placeholder {
+  color: rgb(219, 253, 255);
+  opacity: 0.3;
+}
+.contact-body .contact-wrapper .form-wrapper textarea::placeholder {
+  color: rgb(219, 253, 255);
+  opacity: 0.3;
+}
+.contact-body .contact-wrapper .form-wrapper textarea:hover {
+  border: 1px solid rgb(219, 253, 255) !important;
+}
+.contact-body .contact-wrapper .form-wrapper textarea:hover::-moz-placeholder {
+  opacity: 1;
+}
+.contact-body .contact-wrapper .form-wrapper textarea:hover::placeholder {
+  opacity: 1;
+}
+.contact-body .contact-wrapper .form-wrapper textarea:focus {
+  padding-left: 20px;
+  text-align: start;
+  outline: none !important;
+  border: 2px rgb(127, 0, 255) solid !important;
+}
+.contact-body .contact-wrapper .form-wrapper textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+.contact-body .contact-wrapper .form-wrapper textarea:focus::placeholder {
+  color: transparent;
+}
+.contact-body .contact-wrapper .form-wrapper input {
+  height: 60px;
+  margin-bottom: 7px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(135, 170, 172, 0.3);
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 25px;
+  color: rgb(219, 253, 255);
+  font-family: "BitMap";
+  transition: all 0.2s;
+}
+.contact-body .contact-wrapper .form-wrapper input::-moz-placeholder {
+  color: rgb(219, 253, 255);
+  opacity: 0.3;
+}
+.contact-body .contact-wrapper .form-wrapper input::placeholder {
+  color: rgb(219, 253, 255);
+  opacity: 0.3;
+}
+.contact-body .contact-wrapper .form-wrapper input:hover {
+  border: 1px solid rgb(219, 253, 255) !important;
+}
+.contact-body .contact-wrapper .form-wrapper input:hover::-moz-placeholder {
+  opacity: 1;
+}
+.contact-body .contact-wrapper .form-wrapper input:hover::placeholder {
+  opacity: 1;
+}
+.contact-body .contact-wrapper .form-wrapper input:focus {
+  outline: none !important;
+  height: 70px;
+  border: 2px rgb(127, 0, 255) solid !important;
+}
+.contact-body .contact-wrapper .form-wrapper input:focus::-moz-placeholder {
+  color: transparent;
+}
+.contact-body .contact-wrapper .form-wrapper input:focus::placeholder {
+  color: transparent;
+}
+
+@font-face {
+  font-family: "BitMap";
+  src: url("../../assets/fonts/BitMap/BitMap.woff2") format("woff2");
+}
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+.segment {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: red solid 1px;
+  overflow: hidden;
+}
+.segment > * {
+  border: 1px solid rgba(219, 253, 255, 0.184);
+}
+
+.hero-body {
+  top: 0;
+  left: 0;
+  color: rgb(146, 153, 197);
+  overflow-y: scroll;
+}
+.hero-body nav {
+  position: fixed;
+}
+
+.presentation #intro {
+  word-spacing: 3px;
+  font-family: "BitMap";
+  font-size: 30px;
+  color: rgb(219, 253, 255);
+  text-align: center;
+}
+
+.workers img {
+  width: 640px;
+  height: 640px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@font-face {
+  font-family: "Rosie";
+  src: url("../../assets/fonts/Rosie.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Croissant";
+  src: url("../../assets/fonts/Croissant.woff2") format("woff2");
+}
+@keyframes plus-color {
+  from {
+    background-color: rgba(219, 253, 255, 0.184);
+  }
+  to {
+    background-color: rgb(219, 253, 255);
+  }
+}
+html #work-body {
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  height: 100%;
+  margin: 0px;
+  background-color: rgb(25, 19, 28);
+}
+html #work-body * {
+  box-sizing: border-box;
+}
+html #work-body main {
+  overflow: hidden;
+  position: relative;
+  flex-grow: 1;
+}
+
+article {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: transform 400ms ease-in;
+}
+article[data-status=inactive] {
+  transform: translateX(-100%);
+  transition: none;
+}
+article[data-status=active] {
+  transform: translateX(0%);
+}
+article[data-status=before] {
+  transform: translateX(-100%);
+}
+article[data-status=after] {
+  transform: translateX(100%);
+}
+article[data-status=becoming-active-from-before] {
+  transform: translateX(-100%);
+  transition: none;
+}
+article[data-status=becoming-active-from-after] {
+  transform: translateX(100%);
+  transition: none;
+}
+article .starting-article-wrapper {
+  height: 100vh;
+  width: 100vw;
+  left: 0px;
+  top: 0px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  border-bottom: 1px solid rgba(219, 253, 255, 0.184);
+}
+article .starting-article-wrapper .article {
+  height: 100%;
+  display: flex;
+}
+article .starting-article-wrapper .image {
+  background-position: center;
+  background-size: cover;
+}
+article .starting-article-wrapper:first-child > .image {
+  background-image: url("../../assets/works/42sh.png");
+}
+article .starting-article-wrapper:nth-child(2) > .image {
+  background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
+}
+article .starting-article-wrapper:nth-child(3) > .image {
+  background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80");
+}
+article .starting-article-wrapper:nth-child(4) > .image {
+  background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
+}
+article .starting-article-wrapper:nth-child(5) > .image {
+  background-position: initial;
+  background-image: url("../../assets/images/Gospers_glider_gun.gif");
+}
+article .starting-article-wrapper .nav {
+  border-top: 1px solid rgba(219, 253, 255, 0.184);
+  border-left: 1px solid rgba(219, 253, 255, 0.184);
+}
+article .starting-article-wrapper .nav .nav-button {
+  background-color: transparent;
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+article .starting-article-wrapper .nav .nav-button:hover {
+  background-color: rgba(234, 174, 252, 0.04);
+}
+article .starting-article-wrapper .nav .nav-button:hover svg {
+  fill: rgb(219, 253, 255);
+}
+article .starting-article-wrapper .nav .nav-button:nth-child(2) {
+  border-left: 1px solid rgba(219, 253, 255, 0.184);
+}
+article .starting-article-wrapper .nav .nav-button svg {
+  fill: rgba(219, 253, 255, 0.184);
+  margin-top: 10px;
+  height: "60px";
+  width: "60px";
+  transition: all 0.2s;
+}
+article .starting-article-wrapper .nav .nav-button svg:hover {
+  fill: rgb(219, 253, 255);
+}
+article .starting-article-wrapper .description {
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 50px;
+  text-align: center;
+  line-height: 40px;
+  border-left: 1px solid rgba(219, 253, 255, 0.184);
+  color: rgb(146, 153, 197);
+}
+article .starting-article-wrapper .description p {
+  font-size: 27px;
+}
+article .starting-article-wrapper .description p a:hover {
+  text-decoration: underline;
+}
+article .starting-article-wrapper .title-section {
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(219, 253, 255, 0.184);
+}
+article .starting-article-wrapper .title-section .title-wrapper-work {
+  width: 100%;
+  margin-left: 30px;
+}
+article .starting-article-wrapper .title-section .title-wrapper-work .title {
+  font-size: 70px;
+}
+article .starting-article-wrapper .title-section .plus {
+  position: relative;
+  height: 100%;
+  width: 280px;
+  transition: 0.2s all;
+  background: transparent;
+  border: none;
+  transition: all 0.1s;
+}
+article .starting-article-wrapper .title-section .plus:hover {
+  background: linear-gradient(to left, rgba(234, 174, 252, 0.04) 40%, transparent);
+}
+article .starting-article-wrapper .title-section .plus:hover .plus-bar {
+  animation: plus-color 0.1s;
+  background-color: rgb(219, 253, 255);
+}
+article .starting-article-wrapper .title-section .plus .plus-bar {
+  position: absolute;
+  height: 50px;
+  width: 5px;
+  background-color: rgb(80, 61, 108);
+}
+article .starting-article-wrapper .title-section .plus .vertical {
+  top: 36%;
+  left: 49%;
+}
+article .starting-article-wrapper .title-section .plus .horizontal {
+  position: absolute;
+  height: 80px;
+  transform: rotate(90deg);
+  top: 28%;
+  left: 50%;
+}
+article .rest {
+  margin: 100px;
+  z-index: 4;
+}
+article .rest p {
+  color: rgb(219, 253, 255);
+  font-size: 25px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.home-body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.home-body .steve {
+  position: absolute;
+  left: 800px;
+  z-index: -1000;
+  top: 250px;
+  transform: scale(2);
+  background-image: url("../../assets/images/STEVE.png");
+  opacity: 0.4;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 400px;
+}
+.home-body .home-text {
+  position: absolute;
+  left: 70px;
+  top: 140px;
+  padding: 30px;
+  font-style: italic;
+  line-height: 50px;
+  color: rgb(146, 153, 197);
+  font-size: 35px;
+}
+.home-body .home-text .bigger {
+  color: rgb(219, 253, 255);
+  font-size: 45px;
+}
+
+@font-face {
+  font-family: "Rosie";
+  src: url("../assets/fonts/Rosie.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Croissant";
+  src: url("../assets/fonts/Croissant.woff2") format("woff2");
+}
+@font-face {
+  font-family: "BitMap";
+  src: url("../assets/fonts/BitMap.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Eiko";
+  src: url("../assets/fonts/PPEiko-Medium.otf") format("opentype");
+}
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+@keyframes star-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+html body {
+  top: 0;
+  left: 0;
+  -webkit-font-smoothing: antialiased;
+  background: #1a1615;
+  scroll-behavior: smooth;
+  font-size: 25px;
+  width: 100vw;
+  margin-top: 0px;
+  margin-left: 0;
+  font-family: "BitMap";
+  color: #dbfdff;
+}
+html body .magic {
+  animation: background-pan 3s linear infinite;
+  white-space: nowrap;
+  background: linear-gradient(to right, #11c7f5, #7f00ff, #11c7f5);
+  background-size: 200%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-right: 5px;
+}
+html body .title {
+  font-style: normal;
+  font-family: "Rosie";
+  font-weight: 500;
+  font-size: 90px;
+}
+html body .title .to-grip {
+  margin-left: -10px;
+}
+html body .details {
+  font-family: "BitMap";
+  font-size: 90px;
+}
+html body #fadeInNextPage {
+  position: absolute;
+  width: 1000%;
+  height: 1000%;
+  opacity: 0;
+  background-color: #1a1615;
+}
+
+nav {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+nav .nav-wrapper {
+  display: grid;
+  overflow: visible;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+}
+nav .nav-wrapper .nav-bar {
+  width: 80%;
+  height: 1px;
+  animation: background-pan 5s linear infinite;
+  background: linear-gradient(to right, #11c7f5, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #7f00ff, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #11c7f5);
+  background-size: 200%;
+}
+nav .nav-wrapper a {
+  font-size: 70px;
+  font-family: "BitMap";
+  font-style: normal;
+  color: #dbfdff;
+  align-self: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+nav .nav-wrapper a:hover {
+  animation: background-pan 5s linear infinite;
+  letter-spacing: 4px;
+  font-family: "Rosie";
+  font-size: 90px;
+  background: linear-gradient(to right, #11c7f5, #7f00ff, #11c7f5);
+  background-size: 200%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.explaining {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  font-size: 40px;
+  font-style: italic;
+  width: 100vw;
+  font-family: "BitMap";
+}
+
+.center-bar {
+  width: 0px;
+  height: 100%;
+  border: 1px white solid;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.big-ahh-circle {
+  background: linear-gradient(310deg, #1a1615 15%, rgb(127, 0, 255));
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -3;
+  width: 150rem;
+  height: 150rem;
+}
+
+#sec {
+  top: -1750px;
+  left: -1200px;
+}
+
+#first {
+  width: 75rem;
+  height: 75rem;
+  top: 150px;
+  left: 500px;
+  background: linear-gradient(150deg, #1a1615 20%, rgb(0, 132, 255));
+}
+
+#third {
+  background: linear-gradient(to top, #1a1615, rgb(127, 0, 255));
+  top: -1800px;
+  left: -600px;
+}
+
+#home-circle {
+  top: -200px;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0) 20%, #7f00ff);
+}
+
+#hero-circle {
+  top: -1000px;
+  left: -200px;
+  background: linear-gradient(to right top, #1a1615 20%, #7f00ff);
+}
+
+#hero-circle1 {
+  top: 1000px;
+  left: -1300px;
+  background: linear-gradient(to left bottom, #1a1615 20%, rgb(0, 132, 255));
+}
+
+#work-circle {
+  top: -300px;
+  left: -300px;
+  background: linear-gradient(to right bottom, #1a1615 20%, #7f00ff);
+}/*# sourceMappingURL=style.css.map */

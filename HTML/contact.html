@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="shortcut icon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*.✧ Contact ✧.*</title>
+</head>
+<body class="contact-body">
+    <div id="fadeInNextPage"></div>
+    <nav>
+        <div class="nav-wrapper">
+                <a data-value="home"  class="link cript-js" href="home.html"> home</a>
+                <a data-value="about-me" class="link cript-js" href="hero.html">      about-me</a>
+                <a data-value="works"    class="link cript-js" href="works.html">     works</a>
+        </div>
+    </nav>
+
+        <div class="contact-wrapper">
+
+            <div class="medias-wrapper">
+                <div class="medias">
+                    <a href="https://www.instagram.com/noah.stngr/"><img class="instagram" src="../assets/icons/instagram.png"></a>
+                    <a href="https://github.com/G1anC"><img class="github" src="../assets/icons/github.png"></a>
+                    <a href="https://www.linkedin.com/in/noah-steiniger-a08298263/"><img class="linkedin" src="../assets/icons/linkedIn.webp"></a>
+                    <div class="gmail-button-wrapper">
+                        <input type="button" class="gmail-button" value="Gmail" onclick="
+                        copyEmailToClipBoard();                    
+                    ">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="form-wrapper" >
+
+                    <input
+                        data-value="fullname"
+                        type="text"
+                        id="fullname"
+                        placeholder="fullname"
+                        class="cript-js fullName"
+                        required
+                    >
+
+                    <input
+                        data-value="email"
+                        id="email"
+                        placeholder="email"
+                        class="cript-js email"
+                        required
+                    >
+                    
+                    <textarea
+                        data-value="message"
+                        name="gotcha"
+                        id="message"
+                        cols="30"
+                        rows="10"
+                        placeholder="message"
+                        class="cript-js message"
+                    ></textarea>
+
+                    <input
+                        data-value="submit"
+                        type="button"
+                        value="submit"
+                        class="cript-js"
+                        id="contact-button"
+                    >
+
+            </div>
+
+        </div>
+
+        <div class="big-ahh-circle" id="third">
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script><script src="../JS/navTrigger.js"></script><script src="../JS/letterChanger.js"></script><script src="../JS/handleEmail.js"></script>
+</body>
+</html>
