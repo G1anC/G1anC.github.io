@@ -10,7 +10,6 @@ body main {
   height: 100vh;
   width: 100vw;
   display: flex;
-  text-align: center;
 }
 body main .title-wrapper {
   display: flex;
@@ -244,13 +243,12 @@ body main .title-wrapper #greatest {
 }
 
 .segment {
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: red solid 1px;
-  overflow: hidden;
 }
 .segment > * {
   border: 1px solid rgba(219, 253, 255, 0.184);
@@ -352,11 +350,8 @@ article .starting-article-wrapper .article {
   display: flex;
 }
 article .starting-article-wrapper .image {
-  background-position: center;
+  background-position: initial;
   background-size: cover;
-}
-article .starting-article-wrapper:first-child > .image {
-  background-image: url("../../assets/works/42sh.png");
 }
 article .starting-article-wrapper:nth-child(2) > .image {
   background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
@@ -367,9 +362,17 @@ article .starting-article-wrapper:nth-child(3) > .image {
 article .starting-article-wrapper:nth-child(4) > .image {
   background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
 }
-article .starting-article-wrapper:nth-child(5) > .image {
-  background-position: initial;
-  background-image: url("../../assets/images/Gospers_glider_gun.gif");
+article .starting-article-wrapper #gol {
+  background-image: url("../../assets/works/gameolife.gif");
+}
+article .starting-article-wrapper #kab {
+  background-image: url("../../assets/works/Hannibal.jpg");
+}
+article .starting-article-wrapper #bon {
+  background-image: url("../../assets/works/bon.jpg");
+}
+article .starting-article-wrapper #sh {
+  background-image: url("../../assets/works/42sh.png");
 }
 article .starting-article-wrapper .nav {
   border-top: 1px solid rgba(219, 253, 255, 0.184);
@@ -407,7 +410,6 @@ article .starting-article-wrapper .description {
   flex-direction: column;
   justify-content: center;
   padding: 30px 50px;
-  text-align: center;
   line-height: 40px;
   border-left: 1px solid rgba(219, 253, 255, 0.184);
   color: rgb(146, 153, 197);
@@ -420,7 +422,8 @@ article .starting-article-wrapper .description p a:hover {
 }
 article .starting-article-wrapper .title-section {
   align-items: center;
-  justify-content: space-between;
+  justify-content: space;
+  text-align: start !important;
   border-top: 1px solid rgba(219, 253, 255, 0.184);
 }
 article .starting-article-wrapper .title-section .title-wrapper-work {
@@ -532,6 +535,7 @@ article .rest p {
 html body {
   top: 0;
   left: 0;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   background: #1a1615;
   scroll-behavior: smooth;

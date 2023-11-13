@@ -19,13 +19,12 @@ $border-color: rgba(219, 253, 255, 0.184);
 }
 
 .segment {
+    overflow: hidden;
     width: 100vw;
     height : 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: red solid 1px;
-    overflow: hidden;
     & > * {
         border: 1px solid $border-color;
     }

@@ -3,7 +3,7 @@ function scroller(index)
 {
     const restElem = document.getElementById(`rest-${index}`);
     restElem.style.display = "block";
-    // restElem?.current.scrollIntoView({behavior: "smooth"});
+    restElem?.current.scrollIntoView({behavior: "smooth"});
 }
 
 

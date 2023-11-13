@@ -43,6 +43,7 @@ html {
     }
 }
 
+
 article {
     height: 100vh;
     width: 100vw;
@@ -72,17 +73,16 @@ article {
         }
     
         .image {
-            background-position: center;
+            background-position: initial;
             background-size: cover;
         }
-        &:first-child > .image { background-image: url("../../assets/works/42sh.png"); }
         &:nth-child(2) > .image { background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80"); }
         &:nth-child(3) > .image { background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"); }
         &:nth-child(4) > .image { background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80"); }
-        &:nth-child(5) > .image {
-            background-position: initial;
-            background-image: url("../../assets/images/Gospers_glider_gun.gif");
-        }
+        #gol { background-image: url("../../assets/works/gameolife.gif"); }
+        #kab { background-image: url("../../assets/works/Hannibal.jpg"); }
+        #bon { background-image: url("../../assets/works/bon.jpg"); }
+        #sh { background-image: url("../../assets/works/42sh.png"); }
         
         
         .nav {
@@ -117,9 +117,7 @@ article {
             flex-direction: column;
             justify-content: center;
             padding: 30px 50px;
-            text-align: center;
             line-height: 40px;
-            
             border-left: 1px solid $border-color; 
             color : rgb(146, 153, 197);
             p {
@@ -129,7 +127,8 @@ article {
         }
         .title-section {
             align-items: center; 
-            justify-content: space-between;
+            justify-content: space;
+            text-align: start !important;
             border-top: 1px solid $border-color;
             .title-wrapper-work {
                 width: 100%;
@@ -171,6 +170,8 @@ article {
             } 
         }
     }
+
+    
     .rest {
         margin: 100px;
         z-index: 4;
@@ -196,6 +197,4 @@ article {
         
     }
 }
-  
-
   

@@ -25,18 +25,17 @@ const handleEmail = event => {
 
     if (!mText || !fnText || !eText) { return; }
 
-
-    // Email.send({
-    //     Host: "smtp.gmail.com",
-    //     Username: emailAdress,
-    //     Password: "Enter your password",
-    //     To: 'steinigernoah@gmail.com',
-    //     From: emailAdress,
-    //     Subject: "PORTFOLIO CONTACT FORM",
-    //     Body: fullName + "\n\n" + text,
-    // }).then(
-    //     message => alert("mail sent successfully")  
-    // );
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: fnText,
+        Password: "Enter your password",
+        To: 'steinigernoah@gmail.com',
+        From: fullName,
+        Subject: "PORTFOLIO CONTACT FORM",
+        Body: fullName + "\n\n" + text,
+    }).then(
+        message => alert("mail sent successfully")  
+    );
     m.innerText = "";
 };
 
