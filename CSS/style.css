@@ -259,7 +259,7 @@ body main .title-wrapper #greatest {
 .segment .code p {
   font-family: "Fira";
   color: rgb(194, 216, 218);
-  font-size: 75%;
+  font-size: 1.5vw;
 }
 .segment .code p .type {
   color: rgb(141, 108, 159);
