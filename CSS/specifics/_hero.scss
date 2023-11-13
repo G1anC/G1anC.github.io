@@ -14,8 +14,17 @@ $white: rgb(194, 216, 218);
     nav { position: fixed; }
     top: 0;
     left:0;
-    color : rgb(146, 153, 197);
+    background: linear-gradient(150deg, $dark-violet, $bg-color);
+    color : $white;
     overflow-y: scroll;
+    .introo {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 15vh;
+        width: 100vw;
+        text-align: center;
+    }
 }
 
 .segment {
@@ -25,20 +34,21 @@ $white: rgb(194, 216, 218);
     .code {
         overflow: hidden;
         border: 1px solid $transparent-grey;
-        border-radius: 15px;  
-        background-color: rgba(110, 77, 164, 0.139);
-        margin : 15px 60px 0px 30px;
+        border-radius: 15px;
+        backdrop-filter: blur(30px);
+        background-color: rgba(45, 39, 63, 0.219);
+        margin : 0px 60px 0px 30px;
         padding: 15px 30px;
         p {
             font-family: $code-font;
             color: $white; 
-            font-size: 1.5vw;
+            font-size: 1.3vw;
             .type { color: rgb(141, 108, 159); }
             .name { color: rgb(221, 97, 245); }
             .pp { color: rgb(207, 165, 230) ; }
             .string { color: rgb(141, 141, 141); }
             .std { color: rgb(14, 142, 156); }
-            .values { color: rgb(255, 196, 242); }
+            .values { color: rgb(125, 196, 255); }
         }
         .big {
             font-weight: bold;
