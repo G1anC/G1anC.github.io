@@ -14,6 +14,14 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+document.getElementsByTagName("body").click((event) => {
+  const nav = document.querySelector('nav');
+    
+// on check si la pressed key est Echap
+    // on display la navigation bar
+  nav.style.display = (nav.style.display === 'none' || !nav.style.display) ? 'block' :  'none';
+});
+
 const fadeInNextPage = event => {
   document.getElementById("fadeInEffect").style.opacity = "1";
 }

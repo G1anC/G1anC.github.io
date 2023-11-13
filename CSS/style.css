@@ -107,93 +107,16 @@ body main .title-wrapper #greatest {
   height: 100vh;
   flex-direction: column;
 }
-.form-wrapper #fullname {
-  border-start-start-radius: 20px;
-  border-top-right-radius: 20px;
-}
-.form-wrapper input {
-  height: 10vh;
-  margin-bottom: 7px;
-  background-color: transparent;
-  border-radius: 5px;
-  border: 1px solid rgba(223, 223, 223, 0.279);
-  text-align: center;
-  letter-spacing: 1px;
-  color: rgb(219, 253, 255);
-  font-size: 1.8vw;
-  font-family: "BitMap";
-  transition: all 0.2s;
-}
-.form-wrapper input::-moz-placeholder {
-  color: rgba(223, 223, 223, 0.579);
-}
-.form-wrapper input::placeholder {
-  color: rgba(223, 223, 223, 0.579);
-}
-.form-wrapper input:hover {
-  border: 1px solid rgb(219, 253, 255) !important;
-}
-.form-wrapper input:hover::-moz-placeholder {
-  opacity: 1;
-}
-.form-wrapper input:hover::placeholder {
-  opacity: 1;
-}
-.form-wrapper input:focus {
-  outline: none !important;
-  height: 70px;
-  border: 2px rgb(127, 0, 255) solid !important;
-}
-.form-wrapper input:focus::-moz-placeholder {
-  color: transparent;
-}
-.form-wrapper input:focus::placeholder {
-  color: transparent;
-}
-.form-wrapper textarea {
-  background-color: transparent;
-  border-radius: 5px;
-  border: 1px solid rgba(223, 223, 223, 0.279);
-  resize: none;
-  margin-bottom: 7px;
-  padding-top: 20px;
-  height: 45vh;
-  letter-spacing: 1px;
-  text-align: center;
-  font-size: 1.8vw;
-  color: rgb(219, 253, 255);
-  font-family: "BitMap";
-  border-end-end-radius: 20px;
-  border-bottom-left-radius: 20px;
-  transition: all 0.2s;
-}
-.form-wrapper textarea::-moz-placeholder {
-  color: rgba(223, 223, 223, 0.579);
-}
-.form-wrapper textarea::placeholder {
-  color: rgba(223, 223, 223, 0.579);
-}
-.form-wrapper textarea:hover {
-  border: 1px solid rgb(219, 253, 255) !important;
-}
-.form-wrapper textarea:focus {
-  padding-left: 20px;
-  text-align: start;
-  outline: none !important;
-  border: 2px rgb(127, 0, 255) solid !important;
-}
-.form-wrapper textarea:focus::-moz-placeholder {
-  color: transparent;
-}
-.form-wrapper textarea:focus::placeholder {
-  color: transparent;
+.form-wrapper label {
+  width: 100%;
 }
 .form-wrapper #contact-button {
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  height: 25vh;
+  height: 23vh;
+  color: white;
   width: 100%;
   font-size: 1.8vw;
   transition: all 0.2s;
@@ -218,6 +141,91 @@ body main .title-wrapper #greatest {
   color: transparent;
 }
 .form-wrapper #contact-button:focus::placeholder {
+  color: transparent;
+}
+
+.style-inputs {
+  height: 10vh;
+  width: 100%;
+  margin-bottom: 7px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(223, 223, 223, 0.279);
+  text-align: center;
+  letter-spacing: 1px;
+  color: rgb(219, 253, 255);
+  font-size: 1.8vw;
+  font-family: "BitMap";
+  transition: all 0.2s;
+}
+.style-inputs::-moz-placeholder {
+  color: rgba(223, 223, 223, 0.579);
+}
+.style-inputs::placeholder {
+  color: rgba(223, 223, 223, 0.579);
+}
+.style-inputs:hover {
+  border: 1px solid rgb(219, 253, 255) !important;
+}
+.style-inputs:hover::-moz-placeholder {
+  opacity: 1;
+}
+.style-inputs:hover::placeholder {
+  opacity: 1;
+}
+.style-inputs:focus {
+  outline: none !important;
+  height: 70px;
+  border: 2px rgb(127, 0, 255) solid !important;
+}
+.style-inputs:focus::-moz-placeholder {
+  color: transparent;
+}
+.style-inputs:focus::placeholder {
+  color: transparent;
+}
+
+#email {
+  border-start-start-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+textarea {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(223, 223, 223, 0.279);
+  resize: none;
+  margin-bottom: 7px;
+  padding-top: 20px;
+  height: 55vh;
+  width: 100%;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 1.8vw;
+  color: rgb(219, 253, 255);
+  font-family: "BitMap";
+  border-end-end-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: all 0.2s;
+}
+textarea::-moz-placeholder {
+  color: rgba(223, 223, 223, 0.579);
+}
+textarea::placeholder {
+  color: rgba(223, 223, 223, 0.579);
+}
+textarea:hover {
+  border: 1px solid rgb(219, 253, 255) !important;
+}
+textarea:focus {
+  text-align: start;
+  outline: none !important;
+  border: 2px rgb(127, 0, 255) solid !important;
+}
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+textarea:focus::placeholder {
   color: transparent;
 }
 

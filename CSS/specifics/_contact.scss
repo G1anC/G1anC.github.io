@@ -99,68 +99,19 @@ $stylish-font : "Rosie";
     flex-direction: column; 
     
     #fullname {
-        border-start-start-radius: 20px;
-        border-top-right-radius: 20px;
+
+    }
+    label {
+       width: 100%;        
     }
     
-    input {
-        height: 10vh;
-        margin-bottom: 7px;
-        background-color: transparent;
-        border-radius: 5px;
-        border: 1px solid $transparent-grey;
-        text-align:center;
-        letter-spacing: 1px;
-        color: $first-color;
-        font-size: 1.8vw;
-        font-family:$details-font;
-        transition:  all 0.2s;
-        &::placeholder { color:$placeholder-grey; }
-        &:hover {
-            &::placeholder { opacity: 1; }
-            border: 1px solid $first-color !important;
-        }
-        &:focus {
-            outline:none !important;
-            height: 70px;
-            border: 2px rgb(127, 0, 255) solid !important;
-            &::placeholder { color: transparent; }
-        }
-    }
-    textarea {
-        background-color: transparent;
-        border-radius: 5px;
-        border: 1px solid $transparent-grey;
-        resize: none;
-        margin-bottom: 7px;
-        padding-top: 20px;
-        height: 45vh;
-        letter-spacing: 1px;
-        text-align:center;
-        font-size: 1.8vw;
-        color : $first-color;
-        font-family:$details-font;
-        border-end-end-radius: 20px;
-        border-bottom-left-radius: 20px;
-        transition:  all 0.2s;
-        &::placeholder { color:$placeholder-grey; }
-        &:hover {
-            border: 1px solid $first-color !important;
-        }
-        &:focus {
-            padding-left: 20px;
-            text-align: start;
-            outline:none !important;
-            border: 2px rgb(127, 0, 255) solid !important;
-            &::placeholder { color: transparent; }
-        }
-    }
     #contact-button {
         display: flex;
         align-items: center;
         justify-content: center;
         border: none;
-        height: 25vh;
+        height: 23vh;
+        color: white;
         width: 100%;
         font-size: 1.8vw;
         transition: all 0.2s;
@@ -183,3 +134,63 @@ $stylish-font : "Rosie";
         }
     }
 } 
+
+.style-inputs {
+    height: 10vh;
+    width: 100%;
+    margin-bottom: 7px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid $transparent-grey;
+    text-align:center;
+    letter-spacing: 1px;
+    color: $first-color;
+    font-size: 1.8vw;
+    font-family:$details-font;
+    transition:  all 0.2s;
+    &::placeholder { color:$placeholder-grey; }
+    &:hover {
+        &::placeholder { opacity: 1; }
+        border: 1px solid $first-color !important;
+    }
+    &:focus {
+        outline:none !important;
+        height: 70px;
+        border: 2px rgb(127, 0, 255) solid !important;
+        &::placeholder { color: transparent; }
+    }
+}
+
+#email {
+    border-start-start-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+textarea {
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid $transparent-grey;
+    resize: none;
+    margin-bottom: 7px;
+    padding-top: 20px;
+    height: 55vh;
+    width: 100%;
+    letter-spacing: 1px;
+    text-align:center;
+    font-size: 1.8vw;
+    color : $first-color;
+    font-family:$details-font;
+    border-end-end-radius: 20px;
+    border-bottom-left-radius: 20px;
+    transition:  all 0.2s;
+    &::placeholder { color:$placeholder-grey; }
+    &:hover {
+        border: 1px solid $first-color !important;
+    }
+    &:focus {
+        text-align: start;
+        outline:none !important;
+        border: 2px rgb(127, 0, 255) solid !important;
+        &::placeholder { color: transparent; }
+    }
+}
