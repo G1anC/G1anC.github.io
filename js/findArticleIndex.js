@@ -6,4 +6,5 @@ export function findArticleIndex()
         if (article.dataset.status === "active")
             return article.dataset.index;
     return -1;
+
 }
