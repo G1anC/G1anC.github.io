@@ -1,9 +1,9 @@
-
-@font-face { font-family: 'BitMap'; src: url('../../assets/fonts/BitMap/BitMap.woff2') format('woff2'); }
-
+@font-face { font-family: 'Fira'; src: url('../../assets/fonts/Fira.woff2') format('woff2'); }
 $details-font : "BitMap";
-$white: rgb(219, 253, 255);
-$border-color: rgba(219, 253, 255, 0.184);
+
+$transparent-grey : rgba(223, 223, 223, 0.279);
+$code-font : "Fira";
+$white: rgb(194, 216, 218);
 
 @keyframes background-pan {
     from { background-position: 0% center; }
@@ -22,11 +22,27 @@ $border-color: rgba(219, 253, 255, 0.184);
     overflow: hidden;
     width: 100vw;
     height : 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & > * {
-        border: 1px solid $border-color;
+    .code {
+        overflow: hidden;
+        border: 1px solid $transparent-grey;
+        border-radius: 15px;  
+        background-color: rgba(110, 77, 164, 0.139);
+        margin : 15px 60px 0px 30px;
+        padding: 15px 30px;
+        p {
+            font-family: $code-font;
+            color: $white; 
+            font-size: 75%;
+            .type { color: rgb(141, 108, 159); }
+            .name { color: rgb(221, 97, 245); }
+            .pp { color: rgb(207, 165, 230) ; }
+            .string { color: rgb(141, 141, 141); }
+            .std { color: rgb(14, 142, 156); }
+            .values { color: rgb(255, 196, 242); }
+        }
+        .big {
+            font-weight: bold;
+        }
     }
 }
 
@@ -39,22 +55,4 @@ $border-color: rgba(219, 253, 255, 0.184);
         color: $white;
         text-align: center;
     }
-}
-
-
-
-.workers {
-    img {
-        width: 640px;
-        height: 640px;
-        object-fit: cover;
-    }
-}
-
-.where-from {
-    
-}
-
-.in-the-future {
-
 }

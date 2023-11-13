@@ -222,8 +222,8 @@ body main .title-wrapper #greatest {
 }
 
 @font-face {
-  font-family: "BitMap";
-  src: url("../../assets/fonts/BitMap/BitMap.woff2") format("woff2");
+  font-family: "Fira";
+  src: url("../../assets/fonts/Fira.woff2") format("woff2");
 }
 @keyframes background-pan {
   from {
@@ -247,12 +247,40 @@ body main .title-wrapper #greatest {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.segment > * {
-  border: 1px solid rgba(219, 253, 255, 0.184);
+.segment .code {
+  overflow: hidden;
+  border: 1px solid rgba(223, 223, 223, 0.279);
+  border-radius: 15px;
+  background-color: rgba(110, 77, 164, 0.139);
+  margin: 15px 60px 0px 30px;
+  padding: 15px 30px;
+}
+.segment .code p {
+  font-family: "Fira";
+  color: rgb(194, 216, 218);
+  font-size: 75%;
+}
+.segment .code p .type {
+  color: rgb(141, 108, 159);
+}
+.segment .code p .name {
+  color: rgb(221, 97, 245);
+}
+.segment .code p .pp {
+  color: rgb(207, 165, 230);
+}
+.segment .code p .string {
+  color: rgb(141, 141, 141);
+}
+.segment .code p .std {
+  color: rgb(14, 142, 156);
+}
+.segment .code p .values {
+  color: rgb(255, 196, 242);
+}
+.segment .code .big {
+  font-weight: bold;
 }
 
 #presentation {
@@ -262,15 +290,8 @@ body main .title-wrapper #greatest {
   word-spacing: 3px;
   font-family: "BitMap";
   font-size: 30px;
-  color: rgb(219, 253, 255);
+  color: rgb(194, 216, 218);
   text-align: center;
-}
-
-.workers img {
-  width: 640px;
-  height: 640px;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 @font-face {

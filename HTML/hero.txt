@@ -1,0 +1,42 @@
+<pre>
+using namespace std;
+
+class Me {
+    private :
+        string pseudo = "G1an";
+        string Name = "Noah G" + ((pseudo != NULL) ? i : to_string(1)) "ancarlo Steiniger Rubiero";
+        __int32 Age = 20;
+        __int32 YearsAtEpitech = 2;
+        vector<icons> languages  = ...;
+        vector<icons> competences = ...;
+
+    public :
+        void showLanguages(self) {
+            std::cout << self.languages << std::endl;
+        }
+
+        void showCompetences(self) {
+            std::cout << self.competences << std::endl;
+        }
+}
+</pre>
+I'm currently a second year, studying at EPITECH Strabsourg and i strive to become the best developer possible.
+I come to appreciate building beautiful and functional websites and i'm currently learning how to make them.
+
+To better comprehend my level in the development industry,
+i'll show you my qualifications and the applications / languages that i use.
+I started developping about 2 years ago and the more i advance, the more i get qualifications
+on multiple languages and applications:
+
+So these are the coding-language i'm confident on (from the most to the least) :
+C     bash     html     css
+C++     JavaScript     Haskell     ASM
+
+And these are the applications i can fluidly use :
+Git     Github     VSCode     PPt 
+Emacs     npm     Canva
+    
+I truly have a lot to learn and i look forward to take every bit of experience i can get.
+My school is perfect for me and i will come out of EPITECH in 2027.
+And so, i still have 3 years to train before getting to a 100% in the professional world, although i have stages
+in my years of school.
