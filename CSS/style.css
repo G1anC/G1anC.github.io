@@ -244,6 +244,7 @@ textarea:focus::placeholder {
 .hero-body {
   top: 0;
   left: 0;
+  height: auto;
   background: linear-gradient(150deg, rgb(65, 2, 128), #1a1615);
   color: rgb(194, 216, 218);
   overflow-y: scroll;
@@ -256,61 +257,110 @@ textarea:focus::placeholder {
   justify-content: center;
   align-items: center;
   height: 15vh;
+  margin-top: 30px;
   width: 100vw;
   text-align: center;
 }
-
-.segment {
+.hero-body .segment {
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  margin-top: 30px;
 }
-.segment .code {
+.hero-body .segment .code {
   overflow: hidden;
   border: 1px solid rgba(223, 223, 223, 0.279);
   border-radius: 15px;
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
-  background-color: rgba(45, 39, 63, 0.219);
-  margin: 0px 60px 0px 30px;
+  background-color: rgba(42, 23, 48, 0.319);
+  margin: 0px 60px;
   padding: 15px 30px;
 }
-.segment .code p {
+.hero-body .segment .code p {
   font-family: "Fira";
   color: rgb(194, 216, 218);
   font-size: 1.3vw;
 }
-.segment .code p .type {
-  color: rgb(141, 108, 159);
+.hero-body .segment .code p .type {
+  color: rgb(148, 49, 202);
 }
-.segment .code p .name {
+.hero-body .segment .code p .name {
   color: rgb(221, 97, 245);
 }
-.segment .code p .pp {
+.hero-body .segment .code p .pp {
   color: rgb(207, 165, 230);
 }
-.segment .code p .string {
+.hero-body .segment .code p .string {
   color: rgb(141, 141, 141);
 }
-.segment .code p .std {
+.hero-body .segment .code p .std {
   color: rgb(14, 142, 156);
 }
-.segment .code p .values {
+.hero-body .segment .code p .values {
   color: rgb(125, 196, 255);
 }
-.segment .code .big {
+.hero-body .segment .code p .function {
+  color: rgb(62, 236, 212);
+}
+.hero-body .segment .code p .commentary {
+  color: rgb(100, 100, 100);
+}
+.hero-body .segment .code .big {
   font-weight: bold;
 }
 
-#presentation {
-  height: 50vh;
+#easier-segment {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#presentation #intro {
-  word-spacing: 3px;
-  font-family: "BitMap";
-  font-size: 30px;
+#easier-segment #easier-button {
+  height: 10vh;
+  background-color: transparent;
+  margin-top: 5vh;
+  width: 80%;
+  margin: 5vh 160px 5vh 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: rgba(223, 223, 223, 0.279) 1px solid;
   color: rgb(194, 216, 218);
-  text-align: center;
+  font-size: 2vw;
+  font-family: "BitMap";
+}
+#easier-segment #easier-button:hover {
+  border: 1px solid rgb(194, 216, 218);
+}
+#easier-segment #text-me {
+  display: none;
+  line-height: 35px;
+  word-spacing: 2px;
+  background-color: rgba(89, 32, 123, 0.146);
+  border-radius: 45px;
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  margin: 0px 7vw;
+  padding: 40px 30px 40px 30px;
+}
+
+.languages-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: rgba(223, 223, 223, 0.279) 1px solid;
+}
+.languages-wrapper #languages {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
 }
 
 @font-face {

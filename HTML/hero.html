@@ -15,14 +15,17 @@
             <a data-value="contact"  class="link cript-js" href="contact.html">   contact</a>
         </div>
     </nav>
+
+
     <div class="introo">
         So yeah, actually, this is me !
     </div>
-    <div class="segment">
 
+
+    <div class="segment">
         <div class="code">
             <p>
-            using namespace <span class="std">std</span>;
+            using namespace <span class="std">std</span>;<br>
             <br>
             <span class="type">class</span> <span class="name big">Me</span> {<br>
                 &emsp;&emsp;<span class="pp">private</span> :<br>
@@ -30,28 +33,67 @@
                 &emsp;&emsp;&emsp;&emsp;<span class="type">string</span> <span class="name big">_Name</span> = <span class="string">"<span class="big">Noah</span> G"</span> + ((<span class="name">_Pseudo</span> != <span class="values">NULL</span>) ? <span class="string">"i" </span>: to_string(<span class="values">1</span>)) + <span class="string">"ancarlo <span class="big">Steiniger</span> Rubiero"</span>;<br>
                 &emsp;&emsp;&emsp;&emsp;<span class="type">int</span> <span class="name big">_Age</span> = <span class="values">20</span>;<br>
                 &emsp;&emsp;&emsp;&emsp;<span class="type">int</span> <span class="name">_YearsAtEpitech</span> = <span class="values">2</span>;<br>
-                &emsp;&emsp;&emsp;&emsp;<span class="type">vector&lt;icons&gt;</span> <span class="name">_Languages</span>   = <span class="values">...</span>;<br>   
-                &emsp;&emsp;&emsp;&emsp;<span class="type">vector&lt;icons&gt;</span> <span class="name">_Competences</span> = <span class="values">...</span>;<br>  
+                &emsp;&emsp;&emsp;&emsp;<span class="type">vector</span>&lt;<span class="type">icons</span>&gt;</span> <span class="name">_Languages</span>   = <span class="values">...</span>;<br>   
+                &emsp;&emsp;&emsp;&emsp;<span class="type">vector</span>&lt;<span class="type">icons</span>&gt;</span> <span class="name">_Competences</span> = <span class="values">...</span>;<br>  
             <br>
             &emsp;&emsp;<span class="pp">public</span> :  <br>
-                &emsp;&emsp;&emsp;&emsp;<span class="type">void</span> showLanguages(<span class="values">self</span>) {  <span class="std">std</span>::cout &lt;&lt; <span class="values">self</span>.<span class="name">_languages</span> &lt;&lt; <span class="std">std</span>::endl; }<br>
+                &emsp;&emsp;&emsp;&emsp;<span class="type">void</span> <span class="function">showLanguages</span>(<span class="values">self</span>) {  <span class="std">std</span>::cout &lt;&lt; <span class="values">self</span>.<span class="name">_languages</span> &lt;&lt; <span class="std">std</span>::endl; }<br>
                     <br>
-                    &emsp;&emsp;&emsp;&emsp;<span class="type">void</span> showCompetences(<span class="values">self</span>) { <span class="std">std</span>::cout &lt;&lt; <span class="values">self</span>.<span class="name">_competences</span> &lt;&lt; <span class="std">std</span>::endl; }        <br> 
+                    &emsp;&emsp;&emsp;&emsp;<span class="type">void</span> <span class="function">showCompetences</span>(<span class="values">self</span>) { <span class="std">std</span>::cout &lt;&lt; <span class="values">self</span>.<span class="name">_competences</span> &lt;&lt; <span class="std">std</span>::endl; }        <br> 
             }</p>
         </div>
-        <button>Me but clearer lmao</button>
-        <div class="text-me">
+    </div>
+
+    <div class="segment" id="easier-segment">
+        <button id="easier-button" onclick="
+            const easierP = document.getElementById(`text-me`);
+            (easierP.style.display === 'none' || !easierP.style.display) ?
+            easierP.style.display = 'block' :
+            easierP.style.display = 'none';
+        ">
+            Me but clearer lmao
+        </button>
+        <div id="text-me">
             My name is Noah GianCarlo Steiniger Rubiero, i'm 20 years old and studying at EPITECH Strasbourg.
-            I... love... coding ! 
-            
+            <br>And I... love... coding !<br>From creating little indie games, to develop heavy algorythms, or creating beautiful websites.
+            Development became my favorite hobby and i sincerely want to make it my full-time job.<br>Gaining level and experience by myself
+            or by the help of my friends. Increasing my knowledge always were a significant trait in my personality ! 
         </div>
-        
     </div>
 
     <div class="segment">
+        <div class="code">
+            <p>
+                <span class="type">int</span> <span class="name">main</span> (<span class="type">void</span>)<br>
+                {<br>
+                    &emsp;&emsp;<span class="commentary">// creation of myself </span><br>
+                    &emsp;&emsp;<span class="type">Me</span> <span class="name big">G1an</span>;&emsp;<br><br>
+                    &emsp;&emsp;<span class="name">G1an</span>.<span class="function">showLanguages()</span>;<br>
+                    &emsp;&emsp;<span class="name">G1an</span>.<span class="function">showCompetences()</span>;<br>
+                    &emsp;&emsp;<span class="type">return</span> <span class="values">0</span>;<br>
+                }<br><br><br><br>
+                <span class="commentary">// terminal </span><br>
+                <span class="values">$--></span> make<br>
+                <span class="values">$--></span>
+            </p>
+        </div>
     </div>
+    <div class="languages-wrapper">
+        <div id="languages">
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/C.png"></div>
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/Cpp.png"></div>
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/bash.png"></div>
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/Css.png"></div>
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/HTML.png"></div>
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/JSS.png"></div>
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/haskell.png"></div>
+            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/C.png"></div>
+        </div>
+    </div>
+    
 
     <script src="../js/navTrigger.js"></script>
+    <script src="../js/easierButton.js"></script>
     <script src="../js/letterChanger.js"></script>
 </body>
 </html>
