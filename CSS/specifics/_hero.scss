@@ -74,9 +74,8 @@ $white: rgb(194, 216, 218);
     justify-content: center;
     align-items: center;
     #easier-button {
-        height: 10vh;
+        height: 17vh;
         background-color: transparent;
-        margin-top: 5vh;
         width: 30%;
         margin: 5vh 160px 5vh 160px;
         display:flex;
@@ -87,23 +86,36 @@ $white: rgb(194, 216, 218);
         color: $white;
         font-size : 2vw;
         font-family: $details-font;
-        transition : all 0.3s ease-out;
+        transition : all 0.1s ease-out;
         &:hover {
-            border: 1px solid $white;
-            width: 80%;
+            animation: background-pan 5s linear infinite;
+        font-family: $stylish-font;
+        background: linear-gradient(to right, $blue, $violet, $blue);
+        background-size: 200%;
+        font-size: 10vw;
+        width: 100%;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
         }
     }
-    #text-me {
-        display:none;
-        line-height: 35px;
-        word-spacing: 2px;
-        background-color: rgba(89, 32, 123, 0.146);
-        border-radius: 45px;
-        backdrop-filter: blur(30px);
-        margin : 0px 7vw;
-        padding: 40px 30px 40px 30px;
-    }
+    
 }
+
+.text-me {
+    line-height: 45px;
+    word-spacing: 2px;
+    border: 1px solid $transparent-grey;
+    border-radius: 15px;
+    backdrop-filter: blur(30px);
+    background-color: rgba(42, 23, 48, 0.319);
+    font-size: 2vw;
+    margin : 0px 7vw;
+    padding: 5vw;
+}
+
+#MEEE { display:none; }
+#fini-text { margin-top: 40px; }
+
 .languages-wrapper {
     width: 100%;
     height: 100%;
@@ -114,21 +126,24 @@ $white: rgb(194, 216, 218);
     margin: 20px 0;
     padding: 20px 0;
     .text {
+        line-height: 45px;
+        word-spacing: 2px;
+        border-radius: 45px;
         font-size: 2vw;
         padding: 20px 0;
-
     }
     #languages {
         padding-top: 15px;
         width: 85%;
         display:grid;
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
         gap: 20px;
         .language {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 5px;
+            padding: 30px 0;
             border-radius: 15px;
             border: $transparent-grey 1px solid;
 

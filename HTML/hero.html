@@ -29,8 +29,8 @@
             <br>
             <span class="type">class</span> <span class="name big">Me</span> {<br>
                 &emsp;&emsp;<span class="pp">private</span> :<br>
-                &emsp;&emsp;&emsp;&emsp;<span class="type">string</span> <span class="name">_Pseudo</span> = <span class="string">"Gian"</span>;<br>
-                &emsp;&emsp;&emsp;&emsp;<span class="type">string</span> <span class="name big">_Name</span> = <span class="string">"<span class="big">Noah</span> G"</span> + ((<span class="name">_Pseudo</span> != <span class="values">NULL</span>) ? <span class="string">"i" </span>: to_string(<span class="values">1</span>)) + <span class="string">"ancarlo <span class="big">Steiniger</span> Rubiero"</span>;<br>
+                &emsp;&emsp;&emsp;&emsp;<span class="type">string</span> <span class="name">_Pseudo</span> = <span class="string">"G1an"</span>;<br>
+                &emsp;&emsp;&emsp;&emsp;<span class="type">string</span> <span class="name big">_Name</span> = <span class="string">"<span class="big">Noah</span> G"</span> + (<span class="name">_Pseudo</span> ? <span class="string">"i" </span>: to_string(<span class="values">1</span>)) + <span class="string">"ancarlo <span class="big">Steiniger</span> Rubiero"</span>;<br>
                 &emsp;&emsp;&emsp;&emsp;<span class="type">int</span> <span class="name big">_Age</span> = <span class="values">20</span>;<br>
                 &emsp;&emsp;&emsp;&emsp;<span class="type">int</span> <span class="name">_YearsAtEpitech</span> = <span class="values">2</span>;<br>
                 &emsp;&emsp;&emsp;&emsp;<span class="type">vector</span>&lt;<span class="type">icons</span>&gt;</span> <span class="name">_Languages</span>   = <span class="values">...</span>;<br>   
@@ -45,19 +45,20 @@
     </div>
 
     <div class="segment" id="easier-segment">
-        <button id="easier-button" onclick="
-            const easierP = document.getElementById(`text-me`);
+        <button class="cript-js" data-value="easier me" id="easier-button" onclick="
+            const easierP = document.getElementById(`MEEE`);
             (easierP.style.display === 'none' || !easierP.style.display) ?
             easierP.style.display = 'block' :
             easierP.style.display = 'none';
         ">
-            Me but clearer lmao
+            easier me
         </button>
-        <div id="text-me">
+        <div class="text-me" id="MEEE">
             My name is Noah GianCarlo Steiniger Rubiero, i'm 20 years old and studying at EPITECH Strasbourg.
-            <br>And I... love... coding !<br>From creating little indie games, to develop heavy algorythms, or creating beautiful websites.
-            Development became my favorite hobby and i sincerely want to make it my full-time job.<br>Gaining level and experience by myself
-            or by the help of my friends. Increasing my knowledge has always been a significant trait in my personality ! 
+            <br><br><span class="magic big">And I love... coding !</span><br><br>From creating little indie games, to develop heavy algorythms, or creating beautiful websites.<br>
+            Development became my favorite hobby and i sincerely want to make it my full-time job.<br>
+            Gaining level and experience by myselfor by the help of my friends.<br>
+            Increasing my knowledge has always been a significant trait in my personality ! 
         </div>
     </div>
 
@@ -94,14 +95,14 @@
             The <span class="magic">languages</span> i'm confident using for a job offer :
         </div>  
         <div id="languages">
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/C.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/Cpp.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/haskell.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/Css.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/HTML.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/JSS.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/bash.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/PowerShell.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/C.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/Cpp.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/haskell.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/Css.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/HTML.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/JSS.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/bash.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/langages/PowerShell.png"></div>
         </div>
     </div>
 
@@ -110,18 +111,22 @@
             The <span class="magic">competences</span> i can fluidly use :
         </div>  
         <div id="languages">
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/arch.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/Windows.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/git.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/npm.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/vscode.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/emacs.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/ppt.png"></div>
-            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/canva.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/arch.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/Windows.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/git.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/npm.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/vscode.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/emacs.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/ppt.png"></div>
+            <div class="language"><img style="width:130px; height:auto;" src="../ASSETS/icons/competences/canva.png"></div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+    <br><br>
+    <div class="text-me" id="finish-text">
+        If you want to see more about me, check my works in the dedicated page or visit my github page i regularly post some of my personal projects ! 
+        If you are interested in my profile, contact me via the contat section and send me an email !<br>I would be glad to start a new exciting project.
+    </div>
+    <br><br><br>
     <script src="../js/navTrigger.js"></script>
     <script src="../js/easierButton.js"></script>
     <script src="../js/letterChanger.js"></script>
