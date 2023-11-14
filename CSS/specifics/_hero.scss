@@ -21,8 +21,15 @@ $white: rgb(194, 216, 218);
         display:flex;
         justify-content: center;
         align-items: center;
-        height: 15vh;
+        height: 30vh;
         margin-top: 30px;
+        animation: background-pan 5s linear infinite;
+        font-family: $stylish-font;
+        background: linear-gradient(to right, $blue, $violet, $blue);
+        background-size: 200%;
+        font-size: 12vw;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align: center;
     }
     .segment {
@@ -40,13 +47,13 @@ $white: rgb(194, 216, 218);
                 font-family: $code-font;
                 color: $white; 
                 font-size: 1.3vw;
-                .type { color: rgb(148, 49, 202); }
-                .name { color: rgb(221, 97, 245); }
+                .type { color: rgb(161, 92, 235); }
+                .name { color: rgb(199, 67, 255); }
                 .pp { color: rgb(207, 165, 230) ; }
                 .string { color: rgb(141, 141, 141); }
-                .std { color: rgb(14, 142, 156); }
-                .values { color: rgb(125, 196, 255); }
-                .function { color: rgb(62, 236, 212); }
+                .std { color: rgb(0, 4, 255); }
+                .values { color: rgb(6, 143, 255); }
+                .function { color: rgb(0, 221, 255); }
                 .commentary { color: rgb(100, 100, 100); }
             }
             .big {
@@ -104,7 +111,15 @@ $white: rgb(194, 216, 218);
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
+    padding: 20px 0;
+    .text {
+        font-size: 2vw;
+        padding: 20px 0;
+
+    }
     #languages {
+        padding-top: 15px;
         width: 85%;
         display:grid;
         grid-template-columns: repeat(8, 1fr);
@@ -119,4 +134,8 @@ $white: rgb(194, 216, 218);
 
         }
     }
+}
+.title {
+
+
 }
