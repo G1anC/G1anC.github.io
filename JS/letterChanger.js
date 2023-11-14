@@ -40,7 +40,6 @@ const letterChanger = event => {
     // navigation menu links
 
     else if (e.innerText) {
-      console.log(e);
       e.innerText = e.innerText
         .split("")
         .map((letter, index) => {
