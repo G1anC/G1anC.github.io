@@ -244,13 +244,14 @@ textarea:focus::placeholder {
 .hero-body {
   top: 0;
   left: 0;
-  height: auto;
-  background: linear-gradient(150deg, rgb(65, 2, 128), #1a1615);
+  background: linear-gradient(50deg, rgb(65, 2, 128), #1a1615);
   color: rgb(194, 216, 218);
   overflow-y: scroll;
 }
 .hero-body nav {
   position: fixed;
+  top: 0;
+  left: 0;
 }
 .hero-body .introo {
   display: flex;
@@ -258,12 +259,10 @@ textarea:focus::placeholder {
   align-items: center;
   height: 15vh;
   margin-top: 30px;
-  width: 100vw;
   text-align: center;
 }
 .hero-body .segment {
   overflow: hidden;
-  width: 100vw;
   margin-top: 30px;
 }
 .hero-body .segment .code {
@@ -321,19 +320,21 @@ textarea:focus::placeholder {
   height: 10vh;
   background-color: transparent;
   margin-top: 5vh;
-  width: 80%;
+  width: 30%;
   margin: 5vh 160px 5vh 160px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  border: rgba(223, 223, 223, 0.279) 1px solid;
+  border: transparent 1px solid;
   color: rgb(194, 216, 218);
   font-size: 2vw;
   font-family: "BitMap";
+  transition: all 0.3s ease-out;
 }
 #easier-segment #easier-button:hover {
   border: 1px solid rgb(194, 216, 218);
+  width: 80%;
 }
 #easier-segment #text-me {
   display: none;
@@ -354,13 +355,20 @@ textarea:focus::placeholder {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
-  border: rgba(223, 223, 223, 0.279) 1px solid;
 }
 .languages-wrapper #languages {
-  width: 80%;
+  width: 85%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+}
+.languages-wrapper #languages .language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 15px;
+  border: rgba(223, 223, 223, 0.279) 1px solid;
 }
 
 @font-face {

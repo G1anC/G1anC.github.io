@@ -11,11 +11,10 @@ $white: rgb(194, 216, 218);
 }
 
 .hero-body {
-    nav { position: fixed; }
+    nav { position: fixed; top:0; left: 0; }
     top: 0;
     left:0;
-    height: auto;
-    background: linear-gradient(150deg, $dark-violet, $bg-color);
+    background: linear-gradient(50deg, $dark-violet, $bg-color);
     color : $white;
     overflow-y: scroll;
     .introo {
@@ -24,12 +23,10 @@ $white: rgb(194, 216, 218);
         align-items: center;
         height: 15vh;
         margin-top: 30px;
-        width: 100vw;
         text-align: center;
     }
     .segment {
         overflow: hidden;
-        width: 100vw;
         margin-top: 30px;
         .code {
             overflow: hidden;
@@ -73,18 +70,20 @@ $white: rgb(194, 216, 218);
         height: 10vh;
         background-color: transparent;
         margin-top: 5vh;
-        width: 80%;
+        width: 30%;
         margin: 5vh 160px 5vh 160px;
         display:flex;
         justify-content: center;
         align-items: center;
         border-radius: 15px;
-        border: $transparent-grey 1px solid;
+        border: transparent 1px solid;
         color: $white;
         font-size : 2vw;
         font-family: $details-font;
+        transition : all 0.3s ease-out;
         &:hover {
             border: 1px solid $white;
+            width: 80%;
         }
     }
     #text-me {
@@ -105,11 +104,19 @@ $white: rgb(194, 216, 218);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 15px;
-    border: $transparent-grey 1px solid;
     #languages {
-        width: 80%;
+        width: 85%;
         display:grid;
         grid-template-columns: repeat(8, 1fr);
+        gap: 20px;
+        .language {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            border-radius: 15px;
+            border: $transparent-grey 1px solid;
+
+        }
     }
 }

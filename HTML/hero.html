@@ -64,33 +64,61 @@
     <div class="segment">
         <div class="code">
             <p>
-                <span class="type">int</span> <span class="name">main</span> (<span class="type">void</span>)<br>
+                <span class="type">int</span> <span class="name">main</span> (<span class="type">int</span> <span class="name">ac</span>, <span class="type">char *</span><span class="name">av[]</span>)<br>
                 {<br>
                     &emsp;&emsp;<span class="commentary">// creation of myself </span><br>
-                    &emsp;&emsp;<span class="type">Me</span> <span class="name big">G1an</span>;&emsp;<br><br>
-                    &emsp;&emsp;<span class="name">G1an</span>.<span class="function">showLanguages()</span>;<br>
-                    &emsp;&emsp;<span class="name">G1an</span>.<span class="function">showCompetences()</span>;<br>
+                    &emsp;&emsp;<span class="type">Me</span> <span class="name big">G1an</span>;<br><br>
+                    &emsp;&emsp;<span class="type">if </span>(<span class="name">ac</span> != <span class="values">3</span>) {<br>
+                        &emsp;&emsp;&emsp;&emsp;<span class="type">return</span> <span class="values">84</span>;<br>
+                    &emsp;&emsp;}<br>
+                    &emsp;&emsp;<span class="type">for</span> (<span class="type">int</span> <span class="name">i</span> = <span class="values">0</span>; <span class="name">av</span>[<span class="name">i</span>]; <span class="name">i</span>++) {<br>
+                        &emsp;&emsp;&emsp;&emsp;<span class="type">if</span> (!<span class="name">av</span>[<span class="name">i</span>].<span class="function">compare(</span><span class="string">"--languages"</span><span class="function">)</span>) {<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="std">std</span>::cout &lt;&lt; <span class="string">"The languages i'm confident using for a job offer :"</span> &lt;&lt; <span class="std">std</span>::endl;<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="name">G1an</span>.<span class="function">showLanguages()</span>;<br>
+                        &emsp;&emsp;&emsp;&emsp;}<br>
+                        &emsp;&emsp;&emsp;&emsp;<span class="type">if</span> (!<span class="name">av</span>[<span class="name">i</span>].<span class="function">compare(</span><span class="string">"--competences"</span><span class="function">)</span>) {<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="std">std</span>::cout &lt;&lt; <span class="string">"The competences i can fluidly use :"</span> &lt;&lt; <span class="std">std</span>::endl;<br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="name">G1an</span>.<span class="function">showCompetences()</span>;<br>
+                        &emsp;&emsp;&emsp;&emsp;}<br>
+                    &emsp;&emsp;}<br>
                     &emsp;&emsp;<span class="type">return</span> <span class="values">0</span>;<br>
                 }<br><br><br><br>
                 <span class="commentary">// terminal </span><br>
                 <span class="values">$--></span> make<br>
-                <span class="values">$--></span>
+                <span class="values">$--></span> ./myself --competences --languages
             </p>
         </div>
     </div>
+    <br>
     <div class="languages-wrapper">
+        The languages i'm confident using for a job offer :
         <div id="languages">
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/C.png"></div>
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/Cpp.png"></div>
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/bash.png"></div>
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/Css.png"></div>
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/HTML.png"></div>
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/JSS.png"></div>
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/haskell.png"></div>
-            <div class="language"><img style="width:70px; height:auto;" src="../ASSETS/icons/langages/C.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/C.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/Cpp.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/haskell.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/Css.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/HTML.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/JSS.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/bash.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/langages/PowerShell.png"></div>
         </div>
     </div>
-    
+    <br>
+
+    <div class="languages-wrapper">
+        The competences i can fluidly use :
+        <div id="languages">
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/arch.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/Windows.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/git.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/npm.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/vscode.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/emacs.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/ppt.png"></div>
+            <div class="language"><img style="width:90px; height:auto;" src="../ASSETS/icons/competences/canva.png"></div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     <script src="../js/navTrigger.js"></script>
     <script src="../js/easierButton.js"></script>
