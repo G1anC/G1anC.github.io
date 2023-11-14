@@ -231,7 +231,7 @@ textarea:focus::placeholder {
 
 @font-face {
   font-family: "Fira";
-  src: url("../../assets/fonts/Fira.woff2") format("woff2");
+  src: url("../../ASSETS/fonts/Fira.woff2") format("woff2");
 }
 @keyframes background-pan {
   from {
@@ -403,11 +403,11 @@ textarea:focus::placeholder {
 
 @font-face {
   font-family: "Rosie";
-  src: url("../../assets/fonts/Rosie.woff2") format("woff2");
+  src: url("../../ASSETS/fonts/Rosie.woff2") format("woff2");
 }
 @font-face {
   font-family: "Croissant";
-  src: url("../../assets/fonts/Croissant.woff2") format("woff2");
+  src: url("../../ASSETS/fonts/Croissant.woff2") format("woff2");
 }
 @keyframes plus-color {
   from {
@@ -492,16 +492,16 @@ article .starting-article-wrapper:nth-child(4) > .image {
   background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
 }
 article .starting-article-wrapper #gol {
-  background-image: url("../../assets/works/gameolife.gif");
+  background-image: url("../../ASSETS/works/gameolife.gif");
 }
 article .starting-article-wrapper #kab {
-  background-image: url("../../assets/works/Hannibal.jpg");
+  background-image: url("../../ASSETS/works/Hannibal.jpg");
 }
 article .starting-article-wrapper #bon {
-  background-image: url("../../assets/works/bon.jpg");
+  background-image: url("../../ASSETS/works/bon.jpg");
 }
 article .starting-article-wrapper #sh {
-  background-image: url("../../assets/works/42sh.png");
+  background-image: url("../../ASSETS/works/42sh.png");
 }
 article .starting-article-wrapper .nav {
   border-top: 1px solid rgba(219, 253, 255, 0.184);
@@ -631,19 +631,19 @@ article .rest p {
 
 @font-face {
   font-family: "Rosie";
-  src: url("../assets/fonts/Rosie.woff2") format("woff2");
+  src: url("../ASSETS/fonts/Rosie.woff2") format("woff2");
 }
 @font-face {
   font-family: "Croissant";
-  src: url("../assets/fonts/Croissant.woff2") format("woff2");
+  src: url("../ASSETS/fonts/Croissant.woff2") format("woff2");
 }
 @font-face {
   font-family: "BitMap";
-  src: url("../assets/fonts/BitMap.woff2") format("woff2");
+  src: url("../ASSETS/fonts/BitMap.woff2") format("woff2");
 }
 @font-face {
   font-family: "Eiko";
-  src: url("../assets/fonts/PPEiko-Medium.otf") format("opentype");
+  src: url("../ASSETS/fonts/PPEiko-Medium.otf") format("opentype");
 }
 @keyframes background-pan {
   from {

@@ -4,10 +4,10 @@
 @import "specifics/works";
 @import "specifics/home";
 
-@font-face { font-family: 'Rosie'; src: url('../assets/fonts/Rosie.woff2') format('woff2'); }
-@font-face { font-family: 'Croissant'; src: url('../assets/fonts/Croissant.woff2') format('woff2'); }
-@font-face { font-family: 'BitMap'; src: url('../assets/fonts/BitMap.woff2') format('woff2'); }
-@font-face { font-family: 'Eiko'; src: url('../assets/fonts/PPEiko-Medium.otf') format("opentype"); }
+@font-face { font-family: 'Rosie'; src: url('../ASSETS/fonts/Rosie.woff2') format('woff2'); }
+@font-face { font-family: 'Croissant'; src: url('../ASSETS/fonts/Croissant.woff2') format('woff2'); }
+@font-face { font-family: 'BitMap'; src: url('../ASSETS/fonts/BitMap.woff2') format('woff2'); }
+@font-face { font-family: 'Eiko'; src: url('../ASSETS/fonts/PPEiko-Medium.otf') format("opentype"); }
 
 $stylish-font : "Rosie";
 $details-font : "BitMap";

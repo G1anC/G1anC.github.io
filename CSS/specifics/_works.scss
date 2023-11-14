@@ -1,7 +1,7 @@
 
 
-@font-face { font-family: 'Rosie'; src: url('../../assets/fonts/Rosie.woff2') format('woff2'); }
-@font-face { font-family: 'Croissant'; src: url('../../assets/fonts/Croissant.woff2') format('woff2'); }
+@font-face { font-family: 'Rosie'; src: url('../../ASSETS/fonts/Rosie.woff2') format('woff2'); }
+@font-face { font-family: 'Croissant'; src: url('../../ASSETS/fonts/Croissant.woff2') format('woff2'); }
 
 $stylish-font : "Rosie";
 $primary-font : "Space Mono", monospace;
@@ -79,10 +79,10 @@ article {
         &:nth-child(2) > .image { background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80"); }
         &:nth-child(3) > .image { background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"); }
         &:nth-child(4) > .image { background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80"); }
-        #gol { background-image: url("../../assets/works/gameolife.gif"); }
-        #kab { background-image: url("../../assets/works/Hannibal.jpg"); }
-        #bon { background-image: url("../../assets/works/bon.jpg"); }
-        #sh { background-image: url("../../assets/works/42sh.png"); }
+        #gol { background-image: url("../../ASSETS/works/gameolife.gif"); }
+        #kab { background-image: url("../../ASSETS/works/Hannibal.jpg"); }
+        #bon { background-image: url("../../ASSETS/works/bon.jpg"); }
+        #sh { background-image: url("../../ASSETS/works/42sh.png"); }
         
         
         .nav {
