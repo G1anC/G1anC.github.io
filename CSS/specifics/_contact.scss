@@ -180,7 +180,7 @@ textarea {
     border-end-end-radius: 20px;
     border-bottom-left-radius: 20px;
     transition:  all 0.2s;
-    &::placeholder { color:$placeholder-grey; }
+    &::placeholder { color:$placeholder-grey; padding: 30px 10px; }
     &:hover {
         border: 1px solid $first-color !important;
     }

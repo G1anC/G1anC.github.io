@@ -3,12 +3,8 @@ let interval = null;
 
 
 function chooseWhichLetter (e, index, i) {
-  if (index < i) {
-    return e.dataset.value[index];
-  }
-  return alphabet[Math.floor(Math.random() * 26)]
+    return (index < i) ? e.dataset.value[index] : alphabet[Math.floor(Math.random() * 26)]
 }
-
 
 const letterChanger = event => {
   let i = 0;
@@ -16,47 +12,20 @@ const letterChanger = event => {
   interval = setInterval(() => {
 
     let e = event.target;
-
-
-    // contact form placeholders
-
-    if (!e.value && (e.type === "text" || e.type === "textarea")) {
-      e.placeholder = e.placeholder
-        .split("")
-        .map((letter, index) => {
-          return chooseWhichLetter(e, index, i);
-        }).join("");
-    }
-    else if (e.type === "button") {
+    if (!e.value && (e.type === "email" || e.type === "textarea")) {
+      e.placeholder = e.placeholder.split("").map((letter, index) => { return chooseWhichLetter(e, index, i); }).join("");
+    } else if (e.type === "button") {
       e.innerText = e.innerText.split("").map((letter, index) => { return chooseWhichLetter(e, index, i); }).join("");
     } else if (e.type === "input") {
-      e.value = e.value
-      .split("")
-      .map((letter, index) => {
-        return chooseWhichLetter(e, index, i);
-      }).join("");
+      e.value = e.value.split("").map((letter, index) => { return chooseWhichLetter(e, index, i); }).join("");
+    } else if (e.innerText) {
+      e.innerText = e.innerText.split("").map((letter, index) => { return chooseWhichLetter(e, index, i); }).join("");
     }
-
-    // navigation menu links
-
-    else if (e.innerText) {
-      e.innerText = e.innerText
-        .split("")
-        .map((letter, index) => {
-          if(index < i) {
-            return e.dataset.value[index];
-          }
-          return alphabet[Math.floor(Math.random() * 26)]
-        })
-        .join("");
-    }
-
-      // _______________________________________________________________________________________________________________ //
     
-    if(i >= e.dataset.value.length) { 
+    if (i >= e.dataset.value.length) { 
       clearInterval(interval);
     }
-    i += 1/2;
+    i += 1 / 2;
   }, 20);
 }
 

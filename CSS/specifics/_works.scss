@@ -172,8 +172,17 @@ article {
         grid-template-rows: 1fr 2fr;
         font-size: 25px;
         line-height: 40px;
+        a {
+            text-decoration: none;
+            color: $white;
+        }
         & > * { border: 1px solid $border-color; margin: 0; }
-        .image { background-size: cover; }
+        .image {
+            background-size: contain;
+            height: 100%;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
         p {
             padding: 30px 50px;
             font-size: 27px;
@@ -194,6 +203,31 @@ article {
     }
     #rest-4 {
         
+    }
+    #rest-5 {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 2fr 0.3fr;
+        #exemple {
+            font-size: 4vw;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-family: $details-font;
+            font-style: normal;
+            color: $first-color;
+            text-decoration: none;
+            transition: all 0.2s;
+            &:hover {
+                animation: background-pan 3s linear infinite;
+                letter-spacing: 4px;
+                font-family: $stylish-font;
+                font-size: 7vw;
+                background: linear-gradient(to right, $blue, $violet, $blue);
+                background-size: 200%;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
     }
 }
   
