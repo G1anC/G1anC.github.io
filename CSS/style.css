@@ -283,7 +283,7 @@ textarea:focus::placeholder {
   border-radius: 15px;
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
-  background-color: rgba(42, 23, 48, 0.319);
+  background: radial-gradient(rgba(0, 0, 0, 0.137), rgba(0, 0, 0, 0.307));
   margin: 0px 60px;
   padding: 15px 30px;
 }
