@@ -1,22 +1,13 @@
-
-function scroller(index)
+function scrollToRest(index)
 {
-    const restElem = document.getElementById(`rest-${index}`);
-    restElem.style.display = "block";
-    restElem?.current.scrollIntoView({behavior: "smooth"});
+    document.getElementById(`work-body`).style.overflowY = "scroll";
+    const workBody = document.getElementById(`work-body`);
+    console.log(workBody.style.overflowY);
+    workBody.style.overflowY = "scroll";
+    const rest = document.getElementById(`rest-${index}`);
+    (!rest.style.display || rest.style.display === "none") ? rest.style.display = "grid" : rest.style.display = "none";
 }
 
-
-
-// add scrollToRest to + buttons when clicked
-Array.from(document.getElementsByClassName("plus")).forEach(element => {
-    element.addEventListener("click", () => {
-        let index = -1;
-        Array.from(document.getElementsByTagName("article")).forEach(e => {
-            if (e.dataset.status === "active") index = e.dataset.index;
-        });
-        // change body to scroll possible
-        document.getElementById("work-body").style.overflowY = "scroll";
-        scroller(index);
-    });
-});
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }

@@ -5,14 +5,14 @@ body {
 body nav .nav-wrapper .link:hover {
   font-size: 14vw;
 }
-body main {
+body #index-main {
   background: linear-gradient(320deg, rgb(59, 1, 117), rgb(26, 22, 21), rgb(0, 54, 105));
   height: 100vh;
   width: 100vw;
   text-align: center;
   display: flex;
 }
-body main .title-wrapper {
+body #index-main .title-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@ body main .title-wrapper {
   width: 100%;
   line-height: 16vw;
 }
-body main .title-wrapper #greatest {
+body #index-main .title-wrapper #greatest {
   padding-bottom: 7vh;
   font-size: 17vw;
 }
@@ -425,23 +425,22 @@ textarea:focus::placeholder {
 html #work-body {
   display: flex;
   flex-direction: column;
+  height: auto;
   scroll-behavior: smooth;
-  overflow: hidden;
-  height: 100%;
-  margin: 0px;
-  background-color: rgb(25, 19, 28);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0;
 }
 html #work-body * {
   box-sizing: border-box;
 }
 html #work-body main {
-  overflow: hidden;
   position: relative;
   flex-grow: 1;
 }
 
 article {
-  height: 100vh;
+  background: linear-gradient(90deg, rgb(25, 19, 28), rgb(59, 1, 117));
   width: 100vw;
   position: absolute;
   left: 0px;
@@ -479,8 +478,11 @@ article .starting-article-wrapper {
   grid-template-rows: 2fr 1fr;
   border-bottom: 1px solid rgba(219, 253, 255, 0.184);
 }
+article .starting-article-wrapper > * {
+  border: 1px solid rgba(219, 253, 255, 0.184);
+  margin: 0;
+}
 article .starting-article-wrapper .article {
-  height: 100%;
   display: flex;
 }
 article .starting-article-wrapper .image {
@@ -508,14 +510,10 @@ article .starting-article-wrapper #bon {
 article .starting-article-wrapper #sh {
   background-image: url("../../ASSETS/works/42sh.png");
 }
-article .starting-article-wrapper .nav {
-  border-top: 1px solid rgba(219, 253, 255, 0.184);
-  border-left: 1px solid rgba(219, 253, 255, 0.184);
-}
 article .starting-article-wrapper .nav .nav-button {
   background-color: transparent;
+  border: 0.5px solid rgba(219, 253, 255, 0.184);
   flex-grow: 1;
-  border: none;
   outline: none;
   font-size: 3rem;
   cursor: pointer;
@@ -532,7 +530,6 @@ article .starting-article-wrapper .nav .nav-button:nth-child(2) {
 }
 article .starting-article-wrapper .nav .nav-button svg {
   fill: rgba(219, 253, 255, 0.184);
-  margin-top: 10px;
   height: "60px";
   width: "60px";
   transition: all 0.2s;
@@ -545,7 +542,6 @@ article .starting-article-wrapper .description {
   justify-content: center;
   padding: 30px 50px;
   line-height: 40px;
-  border-left: 1px solid rgba(219, 253, 255, 0.184);
   color: rgb(146, 153, 197);
 }
 article .starting-article-wrapper .description p {
@@ -601,13 +597,25 @@ article .starting-article-wrapper .title-section .plus .horizontal {
   left: 50%;
 }
 article .rest {
-  margin: 100px;
-  z-index: 4;
+  width: 100%;
+  color: rgb(146, 153, 197);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 2fr;
+  font-size: 25px;
+  line-height: 40px;
+}
+article .rest > * {
+  border: 1px solid rgba(219, 253, 255, 0.184);
+  margin: 0;
 }
 article .rest p {
-  color: rgb(219, 253, 255);
-  font-size: 25px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 30px 50px;
+  font-size: 27px;
+}
+article .rest .image {
+  background-size: cover;
+  background-image: url("../../ASSETS/images/rpg-contributions.png");
 }
 .home-body {
   overflow: hidden;
