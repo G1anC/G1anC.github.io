@@ -25,7 +25,6 @@ $blue: rgb(17, 199, 245);
 
 html {
     #work-body {
-        nav { position: fixed; top:0; left: 0; }
         display:flex;
         flex-direction: column;
         height: auto;
@@ -33,7 +32,8 @@ html {
         overflow-x: hidden;
         overflow-y:hidden;
         margin: 0;
-        * { box-sizing: border-box; }
+        nav { position: fixed; top:0; left: 0; }
+        *:not(nav) { box-sizing: border-box; }
         main {
             position: relative;
             flex-grow: 1;
@@ -195,15 +195,15 @@ article {
         #rpg-contributions { background-image: url("../../ASSETS/works/rpg-contributions.png"); }
         #kaben { background-image: url("../../ASSETS/works/kaben.png"); }
     }
-    #rest-2 {
+    // #rest-2 {
 
-    }
-    #rest-3 {
+    // }
+    // #rest-3 {
 
-    }
-    #rest-4 {
+    // }
+    // #rest-4 {
         
-    }
+    // }
     #rest-5 {
         grid-template-columns: 2fr 1fr;
         grid-template-rows: 2fr 0.3fr;

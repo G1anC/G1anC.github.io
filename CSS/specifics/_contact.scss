@@ -54,17 +54,18 @@ $stylish-font : "Rosie";
             align-items: center;
             justify-content: center;
             height: 25%;
-            transition: 0.2s;
             border: none;
+            transform: scale(1.2);
+            transition: all 0.2s;
             &:hover {
-                transform: scale(1.2);
+                transform: scale(1.4);
             }
         }
         .gmail-button {
             display: flex;
-            width: 8vw;
+            width: 10vw;
             margin-bottom: 0;
-            height: 8vh;
+            height: 10vh;
             background-color: transparent;
             border-radius: 5px;
             border: 1px solid $transparent-grey;
@@ -187,6 +188,7 @@ textarea {
     &:focus {
         text-align: start;
         outline:none !important;
+        height: 60vh;
         border: 2px rgb(127, 0, 255) solid !important;
         &::placeholder { color: transparent; }
     }
