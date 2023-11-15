@@ -73,6 +73,8 @@ article {
         .image {
             background-position: center;
             background-size: cover;
+            max-height: 100%;
+            width: 100%;
         }
         &:nth-child(2) > .image { background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80"); }
         &:nth-child(3) > .image { background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"); }
@@ -178,7 +180,7 @@ article {
         }
     }
     #rest-0 { 
-
+        #echo-spe-var { background-image: url("../../ASSETS/works/echo-special-variables.png"); }
     }
     #rest-1 { 
         #rpg-contributions { background-image: url("../../ASSETS/works/rpg-contributions.png"); }

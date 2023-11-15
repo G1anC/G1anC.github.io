@@ -493,6 +493,8 @@ article .starting-article-wrapper .article {
 article .starting-article-wrapper .image {
   background-position: center;
   background-size: cover;
+  max-height: 100%;
+  width: 100%;
 }
 article .starting-article-wrapper:nth-child(2) > .image {
   background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
@@ -623,6 +625,9 @@ article .rest .image {
 article .rest p {
   padding: 30px 50px;
   font-size: 27px;
+}
+article #rest-0 #echo-spe-var {
+  background-image: url("../../ASSETS/works/echo-special-variables.png");
 }
 article #rest-1 #rpg-contributions {
   background-image: url("../../ASSETS/works/rpg-contributions.png");

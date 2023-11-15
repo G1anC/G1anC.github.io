@@ -15,13 +15,12 @@ function handleLeftClick() {
           
     currentSlide.dataset.status = "after";
     nextSlide.dataset.status = "becoming-active-from-before";  
-    
-    //document.getElementById(`rest-${findArticleIndex()}`).style.display = "hidden";
 
     setTimeout(() => {
       nextSlide.dataset.status = "active";
       activeIndex = nextIndex;
     });
+    element.scrollIntoView({behavior: "smooth"});
 }
 
 function handleRightClick() {
@@ -39,12 +38,11 @@ function handleRightClick() {
   currentSlide.dataset.status = "before";
   nextSlide.dataset.status = "becoming-active-from-after";
 
-  //document.getElementById(`rest-${findArticleIndex()}`).style.display = "hidden";
-
   setTimeout(() => {
     nextSlide.dataset.status = "active";
     activeIndex = nextIndex;
   });
+  element.scrollIntoView({behavior: "smooth"});
 }
 
 document.addEventListener("keydown", event => {
