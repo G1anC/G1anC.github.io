@@ -9,7 +9,6 @@ $primary-font : "Space Mono", monospace;
 $bg-color : rgb(25, 19, 28); 
 $first-color: rgb(219, 253, 255);
 $border-color: rgba(219, 253, 255, 0.184);
-
 $dark-violet:rgb(59, 1, 117);
 $violet:rgb(127, 0, 255);
 $in-between-violet: rgb(0, 42, 255);
@@ -26,6 +25,7 @@ $blue: rgb(17, 199, 245);
 
 html {
     #work-body {
+        nav { position: fixed; top:0; left: 0; }
         display:flex;
         flex-direction: column;
         height: auto;
@@ -33,9 +33,7 @@ html {
         overflow-x: hidden;
         overflow-y:hidden;
         margin: 0;
-        
         * { box-sizing: border-box; }
-        
         main {
             position: relative;
             flex-grow: 1;
@@ -70,13 +68,10 @@ article {
             border: 1px solid $border-color;
             margin: 0;
         }
-        .article {
-            display: flex;
-            
-        }
+        .article { display: flex; }
     
         .image {
-            background-position: initial;
+            background-position: center;
             background-size: cover;
         }
         &:nth-child(2) > .image { background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80"); }
@@ -86,10 +81,8 @@ article {
         #kab { background-image: url("../../ASSETS/works/Hannibal.jpg"); }
         #bon { background-image: url("../../ASSETS/works/bon.jpg"); }
         #sh { background-image: url("../../ASSETS/works/42sh.png"); }
-        
-        
+        #por { background-image: url("../../ASSETS/images/siteForGitHubReadME.png"); }
         .nav {
-            
             .nav-button {
                 background-color: transparent;
                 border: 0.5px solid $border-color; 
@@ -120,10 +113,7 @@ article {
             padding: 30px 50px;
             line-height: 40px;
             color : rgb(146, 153, 197);
-            p {
-                font-size: 27px;
-                a:hover { text-decoration: underline; }
-            }
+            p { font-size: 27px; a:hover { text-decoration: underline; } }
         }
         .title-section {
             align-items: center; 
@@ -133,7 +123,7 @@ article {
             .title-wrapper-work {
                 width: 100%;
                 margin-left: 30px;
-                .title { font-size: 70px; }
+                .title { font-size: 5.5vw; }
             }
             .plus {
                 position: relative;
@@ -179,26 +169,20 @@ article {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 1fr 2fr;
         font-size: 25px;
-        & > * { 
-            border: 1px solid $border-color;
-            margin: 0;
-        }
         line-height: 40px;
+        & > * { border: 1px solid $border-color; margin: 0; }
+        .image { background-size: cover; }
         p {
-            
             padding: 30px 50px;
             font-size: 27px;
-        }
-        .image {
-            background-size: cover;
-            background-image: url("../../ASSETS/images/rpg-contributions.png");
         }
     }
     #rest-0 { 
 
     }
     #rest-1 { 
-
+        #rpg-contributions { background-image: url("../../ASSETS/works/rpg-contributions.png"); }
+        #kaben { background-image: url("../../ASSETS/works/kaben.png"); }
     }
     #rest-2 {
 

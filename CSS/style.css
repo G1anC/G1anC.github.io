@@ -431,6 +431,11 @@ html #work-body {
   overflow-y: hidden;
   margin: 0;
 }
+html #work-body nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 html #work-body * {
   box-sizing: border-box;
 }
@@ -486,7 +491,7 @@ article .starting-article-wrapper .article {
   display: flex;
 }
 article .starting-article-wrapper .image {
-  background-position: initial;
+  background-position: center;
   background-size: cover;
 }
 article .starting-article-wrapper:nth-child(2) > .image {
@@ -509,6 +514,9 @@ article .starting-article-wrapper #bon {
 }
 article .starting-article-wrapper #sh {
   background-image: url("../../ASSETS/works/42sh.png");
+}
+article .starting-article-wrapper #por {
+  background-image: url("../../ASSETS/images/siteForGitHubReadME.png");
 }
 article .starting-article-wrapper .nav .nav-button {
   background-color: transparent;
@@ -561,7 +569,7 @@ article .starting-article-wrapper .title-section .title-wrapper-work {
   margin-left: 30px;
 }
 article .starting-article-wrapper .title-section .title-wrapper-work .title {
-  font-size: 70px;
+  font-size: 5.5vw;
 }
 article .starting-article-wrapper .title-section .plus {
   position: relative;
@@ -609,13 +617,18 @@ article .rest > * {
   border: 1px solid rgba(219, 253, 255, 0.184);
   margin: 0;
 }
+article .rest .image {
+  background-size: cover;
+}
 article .rest p {
   padding: 30px 50px;
   font-size: 27px;
 }
-article .rest .image {
-  background-size: cover;
-  background-image: url("../../ASSETS/images/rpg-contributions.png");
+article #rest-1 #rpg-contributions {
+  background-image: url("../../ASSETS/works/rpg-contributions.png");
+}
+article #rest-1 #kaben {
+  background-image: url("../../ASSETS/works/kaben.png");
 }
 .home-body {
   overflow: hidden;
