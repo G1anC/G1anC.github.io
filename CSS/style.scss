@@ -89,9 +89,12 @@ html {
 nav {
     position: absolute;
     z-index: 10;
-    display: none;
     width: 100vw;
+    opacity: 0;
     height: 100vh;
+    transition-property: opacity;
+    transition-duration: 333ms;
+    pointer-events: none;
     background-color: rgba( 0, 0, 0, 0.5);
     backdrop-filter: blur(20px);
     .nav-wrapper {

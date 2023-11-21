@@ -98,7 +98,6 @@ $stylish-font : "Rosie";
     margin-right: 3vh;
     height : 100vh;
     flex-direction: column; 
-
     label {
        width: 100%;        
     }
@@ -131,6 +130,39 @@ $stylish-font : "Rosie";
             &::placeholder { color: transparent; }
         }
     }
+    #email {
+        border-start-start-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    textarea {
+        background-color: transparent;
+        border-radius: 5px;
+        border: 1px solid $transparent-grey;
+        resize: none;
+        margin-bottom: 7px;
+        padding-top: 20px;
+        height: 55vh;
+        width: 100%;
+        letter-spacing: 1px;
+        text-align:center;
+        font-size: 1.8vw;
+        color : $first-color;
+        font-family:$details-font;
+        border-end-end-radius: 20px;
+        border-bottom-left-radius: 20px;
+        transition:  all 0.2s;
+        &::placeholder { color:$placeholder-grey; padding: 30px 10px; }
+        &:hover {
+            border: 1px solid $first-color !important;
+        }
+        &:focus {
+            text-align: start;
+            outline:none !important;
+            height: 60vh;
+            border: 2px rgb(127, 0, 255) solid !important;
+            &::placeholder { color: transparent; }
+        }
+    }
 } 
 
 .style-inputs {
@@ -154,41 +186,6 @@ $stylish-font : "Rosie";
     &:focus {
         outline:none !important;
         height: 70px;
-        border: 2px rgb(127, 0, 255) solid !important;
-        &::placeholder { color: transparent; }
-    }
-}
-
-#email {
-    border-start-start-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-textarea {
-    background-color: transparent;
-    border-radius: 5px;
-    border: 1px solid $transparent-grey;
-    resize: none;
-    margin-bottom: 7px;
-    padding-top: 20px;
-    height: 55vh;
-    width: 100%;
-    letter-spacing: 1px;
-    text-align:center;
-    font-size: 1.8vw;
-    color : $first-color;
-    font-family:$details-font;
-    border-end-end-radius: 20px;
-    border-bottom-left-radius: 20px;
-    transition:  all 0.2s;
-    &::placeholder { color:$placeholder-grey; padding: 30px 10px; }
-    &:hover {
-        border: 1px solid $first-color !important;
-    }
-    &:focus {
-        text-align: start;
-        outline:none !important;
-        height: 60vh;
         border: 2px rgb(127, 0, 255) solid !important;
         &::placeholder { color: transparent; }
     }
