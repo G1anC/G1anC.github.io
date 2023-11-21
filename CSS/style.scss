@@ -77,6 +77,31 @@ html {
             opacity: 0;
             background-color: $bg-color;
         }
+        .code {
+            overflow: hidden;
+            border: 1px solid $transparent-grey;
+            border-radius: 15px;
+            backdrop-filter: blur(30px);
+            background: radial-gradient(rgba(0, 0, 0, 0.137), rgba(0, 0, 0, 0.307));
+            margin : 0px 60px;
+            padding: 15px 30px;
+            p {
+                font-family: $code-font;
+                color: $white; 
+                font-size: 1.3vw;
+                .type { color: rgb(161, 92, 235); }
+                .name { color: rgb(199, 67, 255); }
+                .pp { color: rgb(207, 165, 230) ; }
+                .string { color: rgb(141, 141, 141); }
+                .std { color: rgb(0, 4, 255); }
+                .values { color: rgb(6, 143, 255); }
+                .function { color: rgb(0, 221, 255); }
+                .commentary { color: rgb(100, 100, 100); }
+            }
+            .big {
+                font-weight: bold;
+            }    
+        }
     }
 }
 
