@@ -426,8 +426,8 @@ body #index-main .title-wrapper #greatest {
 }
 html #work-body {
   display: flex;
-  flex-direction: column;
   height: auto;
+  flex-direction: column;
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -445,8 +445,7 @@ html #work-body main {
   position: relative;
   flex-grow: 1;
 }
-
-article {
+html #work-body main article {
   background: linear-gradient(90deg, rgb(25, 19, 28), rgb(59, 1, 117));
   width: 100vw;
   position: absolute;
@@ -454,28 +453,28 @@ article {
   top: 0px;
   transition: transform 400ms ease-in;
 }
-article[data-status=inactive] {
+html #work-body main article[data-status=inactive] {
   transform: translateX(-100%);
   transition: none;
 }
-article[data-status=active] {
+html #work-body main article[data-status=active] {
   transform: translateX(0%);
 }
-article[data-status=before] {
+html #work-body main article[data-status=before] {
   transform: translateX(-100%);
 }
-article[data-status=after] {
+html #work-body main article[data-status=after] {
   transform: translateX(100%);
 }
-article[data-status=becoming-active-from-before] {
+html #work-body main article[data-status=becoming-active-from-before] {
   transform: translateX(-100%);
   transition: none;
 }
-article[data-status=becoming-active-from-after] {
+html #work-body main article[data-status=becoming-active-from-after] {
   transform: translateX(100%);
   transition: none;
 }
-article .starting-article-wrapper {
+html #work-body main article .starting-article-wrapper {
   height: 100vh;
   width: 100vw;
   left: 0px;
@@ -485,44 +484,44 @@ article .starting-article-wrapper {
   grid-template-rows: 2fr 1fr;
   border-bottom: 1px solid rgba(219, 253, 255, 0.184);
 }
-article .starting-article-wrapper > * {
+html #work-body main article .starting-article-wrapper > * {
   border: 1px solid rgba(219, 253, 255, 0.184);
   margin: 0;
 }
-article .starting-article-wrapper .article {
+html #work-body main article .starting-article-wrapper .article {
   display: flex;
 }
-article .starting-article-wrapper .image {
+html #work-body main article .starting-article-wrapper .image {
   background-position: center;
   background-size: cover;
   max-height: 100%;
   width: 100%;
 }
-article .starting-article-wrapper:nth-child(2) > .image {
+html #work-body main article .starting-article-wrapper:nth-child(2) > .image {
   background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
 }
-article .starting-article-wrapper:nth-child(3) > .image {
+html #work-body main article .starting-article-wrapper:nth-child(3) > .image {
   background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80");
 }
-article .starting-article-wrapper:nth-child(4) > .image {
+html #work-body main article .starting-article-wrapper:nth-child(4) > .image {
   background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
 }
-article .starting-article-wrapper #gol {
+html #work-body main article .starting-article-wrapper #gol {
   background-image: url("../../ASSETS/works/gameolife.gif");
 }
-article .starting-article-wrapper #kab {
+html #work-body main article .starting-article-wrapper #kab {
   background-image: url("../../ASSETS/works/Hannibal.jpg");
 }
-article .starting-article-wrapper #bon {
+html #work-body main article .starting-article-wrapper #bon {
   background-image: url("../../ASSETS/works/bon.jpg");
 }
-article .starting-article-wrapper #sh {
+html #work-body main article .starting-article-wrapper #sh {
   background-image: url("../../ASSETS/works/42sh.png");
 }
-article .starting-article-wrapper #por {
+html #work-body main article .starting-article-wrapper #por {
   background-image: url("../../ASSETS/images/siteForGitHubReadME.png");
 }
-article .starting-article-wrapper .nav .nav-button {
+html #work-body main article .starting-article-wrapper .nav .nav-button {
   background-color: transparent;
   border: 0.5px solid rgba(219, 253, 255, 0.184);
   flex-grow: 1;
@@ -531,51 +530,51 @@ article .starting-article-wrapper .nav .nav-button {
   cursor: pointer;
   transition: background-color 0.2s ease-out;
 }
-article .starting-article-wrapper .nav .nav-button:hover {
+html #work-body main article .starting-article-wrapper .nav .nav-button:hover {
   background-color: rgba(234, 174, 252, 0.04);
 }
-article .starting-article-wrapper .nav .nav-button:hover svg {
+html #work-body main article .starting-article-wrapper .nav .nav-button:hover svg {
   fill: rgb(219, 253, 255);
 }
-article .starting-article-wrapper .nav .nav-button:nth-child(2) {
+html #work-body main article .starting-article-wrapper .nav .nav-button:nth-child(2) {
   border-left: 1px solid rgba(219, 253, 255, 0.184);
 }
-article .starting-article-wrapper .nav .nav-button svg {
+html #work-body main article .starting-article-wrapper .nav .nav-button svg {
   fill: rgba(219, 253, 255, 0.184);
   height: "60px";
   width: "60px";
   transition: all 0.2s;
 }
-article .starting-article-wrapper .nav .nav-button svg:hover {
+html #work-body main article .starting-article-wrapper .nav .nav-button svg:hover {
   fill: rgb(219, 253, 255);
 }
-article .starting-article-wrapper .description {
+html #work-body main article .starting-article-wrapper .description {
   flex-direction: column;
   justify-content: center;
   padding: 30px 50px;
   line-height: 40px;
   color: rgb(146, 153, 197);
 }
-article .starting-article-wrapper .description p {
+html #work-body main article .starting-article-wrapper .description p {
   font-size: 27px;
 }
-article .starting-article-wrapper .description p a:hover {
+html #work-body main article .starting-article-wrapper .description p a:hover {
   text-decoration: underline;
 }
-article .starting-article-wrapper .title-section {
+html #work-body main article .starting-article-wrapper .title-section {
   align-items: center;
   justify-content: space;
   text-align: start !important;
   border-top: 1px solid rgba(219, 253, 255, 0.184);
 }
-article .starting-article-wrapper .title-section .title-wrapper-work {
+html #work-body main article .starting-article-wrapper .title-section .title-wrapper-work {
   width: 100%;
   margin-left: 30px;
 }
-article .starting-article-wrapper .title-section .title-wrapper-work .title {
+html #work-body main article .starting-article-wrapper .title-section .title-wrapper-work .title {
   font-size: 5.5vw;
 }
-article .starting-article-wrapper .title-section .plus {
+html #work-body main article .starting-article-wrapper .title-section .plus {
   position: relative;
   height: 100%;
   width: 280px;
@@ -584,93 +583,92 @@ article .starting-article-wrapper .title-section .plus {
   border: none;
   transition: all 0.1s;
 }
-article .starting-article-wrapper .title-section .plus:hover {
+html #work-body main article .starting-article-wrapper .title-section .plus:hover {
   background: linear-gradient(to left, rgba(234, 174, 252, 0.04) 40%, transparent);
 }
-article .starting-article-wrapper .title-section .plus:hover .plus-bar {
+html #work-body main article .starting-article-wrapper .title-section .plus:hover .plus-bar {
   animation: plus-color 0.1s;
   background-color: rgb(219, 253, 255);
 }
-article .starting-article-wrapper .title-section .plus .plus-bar {
+html #work-body main article .starting-article-wrapper .title-section .plus .plus-bar {
   position: absolute;
   height: 50px;
   width: 5px;
   background-color: rgb(80, 61, 108);
 }
-article .starting-article-wrapper .title-section .plus .vertical {
+html #work-body main article .starting-article-wrapper .title-section .plus .vertical {
   top: 36%;
   left: 49%;
 }
-article .starting-article-wrapper .title-section .plus .horizontal {
+html #work-body main article .starting-article-wrapper .title-section .plus .horizontal {
   position: absolute;
   height: 80px;
   transform: rotate(90deg);
   top: 28%;
   left: 50%;
 }
-article .rest {
+html #work-body main article .rest {
   width: 100%;
   color: rgb(146, 153, 197);
   display: block;
   font-size: 25px;
   line-height: 40px;
 }
-article .rest a {
+html #work-body main article .rest a {
   text-decoration: none;
   color: rgb(194, 216, 218);
 }
-article .rest > * {
+html #work-body main article .rest > * {
   border: 1px solid rgba(219, 253, 255, 0.184);
   margin: 0;
 }
-article .rest .image {
+html #work-body main article .rest .paragraph {
+  padding: 30px 50px;
+  font-size: 27px;
+}
+html #work-body main article .rest .image {
   background-size: contain;
   height: 100%;
   background-repeat: no-repeat;
   width: 100%;
 }
-article .rest .paragraph {
-  padding: 30px 50px;
-  font-size: 27px;
-}
-article .rest .rest-grid {
+html #work-body main article .rest .rest-grid {
   width: 100vw;
-  height: 70vh;
+  height: 60vh;
   display: grid;
 }
-article .rest .rest-grid * {
+html #work-body main article .rest .rest-grid * {
   border: 1px solid rgba(219, 253, 255, 0.184);
   margin: 0;
 }
-article .rest #sh42-grid-1 {
-  grid-template-columns: 2fr 1fr;
+html #work-body main article #rest-0 {
+  display: block;
 }
-article .rest #sh42-grid-2 {
-  grid-template-columns: 1fr 2fr;
-  z-index: 3;
-}
-article #rest-0 {
-  height: 700vh !important;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 2fr 1fr;
-}
-article #rest-0 #sh42 {
+html #work-body main article #rest-0 #sh42 {
   background-image: url("../../ASSETS/works/shell-showcase.png");
 }
-article #rest-0 #echo-spe-var {
+html #work-body main article #rest-0 #echo-spe-var {
   background-image: url("../../ASSETS/works/echo-special-variables.png");
 }
-article #rest-1 #rpg-contributions {
+html #work-body main article #rest-0 #sh42-grid-1 {
+  grid-template-columns: 2fr 1fr;
+  text-align: center;
+}
+html #work-body main article #rest-0 #sh42-grid-2 {
+  grid-template-columns: 1fr 2fr;
+  height: 43.77vh;
+}
+html #work-body main article #rest-1 #rpg-contributions {
   background-image: url("../../ASSETS/works/rpg-contributions.png");
 }
-article #rest-1 #kaben {
+html #work-body main article #rest-1 #kaben {
   background-image: url("../../ASSETS/works/kaben.png");
 }
-article #rest-5 {
+html #work-body main article #rest-5 {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 2fr 0.3fr;
 }
-article #rest-5 #exemple {
+html #work-body main article #rest-5 #exemple {
   font-size: 4vw;
   display: flex;
   justify-content: center;
@@ -681,7 +679,7 @@ article #rest-5 #exemple {
   text-decoration: none;
   transition: all 0.2s;
 }
-article #rest-5 #exemple:hover {
+html #work-body main article #rest-5 #exemple:hover {
   animation: background-pan 3s linear infinite;
   letter-spacing: 4px;
   font-family: "Rosie";
