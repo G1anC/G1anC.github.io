@@ -178,8 +178,9 @@ html {
                     #sh42 { background-image: url("../../ASSETS/works/shell-showcase.png"); }
                     #echo-spe-var { background-image: url("../../ASSETS/works/echo-special-variables.png"); }
 
-                    #sh42-grid-1 { grid-template-columns: 2fr 1fr; text-align: center; }
-                    #sh42-grid-2 { grid-template-columns: 1fr 2fr; height: 43.77vh; }
+                    #sh42-grid-1 { grid-template-columns: 2fr 1fr; text-align: start; }
+                    #sh42-grid-2 { grid-template-columns: 1fr 3fr; height: 50vh; }
+                    #sh42-grid-3 { grid-template-columns: 1fr 5fr 1fr; text-align: center; }
                 }
 
                 #rest-1 { 

@@ -652,11 +652,15 @@ html #work-body main article #rest-0 #echo-spe-var {
 }
 html #work-body main article #rest-0 #sh42-grid-1 {
   grid-template-columns: 2fr 1fr;
-  text-align: center;
+  text-align: start;
 }
 html #work-body main article #rest-0 #sh42-grid-2 {
-  grid-template-columns: 1fr 2fr;
-  height: 43.77vh;
+  grid-template-columns: 1fr 3fr;
+  height: 50vh;
+}
+html #work-body main article #rest-0 #sh42-grid-3 {
+  grid-template-columns: 1fr 5fr 1fr;
+  text-align: center;
 }
 html #work-body main article #rest-1 #rpg-contributions {
   background-image: url("../../ASSETS/works/rpg-contributions.png");
