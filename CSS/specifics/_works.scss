@@ -167,7 +167,7 @@ article {
     .rest {
         width: 100%;
         color : rgb(146, 153, 197);
-        display:block;
+        display: block;
         font-size: 25px;
         line-height: 40px;
         a {
@@ -181,23 +181,46 @@ article {
             background-repeat: no-repeat;
             width: 100%;
         }
-        p {
+        .paragraph {
             padding: 30px 50px;
             font-size: 27px;
         }
+
+
+
+
+
+
+
+
         .rest-grid {
             width: 100vw;
-            height:auto;
+            height:70vh;
             display: grid;
+            * { border: 1px solid $border-color; margin: 0; }
+        }
+        #sh42-grid-1 {
             grid-template-columns: 2fr 1fr;
         }
+        #sh42-grid-2 {
+            grid-template-columns: 1fr 2fr;
+            z-index: 3;
+        }
     }
+    
+    
+    // 42SHELL
     #rest-0 {
+        height: 700vh !important;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: 2fr 1fr;
         #sh42 { background-image: url("../../ASSETS/works/shell-showcase.png"); }
         #echo-spe-var { background-image: url("../../ASSETS/works/echo-special-variables.png"); }
     }
+
+
+
+
     #rest-1 { 
         #rpg-contributions { background-image: url("../../ASSETS/works/rpg-contributions.png"); }
         #kaben { background-image: url("../../ASSETS/works/kaben.png"); }

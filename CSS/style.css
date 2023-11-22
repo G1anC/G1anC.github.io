@@ -434,7 +434,7 @@ html #work-body {
   margin: 0;
 }
 html #work-body nav {
-  position: fixed;waskjjjjkhhjkg \\\\\\\\======0000000000001
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -629,17 +629,28 @@ article .rest .image {
   background-repeat: no-repeat;
   width: 100%;
 }
-article .rest p {
+article .rest .paragraph {
   padding: 30px 50px;
   font-size: 27px;
 }
 article .rest .rest-grid {
   width: 100vw;
-  height: auto;
+  height: 70vh;
   display: grid;
+}
+article .rest .rest-grid * {
+  border: 1px solid rgba(219, 253, 255, 0.184);
+  margin: 0;
+}
+article .rest #sh42-grid-1 {
   grid-template-columns: 2fr 1fr;
 }
+article .rest #sh42-grid-2 {
+  grid-template-columns: 1fr 2fr;
+  z-index: 3;
+}
 article #rest-0 {
+  height: 700vh !important;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 2fr 1fr;
 }
