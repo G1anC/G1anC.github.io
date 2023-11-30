@@ -134,13 +134,13 @@ $dark-violet:rgb(65, 5, 125);
             transition : all 0.1s ease-out;
             &:hover {
                 animation: background-pan 5s linear infinite;
-            font-family: $stylish-font;
-            background: linear-gradient(to right, $blue, $violet, $blue);
-            background-size: 200%;
-            font-size: 10vw;
-            width: 100%;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+                font-family: $stylish-font;
+                background: linear-gradient(to right, $blue, $violet, $blue);
+                background-size: 200%;
+                font-size: 10vw;
+                width: 100%;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         }
     }
