@@ -8,7 +8,7 @@ export default function Area({ titleRef, filterRef, bgRef }: {
 }): ReactNode {
 	return (
 		<Project titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} name={"area"}>
-			caca
+			cacal
 		</Project>
 
 	)
