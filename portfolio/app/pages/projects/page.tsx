@@ -5,42 +5,18 @@ import Menu from "../../components/menu";
 import Bottom from "@/app/components/bottom";
 import localFont from "next/font/local";
 import { gsap } from "gsap";
-import Wolfram from "@/app/pages/projects/wolfram/wolfram"
-import Area from "@/app/pages/projects/area/area"
-import Shell from "@/app/pages/projects/42sh/42sh"
-import Glados from "@/app/pages/projects/glados/glados"
-import Rpg from "@/app/pages/projects/rpg/rpg"
-import Designs from "@/app/pages/projects/designs/designs";
-import Zappy from "@/app/pages/projects/zappy/zappy";
-import Raytracer from "@/app/pages/projects/raytracer/raytracer";
+import Wolfram from "@/app/pages/projects/wolfram"
+import Area from "@/app/pages/projects/area"
+import Shell from "@/app/pages/projects/42sh"
+import Glados from "@/app/pages/projects/glados"
+import Rpg from "@/app/pages/projects/rpg"
+import Designs from "@/app/pages/projects/designs";
+import Zappy from "@/app/pages/projects/zappy";
+import Raytracer from "@/app/pages/projects/raytracer";
 import ScrollTrigger from  "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SelarisFont = localFont({
-	src: "../../../public/Selaris.woff",
-});
-
-const ProjectTitle: React.FC<{ selectedProject: string, titleRef: React.RefObject<HTMLDivElement>, filterRef: React.RefObject<HTMLDivElement> }> = ({ selectedProject, titleRef, filterRef }) => {
-	return (
-		<div ref={titleRef} className={`w-full h-full absolute text-[250px] top-0 flex items-center justify-center opacity-0 z-10 antialiased ${SelarisFont.className}`}>
-			<button className={"absolute z-40 w-full flex items-center justify-center"}>
-				{selectedProject}
-			</button>
-		</div>
-	);
-};
-
-const ProjectBackground: React.FC<{ selectedProject: string, bgRef: React.RefObject<HTMLDivElement> }> = ({selectedProject, bgRef}) => {
-	return (
-		<div ref={bgRef} className={"w-screen h-screen static"} style={{
-			backgroundImage: `url(/images/projects/${selectedProject}.png)`,
-			backgroundSize: "cover",
-		}} />
-    );
-}
-
-export {ProjectBackground, ProjectTitle}
 
 export default function	Projects() {
 	const bgRef = useRef<HTMLDivElement>(null);

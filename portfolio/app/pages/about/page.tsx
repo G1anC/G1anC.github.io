@@ -2,9 +2,7 @@
 
 import React, { useState } from 'react';
 import Menu from "@/app/components/menu";
-import Bottom from "@/app/components/bottom";
 import localFont from "next/font/local";
-import { PageProps, getStaticProps, Skill } from "@/app/pages/about/webskills";
 import Background from "@/app/components/Background";
 
 // Import your font locally
@@ -64,7 +62,7 @@ const Message = ({ value }: { value: string | string[] }) => {
 };
 
 // Main Page component
-const Page: React.FC<PageProps> = ({ skills }) => {
+export default function About() {
 	const [right, setRight] = useState(false);
 
 	return (
@@ -87,7 +85,7 @@ const Page: React.FC<PageProps> = ({ skills }) => {
 						</div>
 
 						<div className="h-full w-full flex py-10 flex-col justify-start rounded-xl border-white overflow-y-auto scrollbar-thumb-gray-800/50 scrollbar-track-transparent custom-scrollbar border-opacity-20 bg-black/70">
-							{right && skills ? (
+							{/* right && skills ? (
 								<div className="w-full h-full grid grid-cols-5 grid-rows-5 gap-4">
 									{skills.map((skill, i) => (
 										<div className="flex items-center justify-center" key={i}>
@@ -95,7 +93,7 @@ const Page: React.FC<PageProps> = ({ skills }) => {
 										</div>
 									))}
 								</div>
-							) : (
+							) : */(
 								MeDiscussions.map((discussion, i) => (
 									<React.Fragment key={i}>
 										<div className="ml-5 flex mt-5 items-start justify-start">
@@ -132,5 +130,3 @@ const Page: React.FC<PageProps> = ({ skills }) => {
 		</>
 	);
 };
-
-export default Page;
