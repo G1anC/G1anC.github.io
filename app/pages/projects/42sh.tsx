@@ -3,11 +3,10 @@ import Project from "@/app/pages/projects/project";
 import { gsap} from "gsap";
 import {white} from "next/dist/lib/picocolors";
 
-export default function Shell({ titleRef, filterRef, bgRef, sectionsRef }: {
+export default function Shell({ titleRef, filterRef, bgRef }: {
 	titleRef: React.RefObject<HTMLDivElement>,
 	filterRef: React.RefObject<HTMLDivElement>,
 	bgRef: React.RefObject<HTMLDivElement>
-	sectionsRef: React.RefObject<HTMLDivElement>[]
 }): ReactNode {
 
 	return (

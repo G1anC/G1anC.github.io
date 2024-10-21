@@ -1,13 +1,12 @@
 import React, {ReactNode} from "react";
 import Project from "@/app/pages/projects/project";
 
-export default function Area({ titleRef, filterRef, bgRef, sectionsRef }: {
+export default function Area({ titleRef, filterRef, bgRef,  }: {
 	titleRef: React.RefObject<HTMLDivElement>,
 	filterRef: React.RefObject<HTMLDivElement>,
 	bgRef: React.RefObject<HTMLDivElement>,
-	sectionsRef: React.RefObject<HTMLDivElement>[]
 }): ReactNode {
 	return (
-		<Project titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef} name={"area"} childrens={["children"]} />
+		<Project titleRef={titleRef} filterRef={filterRef} bgRef={bgRef}  name={"area"} childrens={["children"]} />
 	)
 }

@@ -1,13 +1,8 @@
 {
-  "name": "G1anC.github.io",
-  "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "deploy": "npm run build && gh-pages -d out"
+    "start": "next start"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

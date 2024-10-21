@@ -24,14 +24,14 @@ export default function	Projects() {
 	const filterRef = useRef<HTMLDivElement>(null);
 	const sectionsRef = useRef<React.RefObject<HTMLDivElement>[]>([]);
 	const projects: React.ReactNode[] = [
-	        <Shell titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
-	        <Raytracer titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
-	        <Wolfram titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
-	        <Area titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
-	        <Glados titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
-	        <Designs titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
-	        <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
-	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />
+	        <Shell titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+	        <Raytracer titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+	        <Wolfram titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+	        <Area titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+	        <Glados titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+	        <Designs titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+	        <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />
 	];
 	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[0]);
 	const [i, setI] = useState(0);
