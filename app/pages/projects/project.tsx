@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React, {ReactNode, useRef} from "react";
 import localFont from "next/font/local";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import {gsap} from "gsap";
@@ -30,14 +30,31 @@ const ProjectBackground: React.FC<{ selectedProject: string, bgRef: React.RefObj
 }
 
 
-export default function Project( {childrens, titleRef, filterRef, bgRef, sectionsRef, name }: {
+export default function Project( {childrens, titleRef, filterRef, bgRef, name }: {
 	childrens: React.ReactNode[],
 	titleRef: React.RefObject<HTMLDivElement>,
 	filterRef: React.RefObject<HTMLDivElement>,
 	bgRef: React.RefObject<HTMLDivElement>,
-	sectionsRef: React.RefObject<HTMLDivElement>[],
 	name: string
 }): ReactNode {
+	const sectionsRef = childrens.map(() => React.useRef<HTMLDivElement>(null));
+	React.useEffect(() => {
+		sectionsRef.map(sectionRef => {
+			gsap.to(sectionRef.current, {
+				scrollTrigger: {
+					scrub: 1,
+					trigger: sectionRef.current,
+					start: "top bottom",
+					end: "bottom top",
+					markers: true,
+				},
+				y: -100,
+				ease: "none"
+			});
+
+		});
+	}, [sectionsRef]);
+
 	return (
 		<>
 			<ProjectTitle titleRef={titleRef} filterRef={filterRef} selectedProject={name}/>
@@ -46,13 +63,11 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, section
 				<div ref={filterRef} className={"bg w-screen h-screen bg-black/50 backdrop-blur-xl top-0 absolute"}/>
 			</div>
 			<div className={"w-full h-full"}>
-				{childrens.map((child, i) => {
-					return (
-			      <div ref={sectionsRef[i]} className={"rounded-3xl z-[-1] w-screen h-screen bg-black flex items-center justify-center"}>
-					  {child}
-				  </div>
-			    );
-			  })}
+				{childrens.map((child, i) =>
+			      	<div ref={sectionsRef[i]} key={i} className={`rounded-t-3xl z-[-1] w-screen h-screen bg-blue-700 flex items-center justify-center`}>
+					  	{child}
+				  	</div>
+			  	)}
 			</div>
 		</>
 	)

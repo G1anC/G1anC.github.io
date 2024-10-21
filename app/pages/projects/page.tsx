@@ -37,7 +37,7 @@ export default function	Projects() {
 	const [i, setI] = useState(0);
 
 	useEffect(() => {
-		if (!bgRef.current || !titleRef.current || !filterRef.current)
+		if (!bgRef.current || !titleRef.current || !filterRef.current || !sectionsRef.current)
 			return
 		gsap.to(bgRef.current, {duration: 0.3, opacity: 1, ease: "power2.out"});
 		gsap.to(titleRef.current, {duration: 1, opacity: 1, y: 20});
@@ -47,23 +47,13 @@ export default function	Projects() {
 				trigger: titleRef.current,
 				start: "top top",
 				end: "bottom top",
-				markers: true,
-				scrub: .5,
+				scrub: 1,
 				toggleActions: "play pause reverse pause",
 			},
 			y: 850,
 		});
-		const tlSection = gsap.timeline({
-			scrollTrigger: {
-				scrub: 1,
-				trigger: sectionsRef.current.map(section => section.current),
-				start: "top top",
-				end: "bottom top",
-				markers: true,
-			}
-		});
-		tlSection.to(sectionsRef.current.map(section => section.current), {backgroundColor: "white"});
-	}, [bgRef, titleRef, filterRef, sectionsRef]);
+		console.log(sectionsRef.current);
+			}, [selectedProject]);
 
 
 
