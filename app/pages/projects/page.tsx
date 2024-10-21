@@ -22,15 +22,16 @@ export default function	Projects() {
 	const bgRef = useRef<HTMLDivElement>(null);
 	const titleRef = useRef<HTMLDivElement>(null);
 	const filterRef = useRef<HTMLDivElement>(null);
+	const sectionsRef = useRef<React.RefObject<HTMLDivElement>[]>([]);
 	const projects: React.ReactNode[] = [
-	    <Shell titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	    <Raytracer titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	    <Wolfram titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	    <Area titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	    <Glados titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	    <Designs titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	    <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	    <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />
+	        <Shell titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
+	        <Raytracer titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
+	        <Wolfram titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
+	        <Area titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
+	        <Glados titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
+	        <Designs titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
+	        <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />,
+	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} sectionsRef={sectionsRef.current} />
 	];
 	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[0]);
 	const [i, setI] = useState(0);
@@ -40,34 +41,33 @@ export default function	Projects() {
 			return
 		gsap.to(bgRef.current, {duration: 0.3, opacity: 1, ease: "power2.out"});
 		gsap.to(titleRef.current, {duration: 1, opacity: 1, y: 20});
-		gsap.to(filterRef.current,  {duration: 0.3, opacity: 1, backdropFilter: "blur(100px)", ease: "power2.out"});
-
-		ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
-		gsap.to(bgRef.current, {
-			opacity: 0,
+		gsap.to(filterRef.current, {duration: 0.3, opacity: 1, backdropFilter: "blur(100px)", ease: "power2.out"});
+		gsap.to(titleRef.current, {
 			scrollTrigger: {
-				trigger: bgRef.current,
+				trigger: titleRef.current,
 				start: "top top",
 				end: "bottom top",
-				scrub: 1,
-				pin: true,
-			}
+				markers: true,
+				scrub: .5,
+				toggleActions: "play pause reverse pause",
+			},
+			y: 850,
 		});
-		gsap.to(filterRef.current, {
-			opacity: 0,
+		const tlSection = gsap.timeline({
 			scrollTrigger: {
-				trigger: filterRef.current,
+				scrub: 1,
+				trigger: sectionsRef.current.map(section => section.current),
 				start: "top top",
 				end: "bottom top",
-				scrub: 1,
-				pin: true,
+				markers: true,
 			}
 		});
-	}, [selectedProject]);
+		tlSection.to(sectionsRef.current.map(section => section.current), {backgroundColor: "white"});
+	}, [bgRef, titleRef, filterRef, sectionsRef]);
 
-	if (bgRef === undefined || titleRef === undefined || filterRef === undefined)
-		return;
+
+
+
 	return (
 		<div className={"w-screen overflow-x-hidden relative h-full"}>
 			<Menu discarded={"projects"}/>
