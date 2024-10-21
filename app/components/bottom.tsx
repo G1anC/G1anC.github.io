@@ -19,7 +19,7 @@ const Bottom = ({title}: {title: string }) => {
 			{title !== "Portfolio" &&
 				<div className={"w-full h-[1px] bg-white/10 mx-10"} />
 			}
-			<p className="text-white w-96 h-96 flex items-center justify-center text-3xl">{title}</p>
+			<p className="text-white w-96 h-96 flex items-center justify-center text-5xl">{title}</p>
 			{title !== "Portfolio" &&
 				<div className={"w-full h-[1px] bg-white/10 mx-10"} />
 			}

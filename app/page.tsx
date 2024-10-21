@@ -3,7 +3,7 @@
 import Menu from "./components/menu";
 import Bottom from "@/app/components/bottom";
 import Background from "./components/Background";
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
 
@@ -92,7 +92,7 @@ export default function Home() {
     }
 
     return (
-        <div className={"overflow-hidden relative"}>
+        <div className={`overflow-hidden relative`}>
             <Background/>
             <Menu discarded="home"/>
             <div className="w-screen h-screen flex flex-col items-center justify-center">

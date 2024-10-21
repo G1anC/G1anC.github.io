@@ -47,12 +47,13 @@ const Menu = ({discarded}: {discarded: string}) => {
 					<img src="/images/burger.png" alt="burger" className="w-10 h-10"/>
 				</button>
 			</div>
-			{open && (<div className="w-[70%] z-50 flex absolute backdrop-blur-md items-center justify-center" ref={menuRef}>
+			{open && (
+				<div className="w-screen asbolute top-0 h-20 z-50 flex absolute items-center justify-center" ref={menuRef}>
 					{links.map((link, index) => (
 						link !== discarded && (
 							<React.Fragment key={link}>
 								<a href={link === 'home' ? '../' : `../pages/${link}/`}>{link}</a>
-								{index < links.length - 1 && <div className="m-32 h-[1px] w-[8%] bg-white/10"></div>}
+								{index < links.length - 1 && <div className="m-32 h-[1px] w-60 bg-white/10"></div>}
 							</React.Fragment>
 						)
 					))}

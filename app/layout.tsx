@@ -3,14 +3,11 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Background from "./components/Background";
 
-const SelarisFont = localFont({
-    src: "../public/Selaris.woff",
-});
 
-const LovelaceFont = localFont({
-    src: "../public/Lovelace.woff",
-});
 
+const PPul = localFont({
+    src: "../public/ppul.otf",
+});
 
 
 export const metadata: Metadata = {
@@ -21,9 +18,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={`w-screen h-full ${LovelaceFont.className} text-3xl antialiased`} >
+            <body className={`w-screen h-full ${PPul.className} text-4xl antialiased`} >
                 {children}
             </body>
         </html>
     );
 }
+
+

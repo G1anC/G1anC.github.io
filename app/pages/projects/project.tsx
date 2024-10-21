@@ -3,17 +3,30 @@ import localFont from "next/font/local";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
-
+import Lenis from "lenis";
+import 'lenis/dist/lenis.css'
 gsap.registerPlugin(ScrollTrigger);
 
 const SelarisFont = localFont({
-	src: "../../../public/Selaris.woff",
+	src: "../../../public/ppuli.otf",
 });
+
+
+
+const lenis = new Lenis()
+
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.lagSmoothing(0)
+
+gsap.ticker.add((time) => {
+	lenis.raf(time * 1000)
+})
 
 const ProjectTitle: React.FC<{ selectedProject: string, titleRef: React.RefObject<HTMLDivElement>, filterRef: React.RefObject<HTMLDivElement> }> = ({ selectedProject, titleRef, filterRef }) => {
 	return (
 		<div ref={titleRef} className={`z-10 title w-screen h-screen absolute text-[250px] top-0 flex items-center justify-center opacity-0 antialiased ${SelarisFont.className}`}>
-			<button className={"absolute z-40 w-full flex items-center justify-center"}>
+			<button className={"absolute z-40 w-full flex uppercase items-center justify-center"}>
 				{selectedProject}
 			</button>
 		</div>

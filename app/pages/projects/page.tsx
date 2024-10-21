@@ -78,7 +78,7 @@ export default function	Projects() {
 									 opacity: 0,
 									 ease: "power1.in",
 									 onComplete: () => {
-										 let val = (i - 1 + projects.length) % projects.length
+										 let val = (i - 1 + projects.length) % (projects.length - 1)
 										 setI(val)
 										 setSelectedProject(projects[val]);
 										 console.log(val);
@@ -102,7 +102,7 @@ export default function	Projects() {
 									 opacity: 0,
 									 ease: "power1.in",
 									 onComplete: () => {
-										 let val = (i + 1 + projects.length) % projects.length
+										 let val = (i + 1 + projects.length) % (projects.length - 1)
 										 setI(val)
 										 setSelectedProject(projects[val]);
 										 console.log(val)
