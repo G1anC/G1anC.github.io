@@ -41,7 +41,7 @@ export default function	Projects() {
 			return
 		gsap.to(bgRef.current, {duration: 0.3, opacity: 1, ease: "power2.out"});
 		gsap.to(titleRef.current, {duration: 1, opacity: 1, y: 20});
-		gsap.to(filterRef.current, {duration: 0.3, opacity: 1, backdropFilter: "blur(100px)", ease: "power2.out"});
+		gsap.to(filterRef.current, {duration: 0.3, opacity: 1, backdropFilter: "blur(20px)", ease: "power2.out"});
 		gsap.to(filterRef.current, {
 			scrollTrigger: {
 				trigger: titleRef.current,
@@ -49,7 +49,8 @@ export default function	Projects() {
 				end: "bottom top",
 				scrub: true,
 			},
-			opacity: 0,
+			backgroundColor: "black",
+			opacity: 1
 		});
 	}, [selectedProject]);
 

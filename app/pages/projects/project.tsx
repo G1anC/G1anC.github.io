@@ -1,3 +1,5 @@
+'use client';
+
 import React, {ReactNode, useRef} from "react";
 import localFont from "next/font/local";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -60,7 +62,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 			<div className={"w-screen h-full"}>
 				<ProjectTitle titleRef={titleRef} filterRef={filterRef} selectedProject={name}/>
 				<ProjectBackground bgRef={bgRef} selectedProject={name}/>
-				<div ref={filterRef} className={"bg w-screen h-screen bg-black/50 backdrop-blur-xl top-0 absolute"}/>
+				<div ref={filterRef} className={"bg w-screen h-screen bg-black/50 backdrop-blur-md top-0 absolute"}/>
 			</div>
 			<div className={"w-screen bg-black h-full"}>
 				{childrens.map((child, i) => {
