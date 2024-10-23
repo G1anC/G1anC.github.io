@@ -66,7 +66,7 @@ export default function	Projects() {
 			<div className={"w-screen h-screen sticky z-30"}>
 				<Menu discarded={"projects"}/>
 
-				<div className={"fixed top-0 left-0 w-20 h-full flex justify-center items-center z-30"}>
+				<div className={"fixed top-0 left-0 w-32 h-full flex justify-center items-center z-30"}>
 					<img
 						alt={"minus"}
 						src={"/images/arrow.svg"}
@@ -86,7 +86,6 @@ export default function	Projects() {
 								ease: "power1.in",
 								onComplete: () => {
 									window.scrollTo(0, 0);
-
 									let val = (i - 1 + projects.length) % projects.length;
 									setI(val);
 									setSelectedProject(projects[val]);
@@ -97,7 +96,7 @@ export default function	Projects() {
 					/>
 				</div>
 
-				<div className={"fixed top-0 right-0 w-20 h-full flex justify-center items-center z-30"}>
+				<div className={"fixed top-0 right-0 w-32 h-full flex justify-center items-center z-30"}>
 					<img
 						alt={"plus"}
 						src={"/images/arrow.svg"}
