@@ -11,6 +11,9 @@ const SelarisFont = localFont({
 	src: "../../../public/ppuli.otf",
 });
 
+const TextFont = localFont({
+	src: "../../../public/Halenoir-DemiBold.otf"
+})
 
 
 const lenis = new Lenis()
@@ -51,37 +54,23 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 	name: string
 }): ReactNode {
 	const sectionsRef = childrens.map(() => React.useRef<HTMLDivElement>(null));
-	React.useEffect(() => {
-		sectionsRef.map(sectionRef => {
-			gsap.to(sectionRef.current, {
-				scrollTrigger: {
-					scrub: 1,
-					trigger: sectionRef.current,
-					start: "top bottom",
-					end: "bottom top",
-					markers: true,
-				},
-				y: -100,
-				ease: "none"
-			});
-
-		});
-	}, [sectionsRef]);
 
 	return (
-		<>
-			<ProjectTitle titleRef={titleRef} filterRef={filterRef} selectedProject={name}/>
-			<div className={"w-screen h-screen z-[-1] sticky"}>
+		<div className={"w-screen h-full flex flex-col justify-center items-center"}>
+			<div className={"w-screen h-full"}>
+				<ProjectTitle titleRef={titleRef} filterRef={filterRef} selectedProject={name}/>
 				<ProjectBackground bgRef={bgRef} selectedProject={name}/>
 				<div ref={filterRef} className={"bg w-screen h-screen bg-black/50 backdrop-blur-xl top-0 absolute"}/>
 			</div>
-			<div className={"w-full h-full"}>
-				{childrens.map((child, i) =>
-			      	<div ref={sectionsRef[i]} key={i} className={`rounded-t-3xl z-[-1] w-screen h-screen bg-blue-700 flex items-center justify-center`}>
-					  	{child}
-				  	</div>
-			  	)}
+			<div className={"w-screen bg-black h-full"}>
+				{childrens.map((child, i) => {
+					return (
+						<div ref={sectionsRef[i]} key={i} className={`rounded-t-3xl text-white z-[-1] w-full ${TextFont.className} px-10 uppercase text-7xl h-full my-96 text-justify flex items-center justify-center`}>
+							{child}
+						</div>
+					)}
+				)}
 			</div>
-		</>
+		</div>
 	)
 }

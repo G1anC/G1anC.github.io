@@ -41,7 +41,7 @@ const Menu = ({discarded}: {discarded: string}) => {
 				});
 		}, [open]);
 	return (
-		<div className={"absolute top-0 w-full z-50 h-20 flex justify-center items-center"}>
+		<div className={"fixed top-0 left-0 w-full z-50 h-20 flex justify-center items-center"}>
 			<div className="right-5 z-50 flex absolute items-center justify-end">
 				<button onClick={() => setOpen(!open)} className="z-10 mr-5">
 					<img src="/images/burger.png" alt="burger" className="w-10 h-10"/>

@@ -33,8 +33,8 @@ export default function	Projects() {
 	        <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />
 	];
-	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[0]);
-	const [i, setI] = useState(0);
+	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[3]);
+	const [i, setI] = useState(3);
 
 	useEffect(() => {
 		if (!bgRef.current || !titleRef.current || !filterRef.current || !sectionsRef.current)
@@ -42,79 +42,93 @@ export default function	Projects() {
 		gsap.to(bgRef.current, {duration: 0.3, opacity: 1, ease: "power2.out"});
 		gsap.to(titleRef.current, {duration: 1, opacity: 1, y: 20});
 		gsap.to(filterRef.current, {duration: 0.3, opacity: 1, backdropFilter: "blur(100px)", ease: "power2.out"});
-		gsap.to(titleRef.current, {
+		gsap.to(filterRef.current, {
 			scrollTrigger: {
 				trigger: titleRef.current,
 				start: "top top",
 				end: "bottom top",
-				scrub: 1,
-				toggleActions: "play pause reverse pause",
+				scrub: true,
 			},
-			y: 850,
+			opacity: 0,
 		});
-		console.log(sectionsRef.current);
-			}, [selectedProject]);
-
-
-
+	}, [selectedProject]);
 
 	return (
-		<div className={"w-screen overflow-x-hidden relative h-full"}>
-			<Menu discarded={"projects"}/>
-			<div className={"w-full h-full"}>
-				<div className={"absolute top-0 w-screen h-screen"}>
-					<div className={"absolute z-30 left-0 w-20 h-full flex justify-center items-center"}>
-						<img alt={"minus"} src={"/images/arrow.svg"} id={"left"} className={"w-10 text-white rotate-[180deg]"}
-							 onClick={() => {
-								 gsap.to(filterRef.current, {
-									 duration: 0.05,
-									 opacity: 1,
-									 ease: "power2.out",
-									 backdropFilter: "blur(100px)"
-								 })
-								 gsap.to(titleRef.current, {
-									 x: 100,
-									 duration: 0.2,
-									 opacity: 0,
-									 ease: "power1.in",
-									 onComplete: () => {
-										 let val = (i - 1 + projects.length) % (projects.length - 1)
-										 setI(val)
-										 setSelectedProject(projects[val]);
-										 console.log(val);
-									 }
-								 });
-							 }
-							 }/>
-					</div>
-					<div className={"absolute z-30 right-0 w-20 h-full flex justify-center items-center"}>
-						<img alt={"plus"} src={"/images/arrow.svg"} id="right" className={"w-10 text-white"}
-							 onClick={() => {
-								 gsap.to(filterRef.current, {
-									 duration: 0.05,
-									 opacity: 1,
-									 ease: "power2.out",
-									 backdropFilter: "blur(100px)"
-								 })
-								 gsap.to(titleRef.current, {
-									 x: -100,
-									 duration: 0.2,
-									 opacity: 0,
-									 ease: "power1.in",
-									 onComplete: () => {
-										 let val = (i + 1 + projects.length) % (projects.length - 1)
-										 setI(val)
-										 setSelectedProject(projects[val]);
-										 console.log(val)
-									 }
-								 });
-							 }
-							 }/>
+		<>
+			<div className={"w-full overflow-x-hidden h-full top-0 "}>
+				<div className={"w-full h-full"}>
+					<div className={"w-screen m-0 p-0 h-full flex flex-col items-center justify-center"}>
+						{selectedProject}
 					</div>
 				</div>
-				<div className={"w-screen m-0 p-0 h-full flex flex-col items-center justify-center"}>{selectedProject}</div>
-
 			</div>
-		</div>
+
+			<div className={"w-screen h-screen sticky z-30"}>
+				<Menu discarded={"projects"}/>
+
+				<div className={"fixed top-0 left-0 w-20 h-full flex justify-center items-center z-30"}>
+					<img
+						alt={"minus"}
+						src={"/images/arrow.svg"}
+						id={"left"}
+						className={"w-10 text-white rotate-[180deg] cursor-pointer"}
+						onClick={() => {
+							gsap.to(filterRef.current, {
+								duration: 0.05,
+								opacity: 1,
+								ease: "power2.out",
+								backdropFilter: "blur(100px)"
+							});
+							gsap.to(titleRef.current, {
+								x: 100,
+								duration: 0.2,
+								opacity: 0,
+								ease: "power1.in",
+								onComplete: () => {
+									window.scrollTo(0, 0);
+
+									let val = (i - 1 + projects.length) % projects.length;
+									setI(val);
+									setSelectedProject(projects[val]);
+									console.log(val);
+								}
+							});
+						}}
+					/>
+				</div>
+
+				<div className={"fixed top-0 right-0 w-20 h-full flex justify-center items-center z-30"}>
+					<img
+						alt={"plus"}
+						src={"/images/arrow.svg"}
+						id="right"
+						className={"w-10 text-white cursor-pointer"}
+						onClick={() => {
+							gsap.to(filterRef.current, {
+								duration: 0.05,
+								opacity: 1,
+								ease: "power2.out",
+								backdropFilter: "blur(100px)"
+							});
+							gsap.to(titleRef.current, {
+								x: -100,
+								duration: 0.2,
+								opacity: 0,
+								ease: "power1.in",
+								onComplete: () => {
+									window.scrollTo(0, 0);
+									let val = (i + 1 + projects.length) % projects.length;
+									setI(val);
+									setSelectedProject(projects[val]);
+								}
+							});
+						}}
+					/>
+				</div>
+			</div>
+
+
+		</>
+
 	)
 }
