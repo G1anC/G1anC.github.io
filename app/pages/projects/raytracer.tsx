@@ -8,6 +8,5 @@ export default function Raytracer({ titleRef, filterRef, bgRef, }: {
 }): ReactNode {
 	return (
 		<Project titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} name={"raytracer"} childrens={["caaaaaaca"]} />
-
 	)
 }

@@ -1,7 +1,6 @@
 import React, {ReactNode, useRef, useEffect} from "react";
-import Project from "@/app/pages/projects/project";
+import Project, { I } from "@/app/pages/projects/project";
 import { gsap} from "gsap";
-import {white} from "next/dist/lib/picocolors";
 import localFont from "next/font/local";
 
 const tl = gsap.timeline();
@@ -34,38 +33,70 @@ export default function Shell({ titleRef, filterRef, bgRef }: {
 	return (
 		<Project titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} name={"42sh"} childrens={[
 			<section className={`w-screen h-full flex justify-center items-center flex-col`}>
-				<div className={"w-full h-screen flex items-center justify-center"}>
-					<div ref={introRef} className={"w-1/3 text-justify opacity-100 -inset-y-0 p-32"}>
-						42shell is my first year final project at EPITECH Strasbourg. It is a shell that can execute
-						commands, manage environment variables, and handle signals.
-						Written in C only, this group project was the first i've made and one of the toughest yet.
+				<div className={"w-full h-full flex items-center flex-col justify-center"}>
+					<div className={"w-full text-start flex opacity-100 -inset-y-0 p-32"}>
+						<div className={"w-2/3"}>
+							<I>42shell</I> is my <I>first year final</I> project at EPITECH Strasbourg.
+						</div>
+						<div className={"w-auto"}>
+						</div>
 					</div>
-					<div className={"w-2/3 h-auto flex items-center justify-center"}>
-						<img alt={"42sh"} src={"/images/projects/42sh.png"} className={"object-cover"}/>
+					<div className={"w-full flex justify-end items-center p-32"}>
+						<div className={"w-auto "}></div>
+						<div className={"w-2/3 text-end "}>
+							<I>Written in C only</I>, this group project was the first i've made and one of the <I>toughest</I> still.
+						</div>
 					</div>
 				</div>
 			</section>,
+
 			<section>
-				<div className={"w-full h-full flex items-center justify-center"}>
-					<div className={"w-1/2 h-full flex items-center justify-center"}>
-						<img alt={"42sh"} src={"/images/projects/myStrToWordArray.png"} className={"object-cover"}/>
-					</div>
-					<div ref={explanationRef} className={"w-1/2 h-full text-justify p-32"}>
-						I was in charge of the environment variables, parsing and built-in
-						functions (setenv, env, unsetenc, cd and echo).
-						<br />
-						<br />
-						Fun fact: 42sh was the placeholder for one of the most hideous function i've ever written...
-						Seeing the faces of my coworkers when they saw my code was priceless.
-						<br />
-						I've learned a lot from this project (especially wrtting readable code), and i'm proud of the result.
-					</div>
+				<div className={"w-full h-auto flex items-center justify-center"}>
+					<img alt={"42sh"} src={"/images/projects/42sh.png"} className={"object-cover"}/>
 				</div>
 			</section>,
-			<section className={"w-full h-full"}>
-				x
+
+			<section>
+				<div className={"p-48 text-center"}>
+					It is a shell that can execute <I>commands</I>, manage environment <I>variables</I> and handle <I>signals</I>.
+				</div>
+
+
+			</section>,
+
+			<section>
+				<div className={"p-48 text-start w-5/6"}>
+					I was in charge of the <I>environment variables</I>, <I>parsing</I> and <I>built-in
+					functions</I> (setenv, env, unsetenc, cd and echo).
+				</div>
+			</section>,
+
+			<section>
+				<div className={"w-full h-full flex items-center p-32 "}>
+					<div className={"w-full h-full"}>
+						<div className={"w-full h-full flex items-center justify-start"}>
+							<img alt={"42sh"} src={"/images/projects/myStrToWordArray.png"} className={"object-fill "}/>
+						</div>
+					</div>
+					<div className={" ml-10 text-end w-full"}>
+						<I>Not so fun fact</I>: <br/>I wrote one of the most <I>hideous</I> function i've made...<br/><br/>
+						Don't blame me i love coding fun stuff <I>:D</I>
+					</div>
+
+				</div>
+			</section>,
+
+			<section>
+				<div className={"w-full flex justify-center"}>
+					<div className={"w-1/2 h-full text-center p-32"}>
+						More seriously, I've learned <I>a lot</I> from this project<br/>
+						(especially writting <I>readable code</I>), and i'm really proud of the <I>result</I>.
+					</div>
+				</div>
 			</section>
 		]}
 		/>
 	)
 }
+
+

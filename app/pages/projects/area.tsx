@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import Project from "@/app/pages/projects/project";
+import Project, {I} from "@/app/pages/projects/project";
 
 export default function Area({ titleRef, filterRef, bgRef }: {
 	titleRef: React.RefObject<HTMLDivElement>,
@@ -9,51 +9,49 @@ export default function Area({ titleRef, filterRef, bgRef }: {
 
 	return (
 		<Project titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} name={"area"} childrens={[
-			<section className={`w-screen h-full flex justify-center items-start flex-col`}>
-				<div className={"w-full h-screen flex items-center justify-start"}>
-					<div className={"w-2/3 flex items-center text-start justify-center p-32"}>
-						AREA or Action-REaction is a 3rd year web project from EPITECH, the goal was to recreate as we wanted the functionality of the website IFTTT.
-						Creating webhooks and easily connecting to multiple platforms was the main purpose here.
-					</div>
+			<div className={"w-full h-screen flex items-center justify-center"}>
+				<div className={"w-2/3 text-center p-32"}>
+					<I>AREA</I> or Action-REaction is a <I>3rd year web project</I> from EPITECH.
+				</div>
+			</div>,
+			<div>
+				<div className={"w-3/4 text-start p-32"}>
+					the goal was to recreate as we wanted the functionality of the website <I>IFTTT</I>.<br/>
+					Creating <I>webhooks</I> and easily connecting to multiple <I>platforms</I> was the main purpose here.
+				</div>
+			</div>,
 
+			<div className={"w-full h-full flex items-center justify-center"}>
+				<div className={"w-1/3"}></div>
+				<div className={"w-2/3 h-full text-end px-32 py-16"}>
+					This project can be restructured into 3 parts: <I>backend</I>, <I>mobile</I> and <I>frontend</I>.
+					<br/>
+					My part was everything that surrounded the front.
 				</div>
-			</section>,
-			<section>
-				<div className={"w-full h-full flex items-center justify-center"}>
-					<div className={"w-1/3"}></div>
-					<div className={"w-2/3 h-full flex items-center justify-center text-end px-32 py-16"}>
-						This project can be restructured into 3 parts: backend, mobile and frontend.
-						<br/>
-						My part was everything that surrounded the front.
-					</div>
-				</div>
-				<div className={"w-1/3 text-start pl-32 pb-16"}>
-						From creating the mockups with Figma:
-				</div>
-			</section>,
-			<section>
-				<div className={"w-full h-full flex items-center justify-center"}>
-					<img className={"w-11/12 h-full object-cover"} src={"/images/projects/mockup.png"}/>
-				</div>
-			</section>,
-			<section>
-				<div className={"w-full h-full flex items-center justify-center"}>
+			</div>,
+
+			<div className={"w-1/3 text-start pl-32 pb-16"}>
+					From creating the <I>mockups with Figma</I>:
+			</div>,
+
+			<div className={"w-full h-full flex items-center justify-center"}>
+				<img className={"w-11/12 h-full object-cover"} src={"/images/projects/mockup.png"}/>
+			</div>,
+
+			<div className={"w-full h-full flex items-center justify-center"}>
 					<img className={"w-11/12 h-full object-cover"} src={"/images/projects/mobile.png"}/>
+			</div>,
+
+			<div className={"w-full h-full flex items-center  justify-center"}>
+				<div className={"w-2/3 text-start pl-32"}>
+					<br/>
+					To <I>developing</I> it:
+					<br/>
 				</div>
-			</section>,
-			<section className={"w-full h-full"}>
-				<div className={"w-full h-full flex items-center  justify-center"}>
-					<div className={"w-1/3 text-start pl-32"}>
-						<br/>
-						To developing it:
-						<br/>
-					</div>
-					<div className={"w-2/3"}></div>
-				</div>
-			</section>,
-			<section>
-				{/*<img className={"w-full h-full object-cover p-10"} src={"/images/projects/mobileMockup.png"}/>*/}
-			</section>
+				<div className={"w-2/3"}></div>
+			</div>
+			,
+			<img className={"w-full h-full object-cover p-10"} src={"/images/projects/area.png"}/>
 		]}
 		/>
 	)

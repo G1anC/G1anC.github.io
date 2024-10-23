@@ -13,6 +13,7 @@ import Rpg from "@/app/pages/projects/rpg"
 import Designs from "@/app/pages/projects/designs";
 import Zappy from "@/app/pages/projects/zappy";
 import Raytracer from "@/app/pages/projects/raytracer";
+import Portfolio from "@/app/pages/projects/portfolio";
 import ScrollTrigger from  "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -31,10 +32,11 @@ export default function	Projects() {
 	        <Glados titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Designs titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />
+	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
+			<Portfolio titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	];
-	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[3]);
-	const [i, setI] = useState(3);
+	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[8]);
+	const [i, setI] = useState(8);
 
 	useEffect(() => {
 		if (!bgRef.current || !titleRef.current || !filterRef.current || !sectionsRef.current)
@@ -46,7 +48,7 @@ export default function	Projects() {
 			scrollTrigger: {
 				trigger: titleRef.current,
 				start: "top top",
-				end: "bottom top",
+				end: "center top",
 				scrub: true,
 			},
 			backgroundColor: "black",
@@ -78,7 +80,7 @@ export default function	Projects() {
 								duration: 0.05,
 								opacity: 1,
 								ease: "power2.out",
-								backdropFilter: "blur(100px)"
+								backdropFilter: "blur(20px)"
 							});
 							gsap.to(titleRef.current, {
 								x: 100,
@@ -108,7 +110,7 @@ export default function	Projects() {
 								duration: 0.05,
 								opacity: 1,
 								ease: "power2.out",
-								backdropFilter: "blur(100px)"
+								backdropFilter: "blur(20px)"
 							});
 							gsap.to(titleRef.current, {
 								x: -100,
