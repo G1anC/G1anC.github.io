@@ -2,8 +2,6 @@
 
 import React, {useEffect, useState, useRef} from "react";
 import Menu from "../../components/menu";
-import Bottom from "@/app/components/bottom";
-import localFont from "next/font/local";
 import { gsap } from "gsap";
 import Wolfram from "./wolfram/wolfram"
 import Area from "./area/area"
@@ -128,9 +126,6 @@ export default function	Projects() {
 					/>
 				</div>
 			</div>
-
-
 		</>
-
 	)
 }

@@ -4,9 +4,14 @@ import React from 'react';
 import { gsap } from 'gsap';
 
 const Menu = ({discarded}: {discarded: string}) => {
-	const links = ['home', 'about', 'projects', 'contact', 'CV/Education'];
+	const links = ['home', 'about', 'projects', 'contact', 'CV\/Education'];
 	const [open, setOpen] = React.useState(false);
 	const menuRef = React.useRef<HTMLDivElement>(null);
+
+	const getLinkHref = (link: string) => {
+		if (link === 'home') return '/'; // Root/homepage link
+		return `/pages/${link.toLowerCase()}/`; // Points to directory like '/projects/', '/about/', etc.
+	};
 
 	if (discarded === 'home') {
 		React.useEffect(() => {
@@ -20,7 +25,7 @@ const Menu = ({discarded}: {discarded: string}) => {
 				{links.map((link, index) => (
 					link !== discarded && (
 						<React.Fragment key={link}>
-							<a href={link === 'home' ? '../' : `../pages/${link}/`}>{link}</a>
+							<a href={getLinkHref(link)}>{link}</a>
 							{index < links.length - 1 && <div className="m-32 h-[1px] w-60 bg-white/10"></div>}
 						</React.Fragment>
 					)
@@ -52,7 +57,7 @@ const Menu = ({discarded}: {discarded: string}) => {
 					{links.map((link, index) => (
 						link !== discarded && (
 							<React.Fragment key={link}>
-								<a href={link === 'home' ? '../' : `../pages/${link}/`}>{link}</a>
+								<a href={getLinkHref(link)}>{link}</a>
 								{index < links.length - 1 && <div className="m-32 h-[1px] w-60 bg-white/10"></div>}
 							</React.Fragment>
 						)
