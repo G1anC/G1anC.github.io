@@ -83,16 +83,10 @@ export default function Portfolio({ titleRef, filterRef, bgRef }: {
 				<img alt={"42sh"} src={"/images/projects/portfolio3.png"} className={"object-cover"}/>
 			</div>,
 			<div className={"w-full h-auto flex items-center justify-center"}>
-				<img alt={"42sh"} src={"/images/projects/portfolio3NavMenu.png"} className={"object-cover"}/>
-			</div>,
-			<div className={"w-full h-auto flex items-center justify-center"}>
 				<img alt={"42sh"} src={"/images/projects/portfolio3works.png"} className={"object-cover"}/>
 			</div>,
 			<div className={"w-full h-auto flex items-center justify-center"}>
 				<img alt={"42sh"} src={"/images/projects/portfolio3rpg.png"} className={"object-cover"}/>
-			</div>,
-			<div className={"w-full h-auto flex items-center justify-center"}>
-				<img alt={"42sh"} src={"/images/projects/portfolio3rpgH.png"} className={"object-cover"}/>
 			</div>,
 			<div className={"p-48 text-center"}>
 				I really liked this one, loved the aestethic the logic.

@@ -5,15 +5,15 @@ import Menu from "../../components/menu";
 import Bottom from "@/app/components/bottom";
 import localFont from "next/font/local";
 import { gsap } from "gsap";
-import Wolfram from "@/app/pages/projects/wolfram"
-import Area from "@/app/pages/projects/area"
-import Shell from "@/app/pages/projects/42sh"
-import Glados from "@/app/pages/projects/glados"
-import Rpg from "@/app/pages/projects/rpg"
-import Designs from "@/app/pages/projects/designs";
-import Zappy from "@/app/pages/projects/zappy";
-import Raytracer from "@/app/pages/projects/raytracer";
-import Portfolio from "@/app/pages/projects/portfolio";
+import Wolfram from "./wolfram/wolfram"
+import Area from "./area/area"
+import Shell from "./42sh/42sh"
+import Glados from "./glados/glados"
+import Rpg from "./rpg/rpg"
+import Designs from "./designs/designs";
+import Zappy from "./zappy/zappy";
+import Raytracer from "./raytracer/raytracer";
+import Portfolio from "./portfolio/portfolio";
 import ScrollTrigger from  "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);

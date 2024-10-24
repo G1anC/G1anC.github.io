@@ -4,10 +4,8 @@ import React, {ReactNode, useRef} from "react";
 import localFont from "next/font/local";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import {gsap} from "gsap";
-import {useGSAP} from "@gsap/react";
 import Lenis from "lenis";
 import 'lenis/dist/lenis.css'
-import {black} from "next/dist/lib/picocolors";
 gsap.registerPlugin(ScrollTrigger);
 
 const SelarisFont = localFont({
@@ -76,7 +74,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 					ease: "power5.out",
 					scrollTrigger: {
 						trigger: section.current,
-						start: "top 65%",
+						start: "top 70%",
 						end: "top 30%",
 						toggleActions: "play none none reverse"
 					}
