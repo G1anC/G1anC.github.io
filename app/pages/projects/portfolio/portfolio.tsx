@@ -79,14 +79,11 @@ export default function Portfolio({ titleRef, filterRef, bgRef }: {
 					So i searched for inspiration and found some really <I>cool</I> ideas.
 				</div>
 			</div>,
-			<div className={"w-full h-auto flex items-center justify-center"}>
+			<div>
 				<img alt={"42sh"} src={"/images/projects/portfolio3.png"} className={"object-cover"}/>
-			</div>,
-			<div className={"w-full h-auto flex items-center justify-center"}>
 				<img alt={"42sh"} src={"/images/projects/portfolio3works.png"} className={"object-cover"}/>
-			</div>,
-			<div className={"w-full h-auto flex items-center justify-center"}>
 				<img alt={"42sh"} src={"/images/projects/portfolio3rpg.png"} className={"object-cover"}/>
+
 			</div>,
 			<div className={"p-48 text-center"}>
 				I really liked this one, loved the aestethic the logic.
@@ -107,7 +104,7 @@ export default function Portfolio({ titleRef, filterRef, bgRef }: {
 			<div className={"w-full flex justify-end items-center p-32"}>
 				<div className={"w-auto"}></div>
 				<div className={"w-2/3 text-end "}>
-					<I>4.</I><br/> <I>I.<br/>Learned.<br/>React.<br/></I>
+					<I>4.</I><br/> <I>I.</I><br/><I>Learned.</I><br/><I>React.</I><br/>
 					Yeah, took me a while but i finally did it.<br/>And with that, i learned <I>Typescript</I>, <I>Next.js</I> and finally <I>G S A P</I> (my beloved).
 				</div>
 			</div>,

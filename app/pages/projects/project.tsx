@@ -8,23 +8,9 @@ import Lenis from "lenis";
 import 'lenis/dist/lenis.css'
 gsap.registerPlugin(ScrollTrigger);
 
-const SelarisFont = localFont({
-	src: "../../../public/ppuli.otf",
-});
-
+const SelarisFont = localFont({ src: "../../../public/ppuli.otf", });
 const TextFont = localFont({ src: "../../../public/Halenoir-DemiBold.otf" })
 const ImportantFont = localFont({ src: "../../../public/Halenoir-Black.otf" })
-
-
-const lenis = new Lenis()
-
-lenis.on("scroll", ScrollTrigger.update);
-
-gsap.ticker.lagSmoothing(0)
-
-gsap.ticker.add((time) => {
-	lenis.raf(time * 1000)
-})
 
 const I = ({children}: {children: string}) => {
 	return (
@@ -61,7 +47,16 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 }): ReactNode {
 	const sectionsRef = childrens.map(() => React.useRef<HTMLDivElement>(null));
 	const gradientRef = React.useRef<HTMLDivElement>(null);
+
 	React.useEffect(() => {
+		const lenis = new Lenis();
+
+		lenis.on("scroll", ScrollTrigger.update);
+		gsap.ticker.lagSmoothing(0);
+		gsap.ticker.add((time) => {
+			lenis.raf(time * 1000);
+		});
+
 		sectionsRef.forEach((section) => {
 			if (section.current) {
 				gsap.fromTo(section.current, {
@@ -95,6 +90,11 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 			},
 			backgroundColor: "black",
 		});
+
+		return () => {
+			lenis.destroy();
+			gsap.ticker.remove(lenis.raf);
+		};
 	}, [sectionsRef]);
 
 	return (
