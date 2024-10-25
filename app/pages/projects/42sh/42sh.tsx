@@ -49,32 +49,23 @@ export default function Shell({ titleRef, filterRef, bgRef }: {
 					</div>
 				</div>
 			</section>,
-
-			<section>
 				<div className={"w-full h-auto flex items-center justify-center"}>
 					<img alt={"42sh"} src={"/images/projects/42sh.png"} className={"object-cover"}/>
+				</div>,
+			<div className={"w-full flex flex-col justify-start items-start"}>
+				<div className={"p-48 text-center w-full"}>
+					It is a shell that can execute <I>commands</I>, manage environment <I>variables</I> and
+					handle <I>signals</I>.
 				</div>
-			</section>,
-
-			<section>
-				<div className={"p-48 text-center"}>
-					It is a shell that can execute <I>commands</I>, manage environment <I>variables</I> and handle <I>signals</I>.
-				</div>
-
-
-			</section>,
-
-			<section>
-				<div className={"p-48 text-start w-5/6"}>
+				<div className={"p-48 text-start w-3/4"}>
 					I was in charge of the <I>environment variables</I>, <I>parsing</I> and <I>built-in
 					functions</I> (setenv, env, unsetenc, cd and echo).
 				</div>
-			</section>,
+			</div>,
 
-			<section>
-				<div className={"w-full h-full flex items-center p-32 "}>
-					<div className={"w-full h-full"}>
-						<div className={"w-full h-full flex items-center justify-start"}>
+			<div className={"w-full h-full flex items-center p-32 "}>
+				<div className={"w-full h-full"}>
+					<div className={"w-full h-full flex items-center justify-start"}>
 							<img alt={"42sh"} src={"/images/projects/myStrToWordArray.png"} className={"object-fill "}/>
 						</div>
 					</div>
@@ -83,17 +74,14 @@ export default function Shell({ titleRef, filterRef, bgRef }: {
 						Don't blame me i love coding fun stuff <I>:D</I>
 					</div>
 
-				</div>
-			</section>,
+				</div>,
 
-			<section>
 				<div className={"w-full flex justify-center"}>
-					<div className={"w-1/2 h-full text-center p-32"}>
+					<div className={"w-2/3 h-full text-center p-32"}>
 						More seriously, I've learned <I>a lot</I> from this project<br/>
 						(especially writting <I>readable code</I>), and i'm really proud of the <I>result</I>.
 					</div>
 				</div>
-			</section>
 		]}
 		/>
 	)
