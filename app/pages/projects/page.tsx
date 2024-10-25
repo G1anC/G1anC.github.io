@@ -8,7 +8,6 @@ import Area from "./area/area"
 import Shell from "./42sh/42sh"
 import Glados from "./glados/glados"
 import Rpg from "./rpg/rpg"
-import Designs from "./designs/designs";
 import Zappy from "./zappy/zappy";
 import Raytracer from "./raytracer/raytracer";
 import Portfolio from "./portfolio/portfolio";
@@ -28,13 +27,12 @@ export default function	Projects() {
 	        <Wolfram titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Area titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Glados titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	        <Designs titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 			<Portfolio titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	];
-	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[8]);
-	const [i, setI] = useState(8);
+	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[0]);
+	const [i, setI] = useState(0);
 
 	useEffect(() => {
 		if (!bgRef.current || !titleRef.current || !filterRef.current || !sectionsRef.current)
