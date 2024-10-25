@@ -3,10 +3,11 @@
 import React, {ReactNode, useRef} from "react";
 import localFont from "next/font/local";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import TextPlugin from "gsap/TextPlugin";
 import {gsap} from "gsap";
 import Lenis from "lenis";
 import 'lenis/dist/lenis.css'
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const SelarisFont = localFont({ src: "../../../public/ppuli.otf", });
 const TextFont = localFont({ src: "../../../public/Halenoir-DemiBold.otf" })
@@ -61,7 +62,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 			if (section.current) {
 				gsap.fromTo(section.current, {
 					opacity: 0,
-					y: 50
+					y: 50,
 				}, {
 					opacity: 1,
 					y: 0,
@@ -71,9 +72,9 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 						trigger: section.current,
 						start: "top 70%",
 						end: "top 30%",
-						toggleActions: "play none none reverse"
+						toggleActions: "play none none reverse",
 					}
-			});
+				});
 			}
 		});
 
@@ -102,7 +103,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 			<div className={"w-screen h-full"}>
 				<ProjectTitle titleRef={titleRef} filterRef={filterRef} selectedProject={name}/>
 				<ProjectBackground bgRef={bgRef} selectedProject={name}/>
-				<div ref={filterRef} className={"bg w-screen h-screen bg-black/50 backdrop-blur-md top-0 absolute"}/>
+				<div ref={filterRef} className={"bg w-screen h-screen backdrop-blur-md top-0 absolute"}/>
 				<div ref={gradientRef} className={"w-screen h-screen bg-gradient-to-t opacity-60 from-black top-0 to-transparent absolute"}/>
 			</div>
 			<div className={"w-screen bg-black h-full"}>
