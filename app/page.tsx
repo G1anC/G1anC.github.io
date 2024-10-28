@@ -93,7 +93,7 @@ export default function Home() {
 
     return (
         <div className={`overflow-hidden relative`}>
-            <Background/>
+            <Background />
             <Menu discarded="home"/>
             <div className="w-screen h-screen flex flex-col items-center justify-center">
                 <Title/>
