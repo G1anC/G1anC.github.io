@@ -20,6 +20,7 @@ export default function	Projects() {
 	const bgRef = useRef<HTMLDivElement>(null);
 	const titleRef = useRef<HTMLDivElement>(null);
 	const filterRef = useRef<HTMLDivElement>(null);
+	const transitionRef = useRef<HTMLDivElement>(null);
 	const sectionsRef = useRef<React.RefObject<HTMLDivElement>[]>([]);
 	const projects: React.ReactNode[] = [
 	        <Shell titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
@@ -28,11 +29,10 @@ export default function	Projects() {
 	        <Area titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Glados titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	        <Zappy titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
-	        <Rpg titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 			<Portfolio titleRef={titleRef} filterRef={filterRef} bgRef={bgRef} />,
 	];
-	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[0]);
-	const [i, setI] = useState(0);
+	const [selectedProject, setSelectedProject] = useState<React.ReactNode>(projects[3]);
+	const [i, setI] = useState(3);
 
 	useEffect(() => {
 		if (!bgRef.current || !titleRef.current || !filterRef.current || !sectionsRef.current)

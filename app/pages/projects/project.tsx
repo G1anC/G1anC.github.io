@@ -10,18 +10,26 @@ import 'lenis/dist/lenis.css'
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const SelarisFont = localFont({ src: "../../../public/ppuli.otf", });
-const TextFont = localFont({ src: "../../../public/Halenoir-DemiBold.otf" })
+const TextFont = localFont({ src: "../../../public/HalenoirCompact-Thin.otf" })
 const ImportantFont = localFont({ src: "../../../public/Halenoir-Black.otf" })
 
 const I = ({children}: {children: string}) => {
 	return (
-		<span className={`text-white ${ImportantFont.className}`}>{children}</span>
+		<span className="relative w-full ">
+			{/*
+			<span className={`absolute left-[2px] text-blue-600 z-[-1] ${ImportantFont.className}`}>{children}</span>
+			<span className={`absolute left-[-2px] text-red-600 z-[-1] ${ImportantFont.className}`}>{children}</span>
+			*/}
+			<span className={`text-white ${ImportantFont.className} `}>{children}</span>
+		</span>
 	)
 }
 
-const ProjectTitle: React.FC<{ selectedProject: string, titleRef: React.RefObject<HTMLDivElement>, filterRef: React.RefObject<HTMLDivElement> }> = ({ selectedProject, titleRef, filterRef }) => {
+const ProjectTitle: React.FC<{
+	selectedProject: string,
+	titleRef: React.RefObject<HTMLDivElement>, filterRef: React.RefObject<HTMLDivElement> }> = ({ selectedProject, titleRef, filterRef }) => {
 	return (
-		<div ref={titleRef} className={`z-10 title w-screen h-screen absolute text-[250px] top-0 flex items-center justify-center opacity-0 antialiased ${SelarisFont.className}`}>
+		<div ref={titleRef} className={`z-10 title w-screen h-screen absolute text-[300px] top-0 flex items-center justify-center opacity-0 antialiased ${SelarisFont.className}`}>
 			<button className={"absolute z-40 w-full flex uppercase items-center justify-center"}>
 				{selectedProject}
 			</button>
@@ -46,7 +54,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 	bgRef: React.RefObject<HTMLDivElement>,
 	name: string
 }): ReactNode {
-	const sectionsRef = childrens.map(() => React.useRef<HTMLDivElement>(null));
+	const childrensRef = childrens.map(() => React.useRef<HTMLDivElement>(null));
 	const gradientRef = React.useRef<HTMLDivElement>(null);
 
 	React.useEffect(() => {
@@ -58,21 +66,35 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 			lenis.raf(time * 1000);
 		});
 
-		sectionsRef.forEach((section) => {
-			if (section.current) {
-				gsap.fromTo(section.current, {
-					opacity: 0,
-					y: 50,
-				}, {
+		childrensRef.forEach((children) => {
+			if (children.current) {
+				gsap.fromTo(children.current, { opacity: 0, y: 20, }, {
 					opacity: 1,
 					y: 0,
-					duration: 0.5,
-					ease: "power5.out",
+					duration: 1,
+					ease: "power1.out",
 					scrollTrigger: {
-						trigger: section.current,
+						trigger: children.current,
 						start: "top 70%",
 						end: "top 30%",
-						toggleActions: "play none none reverse",
+						toggleActions: "play none none none",
+					},
+					onStart: () => {
+						const txtElements = children.current?.querySelectorAll('.txt');
+						console.log(txtElements);
+						if (txtElements) {
+							gsap.fromTo(
+								txtElements,
+								{ opacity: 0, x: 40 },
+								{
+									opacity: 1,
+									x: 0,
+									duration: 0.5,
+									stagger: 0.5,
+									ease: 'power4.out',
+								}
+							);
+						}
 					}
 				});
 			}
@@ -96,7 +118,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 			lenis.destroy();
 			gsap.ticker.remove(lenis.raf);
 		};
-	}, [sectionsRef]);
+	}, [childrensRef]);
 
 	return (
 		<div className={"w-screen h-full flex flex-col justify-center items-center"}>
@@ -109,7 +131,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 			<div className={"w-screen bg-black h-full"}>
 				{childrens.map((child, i) => {
 					return (
-						<div ref={sectionsRef[i]} key={i} className={`leading-[120%] rounded-t-3xl text-gray-400 z-[-1] w-full ${TextFont.className} px-10 uppercase text-8xl h-full my-96 text-justify flex items-center justify-center`}>
+						<div ref={childrensRef[i]} key={i} className={`leading-[120%] rounded-t-3xl text-gray-400 z-[-1] w-full ${TextFont.className} px-10 uppercase text-8xl h-full my-96 text-justify flex items-center justify-center`}>
 							{child}
 						</div>
 					)}

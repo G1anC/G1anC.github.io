@@ -3,7 +3,7 @@
 import Menu from "./components/menu";
 import Bottom from "@/app/components/bottom";
 import Background from "./components/Background";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 
@@ -13,6 +13,7 @@ export default function Home() {
     const subTitleRef = useRef<HTMLDivElement>(null);
     const circleRef = useRef<HTMLDivElement>(null);
     const PortfolioRef = useRef<HTMLDivElement>(null);
+    const [closeRef, setCloseRef] = useState<HTMLDivElement | null>(null);
 
     useEffect(() => {
         gsap.to(titleRef.current, {
@@ -92,30 +93,32 @@ export default function Home() {
     }
 
     return (
-        <div className={`overflow-hidden relative`}>
-            <Background/>
-            <Menu discarded="home"/>
-            <div className="w-screen h-screen flex flex-col items-center justify-center">
-                <Title/>
-                <Subtitle/>
-            </div>
-            <Bottom title={"Portfolio"} />
-            <div className="absolute top-0 left-0 w-full h-full">
-                <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto ">
-                    <div
-                        ref={circleRef}
-                        className="rotate-180 w-[103%] pb-[103%] rounded-full opacity-40 absolute border-b rounded-br-full rounded-bl-full"
-                    ></div>
+        <>
+            <div className={`overflow-hidden relative`}>
+                <Background/>
+                <Menu discarded="home"/>
+                <div className="w-screen h-screen flex flex-col items-center justify-center">
+                    <Title/>
+                    <Subtitle/>
+                </div>
+                <Bottom title={"Portfolio"}/>
+                <div className="absolute top-0 left-0 w-full h-full">
+                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto ">
+                        <div
+                            ref={circleRef}
+                            className="rotate-180 w-[103%] pb-[103%] rounded-full opacity-40 absolute border-b rounded-br-full rounded-bl-full"
+                        ></div>
+                    </div>
+                </div>
+                <div className={"absolute bottom-0 w-full h-full"}>
+                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto mt-[75%]">
+                        <div
+                            ref={circle2Ref}
+                            className="rotate-0 w-[85%] pb-[85%] opacity-40 rounded-full absolute border-b rounded-br-full rounded-bl-full"
+                        ></div>
+                    </div>
                 </div>
             </div>
-            <div className={"absolute bottom-0 w-full h-full"}>
-                <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto mt-[75%]">
-                    <div
-                        ref={circle2Ref}
-                        className="rotate-0 w-[85%] pb-[85%] opacity-40 rounded-full absolute border-b rounded-br-full rounded-bl-full"
-                    ></div>
-                </div>
-            </div>
-        </div>
+        </>
     );
 }
