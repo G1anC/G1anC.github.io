@@ -7,7 +7,6 @@ import Wolfram from "./wolfram/wolfram"
 import Area from "./area/area"
 import Shell from "./42sh/42sh"
 import Glados from "./glados/glados"
-import Rpg from "./rpg/rpg"
 import Zappy from "./zappy/zappy";
 import Raytracer from "./raytracer/raytracer";
 import Portfolio from "./portfolio/portfolio";

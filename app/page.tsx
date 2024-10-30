@@ -93,7 +93,6 @@ export default function Home() {
     }
 
     return (
-<<<<<<< HEAD
         <>
             <div className={`overflow-hidden relative`}>
                 <Background/>
@@ -118,22 +117,6 @@ export default function Home() {
                             className="rotate-0 w-[85%] pb-[85%] opacity-40 rounded-full absolute border-b rounded-br-full rounded-bl-full"
                         ></div>
                     </div>
-=======
-        <div className={`overflow-hidden relative`}>
-            <Background />
-            <Menu discarded="home"/>
-            <div className="w-screen h-screen flex flex-col items-center justify-center">
-                <Title/>
-                <Subtitle/>
-            </div>
-            <Bottom title={"Portfolio"} />
-            <div className="absolute top-0 left-0 w-full h-full">
-                <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto ">
-                    <div
-                        ref={circleRef}
-                        className="rotate-180 w-[103%] pb-[103%] rounded-full opacity-40 absolute border-b rounded-br-full rounded-bl-full"
-                    ></div>
->>>>>>> 32d7f77edaacefaa318f9ef31b8a9e7208c76375
                 </div>
             </div>
         </>
