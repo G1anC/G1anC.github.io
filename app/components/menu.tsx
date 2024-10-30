@@ -7,11 +7,16 @@ const Menu = ({discarded}: {discarded: string}) => {
 	const links = ['home', 'about', 'projects', 'contact', 'CV\/Education'];
 	const [open, setOpen] = React.useState(false);
 	const menuRef = React.useRef<HTMLDivElement>(null);
+	const linksRef = React.useRef<HTMLAnchorElement[]>([]);
 
 	const getLinkHref = (link: string) => {
 		if (link === 'home') return '/'; // Root/homepage link
 		return `/pages/${link.toLowerCase()}/`; // Points to directory like '/projects/', '/about/', etc.
 	};
+	const addLinkRef = (el: HTMLAnchorElement) => {
+		if (el && !linksRef.current.includes(el))
+		  linksRef.current.push(el);
+	  };
 
 	if (discarded === 'home') {
 		React.useEffect(() => {
@@ -25,8 +30,8 @@ const Menu = ({discarded}: {discarded: string}) => {
 				{links.map((link, index) => (
 					link !== discarded && (
 						<React.Fragment key={link}>
-							<a href={getLinkHref(link)}>{link}</a>
-							{index < links.length - 1 && <div className="m-32 h-[1px] w-60 bg-white/10"></div>}
+							<a href={getLinkHref(link)} ref={addLinkRef} className={"scale-1"}>{link}</a>
+							{index < links.length - 1 && <div className="m-32 h-[1px] w-[5%] bg-white/10"></div>}
 						</React.Fragment>
 					)
 				))}
@@ -52,18 +57,17 @@ const Menu = ({discarded}: {discarded: string}) => {
 					<img src="/images/burger.png" alt="burger" className="w-10 h-10"/>
 				</button>
 			</div>
-			{open && (
-				<div className="w-screen asbolute top-0 h-20 z-50 flex absolute items-center justify-center" ref={menuRef}>
+			{open && <div className="w-screen asbolute top-0 h-20 z-50 flex absolute items-center justify-center" ref={menuRef}>
 					{links.map((link, index) => (
 						link !== discarded && (
 							<React.Fragment key={link}>
-								<a href={getLinkHref(link)}>{link}</a>
-								{index < links.length - 1 && <div className="m-32 h-[1px] w-60 bg-white/10"></div>}
+								<a href={getLinkHref(link)} ref={addLinkRef} className={" scale-100"}>{link}</a>
+								{index < links.length - 1 && <div className="m-32 h-[1px] w-[5%] bg-white/10"></div>}
 							</React.Fragment>
 						)
 					))}
 				</div>
-			)}
+			}
 		</div>
 	);
 }
