@@ -26,7 +26,7 @@ const TextFont = localFont({
 const menuLinks = [
     { path: "/", name: "Home", font: PPul, style: "capitalize " },
     { path: "/pages/about", name: "About", font: TextFont, style: "uppercase" },
-    { path: "/pages/projects", name: "Projects", font: TextFont, style: "uppercase" },
+    { path: "/pages/projects", name: "Projets", font: TextFont, style: "uppercase" },
     { path: "/pages/contact", name: "Contact", font: TextFont, style: "uppercase" },
 ]
 
@@ -68,7 +68,7 @@ const Menu = () => {
 	}, [isMenuOpen])
 
 	return (
-		<div className={` uppercase z-[999]`} ref={container}>	
+		<div className={`z-[999]`} ref={container}>	
 
 			{/* MENU BUTTON WHEN CLOSED */}		
 			<div className={` fixed top-0 left-0 ${PPul.className} text-5xl p-4 w-full flex justify-center items-center z-[4]`}>
@@ -77,24 +77,54 @@ const Menu = () => {
 				</button>
 			</div>
 
+			{/* MENU OVERLAY SHOWING WHEN OPENED */}		
 			<div className={`menu-overlay fixed ${PPul.className} top-0 left-0 w-full p-4 flex flex-col justify-center items-center z-[5] h-full bg-black `} style={{clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"}}>
 				<div className="menu-overlay-bar cursor-pointer" >
 					<button onClick={toggleMenu} className={`${PPul.className} text-5xl`}>Close</button>
 				</div>
 				
 				<div className="flex h-full w-full flex-col justify-center">
-					<div className="menu-links">
+					<>
 						{menuLinks.map((link, i) => (
-							<div className="menu-link-item flex justify-start items-end h-[200px] duration-100" style={{clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"}}  key={i}>
-								<div className="menu-link-item-holder relative"
-									onClick={toggleMenu}
-									onMouseEnter={() => {}}
-								>
-									<Link href={link.path} className={`menu-link  text-[200px] ${link.font.className} ${link.style}`}>{link.name}</Link>
+							<div className="menu-link-item flex justify-start items-end h-[200px] duration-100"
+								style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }} key={i}
+							>
+								<div className="menu-link-item-holder relative">
+									<Link
+										href={link.path}
+										data-index={i}
+										onClick={toggleMenu}
+										className={`menu-link leading-[70%] tracking-[-0.05em] text-[200px] ${link.font.className} ${link.style}`}
+										onMouseOver={(event) => {
+											const linkElement = event.currentTarget;
+											const letters = link.name.split("").map((char, i) => {
+												const span = document.createElement("span");
+												span.textContent = char;
+												span.style.opacity = "0";
+												if (i === 0)
+													span.style.textTransform = "capitalize";
+												return span;
+											});
+											linkElement.innerHTML = ""; 
+											letters.forEach((span) => linkElement.appendChild(span));
+											gsap.to(letters, {
+												opacity: 1,
+												y: 0,
+												duration: 0.3,
+												stagger: 0.1,
+											});
+											gsap.to(linkElement, {
+												scale: 1.1,
+												duration: 0.3,
+											});
+										}}
+									>
+										{link.name}
+									</Link>
 								</div>
 							</div>
 						))}
-					</div>
+					</>
 				</div>
 			</div>
 		</div>
