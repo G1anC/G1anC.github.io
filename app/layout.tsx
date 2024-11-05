@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Background from "./components/Background";
+import Menu from "./components/menu";
 
 
 
 const PPul = localFont({
     src: "../public/ppul.otf",
 });
+
 
 
 export const metadata: Metadata = {
@@ -18,7 +20,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={`w-screen h-full ${PPul.className} text-4xl antialiased`} >
+            <body className={`w-screen h-full ${PPul.className} text-4xl antialiased`}>
+                <Menu />
                 {children}
             </body>
         </html>

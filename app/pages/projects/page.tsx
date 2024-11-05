@@ -1,7 +1,6 @@
 'use client';
 
 import React, {useEffect, useState, useRef} from "react";
-import Menu from "../../components/menu";
 import { gsap } from "gsap";
 import Wolfram from "./wolfram/wolfram"
 import Area from "./area/area"
@@ -62,7 +61,6 @@ export default function	Projects() {
 			</div>
 
 			<div className={"w-screen h-screen sticky z-30"}>
-				<Menu discarded={"projects"}/>
 
 				<div className={"fixed top-0 left-0 w-32 h-full flex justify-center items-center z-30"}>
 					<img

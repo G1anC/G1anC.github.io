@@ -38,3 +38,18 @@ body {
 ::-webkit-scrollbar-thumb {
   background: transparent; /* Optional: make the thumb transparent */
 }
+
+.font-thin {
+  font-family: var(--font-custom-thin), sans-serif;
+  font-weight: 100;
+}
+
+.font-bold {
+  font-family: var(--font-custom-bold), sans-serif;
+  font-weight: 800;
+}
+
+.font-changer:hover {
+  font-weight: 800;
+  transition: font-weight 0.3s ease; /* Smooth transition for font weight */
+}

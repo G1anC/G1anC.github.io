@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Menu from "@/app/components/menu";
 import localFont from "next/font/local";
 import Background from "@/app/components/Background";
 
@@ -68,7 +67,6 @@ export default function About() {
 	return (
 		<>
 			<Background />
-			<Menu discarded="about" />
 			<div className="w-screen h-screen flex items-center gap-x-10 justify-center">
 				<div className="w-1/2 h-4/5 flex items-center justify-end">
 					<div className="aspect-square w-auto h-full flex items-center justify-center">

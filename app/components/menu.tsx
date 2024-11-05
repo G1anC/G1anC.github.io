@@ -1,115 +1,103 @@
 'use client';
 
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { gsap } from 'gsap';
-
-const Menu = ({discarded}: {discarded: string}) => {
-	const links = ['home', 'about', 'projects', 'contact', 'CV\/Education'];
-	const [open, setOpen] = React.useState(false);
-	const transitionRef = React.useRef<HTMLDivElement>(null);
-	const menuRef = React.useRef<HTMLDivElement>(null);
-	const [clicked, setClicked] = React.useState<string>('');
-	const linksRef = React.useRef<HTMLAnchorElement[]>([]);
-
-	const getLinkHref = (link: string) => {
-		if (link === 'home') return '/'; // Root/homepage link
-		return `/pages/${link.toLowerCase()}/`; // Points to directory like '/projects/', '/about/', etc.
-	};
-	const addLinkRef = (el: HTMLAnchorElement) => {
-		if (el && !linksRef.current.includes(el))
-		  linksRef.current.push(el);
-	  };
+import Link from 'next/link';
+import localFont from 'next/font/local';
+import { useGSAP } from '@gsap/react';
+import "../globals.css";
 
 
-	if (discarded === 'home') {
-		React.useEffect(() => {
-			if (menuRef.current) {
-				const items = menuRef.current.querySelectorAll('button, div');
-				gsap.fromTo(items, {opacity: 0}, {opacity: 1, stagger: 0.1, duration: 0.5, ease: "power2.inOut"});
-			}
-		}, []);
-		return (
-			<>
-				<div className={"hidden w-screen h-screen absolute outline outline-[40000px] outline-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[900]"} ref={transitionRef}></div>
-				<div className="w-screen asbolute top-0 h-20 z-50 flex absolute items-center justify-center" ref={menuRef}>
-					{links.map((link, index) => (
-						link !== discarded && (
-							<React.Fragment key={link}>
-								<button onClick={() => {
-									setClicked(link);
-									if (transitionRef.current) {
-										transitionRef.current.style.display = "block";
-										gsap.to(transitionRef.current, {
-											duration: 1,
-											rotate: 20,
-											scale: 0,
-											ease: "power2.in",
-											onComplete: () => {
-												window.location.href = getLinkHref(link)
-											}
-										})
-									}
-								}
-								}>{link}</button>
-								{index < links.length - 1 && <div className="m-32 h-[1px] w-60 bg-white/30"></div>}
-							</React.Fragment>
-						)
-					))}
-				</div>
-			</>
-		);
+const PPul = localFont({
+    src: "../../public/ppul.otf",
+});
+
+const TextFont = localFont({ 
+	src: "../../public/HalenoirCompact-Thin.otf",
+	weight: "100",
+ })
+
+ const BigFont = localFont({ 
+	src: "../../public/Halenoir-Black.otf",
+	weight: "800",
+ })
+
+
+const menuLinks = [
+    { path: "/", name: "Home", font: PPul, style: "capitalize " },
+    { path: "/pages/about", name: "About", font: TextFont, style: "uppercase" },
+    { path: "/pages/projects", name: "Projects", font: TextFont, style: "uppercase" },
+    { path: "/pages/contact", name: "Contact", font: TextFont, style: "uppercase" },
+]
+
+
+
+const Menu = () => {
+	const container = useRef<HTMLDivElement>(null);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	let tl = useRef<gsap.core.Timeline>();
+
+	const toggleMenu = () => {
+		setIsMenuOpen(!isMenuOpen);
 	}
-	React.useEffect(() => {
-		if (menuRef.current)
-			gsap.fromTo(menuRef.current.querySelectorAll('a, div'), {
-				opacity: 0
-			}, {
-				opacity: 1,
+
+	useGSAP(() => {
+		gsap.set(".menu-link-item-holder", {y: 200});
+		tl.current = gsap.timeline({paused: true})
+			.to(".menu-overlay", {
+				duration: 1.25,
+				clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+				ease: "power4.inOut"
+			})
+			.to(".menu-link-item-holder", {
+				duration: 1,
 				y: 0,
+				delay: -0.75,
 				stagger: 0.1,
-				duration: 0.5,
-				ease: "power2.inOut"
-			});
-	}, [open]);
+				ease: "power4.inOut"
+			})
+	}, {scope: container})
+
+	useEffect(() => {
+		if (!tl.current) return
+		if (isMenuOpen) {
+			tl.current.play()
+		} else {
+			tl.current.reverse()
+		}
+	}, [isMenuOpen])
+
 	return (
-		<>
-			<div className={"hidden w-screen h-screen absolute outline outline-[40000px] outline-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[900]"} ref={transitionRef}></div>
-			<div className={"fixed top-0 left-0 w-full z-50 h-20 flex justify-center items-center"}>
-				<div className="right-5 z-[60] flex absolute items-center justify-end">
-					<button onClick={() => setOpen(!open)} className="z-10 mr-5">
-						<img src="/images/burger.png" alt="burger" className="w-10 h-10"/>
-					</button>
+		<div className={` uppercase z-[999]`} ref={container}>	
+
+			{/* MENU BUTTON WHEN CLOSED */}		
+			<div className={` fixed top-0 left-0 ${PPul.className} text-5xl p-4 w-full flex justify-center items-center z-[4]`}>
+				<button className="menu-open cursor-pointer" onClick={toggleMenu}>
+					Menu
+				</button>
+			</div>
+
+			<div className={`menu-overlay fixed ${PPul.className} top-0 left-0 w-full p-4 flex flex-col justify-center items-center z-[5] h-full bg-black `} style={{clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"}}>
+				<div className="menu-overlay-bar cursor-pointer" >
+					<button onClick={toggleMenu} className={`${PPul.className} text-5xl`}>Close</button>
 				</div>
-				{open && (
-					<div className="w-screen asbolute top-0 h-20 z-[999] flex absolute items-center justify-center"
-						 ref={menuRef}>
-						{links.map((link, index) => (
-							link !== discarded && (
-								<React.Fragment key={link}>
-									<button onClick={() => {
-										setClicked(link);
-										if (transitionRef.current) {
-											transitionRef.current.style.display = "block";
-											gsap.to(transitionRef.current, {
-												duration: 1,
-												rotate: 20,
-												scale : 0,
-												ease: "power2.in",
-												onComplete: () => {
-													window.location.href = getLinkHref(link)
-												}
-											})
-										}
-									}
-									}>{link}</button>
-									{index < links.length - 1 && <div className="m-32 h-[1px] w-60 bg-white/30"></div>}
-								</React.Fragment>
-							)
+				
+				<div className="flex h-full w-full flex-col justify-center">
+					<div className="menu-links">
+						{menuLinks.map((link, i) => (
+							<div className="menu-link-item flex justify-start items-end h-[200px] duration-100" style={{clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"}}  key={i}>
+								<div className="menu-link-item-holder relative"
+									onClick={toggleMenu}
+									onMouseEnter={() => {}}
+								>
+									<Link href={link.path} className={`menu-link  text-[200px] ${link.font.className} ${link.style}`}>{link.name}</Link>
+								</div>
+							</div>
 						))}
 					</div>
-				)}
+				</div>
 			</div>
-		</>
+		</div>
 
 	);
 }

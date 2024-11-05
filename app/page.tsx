@@ -1,6 +1,5 @@
 'use client';
 
-import Menu from "./components/menu";
 import Bottom from "@/app/components/bottom";
 import Background from "./components/Background";
 import React, { useRef, useEffect, useState } from "react";
@@ -96,7 +95,6 @@ export default function Home() {
         <>
             <div className={`overflow-hidden relative`}>
                 <Background/>
-                <Menu discarded="home"/>
                 <div className="w-screen h-screen flex flex-col items-center justify-center">
                     <Title/>
                     <Subtitle/>
