@@ -93,10 +93,12 @@ const Menu = () => {
 									<Link
 										href={link.path}
 										data-index={i}
-										onClick={toggleMenu}
+										onClick={() => {
+											toggleMenu()
+										}}
 										className={`menu-link leading-[70%] tracking-[-0.05em] text-[200px] ${link.font.className} ${link.style}`}
 										onMouseOver={(event) => {
-											const linkElement = event.currentTarget;
+											/*const linkElement = event.currentTarget;
 											const letters = link.name.split("").map((char, i) => {
 												const span = document.createElement("span");
 												span.textContent = char;
@@ -117,6 +119,7 @@ const Menu = () => {
 												scale: 1.1,
 												duration: 0.3,
 											});
+											*/	
 										}}
 									>
 										{link.name}

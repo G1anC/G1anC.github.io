@@ -34,30 +34,31 @@ export default function Home() {
             opacity: 1,
             y: 10,
             delay: 0.2,
-            onComplete() {
-                gsap.to(circleRef.current, {
-                    rotation: 0,
-                    ease: "power4.out",
-                    duration: 2,
-                    transformOrigin: "50% 50%",
-                });
-                gsap.to(circle2Ref.current, {
-                    duration: 2,
-                    delay: 0.5,
-                    ease: "power4.out",
-                    transformOrigin: "50% 50%",
-                    rotate: 180,
-                    onComplete() {
-                        gsap.to(PortfolioRef.current, {
-                            duration: 0.5,
-                            opacity: 1,
-                            y: 10,
-                        })
-                    }
-                });
-            },
         });
     }, []);
+
+    const Circles = () => {
+        return (
+            <>
+                <div className="absolute top-0 left-0 w-full h-full">
+                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto ">
+                        <div
+                            ref={circleRef}
+                            className="rotate-180 w-[103%] pb-[103%] rounded-full opacity-40 absolute border-b rounded-br-full rounded-bl-full"
+                        ></div>
+                    </div>
+                </div>
+                <div className={"absolute bottom-0 w-full h-full"}>
+                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto mt-[75%]">
+                        <div
+                            ref={circle2Ref}
+                            className="rotate-0 w-[85%] pb-[85%] opacity-40 rounded-full absolute border-b rounded-br-full rounded-bl-full"
+                        ></div>
+                    </div>
+                </div>
+            </>
+    )
+}
 
     const Subtitle = () => {
         return (
@@ -99,23 +100,6 @@ export default function Home() {
                     <Subtitle/>
                 </div>
                 <Bottom title={"Portfolio"}/>
-                <div className="absolute top-0 left-0 w-full h-full">
-                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto ">
-                        <div
-                            ref={circleRef}
-                            className="rotate-180 w-[103%] pb-[103%] rounded-full opacity-40 absolute border-b rounded-br-full rounded-bl-full"
-                        ></div>
-                    </div>
-                </div>
-                <div className={"absolute bottom-0 w-full h-full"}>
-                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto mt-[75%]">
-                        <div
-                            ref={circle2Ref}
-                            className="rotate-0 w-[85%] pb-[85%] opacity-40 rounded-full absolute border-b rounded-br-full rounded-bl-full"
-                        ></div>
-                    </div>
-                </div>
-        
             </div>
         
         </>
