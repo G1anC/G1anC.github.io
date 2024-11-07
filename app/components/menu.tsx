@@ -32,14 +32,14 @@ const menuLinks = [
 
 
 
-const Menu = () => {
+const Menu = (): JSX.Element => {
 	const container = useRef<HTMLDivElement>(null);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isHovered, setIsHovered] = useState(false);
 	let tl = useRef<gsap.core.Timeline>();
 
-	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
-	}
+	const handleMouse = (): void => setIsHovered(!isHovered);
+	const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
 
 	useGSAP(() => {
 		gsap.set(".menu-link-item-holder", {y: 200});
@@ -67,6 +67,7 @@ const Menu = () => {
 		}
 	}, [isMenuOpen])
 
+
 	return (
 		<div className={`z-[999]`} ref={container}>	
 
@@ -86,44 +87,43 @@ const Menu = () => {
 				<div className="flex h-full w-full flex-col justify-center">
 					<>
 						{menuLinks.map((link, i) => (
-							<div className="menu-link-item flex justify-start items-end h-[200px] duration-100"
+							<div className="menu-link-item w-full flex justify-start items-end h-[200px] duration-100"
 								style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }} key={i}
 							>
-								<div className="menu-link-item-holder relative">
+								<div className="menu-link-item-holder w-full relative">
 									<Link
 										href={link.path}
 										data-index={i}
-										onClick={() => {
-											toggleMenu()
-										}}
-										className={`menu-link leading-[70%] tracking-[-0.05em] text-[200px] ${link.font.className} ${link.style}`}
-										onMouseOver={(event) => {
-											/*const linkElement = event.currentTarget;
-											const letters = link.name.split("").map((char, i) => {
-												const span = document.createElement("span");
-												span.textContent = char;
-												span.style.opacity = "0";
-												if (i === 0)
-													span.style.textTransform = "capitalize";
-												return span;
-											});
-											linkElement.innerHTML = ""; 
-											letters.forEach((span) => linkElement.appendChild(span));
-											gsap.to(letters, {
+										onClick={toggleMenu}
+										className={`menu-link leading-[70%] w-fulltracking-[-0.05em]  text-[200px] ${link.font.className} ${link.style}`}
+										onMouseEnter={(event) => {
+											const linkElement = event.currentTarget;
+											const spans = linkElement.querySelectorAll("span");
+
+											gsap.to(spans, {
 												opacity: 1,
 												y: 0,
 												duration: 0.3,
+												scale: 1.2,
 												stagger: 0.1,
+												marginRight: 10,
+												onComplete: () => {
+													gsap.to(spans, {
+														opacity: 0.2,
+														y: -10,
+														marginRight: 0,
+														duration: 0.2,
+														stagger: 0.05,
+													});
+												}
 											});
-											gsap.to(linkElement, {
-												scale: 1.1,
-												duration: 0.3,
-											});
-											*/	
 										}}
 									>
-										{link.name}
+										{link.name.split("").map((char, i) => (
+											<span className={"mr-0 opacity-20 scale-100"} key={i}>{char}</span>
+										))}
 									</Link>
+
 								</div>
 							</div>
 						))}

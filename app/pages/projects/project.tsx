@@ -16,10 +16,6 @@ const ImportantFont = localFont({ src: "../../../public/Halenoir-Black.otf" })
 const I = ({children}: {children: string}) => {
 	return (
 		<span className="relative w-full ">
-			{/*
-			<span className={`absolute left-[2px] text-blue-600 z-[-1] ${ImportantFont.className}`}>{children}</span>
-			<span className={`absolute left-[-2px] text-red-600 z-[-1] ${ImportantFont.className}`}>{children}</span>
-			*/}
 			<span className={`text-white ${ImportantFont.className} `}>{children}</span>
 		</span>
 	)

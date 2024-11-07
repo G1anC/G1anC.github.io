@@ -16,7 +16,7 @@ const Background = () => {
 	}, [bgRef]);
 
 	return (
-		<div ref={bgRef} className={`fixed z-[-1] blur-2xl scale-[110%] inset-0`} style={{
+		<div ref={bgRef} className={`absolute top-0 left-0 blur-2xl scale-[110%] inset-0`} style={{
 			backgroundImage: "url('/images/bg.png')",
 			backgroundSize: "fit",
 			backgroundPosition: "center",

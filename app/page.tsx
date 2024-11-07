@@ -5,29 +5,26 @@ import Background from "./components/Background";
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import localFont from "next/font/local";
+import FluidBack from "@/app/components/FluidBack";
 
 
 const Selaris = localFont({
-    src: "../public/Selaris.woff",
+    src: "../public/dirtyline.woff",
 });
 
 const Lovelace = localFont({
-    src: "../public/Lovelace.woff",
+    src: "../public/pixel.otf",
 });
 
 export default function Home() {
-    const circle2Ref = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
     const subTitleRef = useRef<HTMLDivElement>(null);
-    const circleRef = useRef<HTMLDivElement>(null);
-    const PortfolioRef = useRef<HTMLDivElement>(null);
-    const [closeRef, setCloseRef] = useState<HTMLDivElement | null>(null);
 
     useEffect(() => {
         gsap.to(titleRef.current, {
             duration: 0.5,
             opacity: 1,
-            y: 10,
+            y: -10,
         });
         gsap.to(subTitleRef.current, {
             duration: 0.5,
@@ -37,71 +34,54 @@ export default function Home() {
         });
     }, []);
 
-    const Circles = () => {
-        return (
-            <>
-                <div className="absolute top-0 left-0 w-full h-full">
-                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto ">
-                        <div
-                            ref={circleRef}
-                            className="rotate-180 w-[103%] pb-[103%] rounded-full opacity-40 absolute border-b rounded-br-full rounded-bl-full"
-                        ></div>
-                    </div>
+    const AllTitle = () => {
+        const Subtitle = () => {
+            return (
+                <div ref={subTitleRef} className={"opacity-0 flex items-center mt-[-420px] h-1/2 justify-center"}>
+                    <p
+                        className={`text-[200px] tracking-tighter capitalize flex justify-center px-4 items-center h-full ${Lovelace.className}`}
+                        style={{
+                            WebkitTextStroke: "1px rgba(0,0,0, 0.7)",
+                            WebkitTextFillColor: "transparent",
+                            WebkitBackgroundClip: "text",
+                            backgroundClip: "text",
+                            backgroundImage: "radial-gradient(circle, #00000070, #000000)",
+                        }}
+                    >
+                        Steiniger
+                    </p>
                 </div>
-                <div className={"absolute bottom-0 w-full h-full"}>
-                    <div className="relative w-[85%] pb-[85%] flex justify-center items-center mx-auto mt-[75%]">
-                        <div
-                            ref={circle2Ref}
-                            className="rotate-0 w-[85%] pb-[85%] opacity-40 rounded-full absolute border-b rounded-br-full rounded-bl-full"
-                        ></div>
-                    </div>
+            )
+        }
+        const Title = () => {
+            return (
+                <div ref={titleRef} className={"opacity-0 h-full tracking-tighter"}>
+                    <p className={`text-[600px] h-full flex justify-center items-center ${Selaris.className}`}>
+                        nOAh
+                    </p>
                 </div>
-            </>
-    )
-}
+            )
 
-    const Subtitle = () => {
+        }
         return (
-            <div ref={subTitleRef} className={"opacity-0 mt-[60px] flex items-center justify-center"}>
-                <p
-                    className={`text-[200px] h-[300px] tracking-tighter w-[200%] p-5 leading-[75%] bg-[radial-gradient(circle, rgba(255,255,255,0.3), rgba(255,255,255,0.1))] ${Lovelace.className}`}
-                    style={{
-                        WebkitTextStroke: "1px rgba(255,255,255,0.3)",
-                        WebkitTextFillColor: "transparent",
-                        WebkitBackgroundClip: "text",
-                        display: "inline-block",
-                        backgroundClip: "text",
-                        backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.3), rgba(255,255,255,0.1))",
-                    }}
-                >
-                    Steiniger
-                </p>
+            <div className={"flex w-full h-full flex-col flex-1 items-center justify-center"}>
+                <Title/>
+                <Subtitle/>
             </div>
         )
-    }
-
-    const Title = () => {
-        return (
-            <div ref={titleRef} className={"opacity-0 tracking-tighter mt-[180px]"}>
-                <p className={`text-[450px] h-full ${Selaris.className}`}>
-                    noah
-                </p>
-            </div>
-        )
-
     }
 
     return (
         <>
-            <div className={`overflow-hidden relative`}>
-                <Background/>
-                <div className="w-screen h-screen flex flex-col items-center justify-center">
-                    <Title/>
-                    <Subtitle/>
+            <div className={`overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center`}>
+                <FluidBack/>
+                <div className={"absolute top-0 left-0 w-full h-full bg-[#8888ff10]"}></div>
+                <div className=" relative p-4 w-full h-full flex flex-col items-center justify-center">
+                    <div className={"w-full h-[10%]"}>Web Designer / Creator</div>
+                    <AllTitle/>
+                    <div className={"text-end w-full h-[10%] flex items-end justify-end"}>For a lot of Years</div>
                 </div>
-                <Bottom title={"Portfolio"}/>
             </div>
-        
         </>
     );
 }
