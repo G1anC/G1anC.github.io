@@ -1,87 +1,102 @@
 'use client';
 
-import Bottom from "@/app/components/bottom";
-import Background from "./components/Background";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, ReactNode } from "react";
 import { gsap } from "gsap";
 import localFont from "next/font/local";
 import FluidBack from "@/app/components/FluidBack";
+import { useGSAP } from "@gsap/react";
 
+const Selaris = localFont({ src: "../public/dirtyline.woff" });
+const Lovelace = localFont({ src: "../public/pixel.otf" });
 
-const Selaris = localFont({
-    src: "../public/dirtyline.woff",
-});
-
-const Lovelace = localFont({
-    src: "../public/pixel.otf",
-});
-
-export default function Home() {
+const AllTitle = () => {
     const titleRef = useRef<HTMLDivElement>(null);
     const subTitleRef = useRef<HTMLDivElement>(null);
+    const letters = "nOAh".split("");
+
 
     useEffect(() => {
-        gsap.to(titleRef.current, {
-            duration: 0.5,
-            opacity: 1,
-            y: -10,
-        });
-        gsap.to(subTitleRef.current, {
-            duration: 0.5,
-            opacity: 1,
-            y: 10,
-            delay: 0.2,
-        });
-    }, []);
 
-    const AllTitle = () => {
-        const Subtitle = () => {
-            return (
-                <div ref={subTitleRef} className={"opacity-0 flex items-center mt-[-420px] h-1/2 justify-center"}>
-                    <p
-                        className={`text-[200px] tracking-tighter capitalize flex justify-center px-4 items-center h-full ${Lovelace.className}`}
-                        style={{
-                            WebkitTextStroke: "1px rgba(0,0,0, 0.7)",
-                            WebkitTextFillColor: "transparent",
-                            WebkitBackgroundClip: "text",
-                            backgroundClip: "text",
-                            backgroundImage: "radial-gradient(circle, #00000070, #000000)",
-                        }}
-                    >
+        gsap.set(".titleLetters", { opacity: 0, y: 10 });
+        gsap.fromTo(subTitleRef.current, {opacity: 0, y: 0}, { duration: 0.5, opacity: 1, y: 10, delay: 1 });
+        gsap.to(".titleLetters", { duration: 1, opacity: 1, y: 0, stagger: 0.05, delay: 0.5, ease: "power4.inOut" });
+    }, []);
+    return (
+        <div className="w-full h-full flex items-center flex-1 justify-center">
+            <>20</>
+            <div className="flex w-full h-full flex-col items-center justify-center">
+                <div ref={titleRef} className={`h-full tracking-tighter text-[600px] flex justify-center items-center ${Selaris.className}`}>
+                    {letters.map((letter, i) => {
+                        return <div key={i} className="titleLetters flex justify-center items-center">{letter}</div>
+                    })}
+                </div>
+                <div ref={subTitleRef} className="opacity-0 flex items-center mt-[-420px] h-1/2 justify-center">
+                    <p className={`text-[200px] tracking-tighter capitalize flex justify-center px-4 items-center h-full ${Lovelace.className}`}
+                        style={{ WebkitTextStroke: "1px rgba(0,0,0, 0.7)", WebkitTextFillColor: "transparent", WebkitBackgroundClip: "text", backgroundClip: "text", backgroundImage: "radial-gradient(circle, #00000070, #000000)" }}>
                         Steiniger
                     </p>
                 </div>
-            )
-        }
-        const Title = () => {
-            return (
-                <div ref={titleRef} className={"opacity-0 h-full tracking-tighter"}>
-                    <p className={`text-[600px] h-full flex justify-center items-center ${Selaris.className}`}>
-                        nOAh
-                    </p>
-                </div>
-            )
-
-        }
-        return (
-            <div className={"flex w-full h-full flex-col flex-1 items-center justify-center"}>
-                <Title/>
-                <Subtitle/>
             </div>
-        )
-    }
+            <>24</>
+        </div>
+    );
+}
+
+const InfoBlock = ({ b, left, center, right }: { b: boolean, left: ReactNode[], center: ReactNode[], right: ReactNode[] }) => (
+    <div className={`w-full uppercase h-[10%] flex ${b && "justify-end items-end"}`}>
+        <div className="shrink-0 mr-8">{left.map((text, i) => <div className="txt" key={i}>{text}</div>)}</div>
+        <div className="w-full h-[1px] bg-[#A3A3A3]"></div>
+        <div className="shrink-0 mx-8 flex flex-col items-center txt">{center.map((text, i) => <div className="txt" key={i}>{text}</div>)}</div>
+        <div className="w-full h-[1px] bg-[#A3A3A3]"></div>
+        <div className="shrink-0 ml-8 text-end">{right.map((text, i) => <div className="txt" key={i}>{text}</div>)}</div>
+    </div>
+);
+
+export default function Home() {
+    const container = useRef<HTMLDivElement>(null);
+    const tl = useRef<gsap.core.Timeline>();
+    const filter = useRef<HTMLDivElement>(null);
+    const effect = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        gsap.set(".clipper", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
+        gsap.set(".txt", { y: 50 });
+        tl.current = gsap.timeline({ paused: true })
+            .to(".txt", { duration: 1, y: 0, delay: -0.75, stagger: 0.05, ease: "power4.inOut" })
+    }, { scope: container });
+
+    useEffect(() => {
+        if (tl.current) tl.current.play();
+        filter.current && gsap.fromTo(filter.current, { opacity: 0}, { opacity: 1, duration: 0.5, delay: 1  });
+        effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 2 });
+    }, []);
+
 
     return (
-        <>
-            <div className={`overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center`}>
-                <FluidBack/>
-                <div className={"absolute top-0 left-0 w-full h-full bg-[#8888ff10]"}></div>
-                <div className=" relative p-4 w-full h-full flex flex-col items-center justify-center">
-                    <div className={"w-full h-[10%]"}>Web Designer / Creator</div>
-                    <AllTitle/>
-                    <div className={"text-end w-full h-[10%] flex items-end justify-end"}>For a lot of Years</div>
-                </div>
+        <div ref={container} className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
+            <div ref={effect} className={"absolute top-0 left-0 w-full h-full"}>
+                <FluidBack />
             </div>
-        </>
+            <div ref={filter} className="absolute top-0 left-0  w-full h-full" style={{ backgroundImage: "radial-gradient(circle, transparent, #0000ff30)" }}></div>
+            <div className="relative p-4 w-full h-full flex flex-col items-center justify-center">
+                <InfoBlock b={false} left={[
+                    <div className="clipper"><div className="txt relative">Web Designer | Creator</div></div>,
+                    <div className="clipper"><div className="txt relative">UI | UX</div></div>,
+                    <div className="clipper"><div className="txt relative">Since 2023</div></div>
+                ]} center={[
+                    <div className="clipper"><div className="relative txt">Student at</div></div>,
+                    <div className="clipper"><pre className="relative txt">48°35'1.277" N</pre></div>,
+                    <div className="clipper"><pre className="relative txt">7°44'58.776" E</pre></div>
+                ]} right={[
+                    <div className="clipper"><div className="relative txt">Secret for the curious</div></div>
+                ]} />
+                <AllTitle />
+                <InfoBlock b={true} left={["Figma GSAP & Next.ts"]} center={[
+                    <div className="txt" key={0}>2004</div>
+                ]} right={[
+                    <div className="txt" key={0}>+33 7 68 88 48 18</div>, "noah.steiniger.pro@gmail.com"
+                ]} />
+            </div>
+        </div>
     );
 }

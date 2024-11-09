@@ -95,7 +95,7 @@ const Menu = (): JSX.Element => {
 										href={link.path}
 										data-index={i}
 										onClick={toggleMenu}
-										className={`menu-link leading-[70%] w-fulltracking-[-0.05em]  text-[200px] ${link.font.className} ${link.style}`}
+										className={`menu-link leading-[70%] w-full tracking-[-0.05em]  text-[200px] ${link.font.className} ${link.style}`}
 										onMouseEnter={(event) => {
 											const linkElement = event.currentTarget;
 											const spans = linkElement.querySelectorAll("span");

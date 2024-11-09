@@ -3,13 +3,57 @@
 import React, { useState } from 'react';
 import localFont from "next/font/local";
 import Background from "@/app/components/Background";
+import FluidBack from "@/app/components/FluidBack";
 
 // Import your font locally
 const SanFranciscoFont = localFont({
 	src: "../../../public/SanFrancisco.woff",
 });
 
+/*
 
+<div className="h-full w-full flex py-10 flex-col justify-start rounded-xl border-white overflow-y-auto scrollbar-thumb-gray-800/50 scrollbar-track-transparent custom-scrollbar border-opacity-20 bg-black/70">
+							{ right && skills ? (
+								<div className="w-full h-full grid grid-cols-5 grid-rows-5 gap-4">
+									{skills.map((skill, i) => (
+										<div className="flex items-center justify-center" key={i}>
+											<img src={skill.src} alt={`Skill ${i}`} className="w-1/2 h-1/2 object-contain" />
+										</div>
+									))}
+								</div>
+							) : (
+	MeDiscussions.map((discussion, i) => (
+		<React.Fragment key={i}>
+			<div className="ml-5 flex mt-5 items-start justify-start">
+				<div
+					className="w-[40px] h-[40px] bg-white/20 rounded-full flex-shrink-0"
+					style={{
+						backgroundImage: `url('/images/chat.png')`,
+						backgroundSize: "contain",
+						backgroundPosition: "center",
+						backgroundRepeat: "no-repeat",
+					}}
+				></div>
+				<Message value={discussion.question} />
+			</div>
+			<div className="mr-5 mb-5 flex items-start justify-end">
+				<Message value={discussion.answers} />
+				<div
+					className="w-[40px] h-[40px] bg-white/20 rounded-full flex-shrink-0"
+					style={{
+						backgroundImage: `url('/images/me.png')`,
+						backgroundSize: "contain",
+						backgroundPosition: "center",
+						backgroundRepeat: "no-repeat",
+					}}
+				></div>
+			</div>
+		</React.Fragment>
+	))
+)}
+</div>
+
+*/
 const MeDiscussions: { question: string; answers: string[] }[] = [
 	{
 		question: 'Who are you ?',
@@ -35,8 +79,8 @@ const MeDiscussions: { question: string; answers: string[] }[] = [
 ];
 
 enum MessType {
-	Chat,
-	Me,
+	Chat = 0,
+	Me = 1,
 }
 
 // Message component to render discussions
@@ -62,67 +106,22 @@ const Message = ({ value }: { value: string | string[] }) => {
 
 // Main Page component
 export default function About() {
-	const [right, setRight] = useState(false);
-
+	// @ts-ignore
 	return (
 		<>
-			<Background />
-			<div className="w-screen h-screen flex items-center gap-x-10 justify-center">
-				<div className="w-1/2 h-4/5 flex items-center justify-end">
-					<div className="aspect-square w-auto h-full flex items-center justify-center">
-						<img src="/images/me.png" className="w-full h-full object-cover rounded-3xl" alt="me" />
-					</div>
+			<div className={`overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center`}>
+				<div className={'w-full flex justify-center items-center border-b border-b-[#A3a3a3] h-2/3'}>
+					<div className={'h-full w-full'}></div>
+					<div className={'h-full aspect-square border-r border-r-[#a3a3a3]'}>
+						<img width={"100%"} height={"100%"} src={'/images/me.png'} alt={"me"}/></div>
+					<div className={'w-[100px] h-full flex flex-col justify-center items-center'}>{"CA S'EST MOI".split("").map((char, i) => {
+						return (
+							<div key={i}>{char}</div>
+						)
+					})
+					}</div>
 				</div>
-
-				<div className="w-1/2 h-4/5">
-					<div className="h-full w-2/3 flex flex-col">
-						<div className="h-28 w-full text-4xl flex">
-							<button className="w-full h-full text-end" onClick={() => setRight(false)}>Me</button>
-							<div className="h-full w-[1px] bg-white/20 mx-20"></div>
-							<button className="w-full h-full text-start" onClick={() => setRight(true)}>Skills</button>
-						</div>
-
-						<div className="h-full w-full flex py-10 flex-col justify-start rounded-xl border-white overflow-y-auto scrollbar-thumb-gray-800/50 scrollbar-track-transparent custom-scrollbar border-opacity-20 bg-black/70">
-							{/* right && skills ? (
-								<div className="w-full h-full grid grid-cols-5 grid-rows-5 gap-4">
-									{skills.map((skill, i) => (
-										<div className="flex items-center justify-center" key={i}>
-											<img src={skill.src} alt={`Skill ${i}`} className="w-1/2 h-1/2 object-contain" />
-										</div>
-									))}
-								</div>
-							) : */(
-								MeDiscussions.map((discussion, i) => (
-									<React.Fragment key={i}>
-										<div className="ml-5 flex mt-5 items-start justify-start">
-											<div
-												className="w-[40px] h-[40px] bg-white/20 rounded-full flex-shrink-0"
-												style={{
-													backgroundImage: `url('/images/chat.png')`,
-													backgroundSize: "contain",
-													backgroundPosition: "center",
-													backgroundRepeat: "no-repeat",
-												}}
-											></div>
-											<Message value={discussion.question} />
-										</div>
-										<div className="mr-5 mb-5 flex items-start justify-end">
-											<Message value={discussion.answers} />
-											<div
-												className="w-[40px] h-[40px] bg-white/20 rounded-full flex-shrink-0"
-												style={{
-													backgroundImage: `url('/images/me.png')`,
-													backgroundSize: "contain",
-													backgroundPosition: "center",
-													backgroundRepeat: "no-repeat",
-												}}
-											></div>
-										</div>
-									</React.Fragment>
-								))
-							)}
-						</div>
-					</div>
+				<div className={'w-full h-1/3'}>
 				</div>
 			</div>
 		</>
