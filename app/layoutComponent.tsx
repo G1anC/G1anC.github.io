@@ -26,12 +26,47 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
     const content = React.useRef<HTMLDivElement>(null);
     const body = React.useRef<HTMLBodyElement>(null);
     const [open, setOpen] = React.useState(false);
+    const menuTl = React.useRef<gsap.core.Timeline>();
     const tl = React.useRef<gsap.core.Timeline>();
     const lists = [
-        {name: "pages", links: ["indeX", "exPertise", "Projects", "abOut", "contaCt"]},
-        {name: "Biggest projects", links: ["arEa", "42sh", "rayTracer", "Camille_bC", "Eve_crea."]},
-        {name: "Socials", links: ["inSta", "LinkedIn", "gitHub"]}
+        {name: "pages", links: [
+            {title: "indeX", link: "/"},
+                {title: "exPertise", link: "/pages/expertise/"},
+                {title: "Projects", link: "/pages/projects"},
+                {title: "abOut", link: "/pages/about"},
+                {title: "contaCt", link: "/pages/contact"}
+            ]
+        },
+        {name: "Biggest projects", links: [
+            {title: "arEa", link: "/pages/projects/area/"},
+                {title: "42sh", link: "/pages/projects/42sh/"},
+                {title: "rayTracer", link: "/pages/projects/raytracer/"},
+                {title: "Camille_bC", link: "/camille_bc"},
+                {title: "Eve_crea.", link: "/eve_crea"}
+            ]
+        },
+        {name: "Socials", links: [{title: "inSta", link: ""}, {title: "LinkedIn", link: ""}, {title: "gitHub", link: ""}]}
     ]
+    const toggleMenu = (): void => { setOpen(!open) }
+
+    useGSAP(() => {
+        gsap.set(".link", {y: 200});
+        menuTl.current = gsap.timeline({paused: true})
+            .to(container.current, {translateX: "-20rem", duration: 1, ease: "power4.inOut"}, "<")
+            .to(body.current, {backgroundColor: "#222222", duration: 1, ease: "power4.inOut"}, "<")
+            .to(".link", {y: 0, stagger: 0.05, duration: 0.5, delay: -0.5})
+            .to(".menu-list", {opacity: 1, ease: "power4.inOut"}, "<")
+    })
+
+    React.useEffect(() =>{
+        if (!menuTl.current) return;
+        if (open) {
+            menuTl.current.play();
+        } else {
+            menuTl.current.reverse();
+        }
+
+    })
 
     useGSAP(() => {
         tl.current = gsap.timeline({paused: true})
@@ -75,8 +110,9 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
                                 <Link
                                     className="link relative"
                                     key={j}
-                                    href={`/pages/${item.toLowerCase()}/`}>
-                                        {item}
+                                    href={item.link}
+                                    onClick={toggleMenu}>
+                                        {item.title}
                                 </Link>
                             </div>
                         ))}
@@ -98,12 +134,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
                             const tl = gsap.timeline();
 
                             if (!open) {
-                                gsap.set(".link", {y: 200});
-                                tl
-                                    .to(container.current, {translateX: "-20rem", duration: 1, ease: "power4.inOut"}, "<")
-                                    .to(body.current, {backgroundColor: "#222222", duration: 1, ease: "power4.inOut"}, "<")
-                                    .to(".link", {y: 0, stagger: 0.05, duration: 0.5, delay: -0.5})
-                                    .to(".menu-list", {opacity: 1, ease: "power4.inOut"}, "<")
+
                             } else {
                                 tl
                                     .to(".link", {y: -100, stagger: 0.05, duration: 0.5})
