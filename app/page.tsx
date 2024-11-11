@@ -18,21 +18,32 @@ const AllTitle = () => {
     useEffect(() => {
 
         gsap.set(".titleLetters", { opacity: 0, y: 10 });
-        gsap.fromTo(subTitleRef.current, {opacity: 0, y: 0}, { duration: 0.5, opacity: 1, y: 10, delay: 1 });
-        gsap.to(".titleLetters", { duration: 1, opacity: 1, y: 0, stagger: 0.05, delay: 0.5, ease: "power4.inOut" });
+        gsap.fromTo(subTitleRef.current, {opacity: 0, y: 0}, { duration: 0.5, opacity: 1, y: 10, delay: 2 });
+        gsap.to(".titleLetters", { duration: 1, opacity: 1, y: 0, stagger: 0.05, delay: 2.5, ease: "power4.inOut" });
     }, []);
     return (
         <div className="w-full h-full flex items-center flex-1 justify-center">
             <>20</>
-            <div className="flex w-full h-full flex-col items-center justify-center">
-                <div ref={titleRef} className={`h-full tracking-tighter text-[600px] flex justify-center items-center ${Selaris.className}`}>
+            <div className="flex w-full h-full flex-col items-center justify-end">
+                <div ref={titleRef} className={`tracking-tighter flex justify-center items-center ${Selaris.className}`}
+                    style={{
+                        fontSize: "clamp(400px, calc(8.33vw - 160px), 600px)"
+                    }}>
                     {letters.map((letter, i) => {
                         return <div key={i} className="titleLetters flex justify-center items-center">{letter}</div>
                     })}
                 </div>
-                <div ref={subTitleRef} className="opacity-0 flex items-center mt-[-420px] h-1/2 justify-center">
-                    <p className={`text-[200px] tracking-tighter capitalize flex justify-center px-4 items-center h-full ${Lovelace.className}`}
-                        style={{ WebkitTextStroke: "1px rgba(0,0,0, 0.7)", WebkitTextFillColor: "transparent", WebkitBackgroundClip: "text", backgroundClip: "text", backgroundImage: "radial-gradient(circle, #00000070, #000000)" }}>
+                <div ref={subTitleRef} className="opacity-0 flex items-center h-1/2 justify-center">
+                    <p className={`tracking-tighter capitalize flex justify-center px-4 items-center h-full ${Lovelace.className}`}
+                        style={{
+                            WebkitTextStroke: "1px rgba(0,0,0, 0.7)",
+                            WebkitTextFillColor: "transparent",
+                            marginTop: "clamp(-20px, 2vw, -40px)",
+                            WebkitBackgroundClip: "text",
+                            backgroundClip: "text",
+                            backgroundImage: "radial-gradient(circle, #00000070, #000000)",
+                            fontSize: "clamp(150px, 10vw, 200px)"
+                    }}>
                         Steiniger
                     </p>
                 </div>
@@ -62,13 +73,13 @@ export default function Home() {
         gsap.set(".clipper", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
         gsap.set(".txt", { y: 50 });
         tl.current = gsap.timeline({ paused: true })
-            .to(".txt", { duration: 1, y: 0, delay: -0.75, stagger: 0.05, ease: "power4.inOut" })
+            .to(".txt", { duration: 1, y: 0, delay: 1.25, stagger: 0.05, ease: "power4.inOut" })
     }, { scope: container });
 
     useEffect(() => {
         if (tl.current) tl.current.play();
         filter.current && gsap.fromTo(filter.current, { opacity: 0}, { opacity: 1, duration: 0.5, delay: 1  });
-        effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 2 });
+        effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 4 });
     }, []);
 
 
