@@ -75,7 +75,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
                                 <Link
                                     className="link relative"
                                     key={j}
-                                    href={`/pages/${item.toLowerCase()}`}>
+                                    href={`/pages/${item.toLowerCase()}/`}>
                                         {item}
                                 </Link>
                             </div>

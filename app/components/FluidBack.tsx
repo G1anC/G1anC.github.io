@@ -117,7 +117,7 @@ const FluidBack: React.FC = () => {
         composer.addPass(new RenderPass(scene, camera));
 
         // Invert pass
-        const invertPass = new ShaderPass(InvertShader);
+        const invertPass = new ShaderPass(new THREE.ShaderMaterial(InvertShader));
         composer.addPass(invertPass);
 
         // Animation function
@@ -134,7 +134,6 @@ const FluidBack: React.FC = () => {
             material.uniforms.resolution.value.set(window.innerWidth, window.innerHeight);
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            composer.setSize(window.innerWidth, window.innerHeight);
         };
 
         window.addEventListener("resize", handleResize);
