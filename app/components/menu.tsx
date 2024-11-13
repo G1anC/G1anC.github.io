@@ -35,10 +35,8 @@ const menuLinks = [
 const Menu = (): JSX.Element => {
 	const container = useRef<HTMLDivElement>(null);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [isHovered, setIsHovered] = useState(false);
 	let tl = useRef<gsap.core.Timeline>();
 
-	const handleMouse = (): void => setIsHovered(!isHovered);
 	const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
 
 	useGSAP(() => {
@@ -96,28 +94,6 @@ const Menu = (): JSX.Element => {
 										data-index={i}
 										onClick={toggleMenu}
 										className={`menu-link leading-[70%] w-full tracking-[-0.05em]  text-[200px] ${link.font.className} ${link.style}`}
-										onMouseEnter={(event) => {
-											const linkElement = event.currentTarget;
-											const spans = linkElement.querySelectorAll("span");
-
-											gsap.to(spans, {
-												opacity: 1,
-												y: 0,
-												duration: 0.3,
-												scale: 1.2,
-												stagger: 0.1,
-												marginRight: 10,
-												onComplete: () => {
-													gsap.to(spans, {
-														opacity: 0.2,
-														y: -10,
-														marginRight: 0,
-														duration: 0.2,
-														stagger: 0.05,
-													});
-												}
-											});
-										}}
 									>
 										{link.name.split("").map((char, i) => (
 											<span className={"mr-0 opacity-20 scale-100"} key={i}>{char}</span>

@@ -9,14 +9,14 @@ import Lenis from "lenis";
 import 'lenis/dist/lenis.css'
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-const SelarisFont = localFont({ src: "../../../public/ppuli.otf", });
+const SelarisFont = localFont({ src: "../../../public/dirtyline.woff", });
 const TextFont = localFont({ src: "../../../public/HalenoirCompact-Thin.otf" })
 const ImportantFont = localFont({ src: "../../../public/Halenoir-Black.otf" })
 
 const I = ({children}: {children: string}) => {
 	return (
 		<span className="relative w-full ">
-			<span className={`text-white ${ImportantFont.className} `}>{children}</span>
+			<span className={`text-black ${ImportantFont.className} `}>{children}</span>
 		</span>
 	)
 }
@@ -107,7 +107,7 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 				end: "center top",
 				scrub: true,
 			},
-			backgroundColor: "black",
+			backgroundColor: "white",
 		});
 
 		return () => {
@@ -117,14 +117,14 @@ export default function Project( {childrens, titleRef, filterRef, bgRef, name }:
 	}, [childrensRef]);
 
 	return (
-		<div className={"w-screen h-full flex flex-col justify-center items-center"}>
+		<div className={"w-screen h-auto flex flex-col justify-center items-center"}>
 			<div className={"w-screen h-full"}>
 				<ProjectTitle titleRef={titleRef} filterRef={filterRef} selectedProject={name}/>
 				<ProjectBackground bgRef={bgRef} selectedProject={name}/>
 				<div ref={filterRef} className={"bg w-screen h-screen backdrop-blur-md top-0 absolute"}/>
-				<div ref={gradientRef} className={"w-screen h-screen bg-gradient-to-t opacity-60 from-black top-0 to-transparent absolute"}/>
+				<div ref={gradientRef} className={"w-screen h-screen bg-gradient-to-t from-white top-0 to-transparent absolute"}/>
 			</div>
-			<div className={"w-screen bg-black h-full"}>
+			<div className={"w-screen bg-white h-full"}>
 				{childrens.map((child, i) => {
 					return (
 						<div ref={childrensRef[i]} key={i} className={`leading-[120%] rounded-t-3xl text-gray-400 z-[-1] w-full ${TextFont.className} px-10 uppercase text-8xl h-full my-96 text-justify flex items-center justify-center`}>
