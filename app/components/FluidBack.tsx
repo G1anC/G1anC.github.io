@@ -55,7 +55,7 @@ const FluidBack: React.FC = () => {
                 color2: { value: new THREE.Color(0xaaaa00) },
                 color3: { value: new THREE.Color(0xaaaa00) },
                 color4: { value: new THREE.Color(0xaaaa00) },
-                resolution: { value: new THREE.Vector2(window.innerWidth / 5, window.innerHeight / 5) },
+                resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
             },
             vertexShader: `
                 precision highp float;

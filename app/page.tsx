@@ -101,7 +101,9 @@ export default function Home() {
                 ]} right={[
                     <div className="clipper"><div className="relative txt">Secret for the curious</div></div>
                 ]} />
+
                 <AllTitle />
+
                 <InfoBlock b={true} left={["Figma GSAP & Next.ts"]} center={[
                     <div className="txt" key={0}>2004</div>
                 ]} right={[
