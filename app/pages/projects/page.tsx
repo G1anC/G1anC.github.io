@@ -3,32 +3,45 @@
 import React, {useEffect, useState, useRef} from "react";
 import localFont from "next/font/local";
 import {gsap} from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import FluidBack from "@/app/components/FluidBack";
-gsap.registerPlugin(ScrollTrigger);
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
+const pixel = localFont({src: "../../../public/pixel.otf"});
 
 const projects = [
     {
-        title: "Web desiGn",
-        description: "Designs i've worked on with Figma WebFlow and GSAP",
+        title: "pRev_Folio",
+        description: "Previous portfolio made with Next.js, React and GSAP",
+        image: "portfolio.png",
+    },
+    {
+        title: "Eve_crea.",
+        description: "Design and development of a website for my paint mother",
         image: "Eve.png",
     },
     {
-        title: "wEb DeV",
-        description: "Coded websites with Next.js, React and Typescript",
+        title: "Camille_Bc",
+        description: "Portfolio for Motion Designer Camille Bonnet Crevel",
+        image: "Cami.png",
+    },
+    {
+        title: "arEa",
+        description: "Web app for creating webhooks",
         image: "area.png",
     },
     {
-        title: "Oop",
-        description: "Object oriented programming projects made with C++",
+        title: "42sh",
+        description: "Recreation of TSCH with C and Shell",
+        image: "42sh.png",
+    },
+    {
+        title: "rayTracer",
+        description: "Home cooked raytracer made with C++",
         image: "raytracer.png",
     },
     {
-        title: "pRo | fuN",
-        description: "Functional and procedural projects made with Haskell and C",
+        title: "glaDos",
+        description: "Custom programing language with its compiler in Haskell",
         image: "wolfram.png",
     },
 ]
@@ -36,11 +49,10 @@ const projects = [
 export default function Projects() {
     const filter = useRef<HTMLDivElement>(null);
     const tl = useRef<gsap.core.Timeline>()
-    const [active, setActive] = useState<number | null>(0);
+    const [active, setActive] = useState<number>(0);
+    const activeIntroRef = useRef<HTMLDivElement>(null);
     const cardRefs = useRef<(HTMLButtonElement | null)[]>([]); // Tableau de refs
 
-
-    
     useEffect(() => {
         tl.current = gsap.timeline()
             .to(filter.current, {opacity: 1, duration: 0.5})
@@ -58,8 +70,6 @@ export default function Projects() {
             .fromTo(cardRefs.current,{opacity: 0}, {opacity: 1, stagger: 0.2, duration: 0.5, ease: "power4.inOut"})
     }, [])
 
-
-
     const AllTitle = () => {
         const titleRef = useRef<HTMLDivElement>(null);
         const letters = "ProJectS".split("");
@@ -75,35 +85,6 @@ export default function Projects() {
             </div>
         );
     }
-
-
-
-    const Card = ({index, txt, description}: { index: number, txt: string, description: string }) => {
-        const background = useRef<HTMLDivElement>(null);
-        const backgroundBlur = useRef<HTMLDivElement>(null);
-        useEffect(() => {
-            gsap.to(backgroundBlur.current, {opacity:  0, duration: 21})
-            gsap.to(background.current, {opacity: active === index ? 0.2 : 0, duration: 1})
-        }, [active]);
-
-        return (
-            <button
-                key={index}
-                ref={el => {cardRefs.current[index] = el}}
-                className={`relative card w-[30rem] hover:w-[45rem] text-5xl hover:text-8xl overflow-hidden origin-left hover:origin-left hover:transition-[width 0.65s cubic-bezier(0.2, 0.5, 0.02, 0.99)] h-full ${index !== 3 && "border border-r-[#A3A3A3]"} flex z-30 flex-col items-center justify-center`}
-                style={{ transition: "all 0.65s cubic-bezier(0.2, 0.5, 0.02, 0.99)", transitionDuration: "0.65s", }}
-                onMouseEnter={() => {setActive(index)}}
-                onMouseLeave={() => {setActive(null)}}
-            >
-                <div ref={background} key={index} className={"absolute top-0 left-0 w-full h-full z-[-1] opacity-0"} style={{ backgroundImage: `url(/images/projects/${projects[index].image})`, backgroundPosition: "center"}} />
-                <div ref={backgroundBlur} key={index} className={"w-full h-full top-0 left-0 absolute blur-xl z-1"} />
-                {txt}
-                <div className={`${Halenoir.className} uppercase text-xl tracking-tightest w-[20rem]`}>{description}</div>
-            </button>
-        )
-    }
-
-
 
     return (
         <div className="w-full h-full flex-1 relative " style={{height: "calc(100vh - 7rem)"}}>
@@ -123,11 +104,34 @@ export default function Projects() {
             <div className="w-full h-screen flex items-center justify-center"
                  style={{height: "calc(100vh - 7rem)"}}>
                 <div className={`w-full h-full flex items-center text-center text-5xl z-5 ${Selaris.className}`}>
-                        {projects.map((project, i) => {
-                            return (
-                                <Card key={i} index={i} txt={project.title} description={project.description}/>
-                            )
-                        })}
+                        <div className={"projectMenu flex flex-col w-1/4 bg-white rounded-bl-3xl h-full border-r border-r-1 border-[#A3A3A3] overflow-hidden"}>
+                            {projects.map((project, i: number) => (
+                                <div key={i} className={`menu-items flex flex-col items-start z-[50] justify-center cursor-pointer w-full h-full font-medium- pl-8 border-b text-black hover:pl-12 hover:text-indigo-600 transition-all duration-200 border-b-1 border-[#A3A3A3]`}
+                                     onMouseEnter={() => {
+                                         setActive(i)
+                                         gsap.to(activeIntroRef.current, {opacity: 0, duration: 0.5})
+                                     }}
+                                     onClick={() => {
+                                         gsap.to(".projectMenu", {duration: 0.5, width: "0%", ease: "power3.out"})
+                                         gsap.to(".content", {duration: 0.5, width: "100%", ease: "power3.out"})
+                                     }}
+                                >
+                                    {project.title}
+                                </div>
+                            ))}
+                        </div>
+                        <div className={"content w-3/4 h-full flex flex-col rounded-xl"}>
+                            <div className={`w-full p-4 pl-8 ${Halenoir.className} flex items-center uppercase text-2xl text-start text-gray-500 border-b rounded-b-xl border-b-1 border-b-[#A3A3A3]`}>
+                                {active !== null && projects[active].description}
+                            </div>
+                            {active !== null && (
+                                <div ref={activeIntroRef} className={"intro p-4 w-full"} style={{
+                                    height: "calc(100vh - 7rem - 4rem)"
+                                }}>
+                                    <img src={`/images/projects/${projects[active].image}`} alt={projects[active].title} className={"w-full h-full object-cover rounded-xl"} />
+                                </div>
+                            )}
+                        </div>
                 </div>
             </div>
         </div>
