@@ -109,7 +109,7 @@ export default function Projects() {
                                 <div key={i} className={`menu-items flex flex-col items-start z-[50] justify-center cursor-pointer w-full h-full font-medium- pl-8 border-b text-black hover:pl-12 hover:text-indigo-600 transition-all duration-200 border-b-1 border-[#A3A3A3]`}
                                      onMouseEnter={() => {
                                          setActive(i)
-                                         gsap.to(activeIntroRef.current, {opacity: 0, duration: 0.5})
+                                         //gsap.to(activeIntroRef.current, {opacity: 0, duration: 0.5})
                                      }}
                                      onClick={() => {
                                          gsap.to(".projectMenu", {duration: 0.5, width: "0%", ease: "power3.out"})
