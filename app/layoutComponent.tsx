@@ -103,7 +103,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
 
     return (
         <body>
-            <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-xl antialiased`}>
+            <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-sm antialiased`}>
                 {/* MENU */}
                 <div className="menu fixed top-0 text-[#777777] right-0 w-80 h-full">
                     <div className="menu-wrapper py-8 px-4 flex flex-col justify-between items-start h-full">

@@ -55,11 +55,25 @@ const AllTitle = () => {
 
 const InfoBlock = ({ b, left, center, right }: { b: boolean, left: ReactNode[], center: ReactNode[], right: ReactNode[] }) => (
     <div className={`w-full uppercase h-[10%] flex ${b && "justify-end items-end"}`}>
-        <div className="shrink-0 mr-8">{left.map((text, i) => <div className="txt" key={i}>{text}</div>)}</div>
-        <div className="w-full h-[1px] bg-[#A3A3A3]"></div>
-        <div className="shrink-0 mx-8 flex flex-col items-center txt">{center.map((text, i) => <div className="txt" key={i}>{text}</div>)}</div>
-        <div className="w-full h-[1px] bg-[#A3A3A3]"></div>
-        <div className="shrink-0 ml-8 text-end">{right.map((text, i) => <div className="txt" key={i}>{text}</div>)}</div>
+        <div className="shrink-0 w-[250px] mr-8">{left.map((text, i) => <div className="txt" key={i}>{text}</div>)}</div>
+        <div className={"flex items-start w-full justify-center"}>
+            <div className={"flex w-full items-center"}>
+                <div className={"bg-black rounded-full h-[10px] w-[10px] flex-shrink-0"}></div>
+                <div className="w-full h-[1px] bg-black"></div>
+            </div>
+        </div>
+        <div className="shrink-0 mx-8 flex flex-col items-center txt">
+            {center.map((text, i) => <div className="txt" key={i}>{text}</div>)}
+        </div>
+        <div className={"flex items-start w-full justify-center"}>
+            <div className={"flex w-full items-center"}>
+                <div className="w-full h-[1px] bg-black"></div>
+                <div className={"bg-black rounded-full h-[10px] w-[10px] flex-shrink-0"}></div>
+            </div>
+        </div>
+
+        <div className="shrink-0 ml-8 w-[250px] text-end">{right.map((text, i) => <div className="txt"
+                                                                             key={i}>{text}</div>)}</div>
     </div>
 );
 
@@ -79,7 +93,7 @@ export default function Home() {
     useEffect(() => {
         if (tl.current) tl.current.play();
         filter.current && gsap.fromTo(filter.current, { opacity: 0}, { opacity: 1, duration: 0.5, delay: 1  });
-        effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 4 });
+        effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 2 });
     }, []);
 
 
