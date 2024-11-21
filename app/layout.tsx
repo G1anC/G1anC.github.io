@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import {useGSAP} from "@gsap/react";
-import LayoutComponent from "@/app/layoutComponent";
+import LayoutComponent from "@/app/components/layoutComponent";
 
 //[#0F0F0F]
 

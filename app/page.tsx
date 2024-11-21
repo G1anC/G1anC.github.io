@@ -94,7 +94,7 @@ const InfoBlock = ({b, left, center, right}: {
     center: ReactNode[],
     right: ReactNode[]
 }) => (
-    <div className={`w-full uppercase flex ${b ? "justify-end items-end mt-4" : "mb-4"}`}>
+    <div className={`w-full text-base uppercase flex ${b ? "justify-end items-end mt-4" : "mb-4"}`}>
         {/* Left Section */}
         <div className="flex-shrink-0 flex flex-col text-start mr-4">
             {left.map((text, i) => (

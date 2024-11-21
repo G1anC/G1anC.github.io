@@ -9,15 +9,15 @@ import {Dir} from "node:fs";
 
 
 const HalenoirThin = localFont({
-    src: "../public/HalenoirCompact-Thin.otf",
+    src: "../../public/HalenoirCompact-Thin.otf",
 });
 const HalenoirBlack = localFont({
-    src: "../public/Halenoir-Black.otf",
+    src: "../../public/Halenoir-Black.otf",
 });
 const DirtyLine = localFont({
-    src: "../public/dirtyline.woff",
+    src: "../../public/dirtyline.woff",
 });
-const Pixel = localFont({ src: "../public/pixel.otf" });
+const Pixel = localFont({ src: "../../public/pixel.otf" });
 
 
 
@@ -36,18 +36,18 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
             name: "pages",
             links: [
                 {title: "indeX", link: "/"},
-                {title: "exPertise", link: "/pages/expertise/"},
-                {title: "Projects", link: "/pages/projects"},
-                {title: "abOut", link: "/pages/about"},
-                {title: "contaCt", link: "/pages/contact"}
+                {title: "exPertise", link: "expertise/"},
+                {title: "Projects", link: "projects"},
+                {title: "abOut", link: "about"},
+                {title: "contaCt", link: "contact"}
             ]
         },
         {
             name: "Biggest projects",
             links: [
-                {title: "arEa", link: "/pages/projects/area/"},
-                {title: "42sh", link: "/pages/projects/42sh/"},
-                {title: "rayTracer", link: "/pages/projects/raytracer/"},
+                {title: "arEa", link: "projects/area/"},
+                {title: "42sh", link: "projects/42sh/"},
+                {title: "rayTracer", link: "projects/raytracer/"},
                 {title: "Camille_bC", link: "/camille_bc"},
                 {title: "Eve_crea.", link: "/eve_crea"},
                 {title: "glaDos", link: "/glados"}
@@ -105,7 +105,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
 
     return (
         <body>
-            <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-sm antialiased`}>
+            <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-base antialiased`}>
                 {/* MENU */}
                 <div className="menu fixed top-0 text-[#777777] right-0 w-80 h-full">
                     <div className="menu-wrapper py-8 px-4 flex flex-col justify-between items-start h-full">
