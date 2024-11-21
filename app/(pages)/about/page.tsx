@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import localFont from "next/font/local";
-import Background from "@/app/components/Background";
 import FluidBack from "@/app/components/FluidBack";
 
 // Import your font locally
