@@ -17,6 +17,8 @@ const HalenoirBlack = localFont({
 const DirtyLine = localFont({
     src: "../public/dirtyline.woff",
 });
+const Pixel = localFont({ src: "../public/pixel.otf" });
+
 
 
 
@@ -109,7 +111,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
                     <div className="menu-wrapper py-8 px-4 flex flex-col justify-between items-start h-full">
                         {lists.map((list, i) => (
                             <div key={i} className="menu-list opacity-0">
-                                <div className={`lowercase text-xl tracking-widest ${HalenoirThin.className} mb-2`}>
+                                <div className={`lowercase text-xl tracking-widest text-indigo-400  ${Pixel.className} mb-2`}>
                                     {list.name}
                                 </div>
                                 {list.links.map((item, j) => (
