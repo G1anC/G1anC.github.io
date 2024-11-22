@@ -239,7 +239,7 @@ export default function Expertise() {
 
             {/* content */}
         <div className={"absolute top-0 left-0 h-full w-full"}>
-       
+
             <HeaderSection/>
             <WorkingSkillsSection/>
             <ProgramingSkillsSection/>

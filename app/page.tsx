@@ -158,10 +158,10 @@ export default function Home() {
 
     return (
         <div ref={container} className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
-            <div ref={effect} className={"absolute top-0 left-0 w-full h-full"}>
-                <FluidBack />
-            </div>
-            <div ref={filter} className="absolute top-0 left-0  w-full h-full" style={{ backgroundImage: "radial-gradient(circle, transparent, #0000ff30)" }}></div>
+            {/*<div ref={effect} className={"absolute top-0 left-0 w-full h-full"}>*/}
+            {/*    <video controls disablePictureInPicture  autoPlay src={"/images/packground.mp4"} />*/}
+            {/*</div>*/}
+            <div ref={filter} className="absolute top-0 left-0  w-full h-full" style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)" }}></div>
             <div className="relative p-4 w-full h-full flex flex-col items-center justify-center">
                 <InfoBlock b={false} left={[
                     <div className="clipper"><div className="txt relative">Web Designer | Creator</div></div>,

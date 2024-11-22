@@ -3,7 +3,7 @@
 import React, {useEffect, useState, useRef} from "react";
 import localFont from "next/font/local";
 import {gsap} from "gsap";
-import FluidBack from "@/app/components/FluidBack";
+// import FluidBack from "@/app/components/FluidBack";
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
@@ -17,55 +17,63 @@ const projects = [
         description: "Previous folio",
         image: "portfolio.png",
         icons: ["react.png", "css.svg", "GSAP.svg"],
-        color: "text-white"
+        color: "text-white",
+        message: "See the design",
+        link: null
     },
     {
         title: "Eve_crea.",
         description: "website for Evelyne S.",
         image: "Eve.png",
         icons: ["figma.svg"],
-        color: "text-white"
-
+        color: "text-white",
+        message: "See the website",
+        link: null
     },
     {
         title: "Camille_Bc",
         description: "folio for Camille B.C.",
         image: "Cami.png",
         icons: ["Figma.svg"],
-        color: "text-black"
-
+        color: "text-black",
+        message: "See the website",
+        link: null
     },
     {
         title: "arEa",
         description: "Webhooks manager",
         image: "area.png",
         icons: ["npm.svg", "react.png", "ts.svg"],
-        color: "text-white"
-
+        color: "text-white",
+        message: "See the project",
+        link: "https://www.github.com/G1anC/AREA"
     },
     {
         title: "42sh",
         description: "Recreation of TSCH",
         image: "42sh.png",
         icons: ["C.png", "shell.png"],
-        color: "text-white"
-
+        color: "text-white",
+        message: "See the project",
+        link: "https://www.github.com/G1anC/42sh"
     },
     {
         title: "rayTracer",
         description: "Home cooked raytracer",
         image: "raytracer.png",
         icons: ["cpp.svg", "clion.svg"],
-        color: "text-white"
-
+        color: "text-white",
+        message: "See the project",
+        link: "https://www.github.com/G1anC/Raytracer"
     },
     {
         title: "glaDos",
         description: "Custom language with compiler",
         icons: ["haskell.svg"],
         image: "wolfram.png",
-        color: "text-white"
-
+        color: "text-white",
+        message: "See the project",
+        link: "https://www.github.com/G1anC/GlaDos"
     },
 ]
 
@@ -77,6 +85,7 @@ export default function Projects() {
     const imageHolderRef = useRef(null);
     const projectTitleRef = useRef(null);
     const iconsRef = useRef(null);
+    const messageRef = useRef(null);
 
 
     useEffect(() => {
@@ -113,9 +122,9 @@ export default function Projects() {
 
     return (
         <div className="w-full h-full flex-1 relative " style={{height: "calc(100vh - 7rem)"}}>
-            <div className={"absolute top-0 left-0 w-full h-full"}>
-                <FluidBack/>
-            </div>
+            {/*<div className={"absolute top-0 left-0 w-full h-full"}>*/}
+            {/*    <FluidBack/>*/}
+            {/*</div>*/}
             <div className="w-full h-screen flex items-center justify-center"
                  style={{height: "calc(100vh - 7rem)"}}>
                 <div className={`w-full h-full flex items-center text-center text-5xl z-5 ${Selaris.className}`}>
@@ -145,36 +154,71 @@ export default function Projects() {
                         {active !== null && (
                             <>
                                 <div ref={activeIntroRef} className={"intro relative p-4 w-full"} style={{ height: "calc(100vh - 7rem )" }}>
-                                    <div ref={imageHolderRef} className={"image-holder w-full h-full rounded-xl overflow-hidden"}>
+                                    <div ref={imageHolderRef} className={"image-holder relative w-full h-full rounded-xl overflow-hidden"}>
+
+                                        {/* Black behind filter */}
+                                        <div className={"absolute top-0 left-0 filter bg-black/70 w-full h-full rounded-xl hidden z-[-1]"}></div>
+
+                                        {/* Project techno icons */}
                                         <div className={`w-${(projects[active].icons.length * 4)} p-2 absolute z-2 top-0 gap-x-4 left-0 z-10 bg-white overflow-hidden rounded-br-3xl border-b border-r border-b-1 border-[#A3A3A3]  flex items-start justify-center`}>
                                             {projects[active].icons.map((icon, i) => (
-                                                        <div key={i} className={"icons rounded-xl w-16 h-16 bg-contain bg-no-repeat bg-center"}
-                                                             style={{backgroundImage: `url(${iconPath + icon})`}}></div>
+                                                <div key={i}
+                                                     className={"icons rounded-xl w-16 h-16 bg-contain z-3 bg-no-repeat bg-center"}
+                                                     style={{backgroundImage: `url(${iconPath + icon})`}}></div>
                                             ))}
                                         </div>
-                                        <button ref={imageRef}
-                                                className={"w-full h-full opacity-0 relative project-image rounded-xl cursor-pointer"}
-                                                style={{
-                                                    backgroundImage: `url(/images/projects/${projects[active].image})`,
-                                                    backgroundSize: "cover",
-                                                    backgroundPosition: "center"
-                                                }}
+
+                                        <div ref={imageRef} className={"h-full w-full absolute project-image rounded-xl "} style={{
+                                            backgroundImage: `url(/images/projects/${projects[active].image})`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center"
+                                        }}>
+                                        </div>
+                                        {/* Project image icons */}
+                                        <button
+                                                className={`w-full z-[10] h-full flex items-center justify-center relative project-image rounded-xl cursor-pointer`}
                                                 onMouseEnter={() => {
-                                                    gsap.to(imageHolderRef.current, {borderRadius: 0, duration: 0.2, ease: "power1.in"})
-                                                    gsap.to(imageRef.current, {borderRadius: 0, filter: "blur(20px)", duration: 0.2, ease: "power1.in"})
-                                                    gsap.to(activeIntroRef.current, {padding: 0, duration: 0.2, ease: "power1.in"})
+                                                    gsap.to(imageHolderRef.current, {
+                                                        borderRadius: 0,
+                                                        duration: 0.2,
+                                                        ease: "power1.in"
+                                                    })
+                                                    gsap.to(imageRef.current, {
+                                                        borderRadius: 0,
+                                                        filter: "blur(20px)",
+                                                        duration: 0.2,
+                                                        ease: "power1.in"
+                                                    })
+                                                    gsap.to(".filter", {display: "block", borderRadius: 0, duration: 0.2});
+                                                    gsap.to(activeIntroRef.current, {
+                                                        padding: 0,
+                                                        duration: 0.2,
+                                                        ease: "power1.in"
+                                                    })
+                                                    gsap.to(messageRef.current, {opacity: 1, duration: 0.2})
                                                     gsap.to(projectTitleRef.current, {opacity: 1, duration: 0.1})
                                                 }}
                                                 onMouseLeave={() => {
-                                                    gsap.to(imageHolderRef.current, {borderRadius: "12px", duration: 0.1})
-                                                    gsap.to(imageRef.current, {borderRadius: "12px", filter: "blur(0px)", duration: 0.1})
+                                                    gsap.to(imageHolderRef.current, {
+                                                        borderRadius: "12px",
+                                                        duration: 0.1
+                                                    })
+                                                    gsap.to(imageRef.current, {
+                                                        borderRadius: "12px",
+                                                        filter: "blur(0px)",
+                                                        duration: 0.1
+                                                    })
                                                     gsap.to(activeIntroRef.current, {padding: "16px", duration: 0.1})
                                                     gsap.to(projectTitleRef.current, {opacity: 0, duration: 0.1})
+                                                    gsap.to(messageRef.current, {opacity: 0, duration: 0.1})
+
                                                 }}
                                                 onClick={() => {
-                                                    window.location.href = `/projects/${projects[active].title}`
+                                                    if (projects[active].link) {
+                                                        window.location.href = projects[active].link;
+                                                    }
                                                 }}
-                                        ></button>
+                                        ><div ref={messageRef} className={`z-100 opacity-0 text-lg uppercase ${Halenoir.className} ${projects[active].color}`}>{projects[active].message}</div></button>
                                     </div>
                                 </div>
                             </>
