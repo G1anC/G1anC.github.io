@@ -122,7 +122,7 @@ export default function Page() {
                     <div className="h-36 w-full uppercase rounded-b-xl border-b-1 border border-x-1 border-x-[#A3A3A3] border-b-[#A3A3A3]">
                         <button
                             type="submit"
-                            className={`w-full h-full flex outline-none items-center uppercase hover:pr-12 hover:bg-transparent bg-white ${!status ? "bg-white text-indigo-600 hover:text-indigo-400" : (status === "Message sent successfully!" ? "bg-green-600/30 text-black hover:text-green-600" : "bg-red-600/30 text-black hover:text-red-600")}  transition-all duration-100 justify-end pr-8 rounded-b-xl text-end`}
+                            className={`w-full h-full flex outline-none items-center uppercase hover:bg-transparent bg-white ${!status ? "bg-white text-indigo-600 hover:text-indigo-400" : (status === "Message sent successfully!" ? "bg-green-600/30 text-black hover:text-green-600" : "bg-red-600/30 text-black hover:text-red-600")}  transition-all duration-100 justify-end pr-8 rounded-b-xl text-end`}
                             disabled={loading}
                         >
                             {status ? status : (loading ? "SENDING..." : "SUBMIT")}
