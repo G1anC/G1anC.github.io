@@ -6,35 +6,17 @@ import FluidBack from "@/app/components/FluidBack";
 import React, {Fragment} from "react";
 import InfoBlock from "@/app/components/InfoBlock";
 import {useGSAP} from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
-
-const Lines = ({pos}: {pos: {pos: number, left: boolean}}) => {
-    return (
-        <div className={`h-full z-[1] w-[6px] flex  flex-col ${pos.left ? "left-0 ml-4": "right-0 mr-4"} ${pos.pos === 0 ? "mt-4" : (pos.pos === 2 ? "pb-4" : 0)} items-center absolute justify-center`}>
-            {pos.pos === 0 && <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>}
-            <div className={`top-0 left-0 w-[1px] h-full bg-black`} style={{
-                top: `calc((100vh - 7rem) * ${pos.pos})`
-            }}/>
-            {pos.pos === 2 && <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>}
-
-        </div>
-    )
-}
-
-
-// FIRST SECTION
-
-
-
 const imageStyle = {
     flexShrink: 0,
     width: '7rem',
     height: '7rem',
     padding: '1rem',
+    opacity: '0'
 };
-
 const boxStyle = {
     display: "flex",
     gap: "1rem",
@@ -48,6 +30,12 @@ export default function Expertise() {
     const filter = React.useRef<HTMLDivElement>(null);
     const headerTitleRef = React.useRef<HTMLDivElement>(null);
     const titleLetters = "eXperTiSe".split("");
+    const tl = gsap.timeline();
+    const workingTl = gsap.timeline();
+    const programingTl = gsap.timeline();
+    const workingRef = React.useRef<HTMLDivElement>(null);
+    const programingRef = React.useRef<HTMLDivElement>(null);
+
     const HeaderSection = () => {
         return (
             <>
@@ -96,21 +84,22 @@ export default function Expertise() {
 
         return (
             <>
-                <div className={"relative w-full h-full uppercase"}>
+                <div className={"relative w-full h-full mb-0 uppercase"}>
                     <div className={"h-full flex items-center z-10 justify-end"} style={{
                         clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
                     }}>
-                        <div className={"h-5/6 w-3/4 py-2 pl-2 rounded-l-3xl border border-y-1 border-l-1 border-y-[#A3A3A3] border-l-[#A3A3A3] flex items-center gap-x-8 justify-end"}>
+                        <div ref={programingRef} className={"section h-5/6 w-3/4 py-2 pl-2 rounded-l-3xl border border-y-1 border-l-1 border-y-[#A3A3A3] border-l-[#A3A3A3] flex items-center gap-x-8 justify-end"}>
                             <div className={"flex items-center justify-end gap-x-16 rounded-l-2xl  w-full h-full"} style={{
                                 background: "linear-gradient(90deg, rgba(79, 70, 229, 0.5), rgba(255, 255, 255, 0.0))"
                             }}>
-                                <div className={"h-full w-full flex flex-col gap-y-8 items-end justify-center"}>
+                                <div className={"progBox h-full w-full flex flex-col gap-y-8 items-end justify-center"}>
                                     <div style={boxStyle}>
                                         {ProgramingSkills.slice(0, 4).map((skill, index) => (
                                             <img
                                                 key={index}
                                                 src={skill.icon}
                                                 alt={skill.name}
+                                                className={"progIcon"}
                                                 style={imageStyle}
                                             />
                                         ))}
@@ -120,6 +109,7 @@ export default function Expertise() {
                                             <img
                                                 key={index}
                                                 src={skill.icon}
+                                                className={"progIcon"}
                                                 alt={skill.name}
                                                 style={imageStyle}
                                             />
@@ -130,6 +120,7 @@ export default function Expertise() {
                                             <img
                                                 key={index}
                                                 src={skill.icon}
+                                                className={"progIcon"}
                                                 alt={skill.name}
                                                 style={imageStyle}
                                             />
@@ -146,14 +137,12 @@ export default function Expertise() {
                                 </div>
 
                                 <div className={"h-4/5 w-full pr-16 flex items-center justify-start"}>
-                                    <div className={" w-full text-start text-3xl"}>
-                                        For progamming stuff,
-                                        <br/>
-                                        <br/>
-                                        I'm very confortable with computational languages like C, C++ and Haskell.
-                                        <br/><br/>
-                                        But the important part is that for the web design / development, i mainly use npm,
-                                        Next.js, React, TS, Tailwind and GSAP.<br/>And so i have competences in JS, CSS and HTML.
+                                    <div className={" w-full text-start text-2xl"}>
+                                        <div className="clipper"><div className="progtxt relative">For progamming stuff,</div></div>
+                                        <div className="clipper"><div className="progtxt relative">I'm very confortable with computational languages like C, C++ and Haskell.</div></div>
+                                        <div className="clipper"><div className="progtxt relative">But the important part is that for the web design / development,</div></div>
+                                        <div className={"clipper"}><div className={"progtxt relative"}>i mainly use npm, Next.js, React, TS, Tailwind and GSAP.</div></div>
+                                        <div className="clipper"><div className="progtxt relative">And so i have competences in JS, CSS and HTML.</div></div>
                                     </div>
                                 </div>
                             </div>
@@ -181,44 +170,41 @@ export default function Expertise() {
 
         return (
             <>
-                <div className={"w-full h-full uppercase"}>
+                <div className={"w-full mb-40 h-full uppercase"}>
                     <div className={" h-full flex items-center gap-x-8 justify-center"}>
                         <div className={"h-full w-full flex items-center justify-start"} style={{
                             width: "calc(100% - 1px)",
                             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
                         }}>
-                            <div className={"h-5/6 w-3/4 py-2 pr-2 rounded-r-3xl border border-y-1 border-r-1 border-y-[#A3A3A3] border-r-[#A3A3A3]  flex items-center gap-x-8 justify-start"}>
+                            <div ref={workingRef} className={"section h-5/6 w-3/4 py-2 pr-2 rounded-r-3xl border border-y-1 border-r-1 border-y-[#A3A3A3] border-r-[#A3A3A3]  flex items-center gap-x-8 justify-start"}>
                                 <div className={"flex items-center justify-end gap-x-16  rounded-r-2xl w-full h-full"} style={{
                                     background: "linear-gradient(-90deg, rgba(79, 70, 229, 0.8), rgba(255, 255, 255, 0.1))"
                                 }}>
                                     <div className={"h-4/5 pl-16 w-full flex items-center justify-end"}>
-                                        <div className={"w-full text-end text-3xl"}>
-                                            So the skills i have, simply to work on are these:
-                                            <br/>
-                                            <br/>
-                                            I primarly work with Github, git, Bash and powershell.
-                                            <br/>
-                                            i also can work on every major OS (MacOS, Linux (Arch) and Windows (10 and 11)).
-                                            <br/>
-                                            Same for the IDE's, i mainly work on WebStorm and CLion, but can work on VSCode too.
+                                        <div className={"w-full text-end text-2xl"}>
+                                            <div className="clipper"><div className="worktxt relative">So the skills i have, simply to work on are these:</div></div>
+                                            <div className="clipper"><div className="worktxt relative">I primarly work with Github, git, Bash and powershell.</div></div>
+                                            <div className="clipper"><div className="worktxt relative">i also can work on every major OS (MacOS, Linux (Arch) and Windows (10 and 11)).</div></div>
+                                            <div className="clipper"><div className="worktxt relative">Same for the IDE's, i mainly work on WebStorm and CLion, but can work on VSCode too.</div></div>
                                         </div>
                                     </div>
 
                                     <div className={"flex items-center h-4/5 justify-center"}>
-                                        <div className={"flex flex-col h-full justify-center items-center"}>
+                                    <div className={"flex flex-col h-full justify-center items-center"}>
                                             <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>
                                             <div className="h-full w-[1px] bg-black"></div>
                                             <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>
                                         </div>
                                     </div>
 
-                                    <div className={" h-full w-full flex flex-col gap-y-8 items-start justify-center"}>
+                                    <div className={"workBox h-full w-full flex flex-col gap-y-8 items-start justify-center"}>
                                         <div style={boxStyle}>
                                             {workingSkills.slice(0, 4).map((skill, index) => (
                                                 <img
                                                     key={index}
                                                     src={skill.icon}
                                                     alt={skill.name}
+                                                    className={"workIcon"}
                                                     style={imageStyle}
                                                 />
                                             ))}
@@ -229,6 +215,7 @@ export default function Expertise() {
                                                     key={index}
                                                     src={skill.icon}
                                                     alt={skill.name}
+                                                    className={"workIcon"}
                                                     style={imageStyle}
                                                 />
                                             ))}
@@ -239,6 +226,8 @@ export default function Expertise() {
                                                     key={index}
                                                     src={skill.icon}
                                                     alt={skill.name}
+                                                    className={"workIcon"}
+
                                                     style={imageStyle}
                                                 />
                                             ))}
@@ -253,29 +242,98 @@ export default function Expertise() {
         )
     }
 
-    const tl = gsap.timeline();
-    const workingRef = React.useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger);
         gsap.set(".clipper", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
         gsap.set(".txt", { y: 50 });
         tl.current = gsap.timeline({ paused: true })
             .to(".txt", { duration: 1, y: 0, delay: 1.25, stagger: 0.05, ease: "power4.inOut" })
             .to(".titleLetters", {
+                duration: 1,
+                opacity: 1,
+                y: 0,
+                stagger: 0.05,
+                ease: "power4.inOut"
+            });
+        gsap.set(workingRef.current, { x: "-100%", opacity: 0 });
+        gsap.set(programingRef.current, { x: "100%", opacity: 0 });
+        gsap.set(".worktxt", { y: 100 });
+        gsap.set(".progtxt", { y: 100 });
+        gsap.to(workingRef.current, {
+            x: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: workingRef.current,
+                scroller: ".scroller",
+                start: "top 50%",
+                end: "top 30%",
+                toggleActions: "play none none none",
+            },
+            onComplete: () => {
+                gsap.to(".worktxt", {
                     duration: 1,
-                    opacity: 1,
                     y: 0,
+                    delay: -0.5,
                     stagger: 0.05,
-                    ease: "power4.inOut"
-                }
-            )});
+                    ease: "power4.inOut",
+                    onComplete: () => {
+                        gsap.to(".workIcon", {
+                            duration: 1,
+                            opacity: 1,
+                            delay: -0.5,
+                            stagger: 0.05,
+                            ease: "power4.inOut"
+                        })
+                    }
+                })
+            }
+        });
+        gsap.to(programingRef.current, {
+            x: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: programingRef.current,
+                scroller: ".scroller",
+                start: "top 50%",
+                end: "top 30%",
+                toggleActions: "play none none none",
+            },
+            onComplete: () => {
+                    gsap.to(".progtxt", {
+                        duration: 1,
+                        y: 0,
+                        delay: -0.5,
+                        stagger: 0.05,
+                        ease: "power4.inOut",
+                        onComplete: () => {
+                            gsap.to(".progIcon", {
+                                duration: 1,
+                                opacity: 1,
+                                delay: -0.5,
+                                stagger: 0.05,
+                                ease: "power4.inOut"
+                            })
+                        }
+                    })
+            }
+        });
+    });
+
+
 
     React.useEffect(() => {
         if (tl.current) tl.current.play();
+        if (workingTl) workingTl.play();
+        if (programingTl) programingTl.play();
     }, [])
 
     return (
-        <div className={"w-full relative rounded-b-2xl text-lg overflow-y-scroll overflow-x-hidden"} style={{
+        <div className={"scroller w-full relative rounded-b-2xl text-lg overflow-y-scroll overflow-x-hidden"} style={{
             height: "calc(100vh - 7rem)"
         }}>
             <div ref={filter} className="fixed top-0 left-0 z-[-10] w-full h-screen"
@@ -290,7 +348,7 @@ export default function Expertise() {
             {/*</div>*/}
 
             {/* content */}
-            <div className={"absolute p-4 top-0 left-0 h-full w-full"}>
+            <div className={"absolute py-4 top-0 left-0 h-full w-full"}>
                 <InfoBlock b={false}
                            left={[<div className="clipper"><div className="txt relative">My skills</div></div>, <div className="clipper"><div className="txt relative">and more</div></div>]}
                            center={[<div className="clipper"><div className="relative txt">from EPITECH</div></div>]}
