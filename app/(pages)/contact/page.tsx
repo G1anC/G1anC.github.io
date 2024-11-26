@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import InfoBlock from "@/app/components/InfoBlock";
 import React from "react";
+import FluidBack from "@/app/components/FluidBack";
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
@@ -12,6 +13,8 @@ export default function Page() {
         }}>
             <div  className="absolute top-0 left-0 z-[-10]  w-full h-full"
                  style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"}}></div>
+
+            <FluidBack/>
 
             <InfoBlock b={false} left={[
                 <button className={"duration-100 transition-all w-6 h-6"}>
