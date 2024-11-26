@@ -30,7 +30,7 @@ export default function Page() {
                     className={`rotate-[270deg] flex-shrink-0  h-full flex items-end justify-center text-[150px] ${Selaris.className} leading-none`}
                     style={{transformOrigin: "center center"}}
                 >
-                    CoNTaCt
+                    ContAcT
                 </div>
 
                 {/* Center Contact Form */}
@@ -40,14 +40,14 @@ export default function Page() {
                     {/* Input Fields */}
                     <div className="h-20 w-full rounded-xl border border-1 border-[#A3A3A3]">
                         <input
-                            className="w-full h-full rounded-xl p-8 text-end"
+                            className="w-full h-full rounded-xl p-8 "
                             type="text"
                             placeholder="NAME"
                         />
                     </div>
                     <div className="h-20 w-full rounded-xl border border-1 border-[#A3A3A3]">
                         <input
-                            className="w-full h-full rounded-xl p-8"
+                            className="w-full h-full rounded-xl p-8 text-end"
                             type="email"
                             placeholder="EMAIL ADDRESS"
                         />
@@ -61,17 +61,17 @@ export default function Page() {
                     </div>
                     <div className="h-28 w-full rounded-xl border border-1 border-[#A3A3A3]">
                         <button
-                            className="w-full h-full flex items-center justify-end pr-8 rounded-xl text-end"
+                            className="w-full h-full flex items-center hover:pr-12 hover:bg-transparent bg-white hover:text-indigo-400 transition-all duration-100 text-indigo-600 justify-end pr-8 rounded-xl text-end"
                         >SUBMIT</button>
                     </div>
                 </div>
 
                 {/* Rotated Text Right */}
                 <div
-                    className={`rotate-[90deg] flex-shrink-0 flex items-end  h-full justify-center text-[150px] ${Selaris.className} leading-none`}
+                    className={`rotate-[90deg] flex-shrink-0 flex items-end h-full justify-center text-[150px] ${Selaris.className} leading-none`}
                     style={{transformOrigin: "center center"}}
                 >
-                    cOntAcT
+                    ContAcT
                 </div>
             </div>
 
