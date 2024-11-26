@@ -351,14 +351,16 @@ export default function Expertise() {
 
             {/* content */}
             <div className={"absolute py-4 top-0 left-0 h-full w-full"}>
-                <InfoBlock b={false}
-                           left={[<div className="clipper"><div className="txt relative">My skills</div></div>, <div className="clipper"><div className="txt relative">and more</div></div>]}
-                           center={[<div className="clipper"><div className="relative txt">from EPITECH</div></div>]}
-                           right={[<div className="clipper"><div className="relative txt">to self study</div></div>, <div className={"clipper"}><div className={"relative txt"}>and interests</div></div>]}/>
+                <div className={"w-full px-4"}>
+                    <InfoBlock b={false}
+                               left={[<div className="clipper"><div className="txt relative">My skills</div></div>, <div className="clipper"><div className="txt relative">and more</div></div>]}
+                               center={[<div className="clipper"><div className="relative txt">from EPITECH</div></div>]}
+                               right={[<div className="clipper"><div className="relative txt">to self study</div></div>, <div className={"clipper"}><div className={"relative txt"}>and interests</div></div>]}/>
+                </div>
                 <HeaderSection/>
                 <WorkingSkillsSection/>
                 <ProgramingSkillsSection/>
-                <div className={"w-full mb-4"}>
+                <div className={"w-full px-4 mb-4"}>
                     <InfoBlock b={true}
                                left={[<div className="clipper"><div className="txt relative">Check out</div></div>,]}
                                center={[<div className="clipper"><div className="relative txt">other pages</div></div>,]}
