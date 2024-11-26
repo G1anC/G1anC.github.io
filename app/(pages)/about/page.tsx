@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import localFont from "next/font/local";
 import FluidBack from "@/app/components/FluidBack";
 import InfoBlock from "@/app/components/InfoBlock";
 import { gsap } from "gsap";
+import {useGSAP} from "@gsap/react";
 
 // Import your font locally
 const SanFranciscoFont = localFont({
@@ -102,6 +103,20 @@ export default function About() {
     const effect = useRef<HTMLDivElement>(null);
     const filter = useRef<HTMLDivElement>(null);
     const phone = useRef<HTMLDivElement>(null);
+    const tl = useRef<gsap.core.Timeline>();
+
+    useGSAP(() => {
+        gsap.set(".clipper", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
+        gsap.set(".txt", { y: 50 });
+        tl.current = gsap.timeline({ paused: true })
+            .to(".txt", { duration: 1, y: 0, delay: 1.25, stagger: 0.05, ease: "power4.inOut" })
+    }, { scope: container });
+
+    useEffect(() => {
+        if (tl.current) tl.current.play();
+        filter.current && gsap.fromTo(filter.current, { opacity: 0}, { opacity: 1, duration: 0.5, delay: 2  });
+        effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 3 });
+    }, []);
 
     React.useEffect(() => {
             const timeline = gsap.timeline();
@@ -161,7 +176,7 @@ export default function About() {
     return (
         <div ref={container}
              className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
-            {/*<FluidBack effect={effect} />*/}
+            <FluidBack />
             <div ref={filter} className="absolute top-0 left-0  w-full h-full"
                  style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"}}></div>
             <div className="relative px-4 w-full h-full flex flex-col items-center justify-center">
@@ -187,10 +202,10 @@ export default function About() {
 
                 <div className={"w-full h-[80%] flex items-center justify-center gap-x-12"}>
                     <div className={" h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl"}>
-                        <div className={"absolute w-full h-full top-0 left-0 p-2 z-[-1]"}>
+                        <div className={"absolute w-full h-full top-0 left-0 p-2 "}>
                             <img src={"/images/me.png"} alt={"Noah Steiniger"} className={"w-full h-full object-cover rounded-2xl"}/>
                         </div>
-                        <div ref={phone} className={"bg-black/70 opacity-0 w-full z-[10] h-full flex flex-col rounded-2xl p-4 overflow-y-auto"}>
+                        <div ref={phone} className={"bg-black/70 opacity-0 w-full z-[20] h-full flex flex-col rounded-2xl p-4 overflow-y-auto"}>
                             {MeDiscussions.map((d, i) => (
                                 <div key={i} className={'mb-4 discussion'}>
                                     {d.questions.map((q, j) => (
