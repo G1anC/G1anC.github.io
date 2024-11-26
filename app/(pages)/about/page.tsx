@@ -4,87 +4,161 @@ import React, { useState, useRef } from 'react';
 import localFont from "next/font/local";
 import FluidBack from "@/app/components/FluidBack";
 import InfoBlock from "@/app/components/InfoBlock";
+import { gsap } from "gsap";
 
 // Import your font locally
 const SanFranciscoFont = localFont({
 	src: "../../../public/SanFrancisco.woff",
 });
 
-const MeDiscussions: { question: string; answers: string[] }[] = [
+const MeDiscussions: { questions: string[]; answers: string[] }[] = [
 	{
-		question: 'Who are you ?',
+		questions: ['Who are you ?'],
 		answers: [
 			'I\'m Noah Steiniger :)',
 			'A junior student at Epitech Strasbourg !'
 		]
 	},
     {
-        question: 'How do you see yourself in the future ?',
+        questions: ['I want to know you more', 'What is your purpose as a young web creator ?'],
+        answers: [
+            'Creating the best websites i can',
+            'Showing to the world my creativity and my skills',
+            'By always training, discovering',
+            'and learning new stuff',
+        ]
+    },
+    {
+        questions: ['How do you see yourself in the future ?'],
         answers: [
             'hmmm...',
-            'good question lmao',
+            'good questions lmao',
             'More seriously, in the near future,',
             'I see myself as a passionate web designer, learning from the bests.',
         ]
     },
     {
-        question: 'And in the far future ?',
-        answers: ['Well, I really want to create my own company and work with the bests in the industry.']
-    },
-	{
-		question: 'What is your purpose as a young web creator ?',
-		answers: [
-			'I absolutely love designing beautiful websites and code them to life.',
-			'Finding interest in all the things that surrounds me in life, I adore learning new stuff !'
-		]
-	},
-    {
-        question: 'What are you like as a person / coworker ?',
+        questions: ['And in the far future ?'],
         answers: [
-            'I\'m an extroverted person, always looking for new challenges and experiences, I love working in a team and share my knowledge with others.',
-            'Always listening to advice and taking every opinions into account, even the most negative ones.'
+            'Well',
+            'I really want to create my own company',
+            'and work with the bests in the industry.',
+            'Always challenging myself as a person and as a professional.',
+        ]
+    },
+
+    {
+        questions: ['Nice !','What are you like as a person/coworker ?'],
+        answers: [
+            'I\'m usually an extroverted person',
+            'even though i like focusing alone on my work',
+            'However i am a great coworker, always here to give a hand if needed.',
+            'Always listening to advice', 'and taking every opinions into account,', 'even the most negative ones x)'
         ]
     },
 	{
-		question: 'So what are these interests that you are talking about ?',
+		questions: ['So what do you love in life ?'],
 		answers: [
-			'Well, first of all I am a huge fan of music, from R\'n\'B, to dreampop, to Shoegaze, to weird avant-gardiste neo Jazz shit.',
-			'I also read philosophy (hopefully without existential crisis), history, and psychiatry (big luv on Carl G. Jung).',
-            'Coming from a very sportive family, i played basket-ball for 12 years',
-            'and now i do rock climbing which i love, i think about the dyno i can\'t make all the time'
+			'Well, first of all I am a huge fan of music!',
 		]
-	}
+	},
+    {
+        questions: ["Okay!! Tell me more!"],
+        answers: [
+            'from R\'n\'B, to dreampop, to Shoegaze, to weird avant-gardiste neo Jazz shit.',
+            'I really listen to everything that is out there',
+        ]
+    },
+    {
+        questions: ["Interesting, what else do you like ?"],
+        answers: [
+            'I also read philosophy, hopefully without existential crisis',
+            'history too',
+            'and psychiatry (big luv on Carl G. Jung).',
+
+        ]
+    },
+    {
+        questions: ["Any activity ?"],
+        answers: [
+            "Yeah haha I'm a big sports guy :)",
+            'Coming from a sportive family, i played basket-ball for 12 years',
+            'and now i do rock climbing which i love',
+            'i think about the dyno i can\'t make all the time'
+        ]
+    },
+    {
+        questions: ['It was a pleasure Noah', 'If you have any questions don\'t hesitate !'],
+        answers: [
+            'Yeah for me too',
+            'Thank you ChatGPT'
+        ]
+    }
 ];
-
-// Message component to render discussions
-const Message = ({ value }: { value: string | string[] }) => {
-	const Bubble = ({ value, className }: { value: string, className: string }) => (
-		<div className={`text-xl rounded-[20px] p-4 mb-2 w-auto max-w-[66.6666%] ${className} ${SanFranciscoFont.className}`}>
-			{value}
-		</div>
-	);
-
-	return (
-		<div className={`flex flex-col mx-5`}>
-			{typeof value === 'string' ? (
-				<Bubble value={value} className="z-1 bg-zinc-700 text-white self-start text-start" />
-			) : (
-				(value as string[]).map((v, i) => (
-					<Bubble value={v} className="z-1 bg-blue-500 text-white self-end text-end" key={i} />
-				))
-			)}
-		</div>
-	);
-};
 
 // Main Page component
 export default function About() {
-	// @ts-ignore
     const container = useRef<HTMLDivElement>(null);
     const effect = useRef<HTMLDivElement>(null);
     const filter = useRef<HTMLDivElement>(null);
+    const phone = useRef<HTMLDivElement>(null);
 
-	return (
+    React.useEffect(() => {
+            const timeline = gsap.timeline();
+            const discussions = container.current?.querySelectorAll('.discussion');
+
+            timeline.to(phone.current, {
+                delay: 3,
+                opacity: 1,
+                backdropFilter: "blur(20px)",
+                duration: 1,
+            });
+
+            if (discussions) {
+                discussions.forEach((discussion, index) => {
+                    const questions = discussion.querySelectorAll('.question');
+                    const answers = discussion.querySelectorAll('.answer');
+
+                    if (questions.length > 0) {
+                        timeline.to(
+                            questions,
+                            {
+                                opacity: 1,
+                                y: 0,
+                                delay: 1,
+                                stagger: 1.5,
+                                duration: 0.5,
+                            },
+                            index === 0 ? 0 : `+=1.5` // Add delay between discussions
+                        );
+                    }
+                    if (answers.length > 0) {
+                        timeline.to(
+                            answers,
+                            {
+                                opacity: 1,
+                                y: 0,
+                                stagger: 1.5,
+                                duration: 0.4,
+                            },
+                            '+=1.5' // Delay after the questions animation
+                        );
+                    }
+                });
+            }
+
+    }, []);
+
+    const Message = ({ value, className }: { value: string; className: string }) => (
+        <div
+            className={`text-lg tracking-wide rounded-[20px] p-4 mb-2 w-auto max-w-[66.66666%] ${className} ${SanFranciscoFont.className}`}
+            style={{ opacity: 0, transform: 'translateY(20px)' }} // Initial hidden state
+        >
+            {value}
+        </div>
+    );
+
+    return (
         <div ref={container}
              className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
             {/*<FluidBack effect={effect} />*/}
@@ -105,28 +179,41 @@ export default function About() {
                     <div className="clipper">
                         <div className="relative txt">edited</div>
                     </div>,
-                ]} right={[
-                    <div className="clipper">
+                ]} right={[<div className="clipper">
                         <div className="relative txt">by my wonderful</div>
-                    </div>,
-                    <div className={"clipper"}>
+                    </div>, <div className={"clipper"}>
                         <div className={"relative txt"}>girlfriend :3</div>
-                    </div>
-                ]}/>
+                    </div>]}/>
 
                 <div className={"w-full h-[80%] flex items-center justify-center gap-x-12"}>
-                    <div className={" h-full aspect-square border border-1 border-[#A3A3A3] p-2 rounded-2xl"}>
-                        <div className={"bg-black/90 w-full h-full rounded-2xl p-4 overflow-y-auto"}>
+                    <div className={" h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl"}>
+                        <div className={"absolute w-full h-full top-0 left-0 p-2 z-[-1]"}>
+                            <img src={"/images/me.png"} alt={"Noah Steiniger"} className={"w-full h-full object-cover rounded-2xl"}/>
+                        </div>
+                        <div ref={phone} className={"bg-black/70 opacity-0 w-full z-[10] h-full flex flex-col rounded-2xl p-4 overflow-y-auto"}>
                             {MeDiscussions.map((d, i) => (
-                                <div key={i} className={"mb-4"}>
-                                    <Message value={d.question} />
-                                    <Message value={d.answers} />
+                                <div key={i} className={'mb-4 discussion'}>
+                                    {d.questions.map((q, j) => (
+                                        <div className={"w-full flex flex-col items-center justify-start"}>
+                                            <Message
+                                                value={q}
+                                                className="z-1 bg-zinc-700 text-white max-w-2/3 self-start text-start question"
+                                            />
+                                        </div>
+                                    ))}
+
+                                    {d.answers.map((answer, j) => (
+                                        <div className={"w-full flex flex-col items-center justify-end"} key={j}>
+                                            <Message
+                                                key={j}
+                                                value={answer}
+                                                className="z-1 m bg-blue-500 text-white self-end text-end answer"
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
                             ))}
                         </div>
-                    </div>
-                    <div className={"h-full aspect-square border border-1 border-[#A3A3A3] rounded-2xl p-2"}>
-                        <img src={"/images/me.png"} alt={"Me"} className={"rounded-2xl"} />
                     </div>
                 </div>
 

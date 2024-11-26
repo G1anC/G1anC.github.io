@@ -73,7 +73,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
                     <div className={"header h-20 w-full text-[3.2rem] border-b-1 border-b border-b-[#A3A3A3]"}>
                         <div className="header-container justify-center items-center flex h-full w-full">
                             <Box supp={`w-1/2 border-r border-r-1 text-4xl text-indigo-600 border-r-[#A3A3A3] ${DirtyLine.className}`}>
-                                Portfolio
+                                PortFolio
                             </Box>
                             <div className={"w-1/2 flex items-center justify-end"}>
                                 <button className={`w-full p-6 h-full ${DirtyLine.className} text-4xl flex items-center flex-[1.25] text-indigo-600 hover:text-indigo-400 hover:mr-2 transition-all duration-100 justify-end`} onClick={toggleMenu}>
