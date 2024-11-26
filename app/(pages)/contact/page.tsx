@@ -28,16 +28,16 @@ export default function Page() {
 
         emailjs
             .send(
-                "service_e15etcu", // Replace with your EmailJS service ID
-                "template_6es4ylj", // Replace with your EmailJS template ID
+                "service_e15etcu",
+                "template_6es4ylj",
                 formData,
-                "fQuArhqApZ_tdcYP0" // Replace with your EmailJS public key
+                "fQuArhqApZ_tdcYP0"
             )
             .then(
                 () => {
                     setLoading(false);
                     setStatus("Message sent successfully!");
-                    setFormData({ name: "", email: "", message: "" }); // Reset form
+                    setFormData({ name: "", email: "", message: "" });
                 },
                 (error) => {
                     setLoading(false);
@@ -48,7 +48,7 @@ export default function Page() {
 
     return (
         <div
-            className={`${Selaris.className} p-4 w-full h-screen flex flex-col items-center justify-center`}
+            className={`${Halenoir.className} text-lg p-4 w-full h-screen flex flex-col items-center justify-center`}
             style={{ height: "calc(100vh - 7rem)" }}
         >
             <div
@@ -77,66 +77,57 @@ export default function Page() {
                 ]}
             />
 
-            <form
-                onSubmit={handleSubmit}
-                className="w-full h-full flex items-center gap-x-8 justify-center relative"
-            >
-                {/* Rotated Text Left */}
-                <div
-                    className={`rotate-[270deg] flex-shrink-0 h-full flex items-end justify-center text-[150px] ${Selaris.className} leading-none`}
-                    style={{ transformOrigin: "center center" }}
-                >
+            <form onSubmit={handleSubmit} className="w-full h-full flex items-center gap-x-8 justify-center relative">
+                <div className={`rotate-[270deg] flex-shrink-0 h-full flex items-end justify-center text-[150px] ${Selaris.className} leading-none`}
+                    style={{ transformOrigin: "center center" }}>
                     ContAcT
                 </div>
 
-                {/* Center Contact Form */}
-                <div
-                    className={`aspect-square flex-shrink-0 flex flex-col items-start gap-y-8 h-full rounded-2xl ${Halenoir.className} uppercase`}
-                >
-                    {/* Input Fields */}
-                    <div className="h-20 w-full rounded-xl border border-1 border-[#A3A3A3]">
+                <div className={`aspect-square flex-shrink-0 flex flex-col items-start h-full ${Halenoir.className} uppercase`}>
+                    <div className="h-28 w-full rounded-t-xl border border-1 border-[#A3A3A3]">
                         <input
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full h-full rounded-xl p-8 "
+                            className="w-full h-full rounded-t-xl p-8 outline-none"
                             type="text"
                             placeholder="NAME"
                             required
                         />
                     </div>
-                    <div className="h-20 w-full rounded-xl border border-1 border-[#A3A3A3]">
+
+                    <div className="h-28 w-full border-x border-x-1 border-x-[#A3A3A3] outline-none">
                         <input
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full h-full rounded-xl p-8 text-end"
+                            className="w-full h-full p-8 text-end outline-none"
                             type="email"
                             placeholder="EMAIL ADDRESS"
                             required
                         />
                     </div>
 
-                    <div className="h-full w-full rounded-xl border border-1 border-[#A3A3A3]">
+                    <div className="h-full w-full border border-1 border-[#A3A3A3]">
                         <textarea
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full h-full rounded-xl p-8 resize-none"
+                            className="w-full h-full p-8 resize-none outline-none"
                             placeholder="MESSAGE"
                             required
                         ></textarea>
                     </div>
-                    <div className="h-28 w-full rounded-xl border border-1 border-[#A3A3A3]">
+
+                    <div className="h-36 w-full uppercase rounded-b-xl border-b-1 border border-x-1 border-x-[#A3A3A3] border-b-[#A3A3A3]">
                         <button
                             type="submit"
-                            className="w-full h-full flex items-center hover:pr-12 hover:bg-transparent bg-white hover:text-indigo-400 transition-all duration-100 text-indigo-600 justify-end pr-8 rounded-xl text-end"
+                            className={`w-full h-full flex outline-none items-center uppercase hover:pr-12 hover:bg-transparent bg-white ${!status ? "bg-white text-indigo-600 hover:text-indigo-400" : (status === "Message sent successfully!" ? "bg-green-600/30 text-black hover:text-green-600" : "bg-red-600/30 text-black hover:text-red-600")}  transition-all duration-100 justify-end pr-8 rounded-b-xl text-end`}
                             disabled={loading}
                         >
-                            {loading ? "Sending..." : "SUBMIT"}
+                            {status ? status : (loading ? "SENDING..." : "SUBMIT")}
                         </button>
                     </div>
-                    {status && <p className="text-center text-sm mt-2">{status}</p>}
                 </div>
 
                 {/* Rotated Text Right */}
@@ -148,7 +139,7 @@ export default function Page() {
                 </div>
             </form>
 
-            <InfoBlock b={true} left={[]} center={[]} right={[]} />
+            <InfoBlock b={true} left={["Send"]} center={["me"]} right={["a little message :)"]} />
         </div>
     );
 }
