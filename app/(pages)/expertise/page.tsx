@@ -1,8 +1,11 @@
 'use client';
 import localFont from "next/font/local";
 
+import gsap from "gsap";
 import FluidBack from "@/app/components/FluidBack";
 import React, {Fragment} from "react";
+import InfoBlock from "@/app/components/InfoBlock";
+import {useGSAP} from "@gsap/react";
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
@@ -23,58 +26,149 @@ const Lines = ({pos}: {pos: {pos: number, left: boolean}}) => {
 
 // FIRST SECTION
 
-const HeaderSection = () => {
-    return (
-        <>
-            <Lines pos={{pos: 0, left: true}}/>
-            <Lines pos={{pos: 0, left: false}}/>
 
-            <div className={`w-full header-section ${Halenoir.className}`} style={{
-                height: "calc(100vh - 7rem)"
-            }}>
-                <div className={"relative w-full h-full flex z-20 flex-col gap-16 items-center justify-center"} >
-                    <div
-                        className={`absolute top-0 left-0 text-[320px] pb-12 flex items-center justify-center h-full w-full ${Selaris.className}`}>
-                        eXperTiSe
-                    </div>
 
-                    <div
-                        className={`absolute top-0 left-0 text-lg pt-12 uppercase flex flex-col items-center justify-center h-full w-full ${Halenoir.className}`}>
-                        <div className={"w-full h-2/3"}></div>
-                        <div className={"flex items-center justify-between w-2/3 h-1/3"}>
-                            <div className={"w-[50%] flex items-start h-full justify-center"}>
-                                i'm a 3rd year student at epitech strasbourg,
-                                <br/><br/>
-                                so i can work on different languages and technologies fairly easily.
-                                i mainly specify in web, more precisely front-end ideation, design and development.
+const imageStyle = {
+    flexShrink: 0,
+    width: '7rem',
+    height: '7rem',
+    padding: '1rem',
+};
 
-                            </div>
-                            <div className={"w-1/3 text-end flex items-start justify-center h-full"}>
-                                Let's check out my skills !
-                                <br/>
-                                <br/>
-                                Scroll down and learn about my knowledge :)
+const boxStyle = {
+    display: "flex",
+    gap: "1rem",
+    borderRadius: "1rem",
+    border: "1px solid #A3A3A3",
+    boxShadow: "5px 5px 20px 0 rgba(0, 0, 0, 0.25)",
+    backgroundColor: "white"
+};
+
+export default function Expertise() {
+    const filter = React.useRef<HTMLDivElement>(null);
+    const headerTitleRef = React.useRef<HTMLDivElement>(null);
+    const titleLetters = "eXperTiSe".split("");
+    const HeaderSection = () => {
+        return (
+            <>
+                <div className={`w-full header-section ${Halenoir.className}`} style={{height: "calc(100vh - 7rem)"}}>
+                    <div className={"relative w-full h-full flex z-20 flex-col gap-16 items-center justify-center"}>
+                        <div className={`tracking-tight h-full pb-16 flex justify-center items-end ${Selaris.className}`}
+                             style={{fontSize: "clamp(280px, calc(8.33vw - 160px), 500px)"}}>
+                            {titleLetters.map((letter, i) => (
+                                <div key={i} className="titleLetters opacity-0 flex justify-center items-center">{letter}</div>
+                            ))}
+                        </div>
+
+                        <div className={` top-0 left-0 text-lg pt-8 uppercase flex flex-col items-center justify-center h-full w-full ${Halenoir.className}`}>
+                            <div className={"flex items-start justify-between w-2/3 h-full"}>
+                                <div className={"w-[50%] flex flex-col items-start h-full justify-start"}>
+                                    <div className={"clipper"}><div className={"txt relative"}>i'm a 3rd year student at epitech strasbourg,</div></div>
+                                    <div className={"clipper"}><div className={"txt relative"}>so i can work on different languages and technologies fairly easily.</div></div>
+                                    <div className={"clipper"}><div className={"txt relative"}>i mainly specify in web, more precisely front-end ideation, design and development.</div></div>
+                                </div>
+                                <div className={"w-1/3 text-end flex flex-col items-end justify-start h-full"}>
+                                    <div className={"clipper"}><div className={"txt relative"}>Let's check out my skills !</div></div>
+                                    <div className={"clipper"}><div className={"txt relative"}>Scroll down and learn about my knowledge :)</div></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </>
+        )
+    }
+    const ProgramingSkillsSection = () => {
+        const ProgramingSkills = [
+            {name: "C", icon: "/images/icons/C.png"},
+            {name: "cpp", icon: "/images/icons/cpp.png"},
+            {name: "haskell", icon: "/images/icons/haskell.svg"},
+            {name: "shell", icon: "/images/icons/shell.png" },
+            {name: "next", icon: "/images/icons/next.svg"},
+            {name: "ts", icon: "/images/icons/ts.svg" },
+            {name: "npm", icon: "/images/icons/npm.svg"},
+            {name: "React", icon: "/images/icons/react.png" },
+            { name: "html", icon: "/images/icons/html.svg" },
+            { name: "tailwind", icon: "/images/icons/tailwind.svg" },
+            { name: "css", icon: "/images/icons/css.svg" },
+            { name: "GSAP", icon: "/images/icons/GSAP.svg" },
+        ]
 
-            <Lines pos={{pos: 1, left: true}}/>
-            <Lines pos={{pos: 1, left: false}}/>
-        </>
-    )
-}
+        return (
+            <>
+                <div className={"relative w-full h-full uppercase"}>
+                    <div className={"h-full flex items-center z-10 justify-end"} style={{
+                        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+                    }}>
+                        <div className={"h-5/6 w-3/4 py-2 pl-2 rounded-l-3xl border border-y-1 border-l-1 border-y-[#A3A3A3] border-l-[#A3A3A3] flex items-center gap-x-8 justify-end"}>
+                            <div className={"flex items-center justify-end gap-x-16 rounded-l-2xl  w-full h-full"} style={{
+                                background: "linear-gradient(90deg, rgba(79, 70, 229, 0.5), rgba(255, 255, 255, 0.0))"
+                            }}>
+                                <div className={"h-full w-full flex flex-col gap-y-8 items-end justify-center"}>
+                                    <div style={boxStyle}>
+                                        {ProgramingSkills.slice(0, 4).map((skill, index) => (
+                                            <img
+                                                key={index}
+                                                src={skill.icon}
+                                                alt={skill.name}
+                                                style={imageStyle}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div style={boxStyle}>
+                                        {ProgramingSkills.slice(4, 8).map((skill, index) => (
+                                            <img
+                                                key={index}
+                                                src={skill.icon}
+                                                alt={skill.name}
+                                                style={imageStyle}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div style={boxStyle}>
+                                        {ProgramingSkills.slice(8, 12).map((skill, index) => (
+                                            <img
+                                                key={index}
+                                                src={skill.icon}
+                                                alt={skill.name}
+                                                style={imageStyle}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
 
+                                <div className={"flex items-center h-4/5 justify-center"}>
+                                    <div className={"flex flex-col h-full justify-center items-center"}>
+                                        <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>
+                                        <div className="h-full w-[1px] bg-black"></div>
+                                        <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>
+                                    </div>
+                                </div>
 
-// SECOND SECTION
-
-const WorkingSkillsSection = () => {
-    const workingSkills = [
+                                <div className={"h-4/5 w-full pr-16 flex items-center justify-start"}>
+                                    <div className={" w-full text-start text-3xl"}>
+                                        For progamming stuff,
+                                        <br/>
+                                        <br/>
+                                        I'm very confortable with computational languages like C, C++ and Haskell.
+                                        <br/><br/>
+                                        But the important part is that for the web design / development, i mainly use npm,
+                                        Next.js, React, TS, Tailwind and GSAP.<br/>And so i have competences in JS, CSS and HTML.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
+    }
+    const WorkingSkillsSection = () => {
+        const workingSkills = [
             { name: "bash", icon: "/images/icons/bash.svg" },
             { name: "git", icon: "/images/icons/git.svg" },
-            { name: "github", icon: "/images/icons/github.png" },
             { name: "powershell", icon: "/images/icons/powershell.png" },
+            { name: "github", icon: "/images/icons/github.png" },
             { name: "arch", icon: "/images/icons/arch.png" },
             { name: "linux", icon: "/images/icons/linux.svg" },
             { name: "apple", icon: "/images/icons/apple.svg" },
@@ -85,165 +179,132 @@ const WorkingSkillsSection = () => {
             { name: "figma", icon: "/images/icons/figma.svg" },
         ]
 
-    return (
-        <>
-            <div className={"w-full h-full uppercase"}>
-                <div className={"w-full h-full flex items-center justify-center"}>
-                    <div className={"w-1/2 h-full flex items-center justify-center"}>
-                        <div className={"w-2/3"}>
-                            So the skills i have, simply to work on are these:
-                            <br/>
-                            <br/>
-                            I primarly work with Github, git, Bash and powershell.
-                            <br/>
-                            i also can work on every major OS (MacOS, Linux (Arch) and Windows (10 and 11)).
-                            <br/>
-                            Same for the IDE's, i mainly work on WebStorm and CLion, but can work on VSCode too.
-                        </div>
-                    </div>
-                    <div className={"w-1/2 h-full flex flex-col gap-y-8 items-center justify-center"}>
+        return (
+            <>
+                <div className={"w-full h-full uppercase"}>
+                    <div className={" h-full flex items-center gap-x-8 justify-center"}>
+                        <div className={"h-full w-full flex items-center justify-start"} style={{
+                            width: "calc(100% - 1px)",
+                            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+                        }}>
+                            <div className={"h-5/6 w-3/4 py-2 pr-2 rounded-r-3xl border border-y-1 border-r-1 border-y-[#A3A3A3] border-r-[#A3A3A3]  flex items-center gap-x-8 justify-start"}>
+                                <div className={"flex items-center justify-end gap-x-16  rounded-r-2xl w-full h-full"} style={{
+                                    background: "linear-gradient(-90deg, rgba(79, 70, 229, 0.8), rgba(255, 255, 255, 0.1))"
+                                }}>
+                                    <div className={"h-4/5 pl-16 w-full flex items-center justify-end"}>
+                                        <div className={"w-full text-end text-3xl"}>
+                                            So the skills i have, simply to work on are these:
+                                            <br/>
+                                            <br/>
+                                            I primarly work with Github, git, Bash and powershell.
+                                            <br/>
+                                            i also can work on every major OS (MacOS, Linux (Arch) and Windows (10 and 11)).
+                                            <br/>
+                                            Same for the IDE's, i mainly work on WebStorm and CLion, but can work on VSCode too.
+                                        </div>
+                                    </div>
 
-                        <div className={"flex gap-x-8"}>
-                            <img src={workingSkills[0].icon} alt={workingSkills[0].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[1].icon} alt={workingSkills[1].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[2].icon} alt={workingSkills[2].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[3].icon} alt={workingSkills[3].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                        </div>
+                                    <div className={"flex items-center h-4/5 justify-center"}>
+                                        <div className={"flex flex-col h-full justify-center items-center"}>
+                                            <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>
+                                            <div className="h-full w-[1px] bg-black"></div>
+                                            <div className={"bg-black rounded-full h-[6px] w-[6px] flex-shrink-0"}></div>
+                                        </div>
+                                    </div>
 
-                        <div className={"flex gap-x-8"}>
-                            <img src={workingSkills[4].icon} alt={workingSkills[4].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[5].icon} alt={workingSkills[5].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[6].icon} alt={workingSkills[6].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[7].icon} alt={workingSkills[7].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                        </div>
-
-                        <div className={"flex gap-x-8"}>
-                            <img src={workingSkills[8].icon} alt={workingSkills[8].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[9].icon} alt={workingSkills[9].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[10].icon} alt={workingSkills[10].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={workingSkills[11].icon} alt={workingSkills[11].name} className={"flex-shrink-0 w-36 h-36"}/>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <Lines pos={{pos: 2, left: true}}/>
-            <Lines pos={{pos: 2, left: false}}/>
-        </>
-    )
-}
-
-
-// THIRD SECTION
-
-const ProgramingSkillsSection = () => {
-    const ProgramingSkills = [
-        {name: "C", icon: "/images/icons/C.png"},
-        {name: "cpp", icon: "/images/icons/cpp.png"},
-        { name: "haskell", icon: "/images/icons/haskell.svg" },
-        { name: "shell", icon: "/images/icons/shell.png" },
-        {name: "npm", icon: "/images/icons/npm.svg"},
-        {name: "React", icon: "/images/icons/react.png" },
-        { name: "next", icon: "/images/icons/next.svg" },
-        { name: "ts", icon: "/images/icons/ts.svg" },
-        { name: "html", icon: "/images/icons/html.svg" },
-        { name: "tailwind", icon: "/images/icons/tailwind.svg" },
-        { name: "css", icon: "/images/icons/css.svg" },
-        { name: "GSAP", icon: "/images/icons/GSAP.svg" },
-    ]
-    return (
-        <>
-            <div className={"w-full h-full uppercase"}>
-                <div className={"w-full h-full flex items-center justify-center"}>
-
-                    <div className={"w-1/2 h-full flex flex-col gap-y-8 items-center justify-center"}>
-
-                        <div className={"flex gap-x-8"}>
-                            <img src={ProgramingSkills[0].icon} alt={ProgramingSkills[0].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[1].icon} alt={ProgramingSkills[1].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[2].icon} alt={ProgramingSkills[2].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[3].icon} alt={ProgramingSkills[3].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                        </div>
-
-                        <div className={"flex gap-x-8"}>
-                            <img src={ProgramingSkills[4].icon} alt={ProgramingSkills[4].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[5].icon} alt={ProgramingSkills[5].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[6].icon} alt={ProgramingSkills[6].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[7].icon} alt={ProgramingSkills[7].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                        </div>
-
-                        <div className={"flex gap-x-8"}>
-                            <img src={ProgramingSkills[8].icon} alt={ProgramingSkills[8].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[9].icon} alt={ProgramingSkills[9].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[10].icon} alt={ProgramingSkills[10].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                            <img src={ProgramingSkills[11].icon} alt={ProgramingSkills[11].name}
-                                 className={"flex-shrink-0 w-36 h-36"}/>
-                        </div>
-
-                    </div>
-                    <div className={"w-1/2 h-full flex items-center justify-center"}>
-                        <div className={"w-2/3 text-end"}>
-                        For progamming stuff,<br/><br/>
-                        I'm very confortable with computational languages like C, C++ and Haskell.
-                        <br/><br/>
-                        But the important part is that for the web design / development, i mainly use npm,
-                        Next.js, React, TS, Tailwind and GSAP.<br/>And so i have competences in JS, CSS and HTML.
+                                    <div className={" h-full w-full flex flex-col gap-y-8 items-start justify-center"}>
+                                        <div style={boxStyle}>
+                                            {workingSkills.slice(0, 4).map((skill, index) => (
+                                                <img
+                                                    key={index}
+                                                    src={skill.icon}
+                                                    alt={skill.name}
+                                                    style={imageStyle}
+                                                />
+                                            ))}
+                                        </div>
+                                        <div style={boxStyle}>
+                                            {workingSkills.slice(4, 8).map((skill, index) => (
+                                                <img
+                                                    key={index}
+                                                    src={skill.icon}
+                                                    alt={skill.name}
+                                                    style={imageStyle}
+                                                />
+                                            ))}
+                                        </div>
+                                        <div style={boxStyle}>
+                                            {workingSkills.slice(8, 12).map((skill, index) => (
+                                                <img
+                                                    key={index}
+                                                    src={skill.icon}
+                                                    alt={skill.name}
+                                                    style={imageStyle}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
-    )
-}
+            </>
+        )
+    }
 
+    const tl = gsap.timeline();
+    const workingRef = React.useRef<HTMLDivElement>(null);
 
-export default function Expertise() {
-    const filter = React.useRef<HTMLDivElement>(null);
+    useGSAP(() => {
+        gsap.set(".clipper", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
+        gsap.set(".txt", { y: 50 });
+        tl.current = gsap.timeline({ paused: true })
+            .to(".txt", { duration: 1, y: 0, delay: 1.25, stagger: 0.05, ease: "power4.inOut" })
+            .to(".titleLetters", {
+                    duration: 1,
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.05,
+                    ease: "power4.inOut"
+                }
+            )});
+
+    React.useEffect(() => {
+        if (tl.current) tl.current.play();
+    }, [])
+
     return (
         <div className={"w-full relative rounded-b-2xl text-lg overflow-y-scroll overflow-x-hidden"} style={{
             height: "calc(100vh - 7rem)"
         }}>
-        <div ref={filter} className="fixed top-0 left-0 z-[-10]  w-full h-full"
-             style={{ backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"
-        }}>
-        </div>
-
-            {/* fixed fluid background */}
-            <div className={"fixed w-full top-0 left-0 h-full"}>
-                <FluidBack/>
+            <div ref={filter} className="fixed top-0 left-0 z-[-10] w-full h-screen"
+                 style={{
+                     backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"
+                 }}>
             </div>
 
-            {/* content */}
-        <div className={"absolute top-0 left-0 h-full w-full"}>
+            {/*fixed fluid background */}
+            {/*<div className={"fixed w-full top-0 left-0 h-full"}>*/}
+            {/*    <FluidBack/>*/}
+            {/*</div>*/}
 
-            <HeaderSection/>
-            <WorkingSkillsSection/>
-            <ProgramingSkillsSection/>
+            {/* content */}
+            <div className={"absolute p-4 top-0 left-0 h-full w-full"}>
+                <InfoBlock b={false}
+                           left={[<div className="clipper"><div className="txt relative">My skills</div></div>, <div className="clipper"><div className="txt relative">and more</div></div>]}
+                           center={[<div className="clipper"><div className="relative txt">from EPITECH</div></div>]}
+                           right={[<div className="clipper"><div className="relative txt">to self study</div></div>, <div className={"clipper"}><div className={"relative txt"}>and interests</div></div>]}/>
+                <HeaderSection/>
+                <WorkingSkillsSection/>
+                <ProgramingSkillsSection/>
+                <div className={"w-full mb-4"}>
+                    <InfoBlock b={true}
+                               left={[<div className="clipper"><div className="txt relative">Check out</div></div>,]}
+                               center={[<div className="clipper"><div className="relative txt">other pages</div></div>,]}
+                               right={[<div className="clipper"><div className="relative txt">for contexts</div></div>]}/>
+                </div>
+            </div>
         </div>
-    </div>
-)
+    )
 }

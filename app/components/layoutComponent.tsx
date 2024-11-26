@@ -1,28 +1,17 @@
 'use client'
+
 import React from "react";
 import {useGSAP} from "@gsap/react";
-import Link from "next/link";
-import Image from "next/image";
 import gsap from "gsap";
 import localFont from "next/font/local";
-import {Dir} from "node:fs";
+import Menu from "@/app/components/Menu";
 
-
-const HalenoirThin = localFont({
-    src: "../../public/HalenoirCompact-Thin.otf",
-});
 const HalenoirBlack = localFont({
     src: "../../public/Halenoir-Black.otf",
 });
 const DirtyLine = localFont({
     src: "../../public/dirtyline.woff",
 });
-const Pixel = localFont({ src: "../../public/pixel.otf" });
-
-
-
-
-
 
 export default function LayoutComponent({ children }: Readonly<{ children: React.ReactNode }>) {
     const container = React.useRef<HTMLDivElement>(null);
@@ -31,37 +20,6 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
     const [open, setOpen] = React.useState(false);
     const menuTl = React.useRef<gsap.core.Timeline>();
     const tl = React.useRef<gsap.core.Timeline>();
-    const lists = [
-        {
-            name: "pages",
-            links: [
-                {title: "indeX", link: "/"},
-                {title: "exPertise", link: "expertise/"},
-                {title: "Projects", link: "projects"},
-                {title: "abOut", link: "about"},
-                {title: "contaCt", link: "contact"}
-            ]
-        },
-        {
-            name: "Biggest projects",
-            links: [
-                {title: "arEa", link: "projects/area/"},
-                {title: "42sh", link: "projects/42sh/"},
-                {title: "rayTracer", link: "projects/raytracer/"},
-                {title: "Camille_bC", link: "/camille_bc"},
-                {title: "Eve_crea.", link: "/eve_crea"},
-                {title: "glaDos", link: "/glados"}
-            ]
-        },
-        {
-            name: "Socials",
-            links: [
-                {title: "inSta", link: ""},
-                {title: "LinkedIn", link: ""},
-                {title: "gitHub", link: "https://www.github.com/G1anC"}
-            ]
-        }
-    ]
     const toggleMenu = (): void => { setOpen(!open) }
 
     useGSAP(() => {
@@ -106,28 +64,8 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
     return (
         <body>
             <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-base antialiased`}>
-                {/* MENU */}
-                <div className="menu fixed top-0 text-[#777777] right-0 w-80 h-full">
-                    <div className="menu-wrapper py-8 px-4 flex flex-col justify-between items-start h-full">
-                        {lists.map((list, i) => (
-                            <div key={i} className="menu-list opacity-0">
-                                <div className={`lowercase text-xl tracking-widest text-indigo-400  ${Pixel.className} mb-2`}>
-                                    {list.name}
-                                </div>
-                                {list.links.map((item, j) => (
-                                    <div key={j} className={`${DirtyLine.className} text-5xl cursor-pointer transition-all duration-100 hover:text-white hover:ml-2 flex items-start justify-start`} style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}>
-                                        <Link
-                                            className="link relative"
-                                            href={item.link}
-                                            onClick={toggleMenu}>
-                                                {item.title}
-                                        </Link>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+
+                <Menu toggleMenu={toggleMenu} />
 
                 {/* MAIN CONTENT */}
                 <div ref={container} className={"flex-10 opacity-0 w-full relative z-2 rounded-2xl bg-white flex items-center flex-col justify-center border border-[#A3A3A3]"} style={{height: "calc(100vh - 2rem)"}}>

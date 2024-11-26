@@ -3,7 +3,7 @@
 import React, {useEffect, useState, useRef} from "react";
 import localFont from "next/font/local";
 import {gsap} from "gsap";
-// import FluidBack from "@/app/components/FluidBack";
+import FluidBack from "@/app/components/FluidBack";
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
@@ -118,9 +118,9 @@ export default function Projects() {
     return (
         <div className="w-full h-full flex-1 relative " style={{height: "calc(100vh - 7rem)"}}>
             <div ref={dontTouch} className={"absolute h-full w-full top-0 left-0 z-[100]"}></div>
-            {/*<div className={"absolute top-0 left-0 w-full h-full"}>*/}
-            {/*    <FluidBack/>*/}
-            {/*</div>*/}
+            <div className={"absolute top-0 left-0 w-full h-full"}>
+                <FluidBack/>
+            </div>
             <div className="w-full h-screen flex items-center justify-center"
                  style={{height: "calc(100vh - 7rem)"}}>
                 <div className={`w-full h-full flex items-center text-center text-5xl z-5 ${Selaris.className}`}>

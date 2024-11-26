@@ -1,4 +1,4 @@
-'use client';
+se client';
 
 import React, {ReactNode, useRef} from "react";
 import localFont from "next/font/local";
@@ -7,6 +7,7 @@ import TextPlugin from "gsap/TextPlugin";
 import {gsap} from "gsap";
 import Lenis from "lenis";
 import 'lenis/dist/lenis.css'
+import FluidBack from "../../components/FluidBack";
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const SelarisFont = localFont({ src: "../../../public/dirtyline.woff", });
