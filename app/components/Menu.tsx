@@ -19,7 +19,6 @@ const lists = [
         links: [
             {title: "indeX", link: "/"},
             {title: "exPertise", link: "expertise/"},
-            {title: "pRocess", link: "process"},
             {title: "Projects", link: "projects"},
             {title: "abOut", link: "about"},
             {title: "contaCt", link: "contact"}
@@ -39,7 +38,7 @@ const lists = [
     {
         name: "Socials",
         links: [
-            {title: "inSta", link: ""},
+            {title: "inSta", link: "https://www.instagram.com/webbygian"},
             {title: "LinkedIn", link: ""},
             {title: "gitHub", link: "https://www.github.com/G1anC"}
         ]
