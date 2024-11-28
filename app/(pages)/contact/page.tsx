@@ -5,6 +5,7 @@ import InfoBlock from "@/app/components/InfoBlock";
 import React, { useState } from "react";
 import FluidBack from "@/app/components/FluidBack";
 import emailjs from "emailjs-com";
+import LayoutComponent from "@/app/components/layoutComponent";
 
 const Selaris = localFont({ src: "../../../public/dirtyline.woff" });
 const Halenoir = localFont({ src: "../../../public/Halenoir-Black.otf" });
@@ -47,6 +48,7 @@ export default function Page() {
     };
 
     return (
+        <LayoutComponent name={"contaCt"}>
         <div
             className={`${Halenoir.className} text-lg p-4 w-full flex flex-col items-center  overflow-hidden`}
             style={{height: "calc(100vh - 7rem)"}}
@@ -157,5 +159,6 @@ export default function Page() {
                     right={["if you want", "to work with me "]}/>
             </div>
         </div>
+        </LayoutComponent>
     );
 }

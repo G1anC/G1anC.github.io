@@ -6,6 +6,7 @@ import FluidBack from "@/app/components/FluidBack";
 import InfoBlock from "@/app/components/InfoBlock";
 import { gsap } from "gsap";
 import {useGSAP} from "@gsap/react";
+import LayoutComponent from "@/app/components/layoutComponent";
 
 // Import your font locally
 const SanFranciscoFont = localFont({
@@ -23,10 +24,9 @@ const MeDiscussions: { questions: string[]; answers: string[] }[] = [
     {
         questions: ['I want to know you more', 'What is your purpose as a young web creator ?'],
         answers: [
-            'Creating the best websites i can',
-            'Showing to the world my creativity and my skills',
-            'By always training, discovering',
-            'and learning new stuff',
+            'Creating the best websites i can,',
+            'Showing to the world my creativity and my skills,',
+            'By always training, discovering and learning new stuff',
         ]
     },
     {
@@ -34,16 +34,14 @@ const MeDiscussions: { questions: string[]; answers: string[] }[] = [
         answers: [
             'hmmm...',
             'good questions lmao',
-            'More seriously, in the near future,',
-            'I see myself as a passionate web designer, learning from the bests.',
+            'More seriously, in the near future, I see myself as a passionate web designer, learning from the bests.',
         ]
     },
     {
         questions: ['And in the far future ?'],
         answers: [
             'Well',
-            'I really want to create my own company',
-            'and work with the bests in the industry.',
+            'I really want to create my own company and work with the bests in the industry.',
             'Always challenging myself as a person and as a professional.',
         ]
     },
@@ -99,41 +97,72 @@ const MeDiscussions: { questions: string[]; answers: string[] }[] = [
 
 
 const Input = () => {
-    let targetIndex = 0;
-    let targetString = "Well, first of all I am a huge fan of music!"
-    const typingKeys = "abcdefghijklmnopqrstuvwxyz ,;:!&é\"\'(-è_çà;)=^ù$*%£µ§:/?./,";
-    const [inputText, setInputText] = useState<string>(''); // Manage the input value
+    const typingKeys = "abcdefghijklmnopqrstuvwxyz ,;:!&é\"'(-è_çà;)=^ù$*%£µ§:/?./,";
+    const [discussionIndex, setDiscussionIndex] = useState<number>(0);
+    const [answerIndex, setAnswerIndex] = useState<number>(0);
+    const [inputText, setInputText] = useState<string>('');
     const [outputText, setOutputText] = useState<string>('');
+
+    const inputRef = useRef<HTMLInputElement>(null);
+    const currentDiscussion = MeDiscussions[discussionIndex];
+    const currentAnswer = currentDiscussion.answers[answerIndex];
+
     return (
         <div className={"w-full h-full top-0 left-0 absolute gap-x-2 flex items-end justify-center z-[40] p-4"}>
-            <input
-                onChange={(e) => {
-                    const newInputText = e.target.value;
+            <div
+                className={"w-full h-16 pl-4 rounded-3xl flex items-center border border-1 border-[#A3A3A360] bg-black/20 backdrop-blur-md"}>
+                <input
+                    ref={inputRef}
+                    onChange={(e) => {
+                        const newInputText = e.target.value;
 
-                    let newOutputText = '';
-                    for (let i = 0; i < newInputText.length; i++) {
-                        const char = newInputText[i];
+                        let newOutputText = '';
+                        let targetIndex = 0;
+                        for (let i = 0; i < newInputText.length; i++) {
+                            const char = newInputText[i];
 
-                        // Check if the character is one of the random keys
-                        if (typingKeys.includes(char.toLowerCase()) && targetIndex < targetString.length) {
-                            newOutputText += targetString[targetIndex]; // Add the next character from targetString
-                            targetIndex++; // Move to the next character in the targetString
+                            if (typingKeys.includes(char.toLowerCase()) && targetIndex < currentAnswer.length) {
+                                newOutputText += currentAnswer[targetIndex];
+                                targetIndex++;
+                            }
                         }
-                    }
-                    console.log(newOutputText);
-                    setInputText(newInputText); // Update the input value
-                    setOutputText(newOutputText); // Update the output text
-                }}
-                value={outputText}
-                className={"w-full h-16 rounded-3xl flex items-center border border-1 border-[#A3A3A350] bg-black/20 pl-8 justify-center font-light backdrop-blur-2xl text-white/50 outline-none focus:bg-black/20"}
-                placeholder={"Type response..."}></input>
-            <div className={"w-16 h-16 flex items-center justify-center"}>
-                <button className={"h-12 aspect-square w-12 rounded-full flex items-center justify-center bg-blue-500"}><img alt="send" className={"w-6 h-6"} src={"/images/icons/send.png"} /></button>
+                        setInputText(newInputText);
+                        setOutputText(newOutputText);
+                    }}
+                    value={outputText}
+                    className={"input w-full h-16 rounded-3xl flex items-center justify-center outline-none focus:bg-transparent bg-transparent text-white"}
+                    placeholder={"Type response..."}
+                ></input>
+                <div className={"w-16 h-16 flex items-center justify-center"}>
+                    <button
+                        className={
+                            "h-12 aspect-square w-12 rounded-full flex items-center justify-center bg-indigo-600 hover:bg-indigo-400 transition-all duration-100"
+                        }
+                        onClick={() => {
+                            if (!inputRef.current) return;
+                            if (inputRef.current.value === "") return;
 
+                            inputRef.current.value = '';
+                            setInputText('');
+                            setOutputText('');
+
+                            if (answerIndex < currentDiscussion.answers.length - 1)
+                                setAnswerIndex((prev) => prev + 1);
+
+                            else if (discussionIndex < MeDiscussions.length - 1) {
+                                setDiscussionIndex((prev) => prev + 1);
+                                setAnswerIndex(0);
+                            }
+                        }}
+                    >
+                        <img alt="send" className={"w-6 h-6"} src={"/images/icons/send.png"} />
+                    </button>
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
 
 // Main Page component
 export default function About() {
@@ -212,6 +241,7 @@ export default function About() {
     );
 
     return (
+        <LayoutComponent name={"abOut"}>
         <div ref={container}
              className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
             {/*<FluidBack />*/}
@@ -239,7 +269,7 @@ export default function About() {
                     </div>]}/>
 
                 <div className={"w-full h-[80%] flex items-center justify-center gap-x-12"}>
-                    <div className={" h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl"}>
+                    <div className={"h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl"}>
                         <div className={"absolute w-full h-full top-0 left-0 p-2 "}>
                             <img src={"/images/me.png"} alt={"Noah Steiniger"}
                                  className={"w-full h-full object-cover rounded-2xl"}/>
@@ -285,5 +315,6 @@ export default function About() {
                 ]}/>
             </div>
         </div>
+        </LayoutComponent>
     );
 };

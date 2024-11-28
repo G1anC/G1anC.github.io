@@ -115,7 +115,7 @@ const FluidBack: React.FC = () => {
         composer.addPass(invertPass);
 
         const animate = () => {
-            material.uniforms.u_time.value += 0.02;
+            material.uniforms.u_time.value += 0.05;
             composer.render();
             requestAnimationFrame(animate);
         };

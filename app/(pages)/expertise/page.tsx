@@ -7,6 +7,7 @@ import React, {Fragment} from "react";
 import InfoBlock from "@/app/components/InfoBlock";
 import {useGSAP} from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import LayoutComponent from "@/app/components/layoutComponent";
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
@@ -335,6 +336,8 @@ export default function Expertise() {
     }, [])
 
     return (
+        <LayoutComponent name={"exPertise"}>
+
         <div className={"scroller w-full relative rounded-b-2xl text-lg overflow-y-scroll overflow-x-hidden"} style={{
             height: "calc(100vh - 7rem)"
         }}>
@@ -353,20 +356,37 @@ export default function Expertise() {
             <div className={"absolute py-4 top-0 left-0 h-full w-full"}>
                 <div className={"w-full px-4"}>
                     <InfoBlock b={false}
-                               left={[<div className="clipper"><div className="txt relative">My skills</div></div>, <div className="clipper"><div className="txt relative">and more</div></div>]}
-                               center={[<div className="clipper"><div className="relative txt">from EPITECH</div></div>]}
-                               right={[<div className="clipper"><div className="relative txt">to self study</div></div>, <div className={"clipper"}><div className={"relative txt"}>and interests</div></div>]}/>
+                               left={[<div className="clipper">
+                                   <div className="txt relative">My skills</div>
+                               </div>, <div className="clipper">
+                                   <div className="txt relative">and more</div>
+                               </div>]}
+                               center={[<div className="clipper">
+                                   <div className="relative txt">from EPITECH</div>
+                               </div>]}
+                               right={[<div className="clipper">
+                                   <div className="relative txt">to self study</div>
+                               </div>, <div className={"clipper"}>
+                                   <div className={"relative txt"}>and interests</div>
+                               </div>]}/>
                 </div>
                 <HeaderSection/>
                 <WorkingSkillsSection/>
                 <ProgramingSkillsSection/>
                 <div className={"w-full px-4 pb-4"}>
                     <InfoBlock b={true}
-                               left={[<div className="clipper"><div className="txt relative">Check out</div></div>,]}
-                               center={[<div className="clipper"><div className="relative txt">other pages</div></div>,]}
-                               right={[<div className="clipper"><div className="relative txt">for contexts</div></div>]}/>
+                               left={[<div className="clipper">
+                                   <div className="txt relative">Check out</div>
+                               </div>,]}
+                               center={[<div className="clipper">
+                                   <div className="relative txt">other pages</div>
+                               </div>,]}
+                               right={[<div className="clipper">
+                                   <div className="relative txt">for contexts</div>
+                               </div>]}/>
                 </div>
             </div>
         </div>
+        </LayoutComponent>
     )
 }

@@ -13,7 +13,7 @@ const DirtyLine = localFont({
     src: "../../public/dirtyline.woff",
 });
 
-export default function LayoutComponent({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function LayoutComponent({ children, name }: Readonly<{ children: React.ReactNode, name: string }>) {
     const container = React.useRef<HTMLDivElement>(null);
     const content = React.useRef<HTMLDivElement>(null);
     const body = React.useRef<HTMLDivElement>(null);
@@ -62,8 +62,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
     }
 
     return (
-        <body>
-            <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-base antialiased`}>
+        <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-base antialiased`}>
 
                 <Menu toggleMenu={toggleMenu} />
 
@@ -73,7 +72,7 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
                     <div className={"header h-20 w-full text-[3.2rem] border-b-1 border-b border-b-[#A3A3A3]"}>
                         <div className="header-container justify-center items-center flex h-full w-full">
                             <Box supp={`w-1/2 border-r border-r-1 text-4xl text-indigo-600 border-r-[#A3A3A3] ${DirtyLine.className}`}>
-                                PortFolio
+                                {name}
                             </Box>
                             <div className={"w-1/2 flex items-center justify-end"}>
                                 <button className={`w-full p-6 h-full ${DirtyLine.className} text-4xl flex items-center flex-[1.25] text-indigo-600 hover:text-indigo-400 hover:mr-2 transition-all duration-100 justify-end`} onClick={toggleMenu}>
@@ -89,6 +88,5 @@ export default function LayoutComponent({ children }: Readonly<{ children: React
                     </div>
                 </div>
             </div>
-        </body>
     )
 }

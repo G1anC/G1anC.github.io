@@ -4,6 +4,7 @@ import React, {useEffect, useState, useRef} from "react";
 import localFont from "next/font/local";
 import {gsap} from "gsap";
 import FluidBack from "@/app/components/FluidBack";
+import LayoutComponent from "@/app/components/layoutComponent";
 
 const Selaris = localFont({src: "../../../public/dirtyline.woff"});
 const Halenoir = localFont({src: "../../../public/Halenoir-Black.otf"});
@@ -116,6 +117,7 @@ export default function Projects() {
     }
 
     return (
+        <LayoutComponent name={"projects"}>
         <div className="w-full h-full flex-1 relative " style={{height: "calc(100vh - 7rem)"}}>
             <div ref={dontTouch} className={"absolute h-full w-full top-0 left-0 z-[100]"}></div>
             <div className={"absolute top-0 left-0 w-full h-full"}>
@@ -124,23 +126,26 @@ export default function Projects() {
             <div className="w-full h-screen flex items-center justify-center"
                  style={{height: "calc(100vh - 7rem)"}}>
                 <div className={`w-full h-full flex items-center text-center text-5xl z-5 ${Selaris.className}`}>
-                        <div className={"projectMenu flex flex-col w-1/4 rounded-bl-3xl h-full border-r border-r-1 border-[#A3A3A3] overflow-hidden"}>
-                            {projects.map((project, i: number) => (
-                                <div key={i} className={`menu-items opacity-0 flex items-center z-[50] justify-start w-full h-full pl-8 text-black hover:pl-12 hover:text-indigo-600 transition-all duration-200 border-b-1 border-[#A3A3A3]`}
-                                     onMouseEnter={() => {
-                                         setActive(i)
-                                         gsap.set(imageRef.current, {opacity: 1});
-                                     }}
-                                >
-                                    <div className={"flex w-full flex-col items-start justify-center"}>
-                                        <>{project.title}</>
-                                        <div className={`${Halenoir.className} uppercase text-start text-sm`}>{project.description}</div>
-                                    </div>
-                                    <div className={"pr-4 gap-x-2 flex items-center justify-center h-full"}>
-                                    </div>
+                    <div
+                        className={"projectMenu flex flex-col w-1/4 rounded-bl-3xl h-full border-r border-r-1 border-[#A3A3A3] overflow-hidden"}>
+                        {projects.map((project, i: number) => (
+                            <div key={i}
+                                 className={`menu-items opacity-0 flex items-center z-[50] justify-start w-full h-full pl-8 text-black hover:pl-12 hover:text-indigo-600 transition-all duration-200 border-b-1 border-[#A3A3A3]`}
+                                 onMouseEnter={() => {
+                                     setActive(i)
+                                     gsap.set(imageRef.current, {opacity: 1});
+                                 }}
+                            >
+                                <div className={"flex w-full flex-col items-start justify-center"}>
+                                    <>{project.title}</>
+                                    <div
+                                        className={`${Halenoir.className} uppercase text-start text-sm`}>{project.description}</div>
                                 </div>
-                            ))}
-                        </div>
+                                <div className={"pr-4 gap-x-2 flex items-center justify-center h-full"}>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                     <div className={"content relative w-3/4 h-full flex flex-col rounded-xl"}>
                         <div className="absolute top-0 left-0 w-full" style={{height: "calc(100vh - 7rem)"}}>
                             <AllTitle/>
@@ -232,5 +237,6 @@ export default function Projects() {
                 </div>
             </div>
         </div>
+        </LayoutComponent>
     );
 }
