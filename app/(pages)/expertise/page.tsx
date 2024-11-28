@@ -360,7 +360,7 @@ export default function Expertise() {
                 <HeaderSection/>
                 <WorkingSkillsSection/>
                 <ProgramingSkillsSection/>
-                <div className={"w-full px-4 mb-4"}>
+                <div className={"w-full px-4 pb-4"}>
                     <InfoBlock b={true}
                                left={[<div className="clipper"><div className="txt relative">Check out</div></div>,]}
                                center={[<div className="clipper"><div className="relative txt">other pages</div></div>,]}

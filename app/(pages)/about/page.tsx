@@ -97,6 +97,44 @@ const MeDiscussions: { questions: string[]; answers: string[] }[] = [
     }
 ];
 
+
+const Input = () => {
+    let targetIndex = 0;
+    let targetString = "Well, first of all I am a huge fan of music!"
+    const typingKeys = "abcdefghijklmnopqrstuvwxyz ,;:!&é\"\'(-è_çà;)=^ù$*%£µ§:/?./,";
+    const [inputText, setInputText] = useState<string>(''); // Manage the input value
+    const [outputText, setOutputText] = useState<string>('');
+    return (
+        <div className={"w-full h-full top-0 left-0 absolute gap-x-2 flex items-end justify-center z-[40] p-4"}>
+            <input
+                onChange={(e) => {
+                    const newInputText = e.target.value;
+
+                    let newOutputText = '';
+                    for (let i = 0; i < newInputText.length; i++) {
+                        const char = newInputText[i];
+
+                        // Check if the character is one of the random keys
+                        if (typingKeys.includes(char.toLowerCase()) && targetIndex < targetString.length) {
+                            newOutputText += targetString[targetIndex]; // Add the next character from targetString
+                            targetIndex++; // Move to the next character in the targetString
+                        }
+                    }
+                    console.log(newOutputText);
+                    setInputText(newInputText); // Update the input value
+                    setOutputText(newOutputText); // Update the output text
+                }}
+                value={outputText}
+                className={"w-full h-16 rounded-3xl flex items-center border border-1 border-[#A3A3A350] bg-black/20 pl-8 justify-center font-light backdrop-blur-2xl text-white/50 outline-none focus:bg-black/20"}
+                placeholder={"Type response..."}></input>
+            <div className={"w-16 h-16 flex items-center justify-center"}>
+                <button className={"h-12 aspect-square w-12 rounded-full flex items-center justify-center bg-blue-500"}><img alt="send" className={"w-6 h-6"} src={"/images/icons/send.png"} /></button>
+
+            </div>
+        </div>
+    )
+}
+
 // Main Page component
 export default function About() {
     const container = useRef<HTMLDivElement>(null);
@@ -106,7 +144,7 @@ export default function About() {
     const tl = useRef<gsap.core.Timeline>();
 
     useGSAP(() => {
-        gsap.set(".clipper", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
+        gsap.set(".clipper", {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
         gsap.set(".txt", { y: 50 });
         tl.current = gsap.timeline({ paused: true })
             .to(".txt", { duration: 1, y: 0, delay: 1.25, stagger: 0.05, ease: "power4.inOut" })
@@ -123,7 +161,7 @@ export default function About() {
             const discussions = container.current?.querySelectorAll('.discussion');
 
             timeline.to(phone.current, {
-                delay: 3,
+                delay: 5,
                 opacity: 1,
                 backdropFilter: "blur(20px)",
                 duration: 1,
@@ -176,7 +214,7 @@ export default function About() {
     return (
         <div ref={container}
              className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
-            <FluidBack />
+            {/*<FluidBack />*/}
             <div ref={filter} className="absolute top-0 left-0  w-full h-full"
                  style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"}}></div>
             <div className="relative px-4 w-full h-full flex flex-col items-center justify-center">
@@ -203,9 +241,11 @@ export default function About() {
                 <div className={"w-full h-[80%] flex items-center justify-center gap-x-12"}>
                     <div className={" h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl"}>
                         <div className={"absolute w-full h-full top-0 left-0 p-2 "}>
-                            <img src={"/images/me.png"} alt={"Noah Steiniger"} className={"w-full h-full object-cover rounded-2xl"}/>
+                            <img src={"/images/me.png"} alt={"Noah Steiniger"}
+                                 className={"w-full h-full object-cover rounded-2xl"}/>
                         </div>
-                        <div ref={phone} className={"bg-black/70 opacity-0 w-full z-[20] h-full flex flex-col rounded-2xl p-4 overflow-y-auto"}>
+                        <div ref={phone}
+                             className={"bg-black/70 opacity-0 w-full z-[20] relative h-full flex flex-col rounded-2xl p-4 overflow-y-auto"}>
                             {MeDiscussions.map((d, i) => (
                                 <div key={i} className={'mb-4 discussion'}>
                                     {d.questions.map((q, j) => (
@@ -229,6 +269,7 @@ export default function About() {
                                 </div>
                             ))}
                         </div>
+                        <Input />
                     </div>
                 </div>
 

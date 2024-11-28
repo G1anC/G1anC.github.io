@@ -42,7 +42,7 @@ const FluidBack: React.FC = () => {
         const material = new THREE.ShaderMaterial({
             uniforms: {
                 u_time: { value: 0.0 },
-                scale: { value: 0.15 },
+                scale: { value: 0.2 },
                 ax: { value: 1.0 },
                 ay: { value: 7.0 },
                 az: { value: 7.0 },
@@ -115,7 +115,7 @@ const FluidBack: React.FC = () => {
         composer.addPass(invertPass);
 
         const animate = () => {
-            material.uniforms.u_time.value += 0.03;
+            material.uniforms.u_time.value += 0.02;
             composer.render();
             requestAnimationFrame(animate);
         };

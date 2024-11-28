@@ -6,7 +6,7 @@ const HalenoirThin = localFont({
     src: "../../public/HalenoirCompact-Thin.otf",
 });
 const HalenoirBlack = localFont({
-    src: "../../public/Halenoir-Black.otf",
+    src: "../../public/Halenoir-DemiBold.otf",
 });
 const DirtyLine = localFont({
     src: "../../public/dirtyline.woff",
@@ -47,7 +47,7 @@ const lists = [
 ]
 
 export const Menu = ({toggleMenu}: {toggleMenu: () => void}) => (
-    <div className="menu fixed top-0 text-[#777777] right-0 w-80 h-full">
+    <div className="menu fixed top-0 text-[#777777] right-0 w-80 h-full overflow-y-auto">
         <div className="menu-wrapper py-8 px-4 flex flex-col justify-between items-start h-full">
             {lists.map((list, i) => (
                 <div key={i} className="menu-list opacity-0">

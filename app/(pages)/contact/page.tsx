@@ -48,7 +48,7 @@ export default function Page() {
 
     return (
         <div
-            className={`${Halenoir.className} text-lg p-4 w-full h-screen flex flex-col items-center  overflow-hidden`}
+            className={`${Halenoir.className} text-lg p-4 w-full flex flex-col items-center  overflow-hidden`}
             style={{height: "calc(100vh - 7rem)"}}
         >
             <div
@@ -57,21 +57,27 @@ export default function Page() {
             ></div>
 
             <FluidBack/>
-            <div className={"w-full px-4"}>
+            <div className={"w-full"}>
                 <InfoBlock
                     b={false}
                     left={[
-                        <button className={"duration-100 transition-all w-6 h-6"}>
+                        <button className={"duration-100 transition-all w-6 h-6"} onClick={() => {
+                            window.open("https://www.instagram.com/webbygian", "_blank");
+                        }}>
                             <img alt={"insta"} src={"/images/icons/insta.png"}/>
                         </button>,
                     ]}
                     center={[
-                        <button className={"duration-100 transition-all w-6 h-6"}>
+                        <button className={"duration-100 transition-all w-6 h-6"} onClick={() => {
+                            window.open("https://www.linkedin.com/in/noah", "_blank");
+                        }}>
                             <img alt={"linkedin"} src={"/images/icons/linkedin.png"}/>
                         </button>,
                     ]}
                     right={[
-                        <button className={"duration-100 transition-all w-6 h-6"}>
+                        <button className={"duration-100 transition-all w-6 h-6"} onClick={() => {
+                            window.open("https://www.github.com/G1anC", "_blank");
+                        }}>
                             <img alt={"github"} src={"/images/icons/github.png"}/>
                         </button>,
                     ]}
@@ -81,7 +87,7 @@ export default function Page() {
 
             <form onSubmit={handleSubmit} className="w-full h-full top-0 left-0 flex items-center gap-x-8 justify-center">
                 <div
-                    className={`rotate-[270deg] flex-shrink-0 h-4/5 flex items-end justify-center text-[120px] ${Selaris.className} leading-none`}
+                    className={`rotate-[270deg] flex-shrink-0  aspect-square flex items-end justify-center text-[120px] ${Selaris.className} leading-none`}
                     style={{transformOrigin: "center center"}}>
                     ContAcT
                 </div>
@@ -137,18 +143,18 @@ export default function Page() {
 
                 {/* Rotated Text Right */}
                 <div
-                    className={`rotate-[90deg] flex-shrink-0 flex items-end h-[80%] justify-center text-[120px] ${Selaris.className} leading-none`}
+                    className={`rotate-[90deg] flex-shrink-0 flex items-end aspect-square justify-center text-[120px] ${Selaris.className} leading-none`}
                     style={{transformOrigin: "center center"}}
                 >
                     ContAcT
                 </div>
             </form>
-            <div className={"w-full pt-4 px-4"}>
+            <div className={"w-full pt-4"}>
                 <InfoBlock
                     b={true}
-                    left={["Send"]}
-                    center={["me"]}
-                    right={["a little message :)"]}/>
+                    left={["Send me"]}
+                    center={["a message"]}
+                    right={["if you want", "to work with me "]}/>
             </div>
         </div>
     );
