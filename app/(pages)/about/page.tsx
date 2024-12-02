@@ -95,75 +95,6 @@ const MeDiscussions: { questions: string[]; answers: string[] }[] = [
     }
 ];
 
-
-const Input = () => {
-    const typingKeys = "abcdefghijklmnopqrstuvwxyz ,;:!&é\"'(-è_çà;)=^ù$*%£µ§:/?./,";
-    const [discussionIndex, setDiscussionIndex] = useState<number>(0);
-    const [answerIndex, setAnswerIndex] = useState<number>(0);
-    const [inputText, setInputText] = useState<string>('');
-    const [outputText, setOutputText] = useState<string>('');
-
-    const inputRef = useRef<HTMLInputElement>(null);
-    const currentDiscussion = MeDiscussions[discussionIndex];
-    const currentAnswer = currentDiscussion.answers[answerIndex];
-
-    return (
-        <div className={"w-full h-full top-0 left-0 absolute gap-x-2 flex items-end justify-center z-[40] p-4"}>
-            <div
-                className={"w-full h-16 pl-4 rounded-3xl flex items-center border border-1 border-[#A3A3A360] bg-black/20 backdrop-blur-md"}>
-                <input
-                    ref={inputRef}
-                    onChange={(e) => {
-                        const newInputText = e.target.value;
-
-                        let newOutputText = '';
-                        let targetIndex = 0;
-                        for (let i = 0; i < newInputText.length; i++) {
-                            const char = newInputText[i];
-
-                            if (typingKeys.includes(char.toLowerCase()) && targetIndex < currentAnswer.length) {
-                                newOutputText += currentAnswer[targetIndex];
-                                targetIndex++;
-                            }
-                        }
-                        setInputText(newInputText);
-                        setOutputText(newOutputText);
-                    }}
-                    value={outputText}
-                    className={"input w-full h-16 rounded-3xl flex items-center justify-center outline-none focus:bg-transparent bg-transparent text-white"}
-                    placeholder={"Type response..."}
-                ></input>
-                <div className={"w-16 h-16 flex items-center justify-center"}>
-                    <button
-                        className={
-                            "h-12 aspect-square w-12 rounded-full flex items-center justify-center bg-indigo-600 hover:bg-indigo-400 transition-all duration-100"
-                        }
-                        onClick={() => {
-                            if (!inputRef.current) return;
-                            if (inputRef.current.value === "") return;
-
-                            inputRef.current.value = '';
-                            setInputText('');
-                            setOutputText('');
-
-                            if (answerIndex < currentDiscussion.answers.length - 1)
-                                setAnswerIndex((prev) => prev + 1);
-
-                            else if (discussionIndex < MeDiscussions.length - 1) {
-                                setDiscussionIndex((prev) => prev + 1);
-                                setAnswerIndex(0);
-                            }
-                        }}
-                    >
-                        <img alt="send" className={"w-6 h-6"} src={"/images/icons/send.png"} />
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-
 // Main Page component
 export default function About() {
     const container = useRef<HTMLDivElement>(null);
@@ -171,6 +102,10 @@ export default function About() {
     const filter = useRef<HTMLDivElement>(null);
     const phone = useRef<HTMLDivElement>(null);
     const tl = useRef<gsap.core.Timeline>();
+    const [sentAnswers, setSentAnswers] = useState<string[]>([]);
+    const [answerIndex, setAnswerIndex] = useState<number>(0);
+    const messTimeline = gsap.timeline();
+    const [visibleMessages, setVisibleMessages] = useState<boolean[]>([]);
 
     useGSAP(() => {
         gsap.set(".clipper", {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
@@ -178,64 +113,111 @@ export default function About() {
         tl.current = gsap.timeline({ paused: true })
             .to(".txt", { duration: 1, y: 0, delay: 1.25, stagger: 0.05, ease: "power4.inOut" })
     }, { scope: container });
-
     useEffect(() => {
         if (tl.current) tl.current.play();
         filter.current && gsap.fromTo(filter.current, { opacity: 0}, { opacity: 1, duration: 0.5, delay: 2  });
         effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 3 });
     }, []);
-
-    React.useEffect(() => {
-            const timeline = gsap.timeline();
-            const discussions = container.current?.querySelectorAll('.discussion');
-
-            timeline.to(phone.current, {
+    useEffect(() => {
+            messTimeline.to(phone.current, {
                 delay: 5,
                 opacity: 1,
                 backdropFilter: "blur(20px)",
                 duration: 1,
             });
-
-            if (discussions) {
-                discussions.forEach((discussion, index) => {
-                    const questions = discussion.querySelectorAll('.question');
-                    const answers = discussion.querySelectorAll('.answer');
-
-                    if (questions.length > 0) {
-                        timeline.to(
-                            questions,
-                            {
-                                opacity: 1,
-                                y: 0,
-                                delay: 1,
-                                stagger: 1.5,
-                                duration: 0.5,
-                            },
-                            index === 0 ? 0 : `+=1.5` // Add delay between discussions
-                        );
-                    }
-                    if (answers.length > 0) {
-                        timeline.to(
-                            answers,
-                            {
-                                opacity: 1,
-                                y: 0,
-                                stagger: 1.5,
-                                duration: 0.4,
-                            },
-                            '+=1.5' // Delay after the questions animation
-                        );
-                    }
-                });
-            }
-
     }, []);
 
-    const Message = ({ value, className }: { value: string; className: string }) => (
+
+    useEffect(() => {
+        if (!sentAnswers) return;
+        const sentAnswersElements = container.current?.querySelectorAll('.answer');
+        if (!sentAnswersElements) return;
+
+        const lastVisibleIndex = visibleMessages.lastIndexOf(true);
+        const lastAnswer = sentAnswersElements[lastVisibleIndex];
+
+        if (lastAnswer) {
+            gsap.fromTo(
+                lastAnswer,
+                { opacity: 0 },
+                { opacity: 1, duration: 0.4 }
+            );
+        }
+    }, [sentAnswers, visibleMessages]);
+
+
+    const Input = () => {
+        const typingKeys = "abcdefghijklmnopqrstuvwxyz ,;:!&é\"'(-è_çà;)=^ù$*%£µ§:/?./,";
+        const [discussionIndex, setDiscussionIndex] = useState<number>(0);
+        const [outputText, setOutputText] = useState<string>('');
+
+
+        const inputRef = useRef<HTMLInputElement>(null);
+        const currentDiscussion = MeDiscussions[discussionIndex];
+        const currentAnswer = currentDiscussion.answers[answerIndex];
+
+        const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            const newInputText = e.target.value;
+            let newOutputText = '';
+            let targetIndex = 0;
+
+            for (let i = 0; i < newInputText.length; i++)
+                if (typingKeys.includes(newInputText[i].toLowerCase()) && targetIndex < currentAnswer.length)
+                    newOutputText += currentAnswer[targetIndex++];
+            setOutputText(newOutputText);
+        }
+
+        const sendAnswer = () => {
+            if (!inputRef.current || inputRef.current.value === '') return;
+            if (outputText.length !== currentAnswer.length) return;
+
+            setSentAnswers((prev) => [...prev, outputText]);
+            setVisibleMessages((prev) => [...prev, true]); // Marque le nouveau message comme visible
+            inputRef.current.value = '';
+            setOutputText('');
+
+            if (answerIndex < currentDiscussion.answers.length - 1) {
+                setAnswerIndex((prev) => prev + 1);
+            } else if (discussionIndex < MeDiscussions.length - 1) {
+                setDiscussionIndex((prev) => prev + 1);
+                setAnswerIndex(0);
+            }
+        };
+
+
+
+        return (
+            <div className={"w-full h-full top-0 left-0 absolute gap-x-2 flex items-end justify-center z-[40] p-4"}>
+                <div
+                    className={"w-full h-16 pl-4 rounded-3xl flex items-center border border-1 border-[#A3A3A360] bg-black/40 backdrop-blur-md"}>
+                    <input
+                        ref={inputRef}
+                        onChange={inputChange}
+                        value={outputText}
+                        className={"input w-full h-16 rounded-3xl flex items-center justify-center outline-none focus:bg-transparent bg-transparent text-white"}
+                        placeholder={"Type response..."}
+                    ></input>
+                    <div className={"w-16 h-16 flex items-center justify-center"}>
+                        <button
+                            className={"h-12 aspect-square w-12 rounded-2xl mr-2 flex items-center justify-center border border-1 border-[#A3A3A360] bg-indigo-600 hover:bg-indigo-400 transition-all duration-100"}
+                            onClick={sendAnswer}
+                        >
+                            <img alt="send" className={"w-6 h-6"} src={"/images/icons/send.png"} />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+
+    const Message = ({ value, className, i }: { value: string; className: string, i:number }) => (
         <div
             className={`text-lg tracking-wide rounded-[20px] p-4 mb-2 w-auto max-w-[66.66666%] ${className} ${SanFranciscoFont.className}`}
-            style={{ opacity: 0, transform: 'translateY(20px)' }} // Initial hidden state
-        >
+            style={{transform: 'translateY(20px)',
+                opacity: visibleMessages[i] ? 1 : 0,
+                transition: 'opacity 0.4s ease-in-out',
+        }}>
             {value}
         </div>
     );
@@ -269,7 +251,9 @@ export default function About() {
                     </div>]}/>
 
                 <div className={"w-full h-[80%] flex items-center justify-center gap-x-12"}>
-                    <div className={"h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl"}>
+                    <div className={"h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl bg-white"} style={{
+                        boxShadow: "10px 10px 20px #00000030"
+                    }}>
                         <div className={"absolute w-full h-full top-0 left-0 p-2 "}>
                             <img src={"/images/me.png"} alt={"Noah Steiniger"}
                                  className={"w-full h-full object-cover rounded-2xl"}/>
@@ -282,6 +266,7 @@ export default function About() {
                                         <div className={"w-full flex flex-col items-center justify-start"}>
                                             <Message
                                                 value={q}
+                                                i={j}
                                                 className="z-1 bg-zinc-700 text-white max-w-2/3 self-start text-start question"
                                             />
                                         </div>
@@ -292,6 +277,7 @@ export default function About() {
                                             <Message
                                                 key={j}
                                                 value={answer}
+                                                i={j}
                                                 className="z-1 m bg-blue-500 text-white self-end text-end answer"
                                             />
                                         </div>

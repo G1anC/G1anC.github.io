@@ -40,16 +40,15 @@ export default function Expertise() {
     const HeaderSection = () => {
         return (
             <>
-                <div className={`w-full header-section ${Halenoir.className}`} style={{height: "calc(100vh - 7rem)"}}>
-                    <div className={"relative w-full h-full flex z-20 flex-col gap-16 items-center justify-center"}>
-                        <div className={`tracking-tight h-full pb-16 flex justify-center items-end ${Selaris.className}`}
-                             style={{fontSize: "clamp(280px, calc(8.33vw - 160px), 500px)"}}>
+                <div className={`w-full header-section overflow-hidden ${Halenoir.className}`} style={{height: "calc(100vh - 7rem)"}}>
+                    <div className={"relative w-full h-full flex z-20 flex-col overflow-hidden gap-16 items-center justify-end"}>
+                        <div className={`tracking-tight sm:text-6xl md:text-[120px] lg:text-[300px] h-full pt-32 flex justify-end items-end ${Selaris.className}`}>
                             {titleLetters.map((letter, i) => (
-                                <div key={i} className="titleLetters opacity-0 flex justify-center items-center">{letter}</div>
+                                <div key={i} className="titleLetters opacity-0 flex justify-center items-end">{letter}</div>
                             ))}
                         </div>
 
-                        <div className={` top-0 left-0 text-lg pt-8 uppercase flex flex-col items-center justify-center h-full w-full ${Halenoir.className}`}>
+                        <div className={` top-0 left-0 text-xs sm:text-lg uppercase flex flex-col items-center justify-center h-full w-full ${Halenoir.className}`}>
                             <div className={"flex items-start justify-between w-2/3 h-full"}>
                                 <div className={"w-[50%] flex flex-col items-start h-full justify-start"}>
                                     <div className={"clipper"}><div className={"txt relative"}>i'm a 3rd year student at epitech strasbourg,</div></div>
@@ -89,7 +88,10 @@ export default function Expertise() {
                     <div className={"h-full flex items-center z-10 justify-end"} style={{
                         clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
                     }}>
-                        <div ref={programingRef} className={"section h-5/6 w-3/4 py-2 pl-2 rounded-l-3xl border border-y-1 border-l-1 border-y-[#A3A3A3] border-l-[#A3A3A3] flex items-center gap-x-8 justify-end"}>
+                        <div ref={programingRef} className={"section h-5/6 w-3/4 py-2 pl-2 rounded-l-3xl border border-y-1 border-l-1 bg-white border-y-[#A3A3A3] border-l-[#A3A3A3] flex items-center gap-x-8 justify-end"} style={{
+                            boxShadow: "10px 10px 20px #00000030"
+
+                        }}>
                             <div className={"flex items-center justify-end gap-x-16 rounded-l-2xl  w-full h-full"} style={{
                                 background: "linear-gradient(90deg, rgba(79, 70, 229, 0.5), rgba(255, 255, 255, 0.0))"
                             }}>
@@ -177,7 +179,9 @@ export default function Expertise() {
                             width: "calc(100% - 1px)",
                             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
                         }}>
-                            <div ref={workingRef} className={"section h-5/6 w-3/4 py-2 pr-2 rounded-r-3xl border border-y-1 border-r-1 border-y-[#A3A3A3] border-r-[#A3A3A3]  flex items-center gap-x-8 justify-start"}>
+                            <div ref={workingRef} className={"section h-5/6 w-3/4 py-2 pr-2 bg-white rounded-r-3xl border border-y-1 border-r-1 border-y-[#A3A3A3] border-r-[#A3A3A3]  flex items-center gap-x-8 justify-start"} style={{
+                                boxShadow: "10px 10px 20px #00000030"
+                            }}>
                                 <div className={"flex items-center justify-end gap-x-16  rounded-r-2xl w-full h-full"} style={{
                                     background: "linear-gradient(-90deg, rgba(79, 70, 229, 0.8), rgba(255, 255, 255, 0.1))"
                                 }}>
@@ -370,9 +374,11 @@ export default function Expertise() {
                                    <div className={"relative txt"}>and interests</div>
                                </div>]}/>
                 </div>
+
                 <HeaderSection/>
                 <WorkingSkillsSection/>
                 <ProgramingSkillsSection/>
+
                 <div className={"w-full px-4 pb-4"}>
                     <InfoBlock b={true}
                                left={[<div className="clipper">

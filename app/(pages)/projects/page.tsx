@@ -18,7 +18,7 @@ const projects = [
         description: "Previous folio",
         image: "portfolio.png",
         icons: ["react.png", "css.svg", "GSAP.svg"],
-        message: "See the design",
+        message: "In coming...",
         link: null
     },
     {
@@ -34,7 +34,7 @@ const projects = [
         description: "folio for Camille B.C.",
         image: "Cami.png",
         icons: ["Figma.svg"],
-        message: "See the website",
+        message: "In coming...",
         link: null
     },
     {
@@ -66,7 +66,7 @@ const projects = [
         description: "Custom language with compiler",
         icons: ["haskell.svg"],
         image: "wolfram.png",
-        message: "See the project",
+        message: "In coming...",
         link: "https://www.github.com/G1anC/GlaDos"
     },
 ]
@@ -117,12 +117,12 @@ export default function Projects() {
     }
 
     return (
-        <LayoutComponent name={"projects"}>
+        <LayoutComponent name={"Projects"}>
         <div className="w-full h-full flex-1 relative " style={{height: "calc(100vh - 7rem)"}}>
             <div ref={dontTouch} className={"absolute h-full w-full top-0 left-0 z-[100]"}></div>
-            <div className={"absolute top-0 left-0 w-full h-full"}>
-                <FluidBack/>
-            </div>
+            {/*<div className={"absolute top-0 left-0 w-full h-full"}>*/}
+            {/*    <FluidBack/>*/}
+            {/*</div>*/}
             <div className="w-full h-screen flex items-center justify-center"
                  style={{height: "calc(100vh - 7rem)"}}>
                 <div className={`w-full h-full flex items-center text-center text-5xl z-5 ${Selaris.className}`}>

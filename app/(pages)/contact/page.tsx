@@ -58,7 +58,7 @@ export default function Page() {
                 style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"}}
             ></div>
 
-            <FluidBack/>
+            {/*<FluidBack/>*/}
             <div className={"w-full"}>
                 <InfoBlock
                     b={false}
@@ -94,8 +94,9 @@ export default function Page() {
                     ContAcT
                 </div>
 
-                <div
-                    className={`aspect-square flex-shrink-0 flex flex-col items-start h-full ${Halenoir.className} uppercase`}>
+                <div className={`aspect-square flex-shrink-0 bg-white rounded-xl flex flex-col items-start h-full ${Halenoir.className} uppercase`} style={{
+                    boxShadow: "5px 5px 20px #00000030",
+                }}>
                     <div className="h-20 w-full rounded-t-xl border border-1 border-[#A3A3A3]">
                         <input
                             name="name"
@@ -154,9 +155,9 @@ export default function Page() {
             <div className={"w-full pt-4"}>
                 <InfoBlock
                     b={true}
-                    left={["Send me"]}
-                    center={["a message"]}
-                    right={["if you want", "to work with me "]}/>
+                    left={["+33 7 68 88 48 18"]}
+                    center={["Send me a message ;)"]}
+                    right={[<button className="text-center py-3 px-4 justify-center items-center flex bg-white border-1 border border-[#A3A3A3] rounded-xl" style={{boxShadow: "5px 5px 20px #00000030"}} onClick={() => {}}>COPY EMAIL</button>]}/>
             </div>
         </div>
         </LayoutComponent>

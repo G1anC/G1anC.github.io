@@ -115,12 +115,12 @@ const AllTitle = () => {
 
 
         return (
-            <LayoutComponent name={"PortFolio"}>
+            <LayoutComponent name={"indeX"}>
 
                 <div ref={container} className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
-                    <div ref={effect} className={"absolute top-0 left-0 w-full h-full"}>
-                        <FluidBack />
-                    </div>
+                    {/*<div ref={effect} className={"absolute top-0 left-0 w-full h-full"}>*/}
+                    {/*    <FluidBack />*/}
+                    {/*</div>*/}
                     <div ref={filter} className="absolute top-0 left-0  w-full h-full" style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)" }}></div>
                     <div className="relative p-4 w-full h-full flex flex-col items-center justify-center">
                         <InfoBlock b={false} left={[
@@ -146,7 +146,9 @@ const AllTitle = () => {
                         ]} center={[
                             <div className="txt" key={0}><pre>11 / 01 / 2004</pre></div>
                         ]} right={[
-                            <div className="txt" key={0}>+33 7 68 88 48 18</div>, "noah.steiniger.pro@gmail.com"
+                            <div className="txt" key={0}><a href="/contact/" className={`w-full h-full normal-case flex font-bold hover:text-indigo-400 duration-100 transition-all text-indigo-600 items-center justify-center text-center rounded-xl text-2xl  py-3 px-4 border border-1 bg-white border-[#A3A3A3] ${Selaris.className}`} style={{
+                                boxShadow: "10px 10px 20px #00000030",
+                            }}>geT in toucH</a></div>
                         ]} />
                     </div>
                 </div>

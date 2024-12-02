@@ -5,6 +5,7 @@ import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import localFont from "next/font/local";
 import Menu from "@/app/components/Menu";
+import FluidBack from "@/app/components/FluidBack";
 
 const HalenoirBlack = localFont({
     src: "../../public/Halenoir-Black.otf",
@@ -62,20 +63,24 @@ export default function LayoutComponent({ children, name }: Readonly<{ children:
     }
 
     return (
-        <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-base antialiased`}>
+        <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-sm sm:text-base text-base antialiased`}>
 
-                <Menu toggleMenu={toggleMenu} />
+                <Menu toggleMenu={toggleMenu} exclude={name} />
+
 
                 {/* MAIN CONTENT */}
-                <div ref={container} className={"flex-10 opacity-0 w-full relative z-2 rounded-2xl bg-white flex items-center flex-col justify-center border border-[#A3A3A3]"} style={{height: "calc(100vh - 2rem)"}}>
+                <div ref={container} className={"flex-10 opacity-0 w-full relative z-2 rounded-2xl bg-white overflow-hidden flex items-center flex-col justify-center border border-[#A3A3A3]"} style={{
+                    height: "calc(100vh - 2rem)",
+                    boxShadow: "5px 5px 20px #00000030"
+                }}>
                     {/* HEADER */}
                     <div className={"header h-20 w-full text-[3.2rem] border-b-1 border-b border-b-[#A3A3A3]"}>
                         <div className="header-container justify-center items-center flex h-full w-full">
-                            <Box supp={`w-1/2 border-r border-r-1 text-4xl text-indigo-600 border-r-[#A3A3A3] ${DirtyLine.className}`}>
+                            <Box supp={`w-1/2 border-r border-r text-xl sm:text-4xl text-indigo-600 border-r-[#A3A3A3] ${DirtyLine.className}`}>
                                 {name}
                             </Box>
                             <div className={"w-1/2 flex items-center justify-end"}>
-                                <button className={`w-full p-6 h-full ${DirtyLine.className} text-4xl flex items-center flex-[1.25] text-indigo-600 hover:text-indigo-400 hover:mr-2 transition-all duration-100 justify-end`} onClick={toggleMenu}>
+                                <button className={`w-1/2 p-6 h-full ${DirtyLine.className} text-xl sm:text-4xl flex items-center flex-[1.25] text-indigo-600 hover:text-indigo-400 hover:mr-2 transition-all duration-100 justify-end`} onClick={toggleMenu}>
                                     mEnu
                                 </button>
                             </div>

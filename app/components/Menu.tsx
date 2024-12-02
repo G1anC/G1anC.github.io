@@ -45,7 +45,7 @@ const lists = [
     }
 ]
 
-export const Menu = ({toggleMenu}: {toggleMenu: () => void}) => (
+export const Menu = ({toggleMenu, exclude}: {toggleMenu: () => void, exclude: string}) => (
     <div className="menu fixed top-0 text-[#777777] right-0 w-80 h-full overflow-y-auto">
         <div className="menu-wrapper py-8 px-4 flex flex-col justify-between items-start h-full">
             {lists.map((list, i) => (
@@ -53,16 +53,21 @@ export const Menu = ({toggleMenu}: {toggleMenu: () => void}) => (
                     <div className={`lowercase text-xl tracking-widest opacity-50  ${Pixel.className} mb-2`}>
                         {list.name}
                     </div>
-                    {list.links.map((item, j) => (
-                        <div key={j} className={`${DirtyLine.className} text-5xl cursor-pointer transition-all duration-100 hover:text-white hover:ml-2 flex items-start justify-start`} style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}>
-                            <Link
-                                className="link relative"
-                                href={item.link}
-                                onClick={toggleMenu}>
-                                {item.title}
-                            </Link>
-                        </div>
-                    ))}
+                    {list.links.map((item, j) => {
+                        if (item.title === exclude) return
+                        return (
+                            <div key={j}
+                                 className={`${DirtyLine.className} text-5xl cursor-pointer transition-all duration-100 hover:text-white hover:ml-2 flex items-start justify-start`}
+                                 style={{clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"}}>
+                                <Link
+                                    className="link relative"
+                                    href={item.link}
+                                    onClick={toggleMenu}>
+                                    {item.title}
+                                </Link>
+                            </div>
+                        )
+                    })}
                 </div>
             ))}
         </div>
