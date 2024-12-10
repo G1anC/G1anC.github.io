@@ -63,7 +63,7 @@ export default function LayoutComponent({ children, name }: Readonly<{ children:
     }
 
     return (
-        <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-sm sm:text-base text-base antialiased`}>
+        <div ref={body} className={`fixed w-[100vw] h-[100vh] ${HalenoirBlack.className} tracking-tight p-4 flex justify-center overflow-hidden text-black items-center bg-white text-sm sm:text-base antialiased`}>
 
                 <Menu toggleMenu={toggleMenu} exclude={name} />
 
