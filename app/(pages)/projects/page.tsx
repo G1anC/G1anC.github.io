@@ -36,110 +36,10 @@ const projects = [
         title: "Eve_crea.",
         secondTitle: "EvelYne cReationS",
         content: [
-
             <Block side={Side.CENTER}>
-                <div className={"txt"}>Evelyne Creations is a young and inspired designer</div>
-                <div className={"txt"}>from France.</div>
+                <div className={"txt"}>my mother's art demonstration website</div>
+                <div className={"txt"}>in coming...</div>
             </Block>,
-            <Block side={Side.LEFT}>
-                <div className={"txt"}>This website is her way</div>
-                <div className={"txt"}>to make herself known</div>
-                <div className={"txt"}>by introducing the user to her world.</div>
-            </Block>,
-            <div className={"w-full h-[60vh] flex items-center justify-start"}>
-                <div className={"p-12 bg-white border border-[#A3A3A3] rounded-3xl"}
-                     style={{boxShadow: "10px 10px 20px #00000030"}}>
-                    <div>the goal was to recreate as we</div>
-                    <div>wanted the functionality of</div>
-                    <div>the website IFTTT.</div>
-                    <br/>
-                    <div>Creating webhooks and easily</div>
-                    <div>connecting to multiple</div>
-                    <div>platforms was the main</div>
-                    <div>purpose here.</div>
-                </div>
-            </div>,
-
-            <div className={"w-full h-[60vh] flex items-center justify-end"}>
-                <div className={"w-30"}></div>
-                <div className={"p-12 bg-white border text-end border-[#A3A3A3] rounded-3xl"}
-                     style={{boxShadow: "10px 10px 20px #00000030"}}>
-                    <div className={"txt"}>This project can be</div>
-                    <div className={"txt"}>restructured into 3 parts:</div>
-                    <br/>
-                    <div className={"txt"}>backend, mobile and frontend.</div>
-                </div>
-            </div>,
-
-            <div className={"w-full h-[60vh] flex items-center justify-center"}>
-                <div className={"text-center p-12"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>We used Next as base.</div>
-                    <div className={"txt"}>React and Native for front (web and mobile)</div>
-                    <div className={"txt"}>Postgressql for DB language, Mango as DB</div>
-                    <div>and Typescript as language.</div>
-                </div>
-            </div>,
-            <div className={"w-full flex items-center justify-start h-[60vh]"}>
-                <div className={"p-12 text-start"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>My part was everything</div>
-                    <div className={"txt"}>that surrounded the</div>
-                    <div className={"txt"}>front.</div>
-                    <br/>
-                    <br/>
-                    <div className={"txt"}>From creating the mockups</div>
-                    <div className={"txt"}>with Figma :</div>
-                </div>
-            </div>,
-
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/mockup.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-
-            <div className={"w-full flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/mobile.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-
-            <div className={"w-full h-[60vh] flex items-center  justify-center"}>
-                <div className={"text-start p-12"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>To developing it:</div>
-                </div>
-            </div>
-            ,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/area.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>
-
-
         ],
     },
     {
@@ -768,7 +668,7 @@ export default function Projects() {
                     </button>
                     {active === -1 ? 
                         <>
-                            {/* <FluidBack /> */}
+                            <FluidBack />
                             <div ref={filter} className="absolute top-0 left-0  w-full h-full" style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)" }}></div>
                             <div className="relative p-4 w-full h-full flex flex-col items-center justify-center">
                                 <InfoBlock b={false} left={[
