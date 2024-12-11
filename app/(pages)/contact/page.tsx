@@ -49,16 +49,9 @@ export default function Page() {
 
     return (
         <LayoutComponent name={"contaCt"}>
-        <div
-            className={`${Halenoir.className} text-lg p-4 w-full flex flex-col items-center  overflow-hidden`}
-            style={{height: "calc(100vh - 7rem)"}}
-        >
-            <div
-                className="absolute top-0 left-0 z-[-10]  w-full h-full"
-                style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"}}
-            ></div>
-
-            {/*<FluidBack/>*/}
+        <div className={`${Halenoir.className} text-lg p-4 w-full flex flex-col items-center  overflow-hidden`} style={{height: "calc(100vh - 7rem)"}}>
+            <div className="absolute top-0 left-0   w-full h-full" style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"}}></div>
+            <FluidBack/>
             <div className={"w-full"}>
                 <InfoBlock
                     b={false}
@@ -87,7 +80,7 @@ export default function Page() {
             </div>
 
 
-            <form onSubmit={handleSubmit} className="w-full h-full top-0 left-0 flex items-center gap-x-8 justify-center">
+            <form onSubmit={handleSubmit} className="w-full h-full top-0 left-0 flex items-center z-[1] gap-x-8 justify-center">
                 <div
                     className={`rotate-[270deg] flex-shrink-0  aspect-square flex items-end justify-center text-[120px] ${Selaris.className} leading-none`}
                     style={{transformOrigin: "center center"}}>

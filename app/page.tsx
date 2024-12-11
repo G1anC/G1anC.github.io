@@ -118,9 +118,7 @@ const AllTitle = () => {
             <LayoutComponent name={"indeX"}>
 
                 <div ref={container} className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
-                    {/* <div ref={effect} className={"absolute top-0 left-0 w-full h-full"}>
-                        <FluidBack />
-                    </div> */}
+					<FluidBack />
                     <div ref={filter} className="absolute top-0 left-0  w-full h-full" style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)" }}></div>
                     <div className="relative p-4 w-full h-full flex flex-col items-center justify-center">
                         <InfoBlock b={false} left={[
