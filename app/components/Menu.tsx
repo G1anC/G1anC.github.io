@@ -30,7 +30,7 @@ const lists = [
             {title: "arEa", link: "https://www.github.com/G1anC/AREA"},
             {title: "42sh", link: "https://www.github.com/G1anC/42sh"},
             {title: "rayTracer", link: "https://www.github.com/G1anC/rayTracer"},
-            {title: "Camille_bC", link: "/camille_bc"},
+            {title: "Camille_bC", link: "https://camille-bc.vercel.app/"},
             {title: "Eve_crea.", link: "https://evelynes-creation.webflow.io/"},
             {title: "glaDos", link: "https://www.github.com/G1anC/glados"}
         ]

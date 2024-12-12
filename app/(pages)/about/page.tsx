@@ -48,10 +48,6 @@ export default function About() {
     const filter = useRef<HTMLDivElement>(null);
     const phone = useRef<HTMLDivElement>(null);
     const tl = useRef<gsap.core.Timeline>();
-    const [sentAnswers, setSentAnswers] = useState<string[]>([]);
-    const [answerIndex, setAnswerIndex] = useState<number>(0);
-    const messTimeline = gsap.timeline();
-    const [visibleMessages, setVisibleMessages] = useState<boolean[]>([]);
 
     useGSAP(() => {
         gsap.set(".clipper", {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
@@ -69,98 +65,6 @@ export default function About() {
         gsap.set(".message", {opacity: 0});
         gsap.to(".message", {opacity: 1, duration: 0.1, stagger: 2, delay: 6})
     })
-
-    useEffect(() => {
-            messTimeline.to(phone.current, {
-                delay: 5,
-                opacity: 1,
-                backdropFilter: "blur(20px)",
-                duration: 1,
-            });
-    }, []);
-
-
-    useEffect(() => {
-        if (!sentAnswers) return;
-        const sentAnswersElements = container.current?.querySelectorAll('.answer');
-        if (!sentAnswersElements) return;
-
-        const lastVisibleIndex = visibleMessages.lastIndexOf(true);
-        const lastAnswer = sentAnswersElements[lastVisibleIndex];
-
-        if (lastAnswer) {
-            gsap.fromTo(
-                lastAnswer,
-                { opacity: 0 },
-                { opacity: 1, duration: 0.4 }
-            );
-        }
-    }, [sentAnswers, visibleMessages]);
-
-
-    const Input = () => {
-        const typingKeys = "abcdefghijklmnopqrstuvwxyz ,;:!&é\"'(-è_çà;)=^ù$*%£µ§:/?./,";
-        const [discussionIndex, setDiscussionIndex] = useState<number>(0);
-        const [outputText, setOutputText] = useState<string>('');
-        const inputRef = useRef<HTMLInputElement>(null);
-        const currentDiscussion = MeDiscussions[discussionIndex];
-        const currentAnswer = currentDiscussion.answers[answerIndex];
-
-        const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const newInputText = e.target.value;
-            let newOutputText = '';
-            let targetIndex = 0;
-
-            for (let i = 0; i < newInputText.length; i++)
-                if (typingKeys.includes(newInputText[i].toLowerCase()) && targetIndex < currentAnswer.length)
-                    newOutputText += currentAnswer[targetIndex++];
-            setOutputText(newOutputText);
-        }
-
-        const sendAnswer = () => {
-            if (!inputRef.current || inputRef.current.value === '') return;
-            if (outputText.length !== currentAnswer.length) return;
-
-            setSentAnswers((prev) => [...prev, outputText]);
-            setVisibleMessages((prev) => [...prev, true]); // Marque le nouveau message comme visible
-            inputRef.current.value = '';
-            setOutputText('');
-
-            if (answerIndex < currentDiscussion.answers.length - 1) {
-                setAnswerIndex((prev) => prev + 1);
-            } else if (discussionIndex < MeDiscussions.length - 1) {
-                setDiscussionIndex((prev) => prev + 1);
-                setAnswerIndex(0);
-            }
-        };
-
-
-
-        return (
-            <div className={"w-full h-full top-0 left-0 absolute gap-x-2 flex items-end justify-center z-[40] p-4"}>
-                <div
-                    className={"w-full h-16 pl-4 rounded-3xl flex items-center border border-1 border-[#A3A3A360] bg-black/40 backdrop-blur-md"}>
-                    <input
-                        ref={inputRef}
-                        onChange={inputChange}
-                        value={outputText}
-                        className={"input w-full h-16 rounded-3xl flex items-center justify-center outline-none focus:bg-transparent bg-transparent text-white"}
-                        placeholder={"Type response..."}
-                    ></input>
-                    <div className={"w-16 h-16 flex items-center justify-center"}>
-                        <button
-                            className={"h-12 aspect-square w-12 rounded-2xl mr-2 flex items-center justify-center border border-1 border-[#A3A3A360] bg-indigo-600 hover:bg-indigo-400 transition-all duration-100"}
-                            onClick={sendAnswer}
-                        >
-                            <img alt="send" className={"w-6 h-6"} src={"/images/icons/send.png"} />
-                        </button>
-                    </div>
-                </div>
-            </div>
-        );
-    };
-
-
     const Message = ({ value, className}: { value: string | React.ReactNode; className: string}) => (
         <div
             className={`text-3xl tracking-wide rounded-[20px] p-4 mb-2 w-auto max-w-[66.66666%] ${className} ${SanFranciscoFont.className}`}

@@ -6,6 +6,7 @@ import {gsap} from "gsap";
 import LayoutComponent from "@/app/components/layoutComponent";
 import InfoBlock from "@/app/components/InfoBlock";
 import FluidBack from "@/app/components/FluidBack";
+import {useGSAP} from "@gsap/react";
 
 
 const DirtyLine = localFont({src: "../../../public/dirtyline.woff"});
@@ -621,6 +622,13 @@ export default function Projects() {
             .to("project-image", {opacity: 1, duration: 0.5})
             .to(dontTouch.current, {display: "none"}, "<");
     }, []);
+
+    useGSAP(() => {
+        gsap.set(".clipper", {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" });
+        gsap.set(".txt", { y: 50 });
+        tl.current = gsap.timeline({ paused: true })
+            .to(".txt", { duration: 1, y: 0, delay: 1.25, stagger: 0.05, ease: "power4.inOut" })
+    });
     
     useEffect(() => {
         if (!menuTl.current) return;
