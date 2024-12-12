@@ -13,87 +13,33 @@ const SanFranciscoFont = localFont({
 	src: "../../../public/SanFrancisco.woff",
 });
 
-const MeDiscussions: { questions: string[]; answers: string[] }[] = [
-	{
-		questions: ['Who are you ?'],
-		answers: [
-			'I\'m Noah Steiniger :)',
-			'A junior student at Epitech Strasbourg !'
-		]
-	},
-    {
-        questions: ['I want to know you more', 'What is your purpose as a young web creator ?'],
-        answers: [
-            'Creating the best websites i can,',
-            'Showing to the world my creativity and my skills,',
-            'By always training, discovering and learning new stuff',
-        ]
-    },
-    {
-        questions: ['How do you see yourself in the future ?'],
-        answers: [
-            'hmmm...',
-            'good questions lmao',
-            'More seriously, in the near future, I see myself as a passionate web designer, learning from the bests.',
-        ]
-    },
-    {
-        questions: ['And in the far future ?'],
-        answers: [
-            'Well',
-            'I really want to create my own company and work with the bests in the industry.',
-            'Always challenging myself as a person and as a professional.',
-        ]
-    },
-
-    {
-        questions: ['Nice !','What are you like as a person/coworker ?'],
-        answers: [
-            'I\'m usually an extroverted person',
-            'even though i like focusing alone on my work',
-            'However i am a great coworker, always here to give a hand if needed.',
-            'Always listening to advice', 'and taking every opinions into account,', 'even the most negative ones x)'
-        ]
-    },
-	{
-		questions: ['So what do you love in life ?'],
-		answers: [
-			'Well, first of all I am a huge fan of music!',
-		]
-	},
-    {
-        questions: ["Okay!! Tell me more!"],
-        answers: [
-            'from R\'n\'B, to dreampop, to Shoegaze, to weird avant-gardiste neo Jazz shit.',
-            'I really listen to everything that is out there',
-        ]
-    },
-    {
-        questions: ["Interesting, what else do you like ?"],
-        answers: [
-            'I also read philosophy, hopefully without existential crisis',
-            'history too',
-            'and psychiatry (big luv on Carl G. Jung).',
-
-        ]
-    },
-    {
-        questions: ["Any activity ?"],
-        answers: [
-            "Yeah haha I'm a big sports guy :)",
-            'Coming from a sportive family, i played basket-ball for 12 years',
-            'and now i do rock climbing which i love',
-            'i think about the dyno i can\'t make all the time'
-        ]
-    },
-    {
-        questions: ['It was a pleasure Noah', 'If you have any questions don\'t hesitate !'],
-        answers: [
-            'Yeah for me too',
-            'Thank you ChatGPT'
-        ]
-    }
-];
+const Sauce: {question: string, response: string[], question2: string, question3: React.ReactNode} = {
+    question: "Can you tell me who I am from what i told you ?",
+    response: [
+        "From the details you've shared" ,
+        "you seem to be a passionate and creative individual with a strong interest in web development and design.",
+        "You're curious, always eager to learn,",
+        "and dedicated to showcasing your skills and creativity through your projects.",
+        "",
+        "You also value teamwork and collaboration,",
+        "as reflected in your openness to feedback and your efforts to be a supportive coworker.",
+        "Outside of work,",
+        "you're a well-rounded person with diverse interests,",
+        "including music, philosophy, history, and psychiatry.",
+        "You're not just about intellectual pursuits; you balance this with a love for sports,",
+        "particularly basketball and rock climbing,",
+        "where you channel your competitive and determined spirit.",
+        "",
+        "Overall, you come across as someone driven",
+        "by curiosity, creativity, and a desire to grow, both personally and professionally.",
+        "You seem to have a great sense of humor and an open-minded attitude,",
+        "making you someone fun",
+        "and inspiring to work or interact with!",
+        "Would you say this resonates with you? 😊"
+    ],
+    question2: "I swear I didn't tell him anything to say",
+    question3: <a className="text-blue-300" href={"https://chatgpt.com/share/67599aa0-db90-8009-b378-ea2e0bf0c98b"}>Link As Proof x)</a>
+}
 
 // Main Page component
 export default function About() {
@@ -118,6 +64,12 @@ export default function About() {
         filter.current && gsap.fromTo(filter.current, { opacity: 0}, { opacity: 1, duration: 0.5, delay: 2  });
         effect.current && gsap.fromTo(effect.current, { opacity: 0 }, { opacity: 1, duration: 4, delay: 3 });
     }, []);
+
+    useEffect(() => {
+        gsap.set(".message", {opacity: 0});
+        gsap.to(".message", {opacity: 1, duration: 0.1, stagger: 2, delay: 6})
+    })
+
     useEffect(() => {
             messTimeline.to(phone.current, {
                 delay: 5,
@@ -150,8 +102,6 @@ export default function About() {
         const typingKeys = "abcdefghijklmnopqrstuvwxyz ,;:!&é\"'(-è_çà;)=^ù$*%£µ§:/?./,";
         const [discussionIndex, setDiscussionIndex] = useState<number>(0);
         const [outputText, setOutputText] = useState<string>('');
-
-
         const inputRef = useRef<HTMLInputElement>(null);
         const currentDiscussion = MeDiscussions[discussionIndex];
         const currentAnswer = currentDiscussion.answers[answerIndex];
@@ -211,11 +161,10 @@ export default function About() {
     };
 
 
-    const Message = ({ value, className, i }: { value: string; className: string, i:number }) => (
+    const Message = ({ value, className}: { value: string | React.ReactNode; className: string}) => (
         <div
-            className={`text-lg tracking-wide rounded-[20px] p-4 mb-2 w-auto max-w-[66.66666%] ${className} ${SanFranciscoFont.className}`}
+            className={`text-3xl tracking-wide rounded-[20px] p-4 mb-2 w-auto max-w-[66.66666%] ${className} ${SanFranciscoFont.className}`}
             style={{transform: 'translateY(20px)',
-                opacity: visibleMessages[i] ? 1 : 0,
                 transition: 'opacity 0.4s ease-in-out',
         }}>
             {value}
@@ -226,10 +175,10 @@ export default function About() {
         <LayoutComponent name={"abOut"}>
         <div ref={container}
              className="overflow-hidden relative flex flex-col h-full rounded-b-2xl w-full items-center justify-center">
-            {/*<FluidBack />*/}
+            <FluidBack />
             <div ref={filter} className="absolute top-0 left-0  w-full h-full"
                  style={{backgroundImage: "radial-gradient(circle, transparent, #0000ff30)"}}></div>
-            <div className="relative px-4 w-full h-full flex flex-col items-center justify-center">
+            <div className="relative px-4 w-full h-full flex flex-col items-center justify-center" style={{height: "calc(100vh - 10rem)"}}>
                 <InfoBlock b={false} left={[
                     <div className="clipper">
                         <div className="txt relative">yeah ! that's me</div>
@@ -250,8 +199,8 @@ export default function About() {
                         <div className={"relative txt"}>girlfriend :3</div>
                     </div>]}/>
 
-                <div className={"w-full h-[80%] flex items-center justify-center gap-x-12"}>
-                    <div className={"h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl bg-white"} style={{
+                <div className={"w-full h-[90%] flex items-center justify-center"}>
+                    <div className={"h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl bg-white/50"} style={{
                         boxShadow: "10px 10px 20px #00000030"
                     }}>
                         <div className={"absolute w-full h-full top-0 left-0 p-2 "}>
@@ -259,33 +208,30 @@ export default function About() {
                                  className={"w-full h-full object-cover rounded-2xl"}/>
                         </div>
                         <div ref={phone}
-                             className={"bg-black/70 opacity-0 w-full z-[20] relative h-full flex flex-col rounded-2xl p-4 overflow-y-auto"}>
-                            {MeDiscussions.map((d, i) => (
-                                <div key={i} className={'mb-4 discussion'}>
-                                    {d.questions.map((q, j) => (
-                                        <div className={"w-full flex flex-col items-center justify-start"}>
-                                            <Message
-                                                value={q}
-                                                i={j}
-                                                className="z-1 bg-zinc-700 text-white max-w-2/3 self-start text-start question"
-                                            />
-                                        </div>
-                                    ))}
+                             className={"bg-black/80 opacity-0 w-full z-[20] relative h-full flex flex-col rounded-xl p-4 overflow-y-auto"}>
+                            <div className={"w-full flex flex-col items-end justify-end"}>
+                                <Message value={Sauce.question}
+                                         className="z-1 bg-indigo-600 text-white max-w-2/3  text-end message"/>
+                            </div>
+                            <div className={"w-full flex flex-col items-start justify-start"}>
+                                {Sauce.response.map((v, i) => {
+                                    if (v.length === 0)
+                                        return <div className={"h-12"}> </div>
+                                    return (
+                                        <Message key={i} value={v}
+                                                 className={"z-1 bg-zinc-700 text-white max-w-2/3 text-start message"}/>
+                                    )
+                                })}
+                            </div>
+                            <div className={"w-full flex flex-col items-end justify-end"}>
 
-                                    {d.answers.map((answer, j) => (
-                                        <div className={"w-full flex flex-col items-center justify-end"} key={j}>
-                                            <Message
-                                                key={j}
-                                                value={answer}
-                                                i={j}
-                                                className="z-1 m bg-blue-500 text-white self-end text-end answer"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            ))}
+                                <Message value={Sauce.question2}
+                                         className="message z-1 bg-indigo-600 text-white max-w-2/3  text-end"/>
+                                <Message value={Sauce.question3}
+                                         className="message z-1 bg-indigo-600 text-white max-w-2/3  text-end"/>
+
+                            </div>
                         </div>
-                        <Input />
                     </div>
                 </div>
 
