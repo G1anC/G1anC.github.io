@@ -47,6 +47,7 @@ export default function About() {
     const effect = useRef<HTMLDivElement>(null);
     const filter = useRef<HTMLDivElement>(null);
     const phone = useRef<HTMLDivElement>(null);
+    const imageRef = useRef<HTMLImageElement>(null);
     const tl = useRef<gsap.core.Timeline>();
 
     useGSAP(() => {
@@ -62,9 +63,22 @@ export default function About() {
     }, []);
 
     useEffect(() => {
+        gsap.to(imageRef.current, {
+            opacity: "7O%",
+            duration: 1,
+            delay: 3,
+            ease: "power4.inOut",
+            filter: "blur(20px)"
+        })
+        gsap.to(phone.current, {
+            opacity: 1,
+            duration: 1,
+            delay: 3,
+            ease: "power4.inOut"
+        })
         gsap.set(".message", {opacity: 0});
         gsap.to(".message", {opacity: 1, duration: 0.1, stagger: 2, delay: 6})
-    })
+    }, [])
     const Message = ({ value, className}: { value: string | React.ReactNode; className: string}) => (
         <div
             className={`text-3xl tracking-wide rounded-[20px] p-4 mb-2 w-auto max-w-[66.66666%] ${className} ${SanFranciscoFont.className}`}
@@ -107,7 +121,7 @@ export default function About() {
                     <div className={"h-full aspect-square border border-1 relative border-[#A3A3A3] p-2 rounded-2xl bg-white/50"} style={{
                         boxShadow: "10px 10px 20px #00000030"
                     }}>
-                        <div className={"absolute w-full h-full top-0 left-0 p-2 "}>
+                        <div ref={imageRef} className={"absolute w-full h-full top-0 left-0 p-2 "}>
                             <img src={"/images/me.png"} alt={"Noah Steiniger"}
                                  className={"w-full h-full object-cover rounded-2xl"}/>
                         </div>
