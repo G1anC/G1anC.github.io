@@ -51,7 +51,7 @@ export default function Expertise() {
                         <div className={` top-0 left-0 text-xs sm:text-lg uppercase flex flex-col items-center justify-center h-full w-full ${Halenoir.className}`}>
                             <div className={"flex items-start justify-between w-2/3 h-full"}>
                                 <div className={"w-[50%] flex flex-col items-start h-full justify-start"}>
-                                    <div className={"clipper"}><div className={"txt relative"}>i'm a 3rd year student at epitech strasbourg,</div></div>
+                                    <div className={"clipper"}><div className={"txt relative"}>i'm in currently completing the 4th year of my master's degree at EPITECH Strasbourg</div></div>
                                     <div className={"clipper"}><div className={"txt relative"}>so i can work on different languages and technologies fairly easily.</div></div>
                                     <div className={"clipper"}><div className={"txt relative"}>i mainly specify in web, more precisely front-end ideation, design and development.</div></div>
                                 </div>

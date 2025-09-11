@@ -47,10 +47,7 @@ const AllTitle = () => {
                 </div>
 
                 <div className="flex w-full h-full flex-col items-center justify-end">
-                    <div ref={titleRef} className={`tracking-tighter flex justify-center items-center ${Selaris.className}`}
-                         style={{
-                             fontSize: "clamp(400px, calc(8.33vw - 160px), 600px)"
-                         }}>
+                    <div ref={titleRef} className={`tracking-tighter flex justify-center items-center text-[27vw] ${Selaris.className}`}>
                         {letters.map((letter, i) => {
                             return <div key={i} className="titleLetters flex justify-center items-center">{letter}</div>
                         })}

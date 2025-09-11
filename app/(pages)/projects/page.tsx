@@ -11,8 +11,6 @@ import {useGSAP} from "@gsap/react";
 
 const DirtyLine = localFont({src: "../../../public/dirtyline.woff"});
 const HalenoirDemi = localFont({src: "../../../public/Halenoir-DemiBold.otf"});
-const HalenoirBlack = localFont({src: "../../../public/Halenoir-Black.otf"})
-const Pixel = localFont({src: "../../../public/pixel.otf"});
 
 enum Side {
     LEFT="text-start justify-start",
@@ -31,553 +29,170 @@ const Block = ({children, side}: { children: React.ReactNode, side: Side }) => {
     )
 }
 
-const iconPath = "/images/icons/";
 const projects = [
     {
         title: "Eve_crea.",
         secondTitle: "EvelYne cReationS",
         content: [
             <Block side={Side.CENTER}>
-                <div className={"txt"}>my mother's art demonstration website</div>
-                <div className={"txt"}>in coming...</div>
+                <div className={"txt"}>My mother is a talented painter</div>
+                <div className={"txt"}>who needed some online presence</div>
+                <div className={"txt"}>to better professionalize herself and get known.</div>
+            </Block>,
+
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/EC.png"} />
+            </div>,
+
+            <Block side={Side.LEFT}>
+                <div className={"txt"}>I wanted something simple, slick and classy.</div>
+                <div className={"txt"}>So I designed and developed a website</div>
+                <div className={"txt"}>that revolves around an elegant WebGL animation</div>
+                <div className={"txt"}>that looks like a brush stroke.</div>
+            </Block>,
+
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/EC2.png"} />
+            </div>,
+
+            <Block side={Side.RIGHT}>
+                <div className={"txt"}>The website only contains 2 pages :</div>
+                <div className={"txt"}>a home page with painting categories</div>
+                <div className={"txt"}>and a painting page that adapts dynamically</div>
+                <div className={"txt"}>based on the chosen category.</div>
+            </Block>,
+
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/ECWork.png"} />
+            </div>,
+
+            <Block side={Side.CENTER}>
+                <div className={"txt"}>I was the only designer and developer on this project.</div>
+                <div className={"txt"}>Check it out here 👉 <a href="https://www.evelynecrea.com" target="_blank" className="underline">www.evelynecrea.com</a></div>
             </Block>,
         ],
     },
+    // hidden society
     {
-        title: "Camille_Bc",
-        secondTitle: "caMillE bOnnet creVel",
+        title: "HiddenSociety",
+        secondTitle: "Hidden SociEty",
         content: [
-
             <Block side={Side.CENTER}>
-                <div className={"txt"}>Camille Bonnet Crevel</div>
-                <div className={"txt"}>is a young and inspired designer</div>
-                <div className={"txt"}>from France.</div>
+                <div className={"txt"}>Hidden Society is Strasbourg’s lead</div>
+                <div className={"txt"}>techno event creator collective.</div>
+                <div className={"txt"}>They’re known for unforgettable nights,</div>
+                <div className={"txt"}>immersive atmospheres and strong visuals.</div>
             </Block>,
 
             <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/Cami.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HS.png"} />
             </div>,
 
-
             <Block side={Side.LEFT}>
-                <div className={"txt"}>This website is her way</div>
-                <div className={"txt"}>to make herself known</div>
-                <div className={"txt"}>by introducing the user to her world.</div>
-            </Block>,
-        
-
-            <Block side={Side.RIGHT}>
-                <div className={"txt"}>Coming from Basel Switzerland</div>
-                <div className={"txt"}><div className={"txt"}>Swiss design was definitely the way to go</div></div>
-                <br/>
-                <div className={"txt"}>So i started researching for ideas and inspirations.</div>
-            </Block>,
-
-            <Block side={Side.CENTER}>
-                <div className={"txt"}>Discussing with her for the font choices,</div>
-                <div className={"txt"}>Color scheme and overall look</div>
-                <div className={"txt"}>was the first step.</div>
-                <div className={"txt"}>Interesting myself in what she accomplished</div>
-                <div className={"txt"}>what she envisioned for the future and what was to come</div>
-            </Block>,
-
-
-            <Block side={Side.LEFT}>
-                <div className={"txt"}>This is the starting case study</div>
-                <div className={"txt"}>i could work on :</div>
+                <div className={"txt"}>The website needs to reflect this identity :</div>
+                <div className={"txt"}>bold, rash and visually strong.</div>
+                <div className={"txt"}>Nothing clean and minimal,</div>
+                <div className={"txt"}>but raw, immersive and impactful.</div>
             </Block>,
 
             <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/Cami.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HSEvents.png"} />
             </div>,
 
             <Block side={Side.RIGHT}>
-                <div className={"txt"}>I started creating the design on Figma :</div>
+                <div className={"txt"}>I reworked their logo into a 3D object</div>
+                <div className={"txt"}>and applied a dithering shader with Three.js,</div>
+                <div className={"txt"}>turning it into a living piece of digital art.</div>
             </Block>,
 
 
+            <Block side={Side.LEFT}>
+                <div className={"txt"}>The whole website is filled with</div>
+                <div className={"txt"}>strong interactive content,</div>
+                <div className={"txt"}>like the Work page where events</div>
+                <div className={"txt"}>are showcased with bold visuals</div>
+                <div className={"txt"}>and animated layouts.</div>
+            </Block>,
+
             <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/mockup.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HSMerch.png"} />
             </div>,
 
             <Block side={Side.CENTER}>
-                <div className={"txt"}>And after being pretty confident</div>
-                <div className={"txt"}>about the design</div>
-                <div className={"txt"}>i started deleveloping it</div>
-                <div className={"txt"}>since the majority of my ideas come as i develop</div>
+                <div className={"txt"}>I’m the lead designer and developer</div>
+                <div className={"txt"}>on the entire project.</div>
+                <div className={"txt"}>The development is still in progress,</div>
+                <div className={"txt"}>but you can already dive into their universe :</div>
+                <div className={"txt"}><a href="https://www.instagram.com/hiddensociety__/" target="_blank" className="underline">@hiddensociety__</a></div>
             </Block>,
-
-            <Block side={Side.LEFT}>
-                <div className={"txt"}>And after a little shorter than a month and a half</div>
-                <div className={"txt"}>this is the final project :</div>
-            </Block>,
-
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/area.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>
-
-
         ],
     },
+    // area
     {
         title: "arEa",
         secondTitle: "arEa aPplicaTion",
         content: [
-
-
+            <Block side={Side.CENTER}> <div className={"txt"}>AREA or Action-REaction</div> <div className={"txt"}>is a 3rd year web project</div> <div className={"txt"}>from EPITECH.</div> </Block>, <div className={"w-full mb-12 flex items-center justify-center"}> <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/area.png"} style={{ backgroundColor: "white", border: "1px #A3A3A3 solid", borderRadius: "16px", boxShadow: "10px 10px 20px #00000030" }}/> </div>, <Block side={Side.LEFT}> <div className={"txt"}>The goal was to recreate as we</div> <div className={"txt"}>wanted the functionality of</div> <div className={"txt"}>the website IFTTT.</div> </Block>, <Block side={Side.RIGHT}> <div className={"txt"}>Creating webhooks and easily</div> <div className={"txt"}>connecting to multiple</div> <div className={"txt"}>platforms was the main</div> <div className={"txt"}>purpose here.</div> </Block>, <Block side={Side.CENTER}> <div className={"txt"}>This project can be</div> <div className={"txt"}>restructured into 3 parts:</div> <br/> <div className={"txt"}>backend, mobile and frontend.</div> </Block>, <Block side={Side.LEFT}> <div className={"txt"}>We used Next as base.</div> <div className={"txt"}>React and Native for front (web and mobile)</div> <div className={"txt"}>Postgressql for DB language, Mango as DB</div> <div>and Typescript as language.</div> </Block>, <Block side={Side.RIGHT}> <div className={"txt"}>My part was everything</div> <div className={"txt"}>that surrounded the</div> <div className={"txt"}>front.</div> <br/> <br/> <div className={"txt"}>From creating the mockups</div> <div className={"txt"}>with Figma :</div> </Block>, <div className={"w-full mb-12 flex items-center justify-center"}> <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/mockup.png"} style={{ backgroundColor: "white", border: "1px #A3A3A3 solid", borderRadius: "16px", boxShadow: "10px 10px 20px #00000030" }}/> </div>, <div className={"w-full flex items-center justify-center"}> <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/mobile.png"} style={{ backgroundColor: "white", border: "1px #A3A3A3 solid", borderRadius: "16px", boxShadow: "10px 10px 20px #00000030" }}/> </div>, <Block side={Side.CENTER}> <div className={"txt"}>To developing it:</div> </Block>, <div className={"w-full mb-12 flex items-center justify-center"}> <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/area.png"} style={{ backgroundColor: "white", border: "1px #A3A3A3 solid", borderRadius: "16px", boxShadow: "10px 10px 20px #00000030" }}/> </div>
+        ],
+    },
+    // handvision
+    {
+        title: "HandVision",
+        secondTitle: "HandVisioN",
+        content: [
             <Block side={Side.CENTER}>
-                <div className={"txt"}>AREA or Action-REaction</div>
-                <div className={"txt"}>is a 3rd year web project</div>
-                <div className={"txt"}>from EPITECH.</div>
+                <div className={"txt"}>HandVision is an app for handball coaches</div>
+                <div className={"txt"}>to analyze and study their amateur/semi-pro games.</div>
+                <div className={"txt"}>By sending the match video to our AI,</div>
+                <div className={"txt"}>it automatically crops out unimportant parts</div>
+                <div className={"txt"}>and keeps only key sequences of the match.</div>
             </Block>,
 
             <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/area.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HVArchives Grid.png"} />
+            </div>,
+
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HVAnalyze.png"} />
+            </div>,
+
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HVCreation.png"} />
             </div>,
 
             <Block side={Side.LEFT}>
-                <div className={"txt"}>The goal was to recreate as we</div>
-                <div className={"txt"}>wanted the functionality of</div>
-                <div className={"txt"}>the website IFTTT.</div>
-                </Block>,
-
-            <Block side={Side.RIGHT}>
-                <div className={"txt"}>Creating webhooks and easily</div>
-                <div className={"txt"}>connecting to multiple</div>
-                <div className={"txt"}>platforms was the main</div>
-                <div className={"txt"}>purpose here.</div>
+                <div className={"txt"}>We’re a team of 6.</div>
+                <div className={"txt"}>I’m the lead designer and lead developer</div>
+                <div className={"txt"}>for the whole project.</div>
             </Block>,
 
-            <Block side={Side.CENTER}>
-                <div className={"txt"}>This project can be</div>
-                <div className={"txt"}>restructured into 3 parts:</div>
-                <br/>
-                <div className={"txt"}>backend, mobile and frontend.</div>
-            </Block>,
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HVArchives List.png"} />
+            </div>,
+
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HVMessagess.png"} />
+            </div>,
+
+            <div className={"w-full mb-12 flex items-center justify-center"}>
+                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/HVAnalyze page.png"} />
+            </div>,
 
             <Block side={Side.LEFT}>
-                <div className={"txt"}>We used Next as base.</div>
-                <div className={"txt"}>React and Native for front (web and mobile)</div>
-                <div className={"txt"}>Postgressql for DB language, Mango as DB</div>
-                <div>and Typescript as language.</div>
+                <div className={"txt"}>Still a lot to figure out.</div>
+                <div className={"txt"}>Between : good UX (that will be done with</div>
+                <div className={"txt"}> the other UX Designer in the team)</div>
+                <div className={"txt"}>and technical feasibility (that will be done with</div>
+                <div className={"txt"}> the developers in the team)</div>
+                <div className={"txt"}>It is my biggest and most challenging project.</div>
+                <div className={"txt"}>But the base design is there and it will take</div>
+                <div className={"txt"}>2 years to build fully.</div>
             </Block>,
-            
-            <Block side={Side.RIGHT}>
-                <div className={"txt"}>My part was everything</div>
-                <div className={"txt"}>that surrounded the</div>
-                <div className={"txt"}>front.</div>
-                <br/>
-                <br/>
-                <div className={"txt"}>From creating the mockups</div>
-                <div className={"txt"}>with Figma :</div>
-            </Block>,
-
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/mockup.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-
-            <div className={"w-full flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/mobile.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-
-            <Block side={Side.CENTER}>
-                <div className={"txt"}>To developing it:</div>
-            </Block>,
-
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/area.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>
-
-
         ],
     },
     {
-        title: "42sh",
-        secondTitle: "42sheLl",
-        content: [
-            <Block side={Side.CENTER}>
-                <div className={"txt"}>42shell is my first year final project at EPITECH Strasbourg.</div>
-                <div className={"txt"}>Written in C only, this group project was the first</div>
-                <div className="txt">I've made and one of the toughest still.</div>
-            </Block>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-            <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/42sh.png"} style={{
-                backgroundColor: "white",
-                border: "1px #A3A3A3 solid",
-                borderRadius: "16px",
-                boxShadow: "10px 10px 20px #00000030"
-            }}/>
-        </div>,
-            <Block side={Side.LEFT}>
-                <div className={"txt"}>
-                    It is a shell that can execute commands, manage environment variables and handle signals.
-                </div>
-                <div className={"txt"}>
-                    I was in charge of the environment variables, parsing and built-in functions (setenv, env, unsetenv, cd and echo).
-                </div>
-            </Block>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-            <img className={"w-1/2 h-auto object-fit"} src={"/images/projects/myStrToWordArray.png"} style={{
-                backgroundColor: "white",
-                border: "1px #A3A3A3 solid",
-                borderRadius: "16px",
-                boxShadow: "10px 10px 20px #00000030"
-            }}/>
-        </div>,
-            <Block side={Side.RIGHT}>
-                <div className={"txt"}>
-                    Not so fun fact: <br/>I wrote one of the most hideous functions I've made...<br/><br/>
-                    </div>                <div className={"txt"}>
-
-                    Don't blame me, I love coding fun stuff :D
-                </div>
-                </Block>,
-            <Block side={Side.CENTER}>
-                <div className={"txt"}>
-                    More seriously, I've learned a lot from this project<br/>
-                    </div>
-
-                    <div className={"txt"}>
-                    (especially writing readable code), and I'm really proud of the result.
-                    </div>
-            </Block>
-        ],
-    },
-    {
-        title: "rayTracer",
-        secondTitle: "Home cooKed rayTraCer",
-        content: [
-
-                    <Block side={Side.CENTER}>
-                        <div className={"txt"}>Raytracer is my favorite project.</div>
-                        <div className={"txt"}>It is the reason I got into EPITECH.</div>
-                    </Block>,
-                    <div className={"w-full mb-12 flex items-center justify-center"}>
-                        <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/twoCercles.png"} style={{
-                            backgroundColor: "white",
-                            border: "1px #A3A3A3 solid",
-                            borderRadius: "16px",
-                            boxShadow: "10px 10px 20px #00000030"
-                        }}/>
-                    </div>,
-                    <div className={"w-full mb-12 flex items-center justify-center"}>
-                    <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/bands.png"} style={{
-                        backgroundColor: "white",
-                        border: "1px #A3A3A3 solid",
-                        borderRadius: "16px",
-                        boxShadow: "10px 10px 20px #00000030"
-                    }}/>
-                </div>,
-
-                    <Block side={Side.RIGHT}>
-                        <div className={"txt"}>It is a second year group project written in C++.</div>
-                        <div className={"txt"}>We were 3, and since I loved this project so much,</div>
-                        <div className={"txt"}>I decided to do it almost entirely alone x)</div>                                
-                    </Block>,
-                    <Block side={Side.LEFT}>
-                        <div className={"txt"}>The goal was to create a so called "raytracer",</div>
-                        <div className={"txt"}>a program that can render 3D scenes into 2D images.</div>
-                    </Block>,
-                    <Block side={Side.LEFT}>
-                            <div className={"txt"}>Calculating the casts of lights</div>
-                            <div className={"txt"}>and shadows on objects</div>
-                    </Block>,
-                    <div className={"w-full mb-12 flex items-center justify-center"}>
-                    <img className={"w-5/6 h-auto object-fit"} src={"/images/projects/redLine.png"} style={{
-                        backgroundColor: "white",
-                        border: "1px #A3A3A3 solid",
-                        borderRadius: "16px",
-                        boxShadow: "10px 10px 20px #00000030"
-                    }}/>
-                </div>,
-                    <Block side={Side.CENTER}>
-                            <div className={"txt"}>This project is maybe the cleanest</div>
-                            <div className={"txt"}>architecture I've ever made.</div>
-                            <div className={"txt"}>It was a real pleasure to work on it.</div>
-                    </Block>,
-                    <Block side={Side.RIGHT}>
-                            <div className={"txt"}>Going into technical</div>
-                            <div className={"txt"}>stuff would not be of</div>
-                            <div className={"txt"}>much interest, so I'll just</div>
-                            <div className={"txt"}>leave it at that.</div>
-                            <div className={"txt"}>Check out the repository to gain more</div>
-                            <div className={"txt"}>insight on the project.</div>
-                    </Block>
-                ],
-    },
-    {
-        title: "pRev_Folio",
-        secondTitle: "pReVious PortFolio",
-        content: [
-            <div className={"w-full h-[40vh] flex items-center justify-center"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-center"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>The Portfolio project is an entangled one.</div>
-                    <div className={"txt"}>5 versions of it were made,</div>
-                    <div className={"txt"}>each one different from the others.</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-start"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-start"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>1.<br/> The starting point is the discovery of HTML, CSS and JS.<br/></div>
-                    <div className={"txt"}>Truly a mess but a fun one.</div>
-                </div>
-            </div>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/portfolio1.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-center"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-center"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>Yeah...</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-end"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-end"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>2.</div>
-                    <div className={"txt"}>Next, i found my weapon of choice: Figma.</div>
-                    <div className={"txt"}>From there, i discovered everything i could do with this wonder</div>
-                    <div className={"txt"}>and started trying out new things.</div>
-                </div>
-            </div>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/portfolio2.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-start"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-start"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>A bit better but a lot to learn.</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-end"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-end"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>I never coded it because i knew i could design something way better.</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-center"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-center"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>3.<br/> At this point, i really wanted to do something that fitted me better.
-                    </div>
-                    <div className={"txt"}>So i tried designing more unique ideas.</div>
-                </div>
-            </div>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/portfolio3.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/portfolio3works.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/portfolio3rpg.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-end"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-end"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>I really liked this one.</div>
-                    <div className={"txt"}>But...</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-center"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-center"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>There was an ick.</div>
-                    <div className={"txt"}>I absolutely did not have the capacity</div>
-                    <div className={"txt"}>to code this portfolio</div>
-                    <div className={"txt"}>And i abandoned it.</div>
-                    <div className={"txt"}>Yeah, i know, shame...</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-start"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-start"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>4.</div>
-                    <div className={"txt"}>I learned React.</div>
-                    <div className={"txt"}>Took me a while but i finally did it.</div>
-                    <div className={"txt"}>And with that, i learned Typescript,</div>
-                    <div className={"txt"}>Next.js and finally G. S. A. P. (my beloved)</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-end"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-end"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>This was the last boost i needed</div>
-                    <div className={"txt"}>to finally code this project</div>
-                </div>
-            </div>,
-            <div className={"w-full mb-12 flex items-center justify-center"}>
-                <img className={"w-5/6 h-auto object-cover"} src={"/images/projects/portfolio.png"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}/>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-end"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-end"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>I loved it, really, but</div>
-                    <div className={"txt"}>with everything i've learned</div>
-                    <div className={"txt"}>i once more knew that</div>
-                    <div className={"txt"}>i could do way more</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-center"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-center"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className={"txt"}>And half way through,</div>
-                    <div className={"txt"}>i reimagined the design</div>
-                    <div className="txt">to come up with this one</div>
-                    <div className="txt">and i can't be more proud.</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-start"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-start"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className="txt">i've never put this much effort</div>
-                    <div className="txt">in building something i truly loved</div>
-                    <div className="txt">excepte maybe the raytracer and my relationship lmao</div>
-                </div>
-            </div>,
-            <div className={"w-full h-[40vh] flex items-center justify-center"}>
-                <div className={"p-8 border border-[#A3A3A3] rounded-3xl text-center"} style={{
-                    backgroundColor: "white",
-                    border: "1px #A3A3A3 solid",
-                    borderRadius: "16px",
-                    boxShadow: "10px 10px 20px #00000030"
-                }}>
-                    <div className="txt">Hope you'll love it too ;)</div>
-                </div>
-            </div>,
-        ],
-    },
-    {
-        title: "aVen inC.",
-        secondTitle: "aVen inC.",
+        title: "aGeMera",
+        secondTitle: "aGeMera Studio.",
         content: [
             <Block side={Side.CENTER}>
                 <div className={"txt"}>my future agency's website</div>
