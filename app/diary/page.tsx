@@ -48,7 +48,7 @@ const DiaryLink = ({ entry }: { entry: DiaryEntry }) => {
     return (
         <li>
             <a className="link w-full flex justify-between uppercase py-4 items-center" href={`/diary/${slug}`}>
-                <span>{entry.title}</span>
+                <h1>{entry.title}</h1>
                 <span className="text-gray-400 lowercase">{label}</span>
             </a>
         </li>
@@ -59,17 +59,15 @@ export default async function Diary() {
     const entries = await getDiaryEntries(DIARY_DIR);
 
     return (
-        <div className="bg-[#EBF0F8] text-gray-800 text-[14px] min-h-screen">
-            <img src="/ASCII.png" alt="ASCII branch" className="absolute opacity-12 w-9xl z-0 top-20 left-0 scale-50 -translate-1/4 pointer-events-none" />
-            <img src="/flowers.png" alt="ASCII branch" className="absolute opacity-50 w-9xl z-0 top-20 left-0 scale-50 -translate-1/4 pointer-events-none" />
-            <img src="/ASCII.png" alt="ASCII branch" className="absolute opacity-12 w-9xl bottom-20 right-0 scale-50 scale-x-[-0.5] translate-1/4 pointer-events-none z-0" />
-            <img src="/flowers.png" alt="ASCII branch" className="absolute opacity-50 w-9xl bottom-20 right-0 scale-50 scale-x-[-0.5] translate-1/4 pointer-events-none z-0" />
+        <div className="bg-[#EBF0F8] text-gray-800 text-[14px] min-h-screen relative">
+            <img src='/left.png' className="fixed h-screen top-0 left-0 pointer-events-none z-0" alt="left branch" />
+            <img src='/right.png' className="fixed h-screen top-0 right-0 pointer-events-none z-0" alt="right branch" />
 
-            <div className="max-w-7xl bg-[#EBF0F8]/5 z-20 mx-auto min-h-screen py-16">
+            <div className="max-w-7xl z-10 mx-auto min-h-screen py-16 relative">
                 <Nav />
                 <div className="w-full mt-16 flex-col flex h-full">
                     <div className="w-full gap-16 flex">
-                        <div className="py-6 px-10 w-full bg-[#EBF0F8] shadow-xl shadow-gray-300/50 backdrop-blur-sm border text-justify relative border-black/10 rounded-lg">
+                        <div className="py-6 px-10 w-full bg-[#EBF0F8] shadow-xl shadow-gray-300/50 backdrop-blur-sm border text-justify relative z-10 border-black/10 rounded-lg">
                             <ul className="flex flex-col gap-2">
                                 {entries.map((entry, index) => (
 									<>

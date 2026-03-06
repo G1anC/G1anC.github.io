@@ -2,26 +2,36 @@ const Nav = () => {
     return (
         <nav className="w-full flex justify-between items-center">
             <a href='/' className="flex gap-2">
-                <p className="kanji">義安</p>
-                <p>G1AN</p>
+                <h1 className="kanji font-bold">義安</h1>
+                <h1>G1AN</h1>
             </a>
             <div className="flex items-center gap-16">
                 <a className="link" href="/me">
-                    ME - INTERESTS
+                    <h1>
+                        ME - INTERESTS
+                    </h1>
                 </a>
                 <div className="flex flex-col">
                     <a href="/works" className="link text-end mx-4 w-full">
-                        WORKS
+                        <h1>
+                            WORKS
+                        </h1>
                     </a>
                     <a className="link" href="/works">
-                        CREATIONS
+                        <h1>
+                            CREATIONS
+                        </h1>
                     </a>
                 </div>
                 <a className="link" href="/diary">
-                    DIARY
+                    <h1>
+                        DIARY
+                    </h1>
                 </a>
                 <a className="link" href="/yapbox">
-                    YAPBOX
+                    <h1>
+                        YAPBOX
+                    </h1>
                 </a>
             </div>
         </nav>

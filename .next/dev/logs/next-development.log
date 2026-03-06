@@ -1,0 +1,105 @@
+[00:00:01.049] Server  LOG     ✓ Ready in 699ms
+[00:00:09.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:53.244] Server  LOG     ✓ Compiled in 31ms
+[00:08:02.875] Server  LOG     ✓ Compiled in 38ms
+[00:08:06.488] Server  LOG     ✓ Compiled in 33ms
+[00:08:19.433] Server  LOG     ✓ Compiled in 42ms
+[00:08:24.546] Server  LOG     ✓ Compiled in 46ms
+[00:08:33.865] Server  LOG     ✓ Compiled in 39ms
+[00:08:40.144] Server  LOG     ✓ Compiled in 38ms
+[00:08:53.487] Server  LOG     ✓ Compiled in 36ms
+[00:09:08.373] Server  LOG     ✓ Compiled in 44ms
+[00:09:21.118] Server  LOG     ✓ Compiled in 33ms
+[00:09:36.309] Server  LOG     ✓ Compiled in 41ms
+[00:09:38.253] Server  LOG     ✓ Compiled in 28ms
+[00:09:43.341] Server  LOG     ✓ Compiled in 27ms
+[00:10:25.559] Server  LOG     ✓ Compiled in 28ms
+[00:10:32.890] Server  LOG     ✓ Compiled in 25ms
+[00:10:40.520] Server  LOG     ✓ Compiled in 33ms
+[00:10:43.909] Server  LOG     ✓ Compiled in 29ms
+[00:11:29.913] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[00:11:30.170] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:46.794] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[00:11:52.266] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[00:12:28.797] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:38.415] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[00:12:38.597] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:40.425] Server  ERROR   ⨯ Error: Page "/diary/[entryName]/page" is missing param "/diary/[entryName]" in "generateStaticParams()", which is required with "output: export" config.
+[00:12:41.521] Browser ERROR   uncaughtError: Error: Page "/diary/[entryName]/page" is missing param "/diary/[entryName]" in "generateStaticParams()", which is required with "output: export" config.
+[00:13:12.433] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:35.937] Server  LOG     ✓ Compiled in 46ms
+[00:14:19.323] Server  LOG     ✓ Compiled in 26ms
+[00:14:25.828] Server  LOG     ✓ Compiled in 25ms
+[00:14:40.081] Server  LOG     ✓ Compiled in 27ms
+[00:14:52.684] Server  LOG     ✓ Compiled in 21ms
+[00:15:04.638] Server  LOG     ✓ Compiled in 47ms
+[00:15:12.765] Server  LOG     ✓ Compiled in 41ms
+[00:15:47.840] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:11.358] Server  LOG     ✓ Compiled in 112ms
+[00:20:39.428] Server  LOG     ✓ Compiled in 22ms
+[00:20:42.253] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[00:20:42.666] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:44.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:22:19.071] Server  LOG     ✓ Compiled in 35ms
+[00:22:32.548] Server  LOG     ✓ Compiled in 65ms
+[00:23:54.330] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[00:23:54.522] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:56.236] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:25.577] Server  LOG     ✓ Compiled in 53ms
+[00:27:54.781] Server  LOG     ✓ Compiled in 50ms
+[00:27:56.790] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:58.926] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:25.914] Server  LOG     ✓ Compiled in 28ms
+[00:32:45.339] Server  LOG     ✓ Compiled in 25ms
+[00:33:41.388] Server  LOG     ✓ Compiled in 37ms
+[00:35:06.936] Browser ERROR   ./app/page.tsx:61:4
+Parsing ecmascript source code failed
+  59 | 				</div>
+  60 | 			</div>
+> 61 | 		</div>
+     | 		 ^^^^^
+  62 | 	);
+  63 | }
+  64 |
+
+Unterminated regexp literal
+[00:35:35.974] Server  LOG     ✓ Compiled in 43ms
+[00:36:55.537] Server  LOG     ✓ Compiled in 26ms
+[00:38:43.543] Server  LOG     ✓ Compiled in 28ms
+[00:38:49.325] Server  LOG     ✓ Compiled in 24ms
+[00:38:55.376] Server  LOG     ✓ Compiled in 37ms
+[00:39:16.068] Server  LOG     ✓ Compiled in 55ms
+[00:39:44.405] Server  LOG     ✓ Compiled in 116ms
+[00:39:52.128] Server  LOG     ✓ Compiled in 84ms
+[00:40:15.463] Server  LOG     ✓ Compiled in 65ms
+[01:03:23.680] Server  LOG     ✓ Compiled in 124ms
+[01:04:26.067] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:19:12.154] Server  LOG     ✓ Compiled in 30ms
+[01:19:31.798] Server  LOG     ✓ Compiled in 21ms
+[01:20:24.611] Server  LOG     ✓ Compiled in 42ms
+[01:20:43.665] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[01:20:43.877] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:21:31.743] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[01:21:31.796] Server  ERROR   Each child in a list should have a unique "key" prop. See https://react.dev/link/warning-keys for more information.
+[01:21:34.188] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:21:58.289] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:24:38.800] Server  LOG     ✓ Compiled in 88ms
+[01:25:00.847] Server  LOG     ✓ Compiled in 40ms
+[01:25:32.268] Server  LOG     ✓ Compiled in 24ms
+[01:26:02.711] Server  LOG     ✓ Compiled in 35ms
+[01:26:54.062] Server  LOG     ✓ Compiled in 27ms
+[01:27:14.934] Server  LOG     ✓ Compiled in 25ms
+[01:27:37.051] Server  LOG     ✓ Compiled in 27ms
+[01:27:40.785] Server  LOG     ✓ Compiled in 30ms
+[01:27:50.633] Server  LOG     ✓ Compiled in 26ms
+[01:28:10.243] Server  LOG     ✓ Compiled in 28ms
+[01:28:47.110] Server  LOG     ✓ Compiled in 26ms
+[01:28:56.147] Server  LOG     ✓ Compiled in 40ms
+[01:29:43.144] Server  LOG     ✓ Compiled in 28ms
+[01:31:28.858] Server  LOG     ✓ Compiled in 27ms
+[01:31:31.877] Server  LOG     ✓ Compiled in 29ms
+[01:32:19.277] Server  LOG     ✓ Compiled in 29ms
+[01:35:48.684] Server  LOG     ✓ Compiled in 25ms
+[01:35:53.795] Server  LOG     ✓ Compiled in 22ms
+[01:36:00.661] Server  LOG     ✓ Compiled in 27ms
+[01:36:49.992] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
