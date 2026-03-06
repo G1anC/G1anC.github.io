@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'TexGyreHeroes';
+    src: url('TEXGYREHEROSCN.OTF') format('opentype');
+}
+
+@font-face {
+    font-family: 'TexGyreHeroesBold';
+    src: url('TEXGYREHEROSCN-BOLD.OTF') format('opentype');
+}
+
+@font-face {
+    font-family: 'KAISEI';
+    src: url('KAISEIDECOL.TTF') format('truetype');
+}
+
+
+body {
+    font-family: 'TexGyreHeroesBold', sans-serif;
+    .link {
+        opacity: 1;
+        transition: opacity 0.1s ease;
+        
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    .sous {
+        font-family: 'TexGyreHeroes', serif;
+        font-size: 10px;
+        opacity: 50%;
+    }
+    .kanji {
+        font-family: 'KAISEI', serif;
+    }
+}
+
+
+
+
+
+
+
