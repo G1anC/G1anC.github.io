@@ -1,0 +1,8 @@
+## TW: SA & Pedophilia
+
+It's the first time I'm doing journaling actually so it might take me a bit of practice.
+
+I feel like today I really needed to let some steam off..
+I'm a young progressist and reviolutionary guy (at least I think I am) and yesterday was a really bad day compared to the rest. Femtogo, one of my favorite artists in France just told the whole community that he raped a 15yo and that he consumed pedopornographic videos. It took a huge toll on me since he was the only artist in french music history to talk about his rape when he was a kid and his homosexuality. Really, it did so much for the whole community and we could litteraly see the brightest of futures for him and Ptite Soeur. And yet, Femtogo was not able to break the viscious cycle he was in and perpetuated the same violent atrocity he suffered through as a kid to an innocent soul. Truly the worst end to an up and coming powerhouse of rap in France. An absolutely discusting story that will take some time for the community to recover from.
+
+So yeah, yesterday was a hard day, despite spending some awesome time helping my friend Fanga get to his new appartment in Friedrieschain. But today is a new day you know, I try to take care of myself, I ate, I played minecraft, I'm hard coding this little website rn and I'm having fun. So let's see what tomorrow has to offer for me, I think it's going to be a great day. :P
