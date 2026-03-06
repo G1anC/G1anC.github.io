@@ -1,11 +1,78 @@
+'use client'
+
 import { Bushido } from "./components/bushido";
 import Nav from "./components/nav";
+import Box from "./components/box";
+import React from "react";
+
+interface MusicItem {
+	title: string;
+	genre: string;
+	artist: string;
+	imageSrc: string;
+	songSrc: string;
+}
+
+const musicList: MusicItem[] = [
+	{
+		title: "Tell Me (U Want it)",
+		artist: "underscores",
+		genre: "Electropop",
+		imageSrc: "underscores.jpg",
+		songSrc: "Tell Me (U Want it).mp3",
+	},
+	{
+		title: "Que du vent",
+		artist: "Asinine",
+		genre: "French Pop Rap",
+		imageSrc: "asinine.png",
+		songSrc: "Que du vent.mp3",
+	},
+	{
+		title: "INDUSTRIA",
+		artist: "wibzedd",
+		genre: "French Experimental rap",
+		imageSrc: "wibzedd.jpg",
+		songSrc: "INDUSTRIA.mp3",
+	},
+	{
+		title: "BAILE INoLVIDABLE",
+		artist: "Bad Bunny",
+		genre: "Reggaetón",
+		imageSrc: "badbunny.jpg",
+		songSrc: "BAILE INoLVIDABLE.mp3",
+	},
+	{
+		title: "Taxes",
+		artist: "Geese",
+		genre: "Indie Rock",
+		imageSrc: "geese.png",
+		songSrc: "Taxes.mp3",
+	},
+];
+
 export default function Home() {
+	const [currentMusic, setCurrentMusic] = React.useState<MusicItem | null>(null);
+	const audioRef = React.useRef<HTMLAudioElement | null>(null);
+	const [playing, setPlaying] = React.useState(false);
+
+	const toggleMusic = () => {
+		const audio = audioRef.current;
+		if (!audio) return;
+		if (playing) {
+			audio.pause();
+		} else {
+			audio.play();
+		}
+		setPlaying(!playing);
+	};
+
+
 	return (
-		<div className="min-h-screen relative bg-[#EBF0F8]">
+		<div className="min-h-screen relative bg-[#e1e6ec]">
 			<img src='/left.png' className="fixed h-screen top-0 left-0 pointer-events-none z-0" alt="left branch" />
 			<img src='/right.png' className="fixed h-screen top-0 right-0 pointer-events-none z-0" alt="right branch" />
-			<div className="max-w-400 bg-[#EBF0F8] z-10 mx-auto min-h-screen p-32 py-24 relative">
+			<div className="max-w-400 bg-[#e1e6ec] z-10 mx-auto min-h-screen p-32 py-24 relative">
 				<Nav />
 				<div className="w-full flex mt-24 justify-between items-center">
 					{Object.values(Bushido).map((virtue) => (
@@ -17,50 +84,57 @@ export default function Home() {
 					))}
 				</div>
 				<div className="w-full mt-32 flex-col flex h-full">
-					<div className="w-full gap-16 flex">
-						<div className="p-12 w-88 shrink-0 backdrop-blur-xl border text-justify relative bg-[#EBF0F8] border-black/10 rounded-lg">
-							<div className="absolute px-6 top-0 flex items-center -translate-1/2 left-1/2 backdrop-blur-xs">
-								<div className='h-0.5 bg-[#EBF0F8] absolute w-24 -z-10 -translate-x-4' />
-								<img src="/me1.png" alt="ASCII branch" className="w-16 pointer-events-none" />
-							</div>
-							<p>
+					<div className="w-full gap-16 flex items-end">
+						<Box width={84} imageSrc="/me1.png" title="">
+							<h1 className='text-[14px] leading-snug'>
 								Hi. I’m Gian, a 22yo french guy interested in everything there is to do or talk about in this world.
 								<br />
 								<br />
 								So if you have any talking points, meet me at the yap box. ;P
-							</p>
-						</div>
-						<div className="p-12 w-full backdrop-blur-sm border text-justify relative border-black/10 rounded-lg">
-							<div className="absolute px-6 top-0 -translate-1/2 left-40 flex items-center gap-4">
-								<div className='h-0.5 bg-[#EBF0F8] absolute w-64 -z-10 ' />
-								<img src="/calendar.svg" alt="ASCII branch" className="w-10 ml-6 pointer-events-none" />
-								<h1 className="text-2xl">WEEK'S TASKS</h1>
-							</div>
-							<ul className='list-disc pl-6'>
-								<li className="pl-4 mb-2">Dev the "La parole de licorne website"</li>
-								<li className="pl-4 mb-2">Read pages of C. G. Jung's book</li>
-								<li className="pl-4 mb-2">Tell Fanga about the DSi drawing app project</li>
-							</ul>
+							</h1>
+						</Box>
+						<div className="w-full h-full">
+							<Box width="full" imageSrc="/calendar.svg" title="WEEK'S TASKS">
+								<ul className='list-disc pl-6 h-full'>
+									<li className="pl-4 mb-2">Dev the "La parole de licorne website"</li>
+									<li className="pl-4 mb-2">Read pages of C. G. Jung's book</li>
+									<li className="pl-4 mb-2">Tell Fanga about the DSi drawing app project</li>
+								</ul>
+							</Box>
 						</div>
 					</div>
 					<div className="flex-col w-full mt-16 flex h-full">
-						<div className="p-12 border text-justify relative border-black/10 rounded-lg">
-							<div className="absolute px-6 top-0 shrink-0 -translate-1/2 left-40 flex items-center gap-4">
-								<div className='h-0.5 bg-[#EBF0F8] absolute w-66 -z-10 ' />
-								<img src="/music.svg" alt="ASCII branch" className="w-10 ml-6 pointer-events-none" />
-								<h1 className="text-2xl shrink-0">MONTH'S MUSIC</h1>
-							</div>
+						<Box width="full" imageSrc="/music.svg" title="MONTH'S MUSIC">
 							<ul className=''>
-								<li className="mb-2 flex gap-12 items-center justify-between"><p>Tell Me (U Want it) - underscores</p><p className="opacity-50 text-[10px]">Electropop</p></li>
-								<li className="mb-2 flex gap-12 items-center justify-between"><p>Que du vent - Asinine</p>        <p className="opacity-50 text-[10px]">French Pop Rap</p></li>
-								<li className="mb-2 flex gap-12 items-center justify-between"><p>INDUSTRIA - wibzedd</p> <p className="opacity-50 text-[10px]">French Experimental rap</p></li>
-								<li className="mb-2 flex gap-12 items-center justify-between"><p>BAILE INoLVIDABLE - Bad Bunny</p>       <p className="opacity-50 text-[10px]">Reggaetón</p></li>
-								<li className="mb-2 flex gap-12 items-center justify-between"><p>Taxes - Geese</p>                    <p className="opacity-50 text-[10px]">Indie Rock</p></li>
+								{musicList.map((item) => (
+									<button onClick={() => setCurrentMusic(item)} key={item.title} className="hover:cursor-pointer w-full hover:pl-1 hover:opacity-50 duration-200 transition-all mb-2 flex gap-12 items-center justify-between">
+										<p>{item.title} - {item.artist}</p>
+										<p className="opacity-50 text-[10px]">{item.genre}</p>
+									</button>
+								))}
 							</ul>
-						</div>
+						</Box>
 					</div>
-					
 				</div>
+
+				{currentMusic && (
+					<div className="fixed bottom-8 left-1/2 p-3 -translate-x-1/2 bg-[#e1e6ec] border flex gap-24 border-black/20 rounded-lg">
+						<div className="flex items-center gap-4">
+							<img src={currentMusic.imageSrc} alt={currentMusic.title} className="w-24 h-24 rounded-sm object-cover" />
+							<div>
+								<h1 className="text-[14px]">{currentMusic.title}</h1>
+								<p className="text-sm opacity-75">{currentMusic.artist}</p>
+							</div>
+						</div>
+						<button
+							onClick={toggleMusic}
+							className=""
+						>
+							<img src={playing ? "/pause.svg" : "/play.svg"} alt={playing ? "Pause" : "Play"} className="w-6 mr-4 opacity-66 hover:scale-105 hover:opacity-80 transition-all duration-150 h-6" />
+						</button>
+						<audio ref={audioRef} src={"/monthSongs/" + currentMusic.songSrc} />
+					</div>
+				)}
 			</div>
 		</div>
 	);

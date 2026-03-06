@@ -1,7 +1,7 @@
 const Nav = () => {
     return (
         <nav className="w-full flex justify-between items-center">
-            <a href='/' className="flex gap-2">
+            <a href='/' className="flex gap-6">
                 <h1 className="kanji font-bold">義安</h1>
                 <h1>G1AN</h1>
             </a>

@@ -59,7 +59,7 @@ export default async function Diary() {
     const entries = await getDiaryEntries(DIARY_DIR);
 
     return (
-        <div className="bg-[#EBF0F8] text-gray-800 text-[14px] min-h-screen relative">
+        <div className="bg-[#e1e6ec] text-gray-800 text-[14px] min-h-screen relative">
             <img src='/left.png' className="fixed h-screen top-0 left-0 pointer-events-none z-0" alt="left branch" />
             <img src='/right.png' className="fixed h-screen top-0 right-0 pointer-events-none z-0" alt="right branch" />
 
@@ -67,7 +67,7 @@ export default async function Diary() {
                 <Nav />
                 <div className="w-full mt-16 flex-col flex h-full">
                     <div className="w-full gap-16 flex">
-                        <div className="py-6 px-10 w-full bg-[#EBF0F8] shadow-xl shadow-gray-300/50 backdrop-blur-sm border text-justify relative z-10 border-black/10 rounded-lg">
+                        <div className="py-6 px-10 w-full bg-[#e1e6ec] shadow-xl shadow-gray-300/50 backdrop-blur-sm border text-justify relative z-10 border-black/10 rounded-lg">
                             <ul className="flex flex-col gap-2">
                                 {entries.map((entry, index) => (
 									<>
