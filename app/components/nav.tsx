@@ -23,9 +23,9 @@ const Nav = () => {
                         </h1>
                     </a>
                 </div>
-                <a className="link" href="/diary">
+                <a className="link" href="/writings">
                     <h1>
-                        DIARY
+                        WRITINGS
                     </h1>
                 </a>
                 <a className="link" href="/yapbox">

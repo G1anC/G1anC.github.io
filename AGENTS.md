@@ -12,7 +12,7 @@ neocities/
 │   ├── page.tsx           # Homepage (義安 / G1AN)
 │   ├── me/page.tsx        # Me - Interests page
 │   ├── works/page.tsx     # Works & Creations page
-│   ├── diary/page.tsx     # Diary page
+│   ├── writing/page.tsx     # writing page
 │   ├── yapbox/page.tsx    # Yapbox page
 │   ├── layout.tsx         # Root layout
 │   ├── globals.css        # Global styles with custom fonts

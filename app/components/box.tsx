@@ -10,7 +10,7 @@ const Box = (props: BoxProps) => {
     return (
         <div
             style={{ width: props.width === "full" ? "100%" : `${props.width * 4}px` }}
-            className={`p-12 h-full shrink-0 border text-justify relative bg-[#e1e6ec] border-black/20 rounded-lg`}>
+            className={`p-12 h-full shrink-0 border shadow-2xl shadow-gray-400/20 text-justify relative bg-[#e1e6ec] backdrop-blur-3xl z-50 border-black/20 rounded-lg`}>
             <div className="absolute -top-7 left-42 -translate-x-1/2 inline-flex items-center px-8">
                 {(() => {
                     const isSvg = props.imageSrc.toLowerCase().endsWith('.svg');

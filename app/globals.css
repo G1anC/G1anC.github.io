@@ -44,64 +44,64 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'KAISEI', serif;
 }
 
-/* Gruvbox Light colors for diary content */
-.diary-content {
+/* Gruvbox Light colors for writing content */
+.writing-content {
   color: #3c3836;
   line-height: 1.7;
 }
 
-.diary-content p {
+.writing-content p {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
 
-.diary-content ul, .diary-content ol {
+.writing-content ul, .writing-content ol {
   margin: 0.75em 0;
   padding-left: 1.5rem;
 }
 
-.diary-content li {
+.writing-content li {
   margin: 0.25em 0;
 }
 
-.diary-content h1 {
+.writing-content h1 {
   color: #9d0006;
   font-size: 2rem;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
 
-.diary-content h2 {
+.writing-content h2 {
   color: #8f3f71;
   font-size: 1.5rem;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
 }
 
-.diary-content h3 {
+.writing-content h3 {
   color: #076678;
   font-size: 1.25rem;
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
 
-.diary-content h4, .diary-content h5, .diary-content h6 {
+.writing-content h4, .writing-content h5, .writing-content h6 {
   color: #79740e;
   font-size: 1.125rem;
   margin-top: 0.8em;
   margin-bottom: 0.5em;
 }
 
-.diary-content strong, .diary-content b {
+.writing-content strong, .writing-content b {
   color: #af3a03;
   font-family: 'TexGyreHeroesBold', sans-serif;
 }
 
-.diary-content em, .diary-content i {
+.writing-content em, .writing-content i {
   color: #b57614;
 }
 
-.diary-content code {
+.writing-content code {
   color: #79740e;
   background-color: #eceff3;
 
@@ -112,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
   word-break: break-word;
 }
 
-.diary-content pre {
+.writing-content pre {
   background-color: #eceff3;
   padding: 0em 2rem ;
   border-radius: 0.5rem;
@@ -121,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 3em 0;
 }
 
-.diary-content pre code {
+.writing-content pre code {
   padding: 0 2rem;
   display: block;
   background-color: #eceff3;
@@ -129,17 +129,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #3c3836;
 }
 
-.diary-content a {
+.writing-content a {
   color: #076678;
 
   text-decoration: underline;
 }
 
-.diary-content a:hover {
+.writing-content a:hover {
   opacity: 0.7;
 }
 
-.diary-content blockquote {
+.writing-content blockquote {
   border-left: 4px solid #076678;
   padding-left: 1rem;
   color: #665c54;

@@ -73,6 +73,10 @@ export default function Home() {
 		<div className="min-h-screen relative bg-[#e1e6ec]">
 			<img src='/left.png' className="fixed h-screen top-0 left-0 pointer-events-none z-0" alt="left branch" />
 			<img src='/right.png' className="fixed h-screen top-0 right-0 pointer-events-none z-0" alt="right branch" />
+
+			<img src='/ASCII.png' className="fixed scale-40 top-0 left-0 pointer-events-none -translate-1/3 z-20 opacity-7" alt="left branch" />
+			<img src='/ASCII.png' className="fixed scale-40 bottom-40 right-0 pointer-events-none -scale-x-40 translate-1/3 z-20 opacity-7" alt="left branch" />
+
 			<div className="max-w-400 bg-[#e1e6ec] z-10 mx-auto min-h-screen p-32 py-24 relative">
 				<Nav />
 				<div className="w-full flex mt-24 justify-between items-center">
@@ -89,9 +93,7 @@ export default function Home() {
 						<Box width={60} imageSrc="/me1.png" title="">
 							<h1 className='text-[14px] leading-snug'>
 								Hi. I’m Gian, a 22yo french guy interested in everything there is to do or talk about in this world.
-								<br />
-								<br />
-								So if you have any talking points, meet me at the yap box. ;P
+								<br /> <br /> So if you have any talking points, meet me at the yap box. ;P
 							</h1>
 						</Box>
 						<div className="w-full h-full">
@@ -127,12 +129,7 @@ export default function Home() {
 								<p className="text-sm opacity-75">{currentMusic.artist}</p>
 							</div>
 						</div>
-						<button
-							onClick={toggleMusic}
-							className=""
-						>
-							<img src={playing ? "/pause.svg" : "/play.svg"} alt={playing ? "Pause" : "Play"} className="w-6 mr-4 opacity-66 hover:scale-105 hover:opacity-80 transition-all duration-150 h-6" />
-						</button>
+						<button onClick={toggleMusic}><img src={playing ? "/pause.svg" : "/play.svg"} alt={playing ? "Pause" : "Play"} className="w-6 mr-4 opacity-66 hover:scale-105 hover:opacity-80 transition-all duration-150 h-6" /></button>
 						<audio ref={audioRef} src={"/monthSongs/" + currentMusic.songSrc} />
 					</div>
 				)}
