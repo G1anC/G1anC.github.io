@@ -20,7 +20,7 @@ const Box = (props: BoxProps) => {
                         />
                     );
                 })()}
-                {props.title && <h1 className="ml-6">{props.title}</h1>}
+                {props.title && <h1 className="ml-6 shrink-0">{props.title}</h1>}
                 <div className="absolute inset-0 h-10 bg-[#e1e6ec] -z-10" />
             </div>
             {props.children}
