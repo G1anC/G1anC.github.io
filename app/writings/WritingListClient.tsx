@@ -43,7 +43,7 @@ export default function WritingListClient({ diaries, essays }: Props) {
 
     return (
         <div
-            className={`p-12 h-full w-full shrink-0 border shadow-2xl shadow-gray-400/20 text-justify relative bg-[#e1e6ec] backdrop-blur-3xl z-50 border-black/20 rounded-lg`}
+            className={`p-12 h-full w-full shrink-0 border shadow-2xl shadow-gray-400/10 text-justify relative bg-[#EBF0F8] backdrop-blur-3xl z-50 border-black/20 rounded-lg`}
         >
             <div className="absolute -top-7 left-42 -translate-x-1/2 inline-flex items-center px-8">
                 <>
@@ -68,7 +68,7 @@ export default function WritingListClient({ diaries, essays }: Props) {
                         </button>
                     </h1>
                 </>
-                <div className="absolute inset-0 h-10 bg-[#e1e6ec] -z-10" />
+                <div className="absolute inset-0 h-10 bg-[#EBF0F8] -z-10" />
             </div>
             <ul className="list-none m-0 p-0">
                 {entries.map((entry) => (

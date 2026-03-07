@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sous {
   font-family: 'TexGyreHeroes', serif;
-  font-size: 10px;
+  font-size: 12px;
   opacity: 0.5;
   letter-spacing: 0.033rem;
 }
@@ -103,9 +103,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .writing-content code {
   color: #79740e;
-  background-color: #eceff3;
-
-  padding: 1em 0em;
+  background-color: #ffffff33;
+  /* padding: 3em 0em !important; */
   border-radius: 0.25rem;
   display: inline;
   white-space: pre-wrap;
@@ -113,19 +112,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .writing-content pre {
-  background-color: #eceff3;
-  padding: 0em 2rem ;
+  padding: 0em 2rem;
   border-radius: 0.5rem;
-  margin:2rem;
   overflow-x: auto;
-  margin: 3em 0;
+  /* margin: 3em 0; */
 }
 
 .writing-content pre code {
-  padding: 0 2rem;
+  /* padding: 1em 4rem; */
   display: block;
-  background-color: #eceff3;
-
   color: #3c3836;
 }
 

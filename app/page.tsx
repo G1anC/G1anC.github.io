@@ -70,16 +70,18 @@ export default function Home() {
 
 
 	return (
-		<div className="min-h-screen relative bg-[#e1e6ec]">
+		<div className="min-h-screen relative bg-[#EBF0F8]">
 			<img src='/left.png' className="fixed h-screen top-0 left-0 pointer-events-none z-0" alt="left branch" />
 			<img src='/right.png' className="fixed h-screen top-0 right-0 pointer-events-none z-0" alt="right branch" />
 
-			<img src='/ASCII.png' className="fixed scale-40 top-0 left-0 pointer-events-none -translate-1/3 z-20 opacity-7" alt="left branch" />
-			<img src='/ASCII.png' className="fixed scale-40 bottom-40 right-0 pointer-events-none -scale-x-40 translate-1/3 z-20 opacity-7" alt="left branch" />
 
-			<div className="max-w-400 bg-[#e1e6ec] z-10 mx-auto min-h-screen p-32 py-24 relative">
+			<div className="max-w-400 bg-[#EBF0F8] z-10 mx-auto min-h-screen lg:p-32 lg:py-24 p-12 py-6 relative">
+				<img src='/ASCII.png' className="fixed scale-40 top-0 left-0 pointer-events-none -translate-1/3 z-0 opacity-7" alt="left branch" />
+				<img src='/ASCII.png' className="fixed scale-40 bottom-40 right-0 pointer-events-none -scale-x-40 translate-1/3 z-0 opacity-7" alt="left branch" />
+
 				<Nav />
-				<div className="w-full flex mt-24 justify-between items-center">
+
+				<div className="w-full flex lg:mt-24 mt-12 justify-between items-center">
 					{Object.values(Bushido).map((virtue) => (
 						<div key={virtue.romaji} className="flex flex-col">
 							<div className="kanji font-semibold text-[16px]">{virtue.kanji}</div>
@@ -88,8 +90,8 @@ export default function Home() {
 						</div>
 					))}
 				</div>
-				<div className="w-full mt-32 flex-col flex h-full">
-					<div className="w-full gap-16 flex items-end">
+				<div className="w-full lg:mt-32 mt-16 flex-col flex h-full">
+					<div className="w-full lg:gap-16 gap-8 flex flex-col lg:flex-row items-end">
 						<Box width={60} imageSrc="/me1.png" title="">
 							<h1 className='text-[14px] leading-snug'>
 								Hi. I’m Gian, a 22yo french guy interested in everything there is to do or talk about in this world.
@@ -121,7 +123,7 @@ export default function Home() {
 				</div>
 
 				{currentMusic && (
-					<div className="fixed bottom-8 left-1/2 p-3 -translate-x-1/2 bg-[#e1e6ec] border flex gap-24 border-black/20 rounded-lg">
+					<div className="fixed bottom-8 left-1/2 p-3 -translate-x-1/2 bg-[#EBF0F8] border flex gap-24 border-black/20 rounded-lg">
 						<div className="flex items-center gap-4">
 							<img src={currentMusic.imageSrc} alt={currentMusic.title} className="w-24 h-24 rounded-sm object-cover" />
 							<div>
