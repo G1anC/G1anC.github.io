@@ -8,7 +8,9 @@ interface BoxProps {
 
 const Box = (props: BoxProps) => {
     return (
-        <div className={`p-12 ${props.width == "full" ? "w-full" : "w-" + props.width} h-full shrink-0 border text-justify relative bg-[#e1e6ec] border-black/20 rounded-lg`}>
+        <div
+            style={{ width: props.width === "full" ? "100%" : `${props.width * 4}px` }}
+            className={`p-12 h-full shrink-0 border text-justify relative bg-[#e1e6ec] border-black/20 rounded-lg`}>
             <div className="absolute -top-7 left-42 -translate-x-1/2 inline-flex items-center px-8">
                 {(() => {
                     const isSvg = props.imageSrc.toLowerCase().endsWith('.svg');

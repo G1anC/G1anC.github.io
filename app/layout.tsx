@@ -27,10 +27,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<div className="bg-[#EBF0F8] text-gray-800 text-[14px] min-h-screen">
-					<img src='/left.png' className="fixed h-screen top-0 left-0 pointer-events-none" alt="left branch" />
-					<img src='/right.png' className="fixed h-screen top-0 right-0 pointer-events-none" alt="right branch" />
-
+				<div className="bg-[#e1e6ec] text-gray-800 text-[14px] min-h-screen">
 					{children}
 				</div>
 			</body>

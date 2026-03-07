@@ -86,7 +86,7 @@ export default function Home() {
 				</div>
 				<div className="w-full mt-32 flex-col flex h-full">
 					<div className="w-full gap-16 flex items-end">
-						<Box width={84} imageSrc="/me1.png" title="">
+						<Box width={60} imageSrc="/me1.png" title="">
 							<h1 className='text-[14px] leading-snug'>
 								Hi. I’m Gian, a 22yo french guy interested in everything there is to do or talk about in this world.
 								<br />

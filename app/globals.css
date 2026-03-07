@@ -16,6 +16,7 @@
 }
 
 body {
+  background-color: #e1e6ec;
   font-family: 'TexGyreHeroes', sans-serif;
 }
 
@@ -43,45 +44,94 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'KAISEI', serif;
 }
 
-/* Tokyo Night colors for diary content */
+/* Gruvbox Light colors for diary content */
 .diary-content {
-  color: #565f89;
+  color: #3c3836;
+  line-height: 1.7;
+}
+
+.diary-content p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.diary-content ul, .diary-content ol {
+  margin: 0.75em 0;
+  padding-left: 1.5rem;
+}
+
+.diary-content li {
+  margin: 0.25em 0;
 }
 
 .diary-content h1 {
-  color: #37486d;
+  color: #9d0006;
+  font-size: 2rem;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .diary-content h2 {
-  color: #bb9af7;
+  color: #8f3f71;
+  font-size: 1.5rem;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
 }
 
 .diary-content h3 {
-  color: #7dcfff;
+  color: #076678;
+  font-size: 1.25rem;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
 .diary-content h4, .diary-content h5, .diary-content h6 {
-  color: #9ece6a;
+  color: #79740e;
+  font-size: 1.125rem;
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
 }
 
 .diary-content strong, .diary-content b {
-  color: #ff9e64;
+  color: #af3a03;
   font-family: 'TexGyreHeroesBold', sans-serif;
 }
 
 .diary-content em, .diary-content i {
-  color: #e0af68;
+  color: #b57614;
 }
 
 .diary-content code {
-  color: #9ece6a;
-  background-color: #f7f7f7;
-  padding: 0.125rem 0.25rem;
+  color: #79740e;
+  background-color: #eceff3;
+
+  padding: 1em 0em;
   border-radius: 0.25rem;
+  display: inline;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diary-content pre {
+  background-color: #eceff3;
+  padding: 0em 2rem ;
+  border-radius: 0.5rem;
+  margin:2rem;
+  overflow-x: auto;
+  margin: 3em 0;
+}
+
+.diary-content pre code {
+  padding: 0 2rem;
+  display: block;
+  background-color: #eceff3;
+
+  color: #3c3836;
 }
 
 .diary-content a {
-  color: #7aa2f7;
+  color: #076678;
+
   text-decoration: underline;
 }
 
@@ -90,8 +140,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .diary-content blockquote {
-  border-left: 4px solid #7aa2f7;
+  border-left: 4px solid #076678;
   padding-left: 1rem;
-  color: #565f89;
+  color: #665c54;
   font-style: italic;
 }

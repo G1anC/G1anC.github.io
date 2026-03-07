@@ -2,9 +2,11 @@
 import Nav from "../components/nav";
 import { promises as fs } from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 
 interface DiaryEntry {
     title: string;
+    num: string;
     date: Date;
     content: string;
 }
@@ -15,19 +17,19 @@ async function getDiaryEntries(dir: string): Promise<DiaryEntry[]> {
     const files = await fs.readdir(dir);
     const markdownFiles = files.filter(f => f.endsWith('.md'));
 
+    if (markdownFiles.length === 0) return [];
+
     const entries = await Promise.all(
         markdownFiles.map(async (filename): Promise<DiaryEntry> => {
             const filepath = path.join(dir, filename);
             const content = await fs.readFile(filepath, 'utf-8');
 
-            const rawDate = filename.slice(-11, -3);
-            const day   = rawDate.slice(0, 2);
-            const month = rawDate.slice(2, 4);
-            const year  = rawDate.slice(4);
-            const date  = new Date(`${year}-${month}-${day}`);
+            const { data, content: markdownContent } = matter(content);
+            
             return {
-                title: filename.slice(0, -12),
-                date,
+                title: data.title, // remove .md extension for title
+                num: filename.slice(0, -3), // expects a number field in frontmatter
+                date: new Date(data.date), // expects a date field in frontmatter
                 content,
             };
         })
@@ -43,7 +45,7 @@ const DiaryLink = ({ entry }: { entry: DiaryEntry }) => {
         year: 'numeric',
     });
 
-    const slug = encodeURIComponent(entry.title);
+    const slug = encodeURIComponent(entry.num);
 
     return (
         <li>
@@ -63,15 +65,15 @@ export default async function Diary() {
             <img src='/left.png' className="fixed h-screen top-0 left-0 pointer-events-none z-0" alt="left branch" />
             <img src='/right.png' className="fixed h-screen top-0 right-0 pointer-events-none z-0" alt="right branch" />
 
-            <div className="max-w-7xl z-10 mx-auto min-h-screen py-16 relative">
-                <Nav />
+            <div className="max-w-400 bg-[#e1e6ec] z-10 mx-auto min-h-screen p-32 py-24  relative">
+            <Nav />
                 <div className="w-full mt-16 flex-col flex h-full">
                     <div className="w-full gap-16 flex">
                         <div className="py-6 px-10 w-full bg-[#e1e6ec] shadow-xl shadow-gray-300/50 backdrop-blur-sm border text-justify relative z-10 border-black/10 rounded-lg">
                             <ul className="flex flex-col gap-2">
                                 {entries.map((entry, index) => (
 									<>
-                                    	<DiaryLink key={entry.title} entry={entry} />
+                                    	<DiaryLink key={entry.num} entry={entry} />
 										{index < entries.length - 1 && <div className="w-full h-px bg-black/10" />}
 									</>
                                 ))}
