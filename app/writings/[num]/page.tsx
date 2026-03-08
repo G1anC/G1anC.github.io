@@ -17,29 +17,43 @@ interface WritingEntry {
     content: string;
 }
 
-async function getEntryByName(entryName: string): Promise<WritingEntry | null> {
+// simple slugify that mirrors the one used by the listing component
+function slugify(name: string): string {
+    return name
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')   // spaces to hyphen
+        .replace(/'/g, '')       // drop apostrophes
+        .replace(/[^a-z0-9\-]/g, ''); // remove anything else
+}
+
+async function getEntryBySlug(slug: string): Promise<WritingEntry | null> {
     for (const dir of [DIARIES_DIR, ESSAYS_DIR]) {
         try {
             const files = await fs.readdir(dir);
-            const matchingFile = files.find((f) => f.replace('.md', '') === entryName);
+            const matchingFile = files.find((f) => {
+                const base = f.replace('.md', '');
+                return slugify(base) === slug;
+            });
             if (matchingFile) {
                 const filepath = path.join(dir, matchingFile);
                 const fileContent = await fs.readFile(filepath, 'utf-8');
                 const { data, content } = matter(fileContent);
+                const base = matchingFile.replace('.md', '');
                 return {
-                    title: data.title || entryName,
+                    title: data.title || base,
                     date: new Date(data.date),
                     content,
                 };
             }
         } catch (e) {
-            return null;
+            // ignore errors and try next directory
         }
     }
     return null;
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ num: string }[]> {
     const collect = async (dir: string) => {
         try {
             const files = await fs.readdir(dir);
@@ -54,16 +68,22 @@ export async function generateStaticParams() {
 
     const all = [...diaryFiles, ...essayFiles];
 
+    // return slugs rather than raw filenames; slugs are URL‑safe and
+    // deterministic so the exporter can create valid directories
     return all.map((filename) => {
-        const num = filename.slice(0, -3);
-        return { num };
+        const name = filename.slice(0, -3);
+        const slug = slugify(name);
+        return { num: slug };
     });
 }
 
-export default async function WritingEntry({ params }: { params: Promise<{ num: string }> }) {
+export default async function WritingEntry({ params }: { params: { num: string } | Promise<{ num: string }> }) {
+    // during client-side RSC navigation Next sometimes hands us a promise
+    // for `params`. awaiting it is safe on server and ensures we unwrap
+    // the value before destructuring.
     const { num } = await params;
-    const decodedName = decodeURIComponent(num);
-    const entry = await getEntryByName(decodedName);
+    // `num` is a slug; convert back to a real entry
+    const entry = await getEntryBySlug(num);
 
     if (!entry) {
         notFound();

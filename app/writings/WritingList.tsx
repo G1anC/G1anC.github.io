@@ -7,6 +7,16 @@ import WritingListClient, { WritingEntry } from './WritingListClient';
 const DIARIES_DIR = path.join(process.cwd(), '/app/writings/diaries');
 const ESSAYS_DIR = path.join(process.cwd(), '/app/writings/essays');
 
+// helper must match the slugify defined in the page component
+function slugify(name: string): string {
+    return name
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/'/g, '')
+        .replace(/[^a-z0-9\-]/g, '');
+}
+
 async function readEntries(dir: string): Promise<WritingEntry[]> {
     const files = await fs.readdir(dir);
     const markdownFiles = files.filter((f) => f.endsWith('.md'));
@@ -17,10 +27,11 @@ async function readEntries(dir: string): Promise<WritingEntry[]> {
             const filepath = path.join(dir, filename);
             const content = await fs.readFile(filepath, 'utf-8');
             const { data } = matter(content);
+            const name = filename.slice(0, -3);
 
             return {
                 title: data.title,
-                num: filename.slice(0, -3),
+                slug: slugify(name),
                 date: new Date(data.date).toISOString(),
                 content,
             };
@@ -33,7 +44,6 @@ async function readEntries(dir: string): Promise<WritingEntry[]> {
 }
 
 export default async function WritingList() {
-    // filesystem access happens on the server at build time
     const diaries = await readEntries(DIARIES_DIR);
     const essays = await readEntries(ESSAYS_DIR);
 

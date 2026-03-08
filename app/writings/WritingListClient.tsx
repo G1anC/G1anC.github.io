@@ -4,7 +4,7 @@ import React from 'react';
 
 export interface WritingEntry {
     title: string;
-    num: string;
+    slug: string;            // URL‑safe slug generated on server
     date: string; // ISO string so it serializes cleanly
     content: string;
 }
@@ -17,7 +17,8 @@ const WritingLink = ({ entry }: { entry: WritingEntry }) => {
         year: 'numeric',
     });
 
-    const slug = encodeURIComponent(entry.num);
+    // slug was computed server‑side; it's already safe to inject into href
+    const slug = entry.slug;
 
     return (
         <li className="w-full border-b py-6 first:pt-0 last:pb-0 border-black/20 last:border-0 list-none">
@@ -72,7 +73,7 @@ export default function WritingListClient({ diaries, essays }: Props) {
             </div>
             <ul className="list-none m-0 p-0">
                 {entries.map((entry) => (
-                    <WritingLink key={entry.num} entry={entry} />
+                    <WritingLink key={entry.slug} entry={entry} />
                 ))}
             </ul>
         </div>
